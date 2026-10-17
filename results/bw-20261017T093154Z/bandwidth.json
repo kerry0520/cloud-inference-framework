@@ -1,0 +1,124 @@
+{
+  "environment": {
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "triton": "3.7.1",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "total_memory_MiB": 8123.4375,
+    "l2_cache_MiB": 32.0,
+    "idle_state": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 480 MHz, 11001 MHz"
+  },
+  "peak_stream": {
+    "copy": {
+      "bytes_moved": 1073741824,
+      "median_us": 3342.3359394073486,
+      "GB_s": 321.2549077847609
+    },
+    "sum": {
+      "bytes_moved": 536870912,
+      "median_us": 1627.5839805603027,
+      "GB_s": 329.85757933988754
+    }
+  },
+  "gemm": {
+    "qkv_proj": {
+      "M": 2,
+      "N": 4096,
+      "K": 1024,
+      "weight_bytes": 8388608,
+      "repeats": 12,
+      "graph_replay_us": 345.0239896774292,
+      "per_gemm_us": 28.751999139785767,
+      "effective_GB_s": 291.7573821290294,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)"
+      ]
+    },
+    "o_proj": {
+      "M": 2,
+      "N": 1024,
+      "K": 2048,
+      "weight_bytes": 4194304,
+      "repeats": 24,
+      "graph_replay_us": 447.3919868469238,
+      "per_gemm_us": 18.641332785288494,
+      "effective_GB_s": 225.0002211918073,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    },
+    "gate_up": {
+      "M": 2,
+      "N": 6144,
+      "K": 1024,
+      "weight_bytes": 12582912,
+      "repeats": 8,
+      "graph_replay_us": 344.9920117855072,
+      "per_gemm_us": 43.1240014731884,
+      "effective_GB_s": 291.784425613268,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    },
+    "down_proj": {
+      "M": 2,
+      "N": 1024,
+      "K": 3072,
+      "weight_bytes": 6291456,
+      "repeats": 16,
+      "graph_replay_us": 437.18400597572327,
+      "per_gemm_us": 27.324000373482704,
+      "effective_GB_s": 230.25383962831845,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    },
+    "lm_head": {
+      "M": 2,
+      "N": 151936,
+      "K": 1024,
+      "weight_bytes": 311164928,
+      "repeats": 1,
+      "graph_replay_us": 957.3279917240143,
+      "per_gemm_us": 957.3279917240143,
+      "effective_GB_s": 325.034816374308,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    }
+  },
+  "step": {
+    "kernels": 113,
+    "weight_bytes": 1191968768,
+    "median_us": 3767.2319412231445,
+    "effective_GB_s": 316.40440158643156,
+    "trace_gemm_us_per_step": 3177.8353,
+    "ratio_vs_trace": 1.1854711102312774
+  },
+  "clocks": {
+    "sm_MHz": {
+      "min": 795.0,
+      "max": 2452.0,
+      "median": 1965.0,
+      "samples": 21
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0,
+      "samples": 21
+    },
+    "power_W": {
+      "min": 12.68,
+      "max": 77.76,
+      "median": 47.35,
+      "samples": 21
+    },
+    "temp_C": {
+      "min": 53.0,
+      "max": 65.0,
+      "median": 56.0,
+      "samples": 21
+    }
+  }
+}

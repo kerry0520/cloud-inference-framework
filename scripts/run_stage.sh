@@ -10,7 +10,16 @@ export MAX_JOBS=2
 export TORCHINDUCTOR_COMPILE_THREADS=1
 stage="${1:?stage required}"
 extra=()
-case "$stage" in shapes) script=probe_shapes.py;; minp-micro) script=minp_micro.py;; minp-engine) script=minp_engine.py;; minp-repeat) script=minp_engine.py; extra+=(--timing-only);; *) exit 2;; esac
+case "$stage" in
+    shapes) script=probe_shapes.py;;
+    minp-micro) script=minp_micro.py;;
+    minp-engine) script=minp_engine.py;;
+    minp-repeat) script=minp_engine.py; extra+=(--timing-only);;
+    attribute) script=attribute_decode.py; extra+=("$runtime_dir/results/profile-pinned-20261017T020913Z");;
+    tail) script=inspect_tail_args.py; extra+=("$runtime_dir/results/profile-pinned-20261017T020913Z");;
+    bw) script=measure_bandwidth.py;;
+    *) exit 2;;
+esac
 name="$stage-$(date -u +%Y%m%dT%H%M%SZ)"
 out="$runtime_dir/results/$name"
 cp "$project_dir/scripts/"*.py "$runtime_dir/scripts/"

@@ -1,0 +1,362 @@
+{
+  "environment": {
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "triton": "3.7.1",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "total_memory_MiB": 8123.4375,
+    "l2_cache_MiB": 32.0,
+    "idle_state": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 180 MHz, 405 MHz"
+  },
+  "peak_stream": {
+    "copy": {
+      "bytes_moved": 1073741824,
+      "median_us": 3334.1119289398193,
+      "GB_s": 322.04732381058017
+    },
+    "sum": {
+      "bytes_moved": 536870912,
+      "median_us": 1628.0640363693237,
+      "GB_s": 329.7603165519539
+    },
+    "triton_read": {
+      "bytes_moved": 536870912,
+      "sweep": [
+        {
+          "block": 4096,
+          "median_us": 1615.8720254898071,
+          "GB_s": 332.2484104749956
+        },
+        {
+          "block": 8192,
+          "median_us": 1615.9039735794067,
+          "GB_s": 332.2418415809519
+        },
+        {
+          "block": 16384,
+          "median_us": 1617.9519891738892,
+          "GB_s": 331.8212874005743
+        },
+        {
+          "block": 32768,
+          "median_us": 1625.984013080597,
+          "GB_s": 330.1821590378628
+        }
+      ],
+      "best": {
+        "block": 4096,
+        "median_us": 1615.8720254898071,
+        "GB_s": 332.2484104749956
+      }
+    }
+  },
+  "gemm": {
+    "qkv_proj": {
+      "M": 2,
+      "N": 4096,
+      "K": 1024,
+      "weight_bytes": 8388608,
+      "repeats": 12,
+      "graph_replay_us": 353.1840145587921,
+      "per_gemm_us": 29.432001213232677,
+      "effective_GB_s": 285.01656884372744,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)"
+      ]
+    },
+    "o_proj": {
+      "M": 2,
+      "N": 1024,
+      "K": 2048,
+      "weight_bytes": 4194304,
+      "repeats": 24,
+      "graph_replay_us": 439.4240081310272,
+      "per_gemm_us": 18.309333672126133,
+      "effective_GB_s": 229.0801006256906,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    },
+    "gate_up": {
+      "M": 2,
+      "N": 6144,
+      "K": 1024,
+      "weight_bytes": 12582912,
+      "repeats": 8,
+      "graph_replay_us": 344.0000116825104,
+      "per_gemm_us": 43.0000014603138,
+      "effective_GB_s": 292.6258505273124,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    },
+    "down_proj": {
+      "M": 2,
+      "N": 1024,
+      "K": 3072,
+      "weight_bytes": 6291456,
+      "repeats": 16,
+      "graph_replay_us": 431.13601207733154,
+      "per_gemm_us": 26.94600075483322,
+      "effective_GB_s": 233.48385006155397,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    },
+    "lm_head": {
+      "M": 2,
+      "N": 151936,
+      "K": 1024,
+      "weight_bytes": 311164928,
+      "repeats": 1,
+      "graph_replay_us": 958.2719802856445,
+      "per_gemm_us": 958.2719802856445,
+      "effective_GB_s": 324.7146263289959,
+      "kernel_names": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ]
+    }
+  },
+  "step": {
+    "kernels": 113,
+    "weight_bytes": 1191968768,
+    "median_us": 3738.5759353637695,
+    "effective_GB_s": 318.8296262020473,
+    "trace_gemm_us_per_step": 3177.8353,
+    "ratio_vs_trace": 1.1764536492384514
+  },
+  "clocks": {
+    "overall": {
+      "sm_MHz": {
+        "min": 345.0,
+        "max": 2677.0,
+        "median": 1672.0
+      },
+      "mem_MHz": {
+        "min": 11001.0,
+        "max": 11001.0,
+        "median": 11001.0
+      },
+      "power_W": {
+        "min": 13.12,
+        "max": 94.79,
+        "median": 43.53
+      },
+      "temp_C": {
+        "min": 56.0,
+        "max": 71.0,
+        "median": 59.0
+      },
+      "samples": 50
+    },
+    "per_phase": {
+      "copy": {
+        "sm_MHz": {
+          "min": 2197.0,
+          "max": 2467.0,
+          "median": 2448.5
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 65.71,
+          "max": 94.79,
+          "median": 74.61
+        },
+        "temp_C": {
+          "min": 63.0,
+          "max": 71.0,
+          "median": 67.0
+        },
+        "samples": 4
+      },
+      "sum": {
+        "sm_MHz": {
+          "min": 2197.0,
+          "max": 2497.0,
+          "median": 2497.0
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 40.58,
+          "max": 69.05,
+          "median": 41.91
+        },
+        "temp_C": {
+          "min": 61.0,
+          "max": 62.0,
+          "median": 62.0
+        },
+        "samples": 3
+      },
+      "read": {
+        "sm_MHz": {
+          "min": 352.0,
+          "max": 1672.0,
+          "median": 1578.5
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 13.12,
+          "max": 45.39,
+          "median": 41.989999999999995
+        },
+        "temp_C": {
+          "min": 57.0,
+          "max": 61.0,
+          "median": 59.0
+        },
+        "samples": 16
+      },
+      "qkv_proj": {
+        "sm_MHz": {
+          "min": 345.0,
+          "max": 1702.0,
+          "median": 1597.0
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 14.88,
+          "max": 43.88,
+          "median": 39.48
+        },
+        "temp_C": {
+          "min": 57.0,
+          "max": 59.0,
+          "median": 59.0
+        },
+        "samples": 7
+      },
+      "o_proj": {
+        "sm_MHz": {
+          "min": 352.0,
+          "max": 1035.0,
+          "median": 1035.0
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 15.88,
+          "max": 28.23,
+          "median": 23.13
+        },
+        "temp_C": {
+          "min": 56.0,
+          "max": 58.0,
+          "median": 56.0
+        },
+        "samples": 3
+      },
+      "gate_up": {
+        "sm_MHz": {
+          "min": 1627.0,
+          "max": 1627.0,
+          "median": 1627.0
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 36.53,
+          "max": 42.34,
+          "median": 39.435
+        },
+        "temp_C": {
+          "min": 58.0,
+          "max": 59.0,
+          "median": 58.5
+        },
+        "samples": 2
+      },
+      "down_proj": {
+        "sm_MHz": {
+          "min": 1747.0,
+          "max": 1792.0,
+          "median": 1747.0
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 44.56,
+          "max": 48.15,
+          "median": 46.2
+        },
+        "temp_C": {
+          "min": 59.0,
+          "max": 60.0,
+          "median": 60.0
+        },
+        "samples": 3
+      },
+      "lm_head": {
+        "sm_MHz": {
+          "min": 1792.0,
+          "max": 2032.0,
+          "median": 2032.0
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 51.26,
+          "max": 59.92,
+          "median": 53.85
+        },
+        "temp_C": {
+          "min": 60.0,
+          "max": 62.0,
+          "median": 60.0
+        },
+        "samples": 3
+      },
+      "step": {
+        "sm_MHz": {
+          "min": 2212.0,
+          "max": 2677.0,
+          "median": 2490.0
+        },
+        "mem_MHz": {
+          "min": 11001.0,
+          "max": 11001.0,
+          "median": 11001.0
+        },
+        "power_W": {
+          "min": 66.69,
+          "max": 83.03,
+          "median": 74.88
+        },
+        "temp_C": {
+          "min": 62.0,
+          "max": 66.0,
+          "median": 64.0
+        },
+        "samples": 9
+      }
+    }
+  }
+}

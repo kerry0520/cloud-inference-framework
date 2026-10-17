@@ -1,0 +1,80 @@
+{
+  "environment": {
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "triton": "3.7.1",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "total_memory_MiB": 8123.4375,
+    "l2_cache_MiB": 32.0,
+    "nvidia_smi": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 180 MHz, 405 MHz, 6.34 W, [N/A]"
+  },
+  "peak_stream": {
+    "copy": {
+      "bytes_moved": 1073741824,
+      "median_us": 3.3463839292526245,
+      "GB_s": 320866.29827911215
+    },
+    "sum": {
+      "bytes_moved": 536870912,
+      "median_us": 1.6323519945144653,
+      "GB_s": 328894.0827739114
+    }
+  },
+  "gemm": {
+    "qkv_proj": {
+      "M": 2,
+      "N": 4096,
+      "K": 1024,
+      "weight_bytes": 8388608,
+      "repeats": 12,
+      "loop_bytes": 100663296,
+      "graph_replay_us": 0.35766398906707764,
+      "per_gemm_us": 0.02980533242225647,
+      "effective_GB_s": 281446.5506090445
+    },
+    "o_proj": {
+      "M": 2,
+      "N": 1024,
+      "K": 2048,
+      "weight_bytes": 4194304,
+      "repeats": 24,
+      "loop_bytes": 100663296,
+      "graph_replay_us": 0.4433920085430145,
+      "per_gemm_us": 0.018474667022625606,
+      "effective_GB_s": 227030.01872040823
+    },
+    "gate_up": {
+      "M": 2,
+      "N": 6144,
+      "K": 1024,
+      "weight_bytes": 12582912,
+      "repeats": 8,
+      "loop_bytes": 100663296,
+      "graph_replay_us": 0.34705600142478943,
+      "per_gemm_us": 0.04338200017809868,
+      "effective_GB_s": 290049.143615846
+    },
+    "down_proj": {
+      "M": 2,
+      "N": 1024,
+      "K": 3072,
+      "weight_bytes": 6291456,
+      "repeats": 16,
+      "loop_bytes": 100663296,
+      "graph_replay_us": 0.44921600818634033,
+      "per_gemm_us": 0.02807600051164627,
+      "effective_GB_s": 224086.61794226093
+    },
+    "lm_head": {
+      "M": 2,
+      "N": 151936,
+      "K": 1024,
+      "weight_bytes": 311164928,
+      "repeats": 1,
+      "loop_bytes": 311164928,
+      "graph_replay_us": 0.9604480266571045,
+      "per_gemm_us": 0.9604480266571045,
+      "effective_GB_s": 323978.9341678672
+    }
+  }
+}

@@ -1,0 +1,15 @@
+trace rank0.1792202993503004655.pt.trace.json.gz | windows 12 | aligned 10 | step 5
+371 triton_per_fused_fused_add_rms_norm_2                          0.91us grid=[2, 1, 1] block=[32, 1, 1] regs=74 occ=0 node=3796751090028
+372 memcpy32_post                                                  0.59us grid=[4, 1, 1] block=[256, 1, 1] regs=16 occ=3 node=3796751090029
+373 void at::native::vectorized_gather_kernel<16, long>(char*,     1.00us grid=[2, 1, 1] block=[128, 1, 1] regs=24 occ=1 node=0
+374 void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616   773.94us grid=[8, 1187, 1] block=[32, 1, 1] regs=112 occ=10 node=0
+375 void at::native::index_elementwise_kernel<128, 4, at::nati     1.73us grid=[1, 1, 1] block=[128, 1, 1] regs=48 occ=0 node=0
+376 void at::native::index_elementwise_kernel<128, 4, at::nati     1.53us grid=[1, 1, 1] block=[128, 1, 1] regs=48 occ=0 node=0
+377 void at::native::unrolled_elementwise_kernel<at::native::d     4.11us grid=[594, 1, 1] block=[128, 1, 1] regs=31 occ=100 node=0
+378 _bias_kernel                                                   3.52us grid=[2, 1, 1] block=[128, 1, 1] regs=56 occ=1 node=0
+379 _gumbel_sample_kernel                                          2.61us grid=[2, 149, 1] block=[128, 1, 1] regs=38 occ=96 node=0
+380 void at::native::reduce_kernel<512, 1, at::native::ReduceO     2.49us grid=[1, 1, 1] block=[32, 2, 1] regs=40 occ=0 node=0
+381 void at::native::_scatter_gather_elementwise_kernel<128, 8     1.23us grid=[1, 1, 1] block=[128, 1, 1] regs=28 occ=0 node=0
+382 void at::native::vectorized_elementwise_kernel<4, at::nati     0.68us grid=[1, 1, 1] block=[128, 1, 1] regs=16 occ=0 node=0
+383 _get_num_sampled_and_rejected_kernel                           1.91us grid=[2, 1, 1] block=[128, 1, 1] regs=16 occ=1 node=0
+384 _post_update_kernel                                            2.73us grid=[2, 1, 1] block=[32, 1, 1] regs=28 occ=0 node=0

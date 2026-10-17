@@ -1,0 +1,241 @@
+USDT:2026-10-17 17:33:30 398:398 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:33:30 398:398 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:33:31 398:398 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:33:31 398:398 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:33:32 398:398 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:33:32 398:398 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:33:32 398:398 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:33:32 398:398 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:33:33 398:398 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:33:33 398:398 SyncActivityProfilerHandler.cpp:59] profiler_stop
+{
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "triton": "3.7.1",
+  "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "total_memory_MiB": 8123.4375,
+  "l2_cache_MiB": 32.0,
+  "idle_state": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 180 MHz, 405 MHz"
+}
+burn done
+copy   3334.11us   322.0 GB/s
+sum    1628.06us   329.8 GB/s
+read BLOCK=  4096   1615.87us   332.2 GB/s
+read BLOCK=  8192   1615.90us   332.2 GB/s
+read BLOCK= 16384   1617.95us   331.8 GB/s
+read BLOCK= 32768   1625.98us   330.2 GB/s
+qkv_proj   M=2 N=  4096 K= 1024 R=12    29.43us   285.0 GB/s ['void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)']
+o_proj     M=2 N=  1024 K= 2048 R=24    18.31us   229.1 GB/s ['void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)']
+gate_up    M=2 N=  6144 K= 1024 R= 8    43.00us   292.6 GB/s ['void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)']
+down_proj  M=2 N=  1024 K= 3072 R=16    26.95us   233.5 GB/s ['void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)']
+lm_head    M=2 N=151936 K= 1024 R= 1   958.27us   324.7 GB/s ['void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)']
+step      113 GEMMs   3738.58us   318.8 GB/s (trace 3177.84us, ratio 1.176)
+{
+  "copy": {
+    "sm_MHz": {
+      "min": 2197.0,
+      "max": 2467.0,
+      "median": 2448.5
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 65.71,
+      "max": 94.79,
+      "median": 74.61
+    },
+    "temp_C": {
+      "min": 63.0,
+      "max": 71.0,
+      "median": 67.0
+    },
+    "samples": 4
+  },
+  "sum": {
+    "sm_MHz": {
+      "min": 2197.0,
+      "max": 2497.0,
+      "median": 2497.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 40.58,
+      "max": 69.05,
+      "median": 41.91
+    },
+    "temp_C": {
+      "min": 61.0,
+      "max": 62.0,
+      "median": 62.0
+    },
+    "samples": 3
+  },
+  "read": {
+    "sm_MHz": {
+      "min": 352.0,
+      "max": 1672.0,
+      "median": 1578.5
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 13.12,
+      "max": 45.39,
+      "median": 41.989999999999995
+    },
+    "temp_C": {
+      "min": 57.0,
+      "max": 61.0,
+      "median": 59.0
+    },
+    "samples": 16
+  },
+  "qkv_proj": {
+    "sm_MHz": {
+      "min": 345.0,
+      "max": 1702.0,
+      "median": 1597.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 14.88,
+      "max": 43.88,
+      "median": 39.48
+    },
+    "temp_C": {
+      "min": 57.0,
+      "max": 59.0,
+      "median": 59.0
+    },
+    "samples": 7
+  },
+  "o_proj": {
+    "sm_MHz": {
+      "min": 352.0,
+      "max": 1035.0,
+      "median": 1035.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 15.88,
+      "max": 28.23,
+      "median": 23.13
+    },
+    "temp_C": {
+      "min": 56.0,
+      "max": 58.0,
+      "median": 56.0
+    },
+    "samples": 3
+  },
+  "gate_up": {
+    "sm_MHz": {
+      "min": 1627.0,
+      "max": 1627.0,
+      "median": 1627.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 36.53,
+      "max": 42.34,
+      "median": 39.435
+    },
+    "temp_C": {
+      "min": 58.0,
+      "max": 59.0,
+      "median": 58.5
+    },
+    "samples": 2
+  },
+  "down_proj": {
+    "sm_MHz": {
+      "min": 1747.0,
+      "max": 1792.0,
+      "median": 1747.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 44.56,
+      "max": 48.15,
+      "median": 46.2
+    },
+    "temp_C": {
+      "min": 59.0,
+      "max": 60.0,
+      "median": 60.0
+    },
+    "samples": 3
+  },
+  "lm_head": {
+    "sm_MHz": {
+      "min": 1792.0,
+      "max": 2032.0,
+      "median": 2032.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 51.26,
+      "max": 59.92,
+      "median": 53.85
+    },
+    "temp_C": {
+      "min": 60.0,
+      "max": 62.0,
+      "median": 60.0
+    },
+    "samples": 3
+  },
+  "step": {
+    "sm_MHz": {
+      "min": 2212.0,
+      "max": 2677.0,
+      "median": 2490.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 66.69,
+      "max": 83.03,
+      "median": 74.88
+    },
+    "temp_C": {
+      "min": 62.0,
+      "max": 66.0,
+      "median": 64.0
+    },
+    "samples": 9
+  }
+}

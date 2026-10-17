@@ -1,0 +1,279 @@
+{
+  "trace": "/opt/cloud-inference-framework/results/profile-pinned-20261017T020913Z/traces/rank0.1792202993503004655.pt.trace.json.gz",
+  "window_kernel_histogram": {
+    "386": 1,
+    "385": 10,
+    "373": 1
+  },
+  "aligned_steps": 10,
+  "step_index": 5,
+  "tail_start": 371,
+  "kernels": [
+    {
+      "index": 371,
+      "name": "triton_per_fused_fused_add_rms_norm_2",
+      "dur_us": 0.91,
+      "grid": [
+        2,
+        1,
+        1
+      ],
+      "block": [
+        32,
+        1,
+        1
+      ],
+      "registers_per_thread": 74,
+      "occupancy": 0,
+      "graph_node_id": 3796751090028,
+      "shared_mem": 0
+    },
+    {
+      "index": 372,
+      "name": "memcpy32_post",
+      "dur_us": 0.586,
+      "grid": [
+        4,
+        1,
+        1
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "occupancy": 3,
+      "graph_node_id": 3796751090029,
+      "shared_mem": 0
+    },
+    {
+      "index": 373,
+      "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+      "dur_us": 0.997,
+      "grid": [
+        2,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 24,
+      "occupancy": 1,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    },
+    {
+      "index": 374,
+      "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)",
+      "dur_us": 773.939,
+      "grid": [
+        8,
+        1187,
+        1
+      ],
+      "block": [
+        32,
+        1,
+        1
+      ],
+      "registers_per_thread": 112,
+      "occupancy": 10,
+      "graph_node_id": 0,
+      "shared_mem": 16896
+    },
+    {
+      "index": 375,
+      "name": "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+      "dur_us": 1.73,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 48,
+      "occupancy": 0,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    },
+    {
+      "index": 376,
+      "name": "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<4> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<4> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<4> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<4> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+      "dur_us": 1.526,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 48,
+      "occupancy": 0,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    },
+    {
+      "index": 377,
+      "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+      "dur_us": 4.107,
+      "grid": [
+        594,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 31,
+      "occupancy": 100,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    },
+    {
+      "index": 378,
+      "name": "_bias_kernel",
+      "dur_us": 3.52,
+      "grid": [
+        2,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 56,
+      "occupancy": 1,
+      "graph_node_id": 0,
+      "shared_mem": 8192
+    },
+    {
+      "index": 379,
+      "name": "_gumbel_sample_kernel",
+      "dur_us": 2.611,
+      "grid": [
+        2,
+        149,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 38,
+      "occupancy": 96,
+      "graph_node_id": 0,
+      "shared_mem": 32
+    },
+    {
+      "index": 380,
+      "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::ArgMaxOps<float>, unsigned int, long, 4, 4> >(at::native::ReduceOp<float, at::native::ArgMaxOps<float>, unsigned int, long, 4, 4>)",
+      "dur_us": 2.493,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "block": [
+        32,
+        2,
+        1
+      ],
+      "registers_per_thread": 40,
+      "occupancy": 0,
+      "graph_node_id": 0,
+      "shared_mem": 16
+    },
+    {
+      "index": 381,
+      "name": "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native::_cuda_scatter_gather_internal_kernel<false, at::native::OpaqueType<8>, long>::operator()<at::native::TensorAssign>(at::TensorIterator&, long, long, long, at::native::TensorAssign const&)::{lambda(int)#1}>(int, at::native::_cuda_scatter_gather_internal_kernel<false, at::native::OpaqueType<8>, long>::operator()<at::native::TensorAssign>(at::TensorIterator&, long, long, long, at::native::TensorAssign const&)::{lambda(int)#1})",
+      "dur_us": 1.232,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 28,
+      "occupancy": 0,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    },
+    {
+      "index": 382,
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<int>, std::array<char*, 1ul> >(int, at::native::FillFunctor<int>, std::array<char*, 1ul>)",
+      "dur_us": 0.675,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "occupancy": 0,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    },
+    {
+      "index": 383,
+      "name": "_get_num_sampled_and_rejected_kernel",
+      "dur_us": 1.907,
+      "grid": [
+        2,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "occupancy": 1,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    },
+    {
+      "index": 384,
+      "name": "_post_update_kernel",
+      "dur_us": 2.728,
+      "grid": [
+        2,
+        1,
+        1
+      ],
+      "block": [
+        32,
+        1,
+        1
+      ],
+      "registers_per_thread": 28,
+      "occupancy": 0,
+      "graph_node_id": 0,
+      "shared_mem": 0
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-17 17:34:54 386:386 SyncActivityProfilerHandler.cpp:59] profiler_stop
+{
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "triton": "3.7.1",
+  "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "total_memory_MiB": 8123.4375,
+  "l2_cache_MiB": 32.0,
+  "idle_state": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 180 MHz, 405 MHz"
+}
+burn done
+copy events   3325.06us   322.9 GB/s | do_bench   3336.26us   321.8 GB/s
+sum  events   1554.94us   345.3 GB/s
+read BLOCK=  4096   1558.99us   344.4 GB/s
+read BLOCK=  8192   1558.83us   344.4 GB/s
+read BLOCK= 16384   1549.76us   346.4 GB/s
+qkv_proj   M=2 N=  4096 K= 1024 R=12    28.01us   299.5 GB/s
+o_proj     M=2 N=  1024 K= 2048 R=24    16.09us   260.7 GB/s
+gate_up    M=2 N=  6144 K= 1024 R= 8    40.43us   311.2 GB/s
+down_proj  M=2 N=  1024 K= 3072 R=16    23.97us   262.5 GB/s
+lm_head    M=2 N=151936 K= 1024 R= 1   906.24us   343.4 GB/s
+step      113 GEMMs events   3901.36us   305.5 GB/s | do_bench   3858.50us (trace 3177.84us, ratio 1.228)
+{
+  "copy": {
+    "sm_MHz": {
+      "min": 2317.0,
+      "max": 2317.0,
+      "median": 2317.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 89.49,
+      "max": 89.49,
+      "median": 89.49
+    },
+    "temp_C": {
+      "min": 72.0,
+      "max": 72.0,
+      "median": 72.0
+    },
+    "samples": 1
+  },
+  "sum": {
+    "sm_MHz": null,
+    "mem_MHz": null,
+    "power_W": null,
+    "temp_C": null,
+    "samples": 0
+  },
+  "copy_flush": {
+    "sm_MHz": {
+      "min": 1312.0,
+      "max": 2317.0,
+      "median": 1312.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 26.92,
+      "max": 39.47,
+      "median": 34.4
+    },
+    "temp_C": {
+      "min": 60.0,
+      "max": 72.0,
+      "median": 60.0
+    },
+    "samples": 3
+  },
+  "read": {
+    "sm_MHz": {
+      "min": 352.0,
+      "max": 1492.0,
+      "median": 1492.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 13.14,
+      "max": 36.29,
+      "median": 13.34
+    },
+    "temp_C": {
+      "min": 57.0,
+      "max": 60.0,
+      "median": 60.0
+    },
+    "samples": 3
+  },
+  "qkv_proj": {
+    "sm_MHz": {
+      "min": 352.0,
+      "max": 1057.0,
+      "median": 704.5
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 17.2,
+      "max": 31.04,
+      "median": 22.895
+    },
+    "temp_C": {
+      "min": 57.0,
+      "max": 58.0,
+      "median": 57.5
+    },
+    "samples": 4
+  },
+  "o_proj": {
+    "sm_MHz": null,
+    "mem_MHz": null,
+    "power_W": null,
+    "temp_C": null,
+    "samples": 0
+  },
+  "gate_up": {
+    "sm_MHz": {
+      "min": 352.0,
+      "max": 352.0,
+      "median": 352.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 13.07,
+      "max": 13.07,
+      "median": 13.07
+    },
+    "temp_C": {
+      "min": 57.0,
+      "max": 57.0,
+      "median": 57.0
+    },
+    "samples": 1
+  },
+  "down_proj": {
+    "sm_MHz": null,
+    "mem_MHz": null,
+    "power_W": null,
+    "temp_C": null,
+    "samples": 0
+  },
+  "lm_head": {
+    "sm_MHz": null,
+    "mem_MHz": null,
+    "power_W": null,
+    "temp_C": null,
+    "samples": 0
+  },
+  "step": {
+    "sm_MHz": {
+      "min": 352.0,
+      "max": 352.0,
+      "median": 352.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 19.97,
+      "max": 19.97,
+      "median": 19.97
+    },
+    "temp_C": {
+      "min": 56.0,
+      "max": 56.0,
+      "median": 56.0
+    },
+    "samples": 1
+  },
+  "step_flush": {
+    "sm_MHz": {
+      "min": 1395.0,
+      "max": 1740.0,
+      "median": 1530.0
+    },
+    "mem_MHz": {
+      "min": 11001.0,
+      "max": 11001.0,
+      "median": 11001.0
+    },
+    "power_W": {
+      "min": 23.65,
+      "max": 49.75,
+      "median": 41.88
+    },
+    "temp_C": {
+      "min": 56.0,
+      "max": 60.0,
+      "median": 59.0
+    },
+    "samples": 5
+  }
+}

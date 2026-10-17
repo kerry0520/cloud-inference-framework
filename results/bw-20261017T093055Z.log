@@ -1,0 +1,26 @@
+{
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "triton": "3.7.1",
+  "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "total_memory_MiB": 8123.4375,
+  "l2_cache_MiB": 32.0,
+  "nvidia_smi": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 180 MHz, 405 MHz, 6.34 W, [N/A]"
+}
+qkv_proj   M=2 N=  4096 K= 1024 R=12     0.03us 281446.6 GB/s
+o_proj     M=2 N=  1024 K= 2048 R=24     0.02us 227030.0 GB/s
+gate_up    M=2 N=  6144 K= 1024 R= 8     0.04us 290049.1 GB/s
+down_proj  M=2 N=  1024 K= 3072 R=16     0.03us 224086.6 GB/s
+lm_head    M=2 N=151936 K= 1024 R= 1     0.96us 323978.9 GB/s
+{
+  "copy": {
+    "bytes_moved": 1073741824,
+    "median_us": 3.3463839292526245,
+    "GB_s": 320866.29827911215
+  },
+  "sum": {
+    "bytes_moved": 536870912,
+    "median_us": 1.6323519945144653,
+    "GB_s": 328894.0827739114
+  }
+}
