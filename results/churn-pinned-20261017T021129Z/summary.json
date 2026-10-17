@@ -1,0 +1,192 @@
+{
+  "validated_rows": 2,
+  "groups": [
+    {
+      "batch": 8,
+      "measured_batches": 1,
+      "profiled": true,
+      "median_batch_wall_ms": 760.6599000000642,
+      "median_aggregate_output_tokens_per_second": 378.6186178605914,
+      "median_request_mean_decode_interval_ms": 11.534570359161718
+    }
+  ],
+  "traces": [
+    {
+      "file": "/opt/cloud-inference-framework/results/churn-pinned-20261017T021129Z/traces/rank0.1792203123810422245.pt.trace.json.gz",
+      "categories": {
+        "": 62,
+        "user_annotation": 24,
+        "cpu_op": 3748,
+        "overhead": 1,
+        "cuda_runtime": 1102,
+        "ac2g": 10678,
+        "gpu_memcpy": 98,
+        "kernel": 9260,
+        "cuda_driver": 218,
+        "gpu_user_annotation": 24,
+        "Trace": 1
+      },
+      "gpu_kernel_events": 9260,
+      "annotations": [
+        {
+          "name": "execute_context_0(0)_generation_8(8)",
+          "duration_us": 4891.464
+        },
+        {
+          "name": "execute_context_0(0)_generation_8(8)",
+          "duration_us": 1171.772
+        },
+        {
+          "name": "execute_context_0(0)_generation_8(8)",
+          "duration_us": 1114.876
+        },
+        {
+          "name": "execute_context_0(0)_generation_8(8)",
+          "duration_us": 1162.058
+        },
+        {
+          "name": "execute_context_0(0)_generation_8(8)",
+          "duration_us": 1624.222
+        },
+        {
+          "name": "execute_context_0(0)_generation_8(8)",
+          "duration_us": 1215.132
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1026.567
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1228.461
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1088.615
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1033.034
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 948.389
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1159.295
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1057.395
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1033.649
+        },
+        {
+          "name": "execute_context_0(0)_generation_7(7)",
+          "duration_us": 1065.464
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 988.028
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 1037.034
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 972.864
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 1324.348
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 1086.449
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 886.772
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 1067.371
+        },
+        {
+          "name": "execute_context_0(0)_generation_6(6)",
+          "duration_us": 1140.259
+        },
+        {
+          "name": "execute_context_0(0)_generation_5(5)",
+          "duration_us": 1041.979
+        }
+      ],
+      "top_kernels_by_sum_duration_us": [
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)",
+          "count": 2017,
+          "sum_duration_us": 43720.66800000011
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)",
+          "count": 695,
+          "sum_duration_us": 33346.64500000005
+        },
+        {
+          "name": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 64, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 64, 4, cutlass::half_t> >, false, false, false, false, true, false, false, false>(flash::Flash_fwd_params)",
+          "count": 672,
+          "sum_duration_us": 10688.991999999984
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1})",
+          "count": 1344,
+          "sum_duration_us": 1961.7939999999721
+        },
+        {
+          "name": "void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vllm::Fp8KVCacheDataType)0>(unsigned short const*, unsigned short const*, unsigned short*, unsigned short*, long const*, long, long, long, long, long, int, int, int, float const*, float const*, int)",
+          "count": 672,
+          "sum_duration_us": 949.8459999999988
+        },
+        {
+          "name": "triton_per_fused_fused_add_rms_norm_2",
+          "count": 672,
+          "sum_duration_us": 686.0160000000012
+        },
+        {
+          "name": "triton_red_fused_3",
+          "count": 648,
+          "sum_duration_us": 663.0419999999996
+        },
+        {
+          "name": "triton_per_fused_fused_add_rms_norm_0",
+          "count": 672,
+          "sum_duration_us": 612.4329999999977
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1})",
+          "count": 672,
+          "sum_duration_us": 554.1020000000009
+        },
+        {
+          "name": "triton_poi_fused_mul_silu_slice_1",
+          "count": 672,
+          "sum_duration_us": 512.9560000000029
+        },
+        {
+          "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+          "count": 24,
+          "sum_duration_us": 299.596
+        },
+        {
+          "name": "_gumbel_sample_kernel",
+          "count": 24,
+          "sum_duration_us": 210.73399999999992
+        }
+      ]
+    }
+  ]
+}

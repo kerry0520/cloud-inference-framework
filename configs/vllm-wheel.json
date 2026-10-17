@@ -1,0 +1,10 @@
+{
+  "filename": "vllm-0.31.0-cp38-abi3-manylinux_2_28_x86_64.whl",
+  "size": 320555825,
+  "url": "https://files.pythonhosted.org/packages/e1/98/841d1328827dc082492fcbb0f57bdf6a9d35aa0df52bd47b75be3f504804/vllm-0.31.0-cp38-abi3-manylinux_2_28_x86_64.whl",
+  "digests": {
+    "blake2b_256": "e198841d1328827dc082492fcbb0f57bdf6a9d35aa0df52bd47b75be3f504804",
+    "md5": "f6bc0b5a05b4f792bd50c7b01f43d421",
+    "sha256": "39132b433967f0962d03d8a5f633b9bee6b32708f566c7d5637b79f8d0ef3433"
+  }
+}

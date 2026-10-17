@@ -1,0 +1,2 @@
+2026-10-17 10:06:38,277 - INFO - core.py:564 - flashinfer.jit: Building JIT module sampling; this can take several minutes on first use.
+{"flashinfer_sampling_check": "passed", "tokens": [255, 254]}

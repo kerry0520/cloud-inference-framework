@@ -1,0 +1,89 @@
+{
+  "scope": "Instrumented batch-2 decode trace only",
+  "cpu_annotations": 12,
+  "gpu_annotations": 12,
+  "gpu_steps": [
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 5580.104,
+      "ts": 1345967420599.145
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3121.54,
+      "ts": 1345967427010.649
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3143.246,
+      "ts": 1345967430957.604
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3114.647,
+      "ts": 1345967434928.054
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3096.256,
+      "ts": 1345967438869.407
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3123.241,
+      "ts": 1345967442790.257
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3102.679,
+      "ts": 1345967446741.788
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3109.162,
+      "ts": 1345967450668.093
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3113.533,
+      "ts": 1345967454601.115
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3117.463,
+      "ts": 1345967458538.655
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3102.034,
+      "ts": 1345967462484.701
+    },
+    {
+      "name": "execute_context_0(0)_generation_2(2)",
+      "duration_us": 3126.556,
+      "ts": 1345967466411.006
+    }
+  ],
+  "median_cpu_annotation_us_excluding_first": 1035.356,
+  "median_gpu_annotation_us_excluding_first": 3114.647,
+  "kernel_sum_us": 45525.233,
+  "gemm_kernel_sum_us": 38135.5,
+  "gemm_fraction_of_kernel_sum": 0.8376783046887426,
+  "stable_observed_window_us": 42526.9130859375,
+  "kernel_union_in_window_us": 40918.269287109375,
+  "kernel_union_fraction_in_window": 0.9621735112638575,
+  "median_gpu_annotation_start_interval_us": 3939.446533203125,
+  "runtime_api_counts": {
+    "cudaEventQuery": 87,
+    "cudaStreamIsCapturing": 134,
+    "cudaMemcpyAsync": 49,
+    "cudaEventRecordWithFlags": 73,
+    "cudaLaunchKernel": 120,
+    "cudaPointerGetAttributes": 24,
+    "cudaGraphLaunch": 12,
+    "cudaDeviceGetAttribute": 12,
+    "cudaStreamWaitEvent": 12,
+    "cudaEventSynchronize": 12,
+    "cudaDeviceSynchronize": 1
+  }
+}

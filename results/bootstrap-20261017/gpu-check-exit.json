@@ -1,0 +1,4 @@
+{
+  "gpu_python_exit": 0,
+  "note": "Direct Python invocation; prior shell wrapper exit was invalid"
+}

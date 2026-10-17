@@ -1,0 +1,38 @@
+{
+  "validated_rows": 16,
+  "groups": [
+    {
+      "batch": 1,
+      "measured_batches": 3,
+      "profiled": false,
+      "median_batch_wall_ms": 549.5652340000561,
+      "median_aggregate_output_tokens_per_second": 232.91138536610367,
+      "median_request_mean_decode_interval_ms": 4.200369000000853
+    },
+    {
+      "batch": 2,
+      "measured_batches": 3,
+      "profiled": false,
+      "median_batch_wall_ms": 565.706782999996,
+      "median_aggregate_output_tokens_per_second": 452.53125416387627,
+      "median_request_mean_decode_interval_ms": 4.244373775590942
+    },
+    {
+      "batch": 4,
+      "measured_batches": 3,
+      "profiled": false,
+      "median_batch_wall_ms": 562.3111879999669,
+      "median_aggregate_output_tokens_per_second": 910.5278552630009,
+      "median_request_mean_decode_interval_ms": 4.183130952756038
+    },
+    {
+      "batch": 8,
+      "measured_batches": 3,
+      "profiled": false,
+      "median_batch_wall_ms": 634.3882840001243,
+      "median_aggregate_output_tokens_per_second": 1614.1533912688076,
+      "median_request_mean_decode_interval_ms": 4.656981385826975
+    }
+  ],
+  "traces": []
+}

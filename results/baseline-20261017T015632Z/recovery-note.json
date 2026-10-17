@@ -1,0 +1,7 @@
+{
+  "assessment": "interrupted_without_final_exit_code",
+  "last_stage": "FULL CUDA Graph capture",
+  "measurement_rows": 0,
+  "original_status_preserved": true,
+  "cause": "Not established; original process absent when resuming, WSL filesystem remount observed"
+}

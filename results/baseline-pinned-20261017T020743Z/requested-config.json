@@ -1,0 +1,12 @@
+{
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "dtype": "float16",
+  "max_model_len": 2048,
+  "max_num_seqs": 8,
+  "max_num_batched_tokens": 2048,
+  "gpu_memory_utilization": 0.65,
+  "enable_prefix_caching": false,
+  "seed": 0,
+  "enforce_eager": false,
+  "disable_log_stats": false
+}

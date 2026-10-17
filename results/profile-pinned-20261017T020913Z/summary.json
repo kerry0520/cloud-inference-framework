@@ -1,0 +1,144 @@
+{
+  "validated_rows": 2,
+  "groups": [
+    {
+      "batch": 2,
+      "measured_batches": 1,
+      "profiled": true,
+      "median_batch_wall_ms": 388.6718759999894,
+      "median_aggregate_output_tokens_per_second": 164.66331615926268,
+      "median_request_mean_decode_interval_ms": 10.858005870967382
+    }
+  ],
+  "traces": [
+    {
+      "file": "/opt/cloud-inference-framework/results/profile-pinned-20261017T020913Z/traces/rank0.1792202993503004655.pt.trace.json.gz",
+      "categories": {
+        "": 62,
+        "user_annotation": 12,
+        "cpu_op": 1874,
+        "overhead": 1,
+        "cuda_runtime": 536,
+        "ac2g": 5315,
+        "gpu_memcpy": 49,
+        "kernel": 4621,
+        "cuda_driver": 109,
+        "gpu_user_annotation": 12,
+        "Trace": 1
+      },
+      "gpu_kernel_events": 4621,
+      "annotations": [
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 11052.602
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1342.678
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 978.558
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1035.356
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1039.852
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 950.956
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 941.651
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1001.812
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1032.503
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1068.397
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1075.081
+        },
+        {
+          "name": "execute_context_0(0)_generation_2(2)",
+          "duration_us": 1094.215
+        }
+      ],
+      "top_kernels_by_sum_duration_us": [
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)",
+          "count": 1020,
+          "sum_duration_us": 30586.421999999984
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)",
+          "count": 336,
+          "sum_duration_us": 7549.077999999996
+        },
+        {
+          "name": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, false, false, false, false, true, false, true, false>(flash::Flash_fwd_params)",
+          "count": 336,
+          "sum_duration_us": 3500.5520000000056
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1})",
+          "count": 672,
+          "sum_duration_us": 955.9260000000037
+        },
+        {
+          "name": "void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, 4, 2, true>(flash::Flash_fwd_params)",
+          "count": 336,
+          "sum_duration_us": 840.9640000000053
+        },
+        {
+          "name": "void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vllm::Fp8KVCacheDataType)0>(unsigned short const*, unsigned short const*, unsigned short*, unsigned short*, long const*, long, long, long, long, long, int, int, int, float const*, float const*, int)",
+          "count": 336,
+          "sum_duration_us": 461.3780000000011
+        },
+        {
+          "name": "triton_per_fused_fused_add_rms_norm_2",
+          "count": 336,
+          "sum_duration_us": 330.548
+        },
+        {
+          "name": "triton_red_fused_3",
+          "count": 324,
+          "sum_duration_us": 315.50600000000003
+        },
+        {
+          "name": "triton_per_fused_fused_add_rms_norm_0",
+          "count": 336,
+          "sum_duration_us": 299.6329999999992
+        },
+        {
+          "name": "triton_poi_fused_mul_silu_slice_1",
+          "count": 336,
+          "sum_duration_us": 243.39000000000078
+        },
+        {
+          "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+          "count": 12,
+          "sum_duration_us": 49.485
+        },
+        {
+          "name": "_bias_kernel",
+          "count": 12,
+          "sum_duration_us": 43.412
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "scope": "Instrumented decode trace only",
+  "cpu_annotations": 24,
+  "gpu_annotations": 24,
+  "gpu_steps": [
+    {
+      "name": "execute_context_0(0)_generation_8(8)",
+      "duration_us": 4636.208,
+      "ts": 1346097634626.714
+    },
+    {
+      "name": "execute_context_0(0)_generation_8(8)",
+      "duration_us": 3326.365,
+      "ts": 1346097640119.718
+    },
+    {
+      "name": "execute_context_0(0)_generation_8(8)",
+      "duration_us": 3283.587,
+      "ts": 1346097644302.879
+    },
+    {
+      "name": "execute_context_0(0)_generation_8(8)",
+      "duration_us": 3334.089,
+      "ts": 1346097648441.611
+    },
+    {
+      "name": "execute_context_0(0)_generation_8(8)",
+      "duration_us": 3332.232,
+      "ts": 1346097652633.204
+    },
+    {
+      "name": "execute_context_0(0)_generation_8(8)",
+      "duration_us": 3316.578,
+      "ts": 1346097656822.88
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3309.797,
+      "ts": 1346097660995.722
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3279.166,
+      "ts": 1346097665158.806
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3320.174,
+      "ts": 1346097669291.966
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3322.503,
+      "ts": 1346097673459.885
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3315.074,
+      "ts": 1346097677633.582
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3332.526,
+      "ts": 1346097681797.846
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3342.433,
+      "ts": 1346097685981.832
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3307.202,
+      "ts": 1346097690173.425
+    },
+    {
+      "name": "execute_context_0(0)_generation_7(7)",
+      "duration_us": 3314.985,
+      "ts": 1346097694335.801
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3178.868,
+      "ts": 1346097698502.954
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3178.396,
+      "ts": 1346097702535.198
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3206.787,
+      "ts": 1346097706562.43
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3174.948,
+      "ts": 1346097710617.345
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3164.215,
+      "ts": 1346097714641.983
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3171.085,
+      "ts": 1346097718654.268
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3182.672,
+      "ts": 1346097722675.987
+    },
+    {
+      "name": "execute_context_0(0)_generation_6(6)",
+      "duration_us": 3187.418,
+      "ts": 1346097726711.032
+    },
+    {
+      "name": "execute_context_0(0)_generation_5(5)",
+      "duration_us": 3154.575,
+      "ts": 1346097730749.732
+    }
+  ],
+  "median_cpu_annotation_us_excluding_first": 1067.371,
+  "median_gpu_annotation_us_excluding_first": 3307.202,
+  "kernel_sum_us": 94953.925,
+  "gemm_kernel_sum_us": 77067.313,
+  "gemm_fraction_of_kernel_sum": 0.8116285135132644,
+  "stable_observed_window_us": 93784.5888671875,
+  "kernel_union_in_window_us": 90112.65771484375,
+  "kernel_union_fraction_in_window": 0.9608471797264715,
+  "median_gpu_annotation_start_interval_us": 4162.72998046875,
+  "runtime_api_counts": {
+    "cudaEventQuery": 187,
+    "cudaStreamIsCapturing": 268,
+    "cudaMemcpyAsync": 98,
+    "cudaEventRecordWithFlags": 146,
+    "cudaLaunchKernel": 258,
+    "cudaPointerGetAttributes": 48,
+    "cudaGraphLaunch": 24,
+    "cudaDeviceGetAttribute": 24,
+    "cudaStreamWaitEvent": 24,
+    "cudaEventSynchronize": 24,
+    "cudaDeviceSynchronize": 1
+  },
+  "step_name_counts": {
+    "execute_context_0(0)_generation_8(8)": 6,
+    "execute_context_0(0)_generation_7(7)": 9,
+    "execute_context_0(0)_generation_6(6)": 8,
+    "execute_context_0(0)_generation_5(5)": 1
+  }
+}

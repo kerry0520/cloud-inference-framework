@@ -1,0 +1,5 @@
+{
+  "host_is_pinned": true,
+  "framework_pin_memory_available": true,
+  "async_copy_check": "passed"
+}
