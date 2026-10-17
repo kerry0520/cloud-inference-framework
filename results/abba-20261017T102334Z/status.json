@@ -1,0 +1,4 @@
+{
+  "state": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/opt/cloud-inference-framework/scripts/abba_patch.py\", line 95, in main\n    run(batch)\n  File \"/opt/cloud-inference-framework/scripts/abba_patch.py\", line 85, in run\n    intervals = [1000 * (o.metrics.last_token_ts - o.metrics.first_token_ts)\n                         ^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'last_token_ts'\n"
+}

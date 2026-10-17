@@ -1,0 +1,68 @@
+{
+  "scope": "batch-2 instrumented trace, steady-state decode replay; kernel times include profiler overhead",
+  "attribution": "/opt/cloud-inference-framework/results/attribute-20261017T093052Z/attribution.json",
+  "measured_gemm_us_per_step": 3177.8352999999997,
+  "measured_step_kernel_sum_us": 3792.102,
+  "streaming_bytes_per_step": 1191968768,
+  "fitted_effective_GB_s": 375.08827723073006,
+  "fitted_effective_GB_s_note": "per_step_bytes / sum(per_role per_step_us)",
+  "max_abs_residual_pct": 12.76073847020887,
+  "roles": [
+    {
+      "role": "qkv_proj",
+      "kernels_per_step": 28,
+      "weight_bytes": 8388608,
+      "step_bytes": 234881024,
+      "measured_us": 629.0536,
+      "implied_GB_s": 373.38793387399744,
+      "fit_without_self_GB_s": 375.50793149527084,
+      "predicted_us": 625.5021646672144,
+      "residual_pct": -0.5645680006895373
+    },
+    {
+      "role": "o_proj",
+      "kernels_per_step": 28,
+      "weight_bytes": 4194304,
+      "step_bytes": 117440512,
+      "measured_us": 338.0691,
+      "implied_GB_s": 347.3861172168648,
+      "fit_without_self_GB_s": 378.3861699600481,
+      "predicted_us": 310.3721048060503,
+      "residual_pct": -8.192702377694296
+    },
+    {
+      "role": "gate_up",
+      "kernels_per_step": 28,
+      "weight_bytes": 12582912,
+      "step_bytes": 352321536,
+      "measured_us": 909.6877999999999,
+      "implied_GB_s": 387.29939656220523,
+      "fit_without_self_GB_s": 370.190753467312,
+      "predicted_us": 951.7297034030597,
+      "residual_pct": 4.621574940662037
+    },
+    {
+      "role": "down_proj",
+      "kernels_per_step": 28,
+      "weight_bytes": 6291456,
+      "step_bytes": 176160768,
+      "measured_us": 526.9572000000001,
+      "implied_GB_s": 334.29805684408524,
+      "fit_without_self_GB_s": 383.19679807230665,
+      "predicted_us": 459.71356985806455,
+      "residual_pct": -12.76073847020887
+    },
+    {
+      "role": "lm_head",
+      "kernels_per_step": 1,
+      "weight_bytes": 311164928,
+      "step_bytes": 311164928,
+      "measured_us": 774.0676,
+      "implied_GB_s": 401.9867618797118,
+      "fit_without_self_GB_s": 366.42635642370936,
+      "predicted_us": 849.1881725892856,
+      "residual_pct": 9.704652744706747
+    }
+  ],
+  "non_streaming_us_per_step": 0.0
+}

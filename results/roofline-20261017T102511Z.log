@@ -1,0 +1,8 @@
+role         bytes/step  measured_us   pred_us  residual    fit_B
+qkv_proj      234881024       629.05    625.50     -0.6%   375.5
+o_proj        117440512       338.07    310.37     -8.2%   378.4
+gate_up       352321536       909.69    951.73     +4.6%   370.2
+down_proj     176160768       526.96    459.71    -12.8%   383.2
+lm_head       311164928       774.07    849.19     +9.7%   366.4
+fitted effective bandwidth (all five): 375.09 GB/s
+max |leave-one-out residual|: 12.8%

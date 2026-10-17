@@ -1,0 +1,4 @@
+{
+  "state": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/opt/cloud-inference-framework/scripts/abba_patch.py\", line 115, in main\n    assert ids == reference[batch], (\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('seeded output changed between arms', 4, 1)\n"
+}

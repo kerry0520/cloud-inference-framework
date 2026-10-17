@@ -83,25 +83,31 @@ class ProjectWorkerExtension:
         self._minp_stats = {"mode": mode, "calls": 0, "checked": 0,
                             "mismatches": 0, "shapes": {}}
         assert mode in ("base", "candidate", "verify")
+        self._minp_candidate = candidate
+        self._minp_evidence_dir = evidence_dir
+        self._minp_mode = mode
 
         def dispatch(logits, mapping, min_p):
             stats = self._minp_stats
+            mode_now = self._minp_mode
+            stats["mode"] = mode_now
             stats["calls"] += 1
             key = str(tuple(logits.shape))
             stats["shapes"][key] = stats["shapes"].get(key, 0) + 1
-            if mode == "base":
+            if mode_now == "base":
                 original(logits, mapping, min_p)
                 return
-            if mode == "verify":
+            if mode_now == "verify":
+                evidence_dir_now = self._minp_evidence_dir
                 before = logits.clone()
                 reference = logits.clone()
                 original(reference, mapping, min_p)
-                candidate(logits, mapping, min_p)
+                self._minp_candidate(logits, mapping, min_p)
                 equal = torch.equal(reference.view(torch.uint8), logits.view(torch.uint8))
                 stats["checked"] += 1
                 stats["mismatches"] += int(not equal)
-                if evidence_dir is not None and stats["checked"] <= 4:
-                    folder = Path(evidence_dir)
+                if evidence_dir_now is not None and stats["checked"] <= 4:
+                    folder = Path(evidence_dir_now)
                     folder.mkdir(parents=True, exist_ok=True)
                     torch.save({"before": before.cpu(), "reference": reference.cpu(),
                                 "candidate": logits.cpu(), "mapping": mapping.cpu(),
@@ -109,10 +115,18 @@ class ProjectWorkerExtension:
                                folder / f"real-call-{stats['checked']}.pt")
                 assert equal, "Real min-p invocation disagreed with upstream"
             else:
-                candidate(logits, mapping, min_p)
+                self._minp_candidate(logits, mapping, min_p)
 
         states.apply_min_p = dispatch
         return {"mode": mode, "installed_in": states.__name__}
+
+    def minp_select(self, mode):
+        """Switch between the two already-installed arms without re-importing."""
+        assert mode in ("base", "candidate"), mode
+        assert hasattr(self, "_minp_candidate"), "no candidate installed"
+        self._minp_mode = mode
+        self._minp_stats["mode"] = mode
+        return {"selected": mode}
 
     def minp_stats(self):
         return self._minp_stats
