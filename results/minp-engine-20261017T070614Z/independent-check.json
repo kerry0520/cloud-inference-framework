@@ -1,0 +1,46 @@
+{
+  "state": "passed",
+  "timing_rows_verified": 24,
+  "real_replays": [
+    {
+      "file": "real-call-1.pt",
+      "values": 303872,
+      "sha256": "36aa8941bdba9a445b8158dd611f5efef2fa1106404d2da7c1153ac2d78db55b"
+    },
+    {
+      "file": "real-call-2.pt",
+      "values": 303872,
+      "sha256": "5ee77ff853bce908221a5c5ac83acb53ff5ef56ef88d49c07ca0b4d604eeda9f"
+    },
+    {
+      "file": "real-call-3.pt",
+      "values": 303872,
+      "sha256": "154d39596a0a8d792123f3f10194856d05f0c92432b6db190953b1d7ba878cb2"
+    },
+    {
+      "file": "real-call-4.pt",
+      "values": 303872,
+      "sha256": "78d9f56a7746f352e35ba26d0883d469912d45ade03b44d45ad410b512a34d6f"
+    }
+  ],
+  "trace_dispatch": [
+    {
+      "file": "base_rank0.1792220830072730392.pt.trace.json.gz",
+      "identified_arm": "base",
+      "base_kernel_calls": 12,
+      "max_calls": 0,
+      "mask_calls": 0,
+      "min_p_kernel_sum_us": 750.366,
+      "sha256": "cba77942926bf185481620e1e80d013993030be2cc8fdbebf5201811348abf9b"
+    },
+    {
+      "file": "base_rank0.1792220830450081168.pt.trace.json.gz",
+      "identified_arm": "candidate",
+      "base_kernel_calls": 0,
+      "max_calls": 12,
+      "mask_calls": 12,
+      "min_p_kernel_sum_us": 67.20100000000001,
+      "sha256": "a948b99292726fbb3afa67b5bc869d35f4734a6892933725d65af8b4a205a000"
+    }
+  ]
+}

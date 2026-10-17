@@ -4,3 +4,4 @@ __pycache__/
 models/
 results/**/*.pt.trace.json*
 results/vocab-download-fallback.json
+results/**/*.pt

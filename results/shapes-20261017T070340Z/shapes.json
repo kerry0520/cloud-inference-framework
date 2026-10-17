@@ -1,0 +1,191 @@
+{
+  "metadata": [
+    {
+      "linears": [
+        {
+          "name": "model.layers.0.self_attn.qkv_proj",
+          "class": "QKVParallelLinear",
+          "weight_shape": [
+            4096,
+            1024
+          ],
+          "weight_dtype": "torch.float16"
+        },
+        {
+          "name": "model.layers.0.self_attn.o_proj",
+          "class": "RowParallelLinear",
+          "weight_shape": [
+            1024,
+            2048
+          ],
+          "weight_dtype": "torch.float16"
+        },
+        {
+          "name": "model.layers.0.mlp.gate_up_proj",
+          "class": "MergedColumnParallelLinear",
+          "weight_shape": [
+            6144,
+            1024
+          ],
+          "weight_dtype": "torch.float16"
+        },
+        {
+          "name": "model.layers.0.mlp.down_proj",
+          "class": "RowParallelLinear",
+          "weight_shape": [
+            1024,
+            3072
+          ],
+          "weight_dtype": "torch.float16"
+        }
+      ],
+      "lm_head_weight": [
+        151936,
+        1024
+      ],
+      "lm_head_class": "ParallelLMHead"
+    }
+  ],
+  "observed": [
+    [
+      {
+        "name": "model.layers.0.self_attn.qkv_proj",
+        "input_shape": [
+          64,
+          1024
+        ],
+        "input_stride": [
+          1024,
+          1
+        ],
+        "weight_shape": [
+          4096,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "calls": 1
+      },
+      {
+        "name": "model.layers.0.self_attn.o_proj",
+        "input_shape": [
+          64,
+          2048
+        ],
+        "input_stride": [
+          2048,
+          1
+        ],
+        "weight_shape": [
+          1024,
+          2048
+        ],
+        "dtype": "torch.float16",
+        "calls": 1
+      },
+      {
+        "name": "model.layers.0.mlp.gate_up_proj",
+        "input_shape": [
+          64,
+          1024
+        ],
+        "input_stride": [
+          1024,
+          1
+        ],
+        "weight_shape": [
+          6144,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "calls": 1
+      },
+      {
+        "name": "model.layers.0.mlp.down_proj",
+        "input_shape": [
+          64,
+          3072
+        ],
+        "input_stride": [
+          3072,
+          1
+        ],
+        "weight_shape": [
+          1024,
+          3072
+        ],
+        "dtype": "torch.float16",
+        "calls": 1
+      },
+      {
+        "name": "model.layers.0.self_attn.qkv_proj",
+        "input_shape": [
+          2,
+          1024
+        ],
+        "input_stride": [
+          1024,
+          1
+        ],
+        "weight_shape": [
+          4096,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "calls": 3
+      },
+      {
+        "name": "model.layers.0.self_attn.o_proj",
+        "input_shape": [
+          2,
+          2048
+        ],
+        "input_stride": [
+          2048,
+          1
+        ],
+        "weight_shape": [
+          1024,
+          2048
+        ],
+        "dtype": "torch.float16",
+        "calls": 3
+      },
+      {
+        "name": "model.layers.0.mlp.gate_up_proj",
+        "input_shape": [
+          2,
+          1024
+        ],
+        "input_stride": [
+          1024,
+          1
+        ],
+        "weight_shape": [
+          6144,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "calls": 3
+      },
+      {
+        "name": "model.layers.0.mlp.down_proj",
+        "input_shape": [
+          2,
+          3072
+        ],
+        "input_stride": [
+          3072,
+          1
+        ],
+        "weight_shape": [
+          1024,
+          3072
+        ],
+        "dtype": "torch.float16",
+        "calls": 3
+      }
+    ]
+  ],
+  "diagnostic_eager_only": true,
+  "resolved_async_scheduling": true
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "path": "results\\shapes-20261017T070340Z\\shapes.json",
+    "bytes": 3750,
+    "sha256": "a56dde21e80dac9a49bb8629d34af534d503f6cc5832e0c157194b03fa9ac2e4"
+  },
+  {
+    "path": "results\\shapes-20261017T070340Z\\status.json",
+    "bytes": 19,
+    "sha256": "e930d28ae85f358240ce93acdd0cdd8328ca5743bdf134df566dfee0b6818bfc"
+  },
+  {
+    "path": "results\\minp-micro-20261017T070433Z\\candidate.py",
+    "bytes": 2331,
+    "sha256": "a6f59666fa4c0388c0fd63cf4239e550ed84dacd0899aff33bc4d602e05bfbea"
+  },
+  {
+    "path": "results\\minp-micro-20261017T070433Z\\correctness.json",
+    "bytes": 13180,
+    "sha256": "8da8bf46d2bad956b723462de16f7a183c0ce6e1010071a5eccd0e1c155aa6e0"
+  },
+  {
+    "path": "results\\minp-micro-20261017T070433Z\\status.json",
+    "bytes": 63,
+    "sha256": "b4a8e1ba102ff3f42aca320fcdec7b1b095945fc388e4f321a34158b60412ed7"
+  },
+  {
+    "path": "results\\minp-micro-20261017T070433Z\\timing.jsonl",
+    "bytes": 8307,
+    "sha256": "969aebdf05c6d50b451cf92ffd303ee7b8c31c6c229a9518008315e0f5af8049"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\candidate.py",
+    "bytes": 2689,
+    "sha256": "904dfd5be2eb431ecff1df6925ae3c98a2b56e301c8d76466447d92b55561b9d"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\config.json",
+    "bytes": 3957,
+    "sha256": "4934b4f5e55801f7b81664bd01159a5e84c2880398f01dbd5e9674804d1ad418"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\disabled-path.json",
+    "bytes": 637,
+    "sha256": "f42d10bc765b3fc27c09d2949907939f1b2cef39328c3020133d86c410ae988c"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\independent-check.json",
+    "bytes": 1341,
+    "sha256": "0bafa9257a0c94cf949992e0b0dfb7b458dbc5610a5b11edb54dcd2a7924da4a"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\real-verification.json",
+    "bytes": 133,
+    "sha256": "a142ede7bf7d48d8159acb8aaf073775e329751e20c6b53e860d5025b01ab105"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\runner.py",
+    "bytes": 6760,
+    "sha256": "7516efc56538cb03c8cf465b0c69b5c543ebed2e0f27bf99ed63cba4984a31bc"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\status.json",
+    "bytes": 131,
+    "sha256": "98c392212217afbbf681a4649b32956bf9cd5adac67194e0eac32d2fb1fe9152"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\summary.json",
+    "bytes": 1779,
+    "sha256": "981a123cdf686c52d20d532014d49b0b0da782f3e91def8975a88ae7251b9714"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\timing.jsonl",
+    "bytes": 51716,
+    "sha256": "1551fb136b9ecc7975b978444a7e076f679ebf4f3c2d031a1b00224f915c2918"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\worker.py",
+    "bytes": 3665,
+    "sha256": "ac23ff4679b43b8b6121f77952d8841f9056375bccc8f2cead2a9ab1b1bae2df"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\real-tensors\\real-call-1.pt",
+    "bytes": 3649157,
+    "sha256": "36aa8941bdba9a445b8158dd611f5efef2fa1106404d2da7c1153ac2d78db55b"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\real-tensors\\real-call-2.pt",
+    "bytes": 3649157,
+    "sha256": "5ee77ff853bce908221a5c5ac83acb53ff5ef56ef88d49c07ca0b4d604eeda9f"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\real-tensors\\real-call-3.pt",
+    "bytes": 3649157,
+    "sha256": "154d39596a0a8d792123f3f10194856d05f0c92432b6db190953b1d7ba878cb2"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\real-tensors\\real-call-4.pt",
+    "bytes": 3649157,
+    "sha256": "78d9f56a7746f352e35ba26d0883d469912d45ade03b44d45ad410b512a34d6f"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\traces\\base_rank0.1792220830072730392.pt.trace.json.gz",
+    "bytes": 207644,
+    "sha256": "cba77942926bf185481620e1e80d013993030be2cc8fdbebf5201811348abf9b"
+  },
+  {
+    "path": "results\\minp-engine-20261017T070614Z\\traces\\base_rank0.1792220830450081168.pt.trace.json.gz",
+    "bytes": 209154,
+    "sha256": "a948b99292726fbb3afa67b5bc869d35f4734a6892933725d65af8b4a205a000"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\candidate.py",
+    "bytes": 2689,
+    "sha256": "904dfd5be2eb431ecff1df6925ae3c98a2b56e301c8d76466447d92b55561b9d"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\config.json",
+    "bytes": 3957,
+    "sha256": "4934b4f5e55801f7b81664bd01159a5e84c2880398f01dbd5e9674804d1ad418"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\independent-check.json",
+    "bytes": 99,
+    "sha256": "c67279f6e890732ab307abb1e5e50ce8ba0704a68188dbffdd5dc303072623eb"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\runner.py",
+    "bytes": 7058,
+    "sha256": "a810b4d67ce8dcbcb2ffb6b256966807a8ee102d599e193666de2eed3cc5eff1"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\status.json",
+    "bytes": 154,
+    "sha256": "322d2f72f2e82abed441ab0439583f40072b19656da43dd34856cb6e26afa084"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\summary.json",
+    "bytes": 1785,
+    "sha256": "f6bf3da985a5e36d2d0919eaa101e3e3fc05394ae7d45e02abd19dfbe7152f27"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\timing.jsonl",
+    "bytes": 51652,
+    "sha256": "b344dc19d4aad84860f20dc1d6c5a8f8d3c4ee07cb1b4e460b925284c129249d"
+  },
+  {
+    "path": "results\\minp-repeat-20261017T070817Z\\worker.py",
+    "bytes": 3665,
+    "sha256": "ac23ff4679b43b8b6121f77952d8841f9056375bccc8f2cead2a9ab1b1bae2df"
+  }
+]
