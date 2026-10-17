@@ -4,3 +4,6 @@
 *.md text eol=lf
 results/** -text
 configs/** -text
+# Unified diffs carry blank context lines as " " by format; raw logs may keep CR.
+patches/**/*.patch -whitespace
+results/** -whitespace

@@ -1,0 +1,20 @@
+{
+  "state": "passed",
+  "check_only": true,
+  "patch_engine": [
+    {
+      "mode": "verify",
+      "calls": 4,
+      "checked": 4,
+      "mismatches": 0,
+      "shapes": {
+        "(2, 151936)": 4
+      },
+      "kernels": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 4,
+        "_min_p_apply_threshold": 4
+      }
+    }
+  ]
+}

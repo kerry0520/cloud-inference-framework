@@ -1,0 +1,207 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
+"""min-p filtering on the MRV2 sampler path, with a two-stage parallel variant.
+
+This file is the post-patch content of
+``vllm/v1/worker/gpu/sample/min_p.py`` at vLLM 0.31.0 (db9527a).  The unified
+diff next to it (``0001-mrv2-min-p-two-stage.patch``) turns the pinned upstream
+file into this one; the verification script asserts the two agree byte for
+byte.
+
+Why the extra path: upstream gives every row one CTA that walks the vocabulary
+twice with 1024-element blocks.  At batch<=8 that is only a handful of CTAs, so
+most SMs idle while a few warps stream the row.  Splitting each row into
+4096-wide parts yields ``rows * parts`` CTAs for the max pass (and the same
+count for the filter pass), which measured 2.25x-9.70x faster on the project's
+RTX 5060 Laptop for ``vocab >= 32000`` and ``1 <= batch <= 8``.  Outside that
+window the extra launch costs more than it saves (14% slower at vocab 4096,
+about break-even at batch 32), so those shapes keep the upstream kernel
+unchanged.
+
+The patch does not touch the call site: ``SamplingStates.apply_min_p`` still
+imports ``apply_min_p`` from this module, and its "no request uses min-p, skip
+the launch" fast path stays in place.
+"""
+
+import torch
+
+from vllm.triton_utils import tl, triton
+
+# Boundary of the parallel path.  Everything here is a routing decision, not a
+# numerical one: both paths must produce byte-identical logits.
+PARALLEL_MAX_ROWS = 8
+PARALLEL_MIN_VOCAB = 32000
+PARALLEL_BLOCK = 4096
+# Only dtypes exercised by the acceptance matrix take the parallel path; any
+# other dtype keeps the upstream kernel until it has its own evidence.
+PARALLEL_DTYPES = (torch.float16, torch.bfloat16, torch.float32)
+
+
+@triton.jit
+def _min_p_kernel(
+    logits_ptr,
+    logits_stride,
+    expanded_idx_mapping_ptr,
+    min_p_ptr,
+    vocab_size,
+    BLOCK_SIZE: tl.constexpr,
+):
+    token_idx = tl.program_id(0).to(tl.int64)
+    req_state_idx = tl.load(expanded_idx_mapping_ptr + token_idx)
+    min_p = tl.load(min_p_ptr + req_state_idx).to(tl.float32)
+    if min_p == 0.0:
+        return
+
+    max_val = float("-inf")
+    for i in range(0, vocab_size, BLOCK_SIZE):
+        block = i + tl.arange(0, BLOCK_SIZE)
+        mask = block < vocab_size
+        logits = tl.load(
+            logits_ptr + token_idx * logits_stride + block,
+            mask=mask,
+            other=float("-inf"),
+        )
+        max_val = tl.max(tl.maximum(logits, max_val))
+    max_val = max_val.to(tl.float32)  # type: ignore
+
+    threshold = max_val + tl.log(min_p)
+    for i in range(0, vocab_size, BLOCK_SIZE):
+        block = i + tl.arange(0, BLOCK_SIZE)
+        mask = block < vocab_size
+        logits = tl.load(
+            logits_ptr + token_idx * logits_stride + block,
+            mask=mask,
+            other=float("-inf"),
+        )
+        logits = tl.where(logits < threshold, float("-inf"), logits)
+        tl.store(logits_ptr + token_idx * logits_stride + block, logits, mask=mask)
+
+
+@triton.jit
+def _min_p_partial_max(
+    logits_ptr,
+    logits_stride,
+    expanded_idx_mapping_ptr,
+    min_p_ptr,
+    partial_ptr,
+    vocab_size,
+    num_parts,
+    BLOCK_SIZE: tl.constexpr,
+):
+    token_idx = tl.program_id(0).to(tl.int64)
+    part_idx = tl.program_id(1)
+    req_state_idx = tl.load(expanded_idx_mapping_ptr + token_idx)
+    min_p = tl.load(min_p_ptr + req_state_idx).to(tl.float32)
+    if min_p == 0.0:
+        return
+
+    block = part_idx * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+    logits = tl.load(
+        logits_ptr + token_idx * logits_stride + block,
+        mask=block < vocab_size,
+        other=float("-inf"),
+    ).to(tl.float32)
+    tl.store(partial_ptr + token_idx * num_parts + part_idx, tl.max(logits, 0))
+
+
+@triton.jit
+def _min_p_apply_threshold(
+    logits_ptr,
+    logits_stride,
+    expanded_idx_mapping_ptr,
+    min_p_ptr,
+    partial_ptr,
+    vocab_size,
+    num_parts,
+    REDUCE_SIZE: tl.constexpr,
+    BLOCK_SIZE: tl.constexpr,
+):
+    token_idx = tl.program_id(0).to(tl.int64)
+    part_idx = tl.program_id(1)
+    req_state_idx = tl.load(expanded_idx_mapping_ptr + token_idx)
+    min_p = tl.load(min_p_ptr + req_state_idx).to(tl.float32)
+    if min_p == 0.0:
+        return
+
+    indices = tl.arange(0, REDUCE_SIZE)
+    maxima = tl.load(
+        partial_ptr + token_idx * num_parts + indices,
+        mask=indices < num_parts,
+        other=float("-inf"),
+    )
+    threshold = tl.max(maxima, 0) + tl.log(min_p)
+
+    block = part_idx * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+    mask = block < vocab_size
+    logits = tl.load(
+        logits_ptr + token_idx * logits_stride + block,
+        mask=mask,
+        other=float("-inf"),
+    )
+    filtered = tl.where(logits < threshold, float("-inf"), logits)
+    tl.store(logits_ptr + token_idx * logits_stride + block, filtered, mask=mask)
+
+
+def _use_parallel_path(logits: torch.Tensor, num_tokens: int, vocab_size: int) -> bool:
+    return (
+        1 <= num_tokens <= PARALLEL_MAX_ROWS
+        and vocab_size >= PARALLEL_MIN_VOCAB
+        and logits.stride(1) == 1
+        and logits.dtype in PARALLEL_DTYPES
+    )
+
+
+def _apply_parallel(
+    logits: torch.Tensor,
+    expanded_idx_mapping: torch.Tensor,
+    min_p: torch.Tensor,
+    num_tokens: int,
+    vocab_size: int,
+) -> None:
+    logits_stride = logits.stride(0)
+    num_parts = triton.cdiv(vocab_size, PARALLEL_BLOCK)
+    # At most 8 * 38 float32 values, allocated from the caching allocator.  The
+    # sampler currently runs outside the CUDA graph (sampler kernels carry graph
+    # node id 0 in the project's trace), so this is not a capture-time size.
+    partial = torch.empty((num_tokens, num_parts), device=logits.device, dtype=torch.float32)
+    _min_p_partial_max[(num_tokens, num_parts)](
+        logits,
+        logits_stride,
+        expanded_idx_mapping,
+        min_p,
+        partial,
+        vocab_size,
+        num_parts,
+        BLOCK_SIZE=PARALLEL_BLOCK,
+        num_warps=4,
+    )
+    _min_p_apply_threshold[(num_tokens, num_parts)](
+        logits,
+        logits_stride,
+        expanded_idx_mapping,
+        min_p,
+        partial,
+        vocab_size,
+        num_parts,
+        REDUCE_SIZE=triton.next_power_of_2(num_parts),
+        BLOCK_SIZE=PARALLEL_BLOCK,
+        num_warps=4,
+    )
+
+
+def apply_min_p(
+    logits: torch.Tensor, expanded_idx_mapping: torch.Tensor, min_p: torch.Tensor
+) -> None:
+    num_tokens, vocab_size = logits.shape
+    if _use_parallel_path(logits, num_tokens, vocab_size):
+        _apply_parallel(logits, expanded_idx_mapping, min_p, num_tokens, vocab_size)
+        return
+    BLOCK_SIZE = 1024
+    _min_p_kernel[(num_tokens,)](
+        logits,
+        logits.stride(0),
+        expanded_idx_mapping,
+        min_p,
+        vocab_size,
+        BLOCK_SIZE=BLOCK_SIZE,
+    )

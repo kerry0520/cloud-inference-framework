@@ -1,0 +1,22 @@
+{
+  "stats": [
+    {
+      "mode": "verify",
+      "calls": 4,
+      "checked": 4,
+      "mismatches": 0,
+      "shapes": {
+        "(2, 151936)": 4
+      },
+      "kernels": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 4,
+        "_min_p_apply_threshold": 4
+      }
+    }
+  ],
+  "module": "/mnt/c/Users/32065/Documents/ChatGPT/\u4e91\u7aef\u63a8\u7406\u6846\u67b6/patches/mrv2_min_p.py",
+  "module_sha256": "a4da6ec136ba3c90a9984a295bef38d753c1abdf68887cb4c7900b0e2c6de6bb",
+  "patch": "/mnt/c/Users/32065/Documents/ChatGPT/\u4e91\u7aef\u63a8\u7406\u6846\u67b6/patches/0001-mrv2-min-p-two-stage.patch",
+  "patch_sha256": "8193a385facceec904d024978474267b019f1b3ed01b11cc530f07e94a264209"
+}

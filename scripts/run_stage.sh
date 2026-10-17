@@ -18,6 +18,8 @@ case "$stage" in
     attribute) script=attribute_decode.py; extra+=("$runtime_dir/results/profile-pinned-20261017T020913Z");;
     tail) script=inspect_tail_args.py; extra+=("$runtime_dir/results/profile-pinned-20261017T020913Z");;
     bw) script=measure_bandwidth.py;;
+    patch) script=verify_minp_patch.py; extra+=("--patch" "$project_dir/patches/0001-mrv2-min-p-two-stage.patch" "--patched" "$project_dir/patches/mrv2_min_p.py");;
+    minp-patch-engine) script=minp_engine.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p.py" --patch "$project_dir/patches/0001-mrv2-min-p-two-stage.patch" --check-only);;
     *) exit 2;;
 esac
 name="$stage-$(date -u +%Y%m%dT%H%M%SZ)"

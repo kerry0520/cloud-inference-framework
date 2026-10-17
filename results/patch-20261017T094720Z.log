@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/opt/cloud-inference-framework/scripts/verify_minp_patch.py", line 290, in <module>
+    main()
+  File "/opt/cloud-inference-framework/scripts/verify_minp_patch.py", line 213, in main
+    probe("rows=8 vocab=32000 (both inclusive edges)", lambda: rand(8, 32000)(),
+  File "/opt/cloud-inference-framework/scripts/verify_minp_patch.py", line 203, in probe
+    assert parity, {"probe": label, "counts": counts}
+           ^^^^^^
+AssertionError: {'probe': 'rows=8 vocab=32000 (both inclusive edges)', 'counts': {'_min_p_kernel': 0, '_min_p_partial_max': 1, '_min_p_apply_threshold': 1}}

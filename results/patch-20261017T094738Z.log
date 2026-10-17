@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/opt/cloud-inference-framework/scripts/verify_minp_patch.py", line 288, in <module>
+    main()
+  File "/opt/cloud-inference-framework/scripts/verify_minp_patch.py", line 249, in main
+    median_ms = triton.testing.do_bench(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'float' object is not subscriptable

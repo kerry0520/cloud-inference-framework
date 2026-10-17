@@ -16,14 +16,20 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", required=True)
     parser.add_argument("--timing-only", action="store_true")
+    parser.add_argument("--patch-module")
+    parser.add_argument("--patch")
+    parser.add_argument("--check-only", action="store_true")
     args = parser.parse_args()
+    if args.check_only and not args.patch_module:
+        parser.error("--check-only requires --patch-module")
     out = Path(args.out).resolve()
     out.mkdir(parents=True, exist_ok=False)
     try:
         import torch
         from vllm import LLM, SamplingParams
-        from kernels import min_p
-        shutil.copyfile(min_p.__file__, out / "candidate.py")
+        if not args.patch_module:
+            from kernels import min_p
+            shutil.copyfile(min_p.__file__, out / "candidate.py")
         shutil.copyfile(__file__, out / "runner.py")
         shutil.copyfile(Path(__file__).with_name("project_worker.py"), out / "worker.py")
         llm = LLM(model="/opt/cloud-inference-framework/models/Qwen3-0.6B",
@@ -51,6 +57,31 @@ def main():
             assert len(outputs) == batch
             assert all(r.finished and len(r.outputs[0].token_ids) == length for r in outputs)
             return outputs
+
+        if args.patch_module:
+            module_path = Path(args.patch_module).resolve()
+            llm.collective_rpc("minp_install_file",
+                               args=("verify", str(module_path), str(out / "real-tensors")))
+            run(2, 4)
+            patch_stats = llm.collective_rpc("minp_stats")
+            assert patch_stats[0]["checked"] >= 4, patch_stats
+            assert patch_stats[0]["mismatches"] == 0, patch_stats
+            kernels = patch_stats[0].get("kernels", {})
+            assert kernels.get("_min_p_partial_max", 0) >= 1, patch_stats
+            assert kernels.get("_min_p_apply_threshold", 0) >= 1, patch_stats
+            assert kernels.get("_min_p_kernel", 0) == 0, patch_stats
+            evidence = {"stats": patch_stats, "module": str(module_path),
+                        "module_sha256": hashlib.sha256(module_path.read_bytes()).hexdigest()}
+            if args.patch:
+                patch_path = Path(args.patch).resolve()
+                evidence["patch"] = str(patch_path)
+                evidence["patch_sha256"] = hashlib.sha256(patch_path.read_bytes()).hexdigest()
+            write(out / "patch-engine-verification.json", evidence)
+            print(json.dumps(evidence, indent=2, default=str), flush=True)
+            if args.check_only:
+                write(out / "status.json", {"state": "passed", "check_only": True,
+                                            "patch_engine": patch_stats})
+                return
 
         if not args.timing_only:
             llm.collective_rpc("minp_install", args=("verify", str(out / "real-tensors")))

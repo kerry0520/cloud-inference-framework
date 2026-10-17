@@ -1,0 +1,25 @@
+{
+  "patch": "/tmp/repo/patches/0001-mrv2-min-p-two-stage.patch",
+  "patched_source": "/tmp/repo/patches/mrv2_min_p.py",
+  "pinned_source": "/opt/cloud-inference-framework/vllm-src/vllm/v1/worker/gpu/sample/min_p.py",
+  "fast_window": {
+    "max_rows": 8,
+    "min_vocab": 32000
+  },
+  "versions": {
+    "torch": "2.13.0+cu130",
+    "vllm": "0.31.0"
+  },
+  "apply": {
+    "stat": "vllm/v1/worker/gpu/sample/min_p.py |  147 ++++++++++++++++++++++++++++++++++++\n 1 file changed, 147 insertions(+)",
+    "sha256": {
+      "pinned": "4cb5e2f45e1ced6f9685283a7a5c8cfd7204d9a249822e866cfff756c7f04f62",
+      "patched_expected": "a4da6ec136ba3c90a9984a295bef38d753c1abdf68887cb4c7900b0e2c6de6bb",
+      "applied": "a4da6ec136ba3c90a9984a295bef38d753c1abdf68887cb4c7900b0e2c6de6bb"
+    },
+    "applied_equals_patched_source": true
+  },
+  "installed_matches_pinned": true,
+  "state": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/opt/cloud-inference-framework/scripts/verify_minp_patch.py\", line 249, in main\n    median_ms = triton.testing.do_bench(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: 'float' object is not subscriptable\n"
+}

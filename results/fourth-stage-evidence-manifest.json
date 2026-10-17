@@ -1,0 +1,82 @@
+[
+    {
+        "path":  "patches/0001-mrv2-min-p-two-stage.patch",
+        "bytes":  5956,
+        "sha256":  "8193a385facceec904d024978474267b019f1b3ed01b11cc530f07e94a264209"
+    },
+    {
+        "path":  "patches/mrv2_min_p.py",
+        "bytes":  6805,
+        "sha256":  "a4da6ec136ba3c90a9984a295bef38d753c1abdf68887cb4c7900b0e2c6de6bb"
+    },
+    {
+        "path":  "results/patch-20261017T095423Z/patch-verification.json",
+        "bytes":  29944,
+        "sha256":  "6bd2a2d066649110fb7873859d8f99c47e457ee3c1ebe62baa0e74b9347164ce"
+    },
+    {
+        "path":  "results/patch-20261017T095423Z.log",
+        "bytes":  901,
+        "sha256":  "1fa9170c90ca062cb4aca69398e44ba4a1b4b04597a9cb0c8c975fd65807295b"
+    },
+    {
+        "path":  "results/patch-20261017T095423Z.exitcode",
+        "bytes":  2,
+        "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+        "path":  "results/patch-20261017T094747Z/patch-verification.json",
+        "bytes":  29944,
+        "sha256":  "59c8066256749f4c6749e857936778d37eba9170dde646fce1a814e8f925d3eb"
+    },
+    {
+        "path":  "results/patch-20261017T094747Z.log",
+        "bytes":  901,
+        "sha256":  "b47234135f9e7a8c6c4a17c8acae5965ba6a1738d23e8e4b3dfb288edaec3993"
+    },
+    {
+        "path":  "results/patch-20261017T094747Z.exitcode",
+        "bytes":  2,
+        "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z/patch-engine-verification.json",
+        "bytes":  705,
+        "sha256":  "7660df3cb0848fdc4e1b92681aa1c6087c200f7c2112f08492a68b7b7234ea11"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z/status.json",
+        "bytes":  343,
+        "sha256":  "92b9a747acf42197350ffad4325f5e8660e9d6b8f17f8ffe61d30f4ab60bcf0b"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z/real-tensors/real-call-1.pt",
+        "bytes":  3649157,
+        "sha256":  "36aa8941bdba9a445b8158dd611f5efef2fa1106404d2da7c1153ac2d78db55b"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z/real-tensors/real-call-2.pt",
+        "bytes":  3649157,
+        "sha256":  "5ee77ff853bce908221a5c5ac83acb53ff5ef56ef88d49c07ca0b4d604eeda9f"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z/real-tensors/real-call-3.pt",
+        "bytes":  3649157,
+        "sha256":  "154d39596a0a8d792123f3f10194856d05f0c92432b6db190953b1d7ba878cb2"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z/real-tensors/real-call-4.pt",
+        "bytes":  3649157,
+        "sha256":  "78d9f56a7746f352e35ba26d0883d469912d45ade03b44d45ad410b512a34d6f"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z.log",
+        "bytes":  15771,
+        "sha256":  "382c8ef70b23af50f46dfd7fab595a6938ee4513c6dd68fb49e52fd841510e44"
+    },
+    {
+        "path":  "results/minp-patch-engine-20261017T095122Z.exitcode",
+        "bytes":  2,
+        "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+]

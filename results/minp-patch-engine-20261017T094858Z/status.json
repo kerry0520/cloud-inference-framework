@@ -1,0 +1,16 @@
+{
+  "state": "passed",
+  "check_only": true,
+  "patch_engine": [
+    {
+      "mode": "verify",
+      "calls": 5,
+      "checked": 5,
+      "mismatches": 0,
+      "shapes": {
+        "(1, 151936)": 2,
+        "(2, 151936)": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,1351 @@
+{
+  "patch": "/tmp/repo/patches/0001-mrv2-min-p-two-stage.patch",
+  "patched_source": "/tmp/repo/patches/mrv2_min_p.py",
+  "pinned_source": "/opt/cloud-inference-framework/vllm-src/vllm/v1/worker/gpu/sample/min_p.py",
+  "fast_window": {
+    "max_rows": 8,
+    "min_vocab": 32000
+  },
+  "versions": {
+    "torch": "2.13.0+cu130",
+    "vllm": "0.31.0"
+  },
+  "apply": {
+    "stat": "vllm/v1/worker/gpu/sample/min_p.py |  147 ++++++++++++++++++++++++++++++++++++\n 1 file changed, 147 insertions(+)",
+    "sha256": {
+      "pinned": "4cb5e2f45e1ced6f9685283a7a5c8cfd7204d9a249822e866cfff756c7f04f62",
+      "patched_expected": "a4da6ec136ba3c90a9984a295bef38d753c1abdf68887cb4c7900b0e2c6de6bb",
+      "applied": "a4da6ec136ba3c90a9984a295bef38d753c1abdf68887cb4c7900b0e2c6de6bb"
+    },
+    "applied_equals_patched_source": true
+  },
+  "installed_matches_pinned": true,
+  "state": "passed",
+  "correctness_cases": 96,
+  "parallel_cases": 21,
+  "fallback_cases": 75,
+  "cases": [
+    {
+      "vocab": 1,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 1,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 2,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "special",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "special",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 1,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 2,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "special",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "special",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 31,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1023,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1024,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 1025,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4095,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4096,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 32000,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 1,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 2,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "random",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "special",
+      "parallel_path": false,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "special",
+      "parallel_path": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    }
+  ],
+  "dispatch_probes": [
+    {
+      "label": "rows=8 vocab=32000 (both inclusive edges)",
+      "shape": [
+        8,
+        32000
+      ],
+      "stride": [
+        32000,
+        1
+      ],
+      "parallel_path": true,
+      "parity": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "label": "rows=1 vocab=32000 (lower row edge)",
+      "shape": [
+        1,
+        32000
+      ],
+      "stride": [
+        32000,
+        1
+      ],
+      "parallel_path": true,
+      "parity": true,
+      "launch_calls": {
+        "_min_p_kernel": 0,
+        "_min_p_partial_max": 1,
+        "_min_p_apply_threshold": 1
+      }
+    },
+    {
+      "label": "rows=8 vocab=31999 (one column under)",
+      "shape": [
+        8,
+        31999
+      ],
+      "stride": [
+        31999,
+        1
+      ],
+      "parallel_path": false,
+      "parity": true,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "label": "rows=9 vocab=151936 (one row over)",
+      "shape": [
+        9,
+        151936
+      ],
+      "stride": [
+        151936,
+        1
+      ],
+      "parallel_path": false,
+      "parity": true,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "label": "rows=0 empty batch",
+      "shape": [
+        0,
+        151936
+      ],
+      "stride": [
+        151936,
+        1
+      ],
+      "parallel_path": false,
+      "parity": true,
+      "launch_calls": {
+        "_min_p_kernel": 1,
+        "_min_p_partial_max": 0,
+        "_min_p_apply_threshold": 0
+      }
+    },
+    {
+      "label": "column stride 2 rejected by predicate",
+      "shape": [
+        2,
+        75968
+      ],
+      "stride": [
+        151936,
+        2
+      ],
+      "parallel_path": false,
+      "parity": null,
+      "launch_calls": null
+    },
+    {
+      "label": "float64 and float8 rejected by dtype guard",
+      "parallel_path": false,
+      "parity": null,
+      "launch_calls": null
+    }
+  ],
+  "timing": [
+    {
+      "vocab": 151936,
+      "batch": 1,
+      "parallel_path": true,
+      "upstream_us": 173.38,
+      "patched_us": 16.13,
+      "speedup": 10.75
+    },
+    {
+      "vocab": 151936,
+      "batch": 2,
+      "parallel_path": true,
+      "upstream_us": 187.42,
+      "patched_us": 18.27,
+      "speedup": 10.257
+    },
+    {
+      "vocab": 151936,
+      "batch": 4,
+      "parallel_path": true,
+      "upstream_us": 176.45,
+      "patched_us": 24.32,
+      "speedup": 7.255
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "parallel_path": true,
+      "upstream_us": 180.16,
+      "patched_us": 36.67,
+      "speedup": 4.913
+    },
+    {
+      "vocab": 32000,
+      "batch": 2,
+      "parallel_path": true,
+      "upstream_us": 41.12,
+      "patched_us": 12.13,
+      "speedup": 3.391
+    },
+    {
+      "vocab": 32000,
+      "batch": 32,
+      "parallel_path": false,
+      "upstream_us": 56.35,
+      "patched_us": 55.55,
+      "speedup": 1.014
+    },
+    {
+      "vocab": 4096,
+      "batch": 8,
+      "parallel_path": false,
+      "upstream_us": 12.58,
+      "patched_us": 12.42,
+      "speedup": 1.013
+    }
+  ]
+}

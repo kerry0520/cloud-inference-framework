@@ -1,0 +1,13 @@
+{"vocab": 151936, "batch": 1, "parallel_path": true, "upstream_us": 121.92, "patched_us": 11.97, "speedup": 10.187}
+{"vocab": 151936, "batch": 2, "parallel_path": true, "upstream_us": 134.62, "patched_us": 15.14, "speedup": 8.894}
+{"vocab": 151936, "batch": 4, "parallel_path": true, "upstream_us": 125.98, "patched_us": 20.16, "speedup": 6.249}
+{"vocab": 151936, "batch": 8, "parallel_path": true, "upstream_us": 132.21, "patched_us": 32.27, "speedup": 4.097}
+{"vocab": 32000, "batch": 2, "parallel_path": true, "upstream_us": 30.91, "patched_us": 11.87, "speedup": 2.604}
+{"vocab": 32000, "batch": 32, "parallel_path": false, "upstream_us": 46.05, "patched_us": 45.97, "speedup": 1.002}
+{"vocab": 4096, "batch": 8, "parallel_path": false, "upstream_us": 10.59, "patched_us": 10.56, "speedup": 1.003}
+{
+  "state": "passed",
+  "correctness_cases": 96,
+  "parallel_cases": 21,
+  "fallback_cases": 75
+}
