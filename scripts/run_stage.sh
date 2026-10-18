@@ -21,6 +21,7 @@ case "$stage" in
     patch) script=verify_minp_patch.py; extra+=("--patch" "$project_dir/patches/0001-mrv2-min-p-two-stage.patch" "--patched" "$project_dir/patches/mrv2_min_p.py");;
     minp-patch-engine) script=minp_engine.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p.py" --patch "$project_dir/patches/0001-mrv2-min-p-two-stage.patch" --check-only);;
     abba) script=abba_patch.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p.py");;
+    abba-scale) script=abba_patch.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p.py" --batches 1,2,4,8);;
     roofline) script=roofline_model.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json");;
     figures) script=make_figures.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json" --results "$runtime_dir/results" --micro "$runtime_dir/results/minp-micro-20261017T070433Z/timing.jsonl");;
     *) exit 2;;

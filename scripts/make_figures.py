@@ -168,6 +168,70 @@ def figure_local_vs_request(summary, micro_path, path):
     svg.save(path)
 
 
+def figure_scaling(runs, path):
+    batches = [1, 2, 4, 8]
+    svg = Svg(700, 410, "Request-level saving dilutes as the decode step grows")
+    left, right, top, bottom = 92, 640, 60, 300
+    ymax, ymin = 0.4, -3.0
+
+    def px(batch):
+        index = batches.index(batch)
+        return left + 60 + index * (right - left - 60) / (len(batches) - 1)
+
+    def py(value):
+        return bottom - (value - ymin) / (ymax - ymin) * (bottom - top)
+
+    for value in (0.0, -0.5, -1.0, -1.5, -2.0, -2.5, -3.0):
+        y = py(value)
+        svg.line(left, y, right, y, "#e6e6e6" if value else "#999")
+        svg.text(left - 6, y + 4, f"{value:+.1f}%", size=10, anchor="end", fill="#555")
+    for batch in batches:
+        svg.text(px(batch), bottom + 18, f"batch {batch}", size=10, anchor="middle", fill="#555")
+    svg.text((left + right) / 2, bottom + 40, "decode saving vs upstream, paired rounds (95% CI)",
+             size=10, anchor="middle", fill="#555")
+
+    predicted = {}
+    for _label, summary in runs:
+        for entry in summary.get("summary", []):
+            decode_ms = entry.get("base_decode_ms_median") or entry.get("base_decode_ms")
+            if decode_ms is None:
+                details = entry.get("rounds_detail") or []
+                decode_ms = statistics.mean(row["base_decode_ms"] for row in details) if details else None
+            if decode_ms:
+                predicted[entry["batch"]] = -56.9 / (decode_ms * 1000) * 100
+    predicted = sorted(predicted.items())
+    if len(predicted) >= 2:
+        points = " ".join(f"{px(batch):.1f},{py(value):.1f}" for batch, value in predicted)
+        svg.parts.append(f'<polyline points="{points}" fill="none" stroke="#555" '
+                         f'stroke-width="1.4" stroke-dasharray="6,4"/>')
+        svg.text(px(predicted[-1][0]) - 6, py(predicted[-1][1]) - 10,
+                 "-56.9 us / decode step", size=10, anchor="end", fill="#555")
+
+    colours = ["#1f4e79", "#c0392b"]
+    for series, (label, summary) in enumerate(runs):
+        for entry in summary.get("summary", []):
+            stats = entry["decode_pct_of_paired_rounds"]
+            low, high = stats["ci95"]
+            x = px(entry["batch"]) + (series - 0.5) * 14
+            svg.line(x, py(max(low, -3.0)), x, py(min(high, 0.35)), colours[series], 2.0)
+            for edge in (low, high):
+                clipped = max(min(edge, 0.35), -3.0)
+                svg.line(x - 5, py(clipped), x + 5, py(clipped), colours[series], 2.0)
+            svg.circle(x, py(stats["median"]), 4.2, colours[series])
+        svg.rect(right - 150, top + series * 18 - 10, 12, 12, colours[series])
+        svg.text(right - 132, top + series * 18 + 1, label, size=10)
+    svg.save(path)
+
+
+def pick_abba(results_dir, prefix):
+    """Newest summary.json whose directory name starts with prefix."""
+    for directory in reversed(sorted(Path(results_dir).glob(prefix + "*"))):
+        candidate = directory / "summary.json"
+        if candidate.is_file():
+            return json.loads(candidate.read_text())
+    return None
+
+
 def latest(results_dir, pattern, filename):
     for directory in reversed(sorted(Path(results_dir).glob(pattern))):
         candidate = directory / filename
@@ -188,9 +252,13 @@ def main():
     figure_breakdown(json.loads(Path(args.attribution).read_text()), out / "step-breakdown.svg")
     figure_roofline(json.loads(latest(args.results, "roofline-*", "roofline.json").read_text()),
                     out / "bytes-vs-time.svg")
-    figure_local_vs_request(
-        json.loads(latest(args.results, "abba-*", "summary.json").read_text()), args.micro,
-        out / "local-vs-request.svg")
+    first = pick_abba(args.results, "abba-2026")
+    if first is not None:
+        figure_local_vs_request(first, args.micro, out / "local-vs-request.svg")
+    second = pick_abba(args.results, "abba-scale-2026")
+    if first is not None and second is not None:
+        figure_scaling([("run A (10-17)", first), ("run B (10-18)", second)],
+                       out / "saving-vs-batch.svg")
     print(json.dumps({"figures": sorted(p.name for p in out.glob("*.svg"))}))
 
 

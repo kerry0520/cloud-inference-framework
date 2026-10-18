@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="266" viewBox="0 0 860 266"><rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="190.0" y="48.0" width="160.6" height="19.0" fill="#a9bfd4" stroke="none" stroke-width="0.0" opacity="1.0"/>
+<text x="182.0" y="62.0" font-family="Segoe UI, Arial" font-size="12" text-anchor="end" fill="#111" font-weight="normal">attention</text>
+<text x="356.6" y="62.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#111" font-weight="normal">292 us  7.7%</text>
+<rect x="190.0" y="76.0" width="171.8" height="19.0" fill="#a9bfd4" stroke="none" stroke-width="0.0" opacity="1.0"/>
+<text x="182.0" y="90.0" font-family="Segoe UI, Arial" font-size="12" text-anchor="end" fill="#111" font-weight="normal">everything else</text>
+<text x="367.8" y="90.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#111" font-weight="normal">313 us  8.2%</text>
+<rect x="190.0" y="104.0" width="185.8" height="19.0" fill="#3f6f9f" stroke="none" stroke-width="0.0" opacity="1.0"/>
+<text x="182.0" y="118.0" font-family="Segoe UI, Arial" font-size="12" text-anchor="end" fill="#111" font-weight="normal">o_proj</text>
+<text x="381.8" y="118.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#111" font-weight="normal">338 us  8.9%</text>
+<rect x="190.0" y="132.0" width="289.6" height="19.0" fill="#3f6f9f" stroke="none" stroke-width="0.0" opacity="1.0"/>
+<text x="182.0" y="146.0" font-family="Segoe UI, Arial" font-size="12" text-anchor="end" fill="#111" font-weight="normal">down_proj</text>
+<text x="485.6" y="146.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#111" font-weight="normal">527 us  13.9%</text>
+<rect x="190.0" y="160.0" width="345.8" height="19.0" fill="#3f6f9f" stroke="none" stroke-width="0.0" opacity="1.0"/>
+<text x="182.0" y="174.0" font-family="Segoe UI, Arial" font-size="12" text-anchor="end" fill="#111" font-weight="normal">qkv_proj</text>
+<text x="541.8" y="174.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#111" font-weight="normal">629 us  16.6%</text>
+<rect x="190.0" y="188.0" width="425.5" height="19.0" fill="#3f6f9f" stroke="none" stroke-width="0.0" opacity="1.0"/>
+<text x="182.0" y="202.0" font-family="Segoe UI, Arial" font-size="12" text-anchor="end" fill="#111" font-weight="normal">lm_head</text>
+<text x="621.5" y="202.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#111" font-weight="normal">774 us  20.4%</text>
+<rect x="190.0" y="216.0" width="500.0" height="19.0" fill="#3f6f9f" stroke="none" stroke-width="0.0" opacity="1.0"/>
+<text x="182.0" y="230.0" font-family="Segoe UI, Arial" font-size="12" text-anchor="end" fill="#111" font-weight="normal">gate_up</text>
+<text x="696.0" y="230.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#111" font-weight="normal">910 us  24.0%</text>
+<text x="190.0" y="256.0" font-family="Segoe UI, Arial" font-size="11" text-anchor="start" fill="#555" font-weight="normal">total kernel time per step 3792 us (instrumented trace, batch 2)</text>
+<text x="430" y="26" font-family="Segoe UI, Arial" font-size="16" text-anchor="middle" fill="#111" font-weight="bold">Where a batch-2 decode step spends its time</text>
+</svg>
