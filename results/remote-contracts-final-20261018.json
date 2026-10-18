@@ -1,0 +1,15 @@
+{
+  "state": "passed",
+  "checks": [
+    "shell syntax for all six entry-point scripts",
+    "custom runtime, fresh result creation, unique names and copying",
+    "stage failure returns and preserves exact exit code",
+    "runtime equal to checkout avoids copying files onto themselves",
+    "dry-run does not execute; malformed flags and stages rejected",
+    "replication stops on first failed stage",
+    "facts-only and old-driver gate run without installing packages",
+    "model verifier rejects missing weights and existing corrupt files",
+    "fresh model download uses configured endpoint and verifies blob hashes",
+    "invalid decode length fails before importing GPU dependencies"
+  ]
+}

@@ -19,6 +19,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -26,7 +27,8 @@ import sys
 import traceback
 
 PINNED_SOURCE = (
-    "/opt/cloud-inference-framework/vllm-src/vllm/v1/worker/gpu/sample/min_p.py"
+    str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework"))
+        / "vllm-src/vllm/v1/worker/gpu/sample/min_p.py")
 )
 KERNELS = ("_min_p_kernel", "_min_p_partial_max", "_min_p_apply_threshold")
 FAST_WINDOW = {"max_rows": 8, "min_vocab": 32000}

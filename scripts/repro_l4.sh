@@ -4,8 +4,8 @@
 # Why this exists: every absolute number in this repository was measured on a
 # laptop RTX 5060 (8 GB, sm_120).  The structural claims -- the weight-byte
 # model, the lm_head share, the min-p saving, the KV-stream growth with context
-# -- should survive a different card, and the only honest way to show that is to
-# rerun the same stages somewhere else.  This script is that rerun, kept in the
+# -- are hypotheses on a different card, and the way to test them is to
+# rerun the same stages somewhere else. This script is that rerun, kept in the
 # repo so it costs one command instead of an afternoon.
 #
 # It does not install anything: prepare the host first with
@@ -15,7 +15,7 @@
 # CI_RUNTIME_DIR (the bootstrap script points it at a rented host's data disk).
 #
 # Usage:
-#   bash scripts/repro_l4.sh              # every stage, newest results win
+#   bash scripts/repro_l4.sh              # every stage, preserve every result
 #   bash scripts/repro_l4.sh --dry-run    # print the plan and the estimate
 #   STAGES="quant-probe quant-context" bash scripts/repro_l4.sh
 #
@@ -28,7 +28,12 @@ runtime_dir="${CI_RUNTIME_DIR:-/opt/cloud-inference-framework}"
 export CI_RUNTIME_DIR="$runtime_dir"
 run="$project_dir/scripts/run_stage.sh"
 dry_run=0
-[[ "${1:-}" == "--dry-run" ]] && dry_run=1
+for arg in "$@"; do
+    case "$arg" in
+        --dry-run) dry_run=1;;
+        *) printf 'unknown argument: %q\n' "$arg" >&2; exit 2;;
+    esac
+done
 
 # stage | expected minutes on the laptop | why it is here
 # Cheapest probes first, the two long paired runs last.  A 24 GB card is not
@@ -37,13 +42,21 @@ plan=(
     "preflight|1|environment facts and a real forward pass"
     "quant-probe|3|fp8 W8A8 availability and single-operator speed"
     "minp-sweep|6|BLOCK_SIZE / num_warps response of the min-p kernel"
-    "minp-compare|6|upstream vs two-launch patch vs launch knobs"
-    "quant-context|10|decode interval at 128 / 2048 / 8192 prompt tokens"
-    "quant-decode|12|same-process fp16 vs fp8 decode interval"
+    "minp-compare-f32|6|real-logits dtype: upstream vs launch knobs vs PR 58907"
+    "minp-compare|6|FP16 comparison"
     "abba-knob|25|paired end-to-end min-p saving at batch 1/2/4/8"
+    "quant-decode|12|same-process fp16 vs fp8 decode interval"
+    "quant-context|10|decode interval at 128 / 2048 / 8192 prompt tokens"
 )
 
 if [[ -n "${STAGES:-}" ]]; then
+    for requested in $STAGES; do
+        found=0
+        for row in "${plan[@]}"; do
+            [[ "${row%%|*}" == "$requested" ]] && found=1
+        done
+        (( found )) || { printf 'unknown stage: %s\n' "$requested" >&2; exit 2; }
+    done
     wanted=" $STAGES "
 else
     wanted=""
@@ -85,10 +98,11 @@ for stage in "${selected[@]}"; do
     if (( ok )); then
         printf '=== %s ok ===\n' "$stage"
     else
-        # A failed stage is data too: keep the directory and keep going, then
-        # report the whole list at the end.
+        # Keep failure evidence and stop before spending time on dependent work.
         printf '=== %s FAILED (kept) ===\n' "$stage"
         failed+=("$stage")
+        # Diagnose before spending paid GPU time on cascading failures.
+        break
     fi
 done
 

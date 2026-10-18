@@ -11,10 +11,10 @@ Everything is measured on identical tensors with two protocols:
   interleaved  variants rotate in a shuffled round-robin, each measurement
                launches the kernel 100 times back to back and divides, so the
                number is steady-state throughput with launches queued
-  cudagraph    Triton's do_bench_cudagraph (median), i.e. one launch per graph
-               replay with a synchronisation, closer to a single-kernel latency
+  cudagraph    Triton's do_bench_cudagraph (median), amortized time per call from
+               a graph containing many unrolled calls, with warm-cache reuse
 
-Both protocols are reported because they disagree at these sizes. Every variant
+Neither protocol measures an isolated cold-cache launch. Every variant
 is checked to produce byte-identical output before it is timed.
 """
 

@@ -22,7 +22,7 @@ def write_json(path, data):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", required=True)
-    parser.add_argument("--model", default="/opt/cloud-inference-framework/models/Qwen3-0.6B")
+    parser.add_argument("--model", default=str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "models/Qwen3-0.6B"))
     parser.add_argument("--batches", default="1,2,4,8")
     parser.add_argument("--input-tokens", type=int, default=128)
     parser.add_argument("--output-tokens", type=int, default=128)
@@ -53,7 +53,7 @@ def main():
                 "CUDA_VISIBLE_DEVICES", "CUDA_HOME", "MAX_JOBS", "TORCHINDUCTOR_COMPILE_THREADS"
             ) if k in os.environ},
             "source_commit": subprocess.check_output(
-                ["git", "-C", "/opt/cloud-inference-framework/vllm-src",
+                ["git", "-C", str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "vllm-src"),
                  "rev-parse", "HEAD"], text=True).strip(),
             "vllm_import": __import__("vllm").__file__,
         })

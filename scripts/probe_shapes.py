@@ -1,4 +1,5 @@
 import argparse
+import os
 import json
 from pathlib import Path
 import traceback
@@ -12,7 +13,7 @@ def main():
     out.mkdir(parents=True, exist_ok=False)
     try:
         from vllm import LLM, SamplingParams
-        llm = LLM(model="/opt/cloud-inference-framework/models/Qwen3-0.6B",
+        llm = LLM(model=str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "models/Qwen3-0.6B"),
                   dtype="float16", max_model_len=2048, max_num_seqs=8,
                   max_num_batched_tokens=2048, gpu_memory_utilization=0.65,
                   enable_prefix_caching=False, enforce_eager=True, seed=0,

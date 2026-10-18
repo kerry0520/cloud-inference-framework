@@ -1,0 +1,85 @@
+{
+  "scope": "local readiness only; no remote installation",
+  "files": [
+    {
+      "path": "compiler.txt",
+      "bytes": 211,
+      "sha256": "fc7ce0c80d28ed925fd490dc4e3915ce620fcf115f965189688c6f049243aad5"
+    },
+    {
+      "path": "contracts.json",
+      "bytes": 431,
+      "sha256": "1f2f846c81c944e14bef5febafa50cc50d2d1b4fdc13de8e286e52c2ccadb1cc"
+    },
+    {
+      "path": "engine-smoke/config.json",
+      "bytes": 693,
+      "sha256": "6c7e4ddad7c0c730628021dfdf44e876d93e4cb30aa710c59181186d2e474d47"
+    },
+    {
+      "path": "engine-smoke/status.json",
+      "bytes": 36,
+      "sha256": "19dfd2733d36c665bfdd093c14dfc2e8973ca15af3ca5bd0210bd7d1d9434769"
+    },
+    {
+      "path": "engine-smoke/summary.json",
+      "bytes": 1117,
+      "sha256": "3fc379fb5ce05ccc667547ecbbff292c666a1732dd621c921fe366b45b1731e4"
+    },
+    {
+      "path": "engine-smoke/timing.jsonl",
+      "bytes": 170,
+      "sha256": "d2f06f6e8fcaacebac9b966812b027295cb55241ecbc2df11a3585194047bf4e"
+    },
+    {
+      "path": "engine-smoke.log",
+      "bytes": 14284,
+      "sha256": "62b5b838f9d087570e29e1f505f837c8dd0cfe29d880287335c1fc034ee8b418"
+    },
+    {
+      "path": "fixture-results/preflight-20261018T151240Z-2YeYNC/compiler.txt",
+      "bytes": 211,
+      "sha256": "fc7ce0c80d28ed925fd490dc4e3915ce620fcf115f965189688c6f049243aad5"
+    },
+    {
+      "path": "fixture-results/preflight-20261018T151240Z-2YeYNC/gpu.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "fixture-results/preflight-20261018T151240Z-2YeYNC/gpu.log",
+      "bytes": 180,
+      "sha256": "bf6c4c7607941540e4502d55f51c91cd5072ec79d13630f1b23968a259052e05"
+    },
+    {
+      "path": "fixture-results/preflight-20261018T151240Z-2YeYNC/pin_memory.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "fixture-results/preflight-20261018T151240Z-2YeYNC/pin_memory.log",
+      "bytes": 103,
+      "sha256": "09436bb9772ba56af11db523f85547b8a2c56053790adf69c963241537233f0f"
+    },
+    {
+      "path": "fixture-results/preflight-20261018T151240Z-2YeYNC/sampler.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "fixture-results/preflight-20261018T151240Z-2YeYNC/sampler.log",
+      "bytes": 62,
+      "sha256": "c517e5dbcb5a95e26c613df75fa6af5a18496525605ebdf4ddd7982ba07b5975"
+    },
+    {
+      "path": "model-verification.json",
+      "bytes": 1719,
+      "sha256": "a7d15368dd69e8f957b8cd9a59d48fa8255652d64aa6dd32ad61127ddea72b41"
+    },
+    {
+      "path": "paths.txt",
+      "bytes": 76,
+      "sha256": "d542329707f8d41c01f62c377598bbbb46d73108d4b984ea3bdc6f85f8b56c0f"
+    }
+  ]
+}

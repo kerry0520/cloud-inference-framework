@@ -1,0 +1,8 @@
+Final-check reporting failure, 2026-10-18. This is a derived failure note,
+not a complete raw terminal log. Exit code observed: 1.
+
+check_remote_contract.py completed its assertions, then failed while writing
+the optional report: AttributeError: 'list' object has no attribute 'out'.
+The model-verification command list shadowed argparse's args variable.
+Fixed by naming that local list model_args. No model benchmark failed here.
+The later remote-contracts-final-20261018.json records the successful rerun.

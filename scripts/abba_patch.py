@@ -16,6 +16,7 @@ the filtered logits is established separately by the verify mode.
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import random
 import statistics
@@ -65,7 +66,7 @@ def main():
         import torch
         from vllm import LLM, SamplingParams
 
-        llm = LLM(model="/opt/cloud-inference-framework/models/Qwen3-0.6B",
+        llm = LLM(model=str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "models/Qwen3-0.6B"),
                   dtype="float16", max_model_len=2048, max_num_seqs=8,
                   max_num_batched_tokens=2048, gpu_memory_utilization=0.65,
                   enable_prefix_caching=False, seed=0, disable_log_stats=False,

@@ -1,8 +1,8 @@
 """Profile a decode step with fp16 and fp8 weights in one process, for a fair split.
 
-`quant_decode.py` shows the fp8 engine is 24--27% faster per token, not the ~40%
-the stage-five model predicts when every GEMM halves.  Two candidate explanations
-survive:
+`quant_decode.py` observed 24--27% lower mean decode intervals with FP8. The
+old ~40% forecast counted lm_head as quantized; it is withdrawn. Two relevant
+costs to inspect are:
 
   1. `lm_head` (20.4% of the step) is not quantised, so its 311 MB still stream in
      fp16 and cannot benefit;
@@ -20,11 +20,12 @@ This stage claims nothing about uninstrumented speed.
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 import traceback
 
-MODEL = "/opt/cloud-inference-framework/models/Qwen3-0.6B"
+MODEL = str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "models/Qwen3-0.6B")
 
 
 def write(path: Path, payload):

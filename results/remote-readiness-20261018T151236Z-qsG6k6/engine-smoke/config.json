@@ -1,0 +1,27 @@
+{
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "model": "/tmp/ci-remote-smoke-NF4ZXy/models/Qwen3-0.6B",
+  "arms": [
+    "fp16"
+  ],
+  "rounds": 1,
+  "batches": [
+    1
+  ],
+  "prompt_lens": [
+    32
+  ],
+  "max_tokens": 4,
+  "sampling": "greedy",
+  "gpu_fraction": 0.55,
+  "quantization_applied": {},
+  "boot_seconds": {},
+  "prediction": {
+    "reference": "stage-three instrumented trace; conditional estimate only",
+    "layer_gemm_share": 0.634,
+    "lm_head_share": 0.204,
+    "conditional_fp8_pct": -31.7,
+    "assumptions": "Only layer GEMM time halves; all other costs unchanged. W8A8 also changes kernels/fusion and adds activation quantization."
+  }
+}

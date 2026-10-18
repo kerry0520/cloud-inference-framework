@@ -6,10 +6,10 @@ enough to defend that claim, so this script performs an *intervention*: run the
 same engine, same model, same prompts twice -- once with fp16 weights, once with
 fp8 W8A8 weights (half the bytes) -- and compare the per-token decode interval.
 
-Prediction if the byte model is right (fp16 step 3.99 ms = 3.18 ms GEMM + 0.81 ms
-tail, GEMM share 83.8%): fp8 step ~ 1.59 + 0.81 = 2.40 ms, i.e. about -40%.
-Prediction if the step is instead limited by launch latency or instruction issue
-(the main competing explanation): the interval barely moves.
+Conditional prediction from the stage-three trace: layer GEMMs are 63.4% of
+kernel time (83.8% includes the unquantized lm_head). If only layer GEMM time
+halves, total kernel time falls 31.7%. This is not a request-time prediction:
+W8A8 changes kernels/fusion and adds activation quantization.
 
 fp8 changes numerics, so token ids are recorded for reference and never asserted;
 the numerical contract of a kernel is checked elsewhere, byte by byte.  Engines
@@ -21,13 +21,14 @@ import argparse
 import gc
 import hashlib
 import json
+import os
 from pathlib import Path
 import random
 import statistics
 import time
 import traceback
 
-MODEL = "/opt/cloud-inference-framework/models/Qwen3-0.6B"
+MODEL = str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "models/Qwen3-0.6B")
 
 
 def bootstrap_ci(values, iterations=10000, seed=0):
@@ -52,6 +53,8 @@ def main():
     parser.add_argument("--max-tokens", type=int, default=64)
     parser.add_argument("--gpu-fraction", type=float, default=0.55)
     args = parser.parse_args()
+    if args.max_tokens < 2 or args.rounds < 1:
+        parser.error("--max-tokens must be >=2 and --rounds >=1")
     out = Path(args.out).resolve()
     out.mkdir(parents=True, exist_ok=True)
     arms = [a.strip() for a in args.arms.split(",") if a.strip()]
@@ -89,6 +92,7 @@ def main():
             # handle is not enough, the child needs a moment to tear down its
             # weights and CUDA graphs.  Wait until the card really is free
             # again, otherwise the next arm boots into a half-empty card.
+            llm.llm_engine.engine_core.shutdown()
             del llm
             gc.collect()
             torch.cuda.synchronize()
@@ -101,6 +105,8 @@ def main():
                 time.sleep(0.5)
                 gc.collect()
                 torch.cuda.empty_cache()
+            else:
+                raise RuntimeError("Engine shutdown did not release at least 5 GiB within 30 seconds")
             gc.collect()
             torch.cuda.empty_cache()
 
@@ -119,10 +125,14 @@ def main():
             for output in outputs:
                 metrics = output.metrics
                 if metrics is None or getattr(metrics, "first_token_ts", None) is None:
-                    continue
+                    raise RuntimeError("Missing first-token metrics")
+                if len(output.outputs[0].token_ids) != args.max_tokens:
+                    raise RuntimeError("Unexpected output length")
                 intervals.append(1000 * (metrics.last_token_ts - metrics.first_token_ts)
                                  / (args.max_tokens - 1))
             ids = [list(output.outputs[0].token_ids) for output in outputs]
+            if len(intervals) != batch:
+                raise RuntimeError("Incomplete request metrics")
             return {"wall": wall, "intervals": intervals, "ids": ids}
 
         evidence = {
@@ -132,11 +142,13 @@ def main():
             "max_tokens": args.max_tokens, "sampling": "greedy",
             "gpu_fraction": args.gpu_fraction,
             "quantization_applied": {}, "boot_seconds": {},
-            "prediction": {"fp16_step_ms": 3.99, "gemm_share": 0.838,
-                           "tail_ms": 0.81,
-                           "fp8_expected_step_ms": 2.40,
-                           "fp8_expected_pct": -40.0,
-                           "note": "expectation from the stage-five roofline fit"},
+        }
+        evidence["prediction"] = {
+            "reference": "stage-three instrumented trace; conditional estimate only",
+            "layer_gemm_share": 0.634, "lm_head_share": 0.204,
+            "conditional_fp8_pct": -31.7,
+            "assumptions": ("Only layer GEMM time halves; all other costs unchanged. "
+                            "W8A8 also changes kernels/fusion and adds activation quantization."),
         }
         (out / "config.json").write_text(json.dumps(evidence, indent=2))
 
@@ -181,6 +193,9 @@ def main():
                         free(llm)
 
         summaries = []
+        expected_rows = args.rounds * len(arms) * len(batches) * len(prompt_lens)
+        if len(rows) != expected_rows:
+            raise RuntimeError(f"Incomplete measurement matrix: {len(rows)} / {expected_rows}; inspect timing.jsonl")
         for prompt_len in prompt_lens:
             for batch in batches:
                 usable = [r for r in rows if r.get("prompt_len") == prompt_len
@@ -198,7 +213,7 @@ def main():
                             and r["arm"] == arms[0] for v in r["decode_ms"]]
                     other = [v for r in usable if r["round"] == round_index
                              and r["arm"] == arms[-1] for v in r["decode_ms"]]
-                    if base and other:
+                    if len(arms) > 1 and base and other:
                         round_pcts.append(100 * (statistics.mean(other)
                                                  - statistics.mean(base))
                                           / statistics.mean(base))

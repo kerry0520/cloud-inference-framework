@@ -1,0 +1,2 @@
+fixture=/tmp/ci-remote-smoke-NF4ZXy
+existing=/opt/cloud-inference-framework

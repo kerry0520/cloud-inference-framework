@@ -2,8 +2,12 @@
 set -euo pipefail
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 runtime_dir="${CI_RUNTIME_DIR:-/opt/cloud-inference-framework}"
-export CUDA_HOME="$runtime_dir/cuda-toolkit"
-export PATH="$runtime_dir/.venv/bin:$CUDA_HOME/bin:$PATH"
+export CI_RUNTIME_DIR="$runtime_dir"
+if [[ -x "$runtime_dir/cuda-toolkit/bin/nvcc" ]]; then
+    export CUDA_HOME="$runtime_dir/cuda-toolkit"
+    export PATH="$CUDA_HOME/bin:$PATH"
+fi
+export PATH="$runtime_dir/.venv/bin:$PATH"
 export PYTHONPATH="$runtime_dir:$runtime_dir/scripts${PYTHONPATH:+:$PYTHONPATH}"
 export VLLM_WSL2_ENABLE_PIN_MEMORY=1
 export MAX_JOBS=2
@@ -35,19 +39,33 @@ case "$stage" in
     minp-compare-f32) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907.diff" --dtype float32);;
     *) exit 2;;
 esac
-name="$stage-$(date -u +%Y%m%dT%H%M%SZ)"
-out="$runtime_dir/results/$name"
-cp "$project_dir/scripts/"*.py "$runtime_dir/scripts/"
+if [[ "$stage" == quant-family ]]; then
+    extra+=("${@:3}")
+else
+    extra+=("${@:2}")
+fi
+mkdir -p "$runtime_dir/results" "$runtime_dir/scripts" "$project_dir/results"
+out="$(mktemp -d "$runtime_dir/results/$stage-$(date -u +%Y%m%dT%H%M%SZ)-XXXXXX")"
+# Python runners create their output with exist_ok=False. Release only this
+# newly reserved empty directory, retaining the random suffix in the name.
+rmdir "$out"
+if [[ "$(realpath "$project_dir/scripts")" != "$(realpath "$runtime_dir/scripts")" ]]; then
+    cp "$project_dir/scripts/"*.py "$runtime_dir/scripts/"
+fi
 mkdir -p "$runtime_dir/kernels"
-cp "$project_dir/kernels/"*.py "$runtime_dir/kernels/"
+if [[ "$(realpath "$project_dir/kernels")" != "$(realpath "$runtime_dir/kernels")" ]]; then
+    cp "$project_dir/kernels/"*.py "$runtime_dir/kernels/"
+fi
 set +e
 "$runtime_dir/.venv/bin/python" "$runtime_dir/scripts/$script" --out "$out" "${extra[@]}" \
     > "$out.log" 2>&1
 code=$?
 set -e
 printf '%s\n' "$code" > "$out.exitcode"
-if [[ -d "$out" ]]; then cp -r "$out" "$project_dir/results/"; fi
-cp "$out.log" "$out.exitcode" "$project_dir/results/"
+if [[ "$(realpath "$runtime_dir")" != "$(realpath "$project_dir")" ]]; then
+    if [[ -d "$out" ]]; then cp -r "$out" "$project_dir/results/"; fi
+    cp "$out.log" "$out.exitcode" "$project_dir/results/"
+fi
 tail -n 20 "$out.log"
 printf 'RESULT=%s EXIT=%s\n' "$out" "$code"
 exit "$code"

@@ -2,14 +2,18 @@
 set -euo pipefail
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 runtime_dir="${CI_RUNTIME_DIR:-/opt/cloud-inference-framework}"
-export CUDA_HOME="$runtime_dir/cuda-toolkit"
-export PATH="$runtime_dir/.venv/bin:$CUDA_HOME/bin:$PATH"
+if [[ -x "$runtime_dir/cuda-toolkit/bin/nvcc" ]]; then
+    export CUDA_HOME="$runtime_dir/cuda-toolkit"
+    export PATH="$CUDA_HOME/bin:$PATH"
+fi
+export PATH="$runtime_dir/.venv/bin:$PATH"
 export VLLM_WSL2_ENABLE_PIN_MEMORY=1
 export MAX_JOBS=2
-run_name="preflight-$(date -u +%Y%m%dT%H%M%SZ)"
-out="$runtime_dir/results/$run_name"
-mkdir "$out"
-cp "$project_dir/scripts/"*.py "$runtime_dir/scripts/"
+mkdir -p "$runtime_dir/results" "$runtime_dir/scripts" "$project_dir/results"
+out="$(mktemp -d "$runtime_dir/results/preflight-$(date -u +%Y%m%dT%H%M%SZ)-XXXXXX")"
+if [[ "$(realpath "$project_dir/scripts")" != "$(realpath "$runtime_dir/scripts")" ]]; then
+    cp "$project_dir/scripts/"*.py "$runtime_dir/scripts/"
+fi
 if command -v nvcc >/dev/null 2>&1; then
     nvcc --version > "$out/compiler.txt"
 else
@@ -31,5 +35,8 @@ for check in gpu pin_memory sampler; do
     tail -n 8 "$out/$check.log"
     if [[ "$code" != 0 ]]; then run_code=$code; break; fi
 done
-cp -r "$out" "$project_dir/results/"
+printf '%s\n' "$run_code" > "$out/exitcode"
+if [[ "$(realpath "$runtime_dir")" != "$(realpath "$project_dir")" ]]; then
+    cp -r "$out" "$project_dir/results/"
+fi
 exit "$run_code"

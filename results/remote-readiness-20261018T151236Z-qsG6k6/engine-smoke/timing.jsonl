@@ -1,0 +1,1 @@
+{"round": 0, "arm": "fp16", "batch": 1, "prompt_len": 32, "wall_seconds": 0.02726758199997903, "decode_ms": [4.592330999997785], "output_ids": [[14582, 198, 32313, 11]]}

@@ -1,6 +1,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import statistics
@@ -32,7 +33,7 @@ def main():
             shutil.copyfile(min_p.__file__, out / "candidate.py")
         shutil.copyfile(__file__, out / "runner.py")
         shutil.copyfile(Path(__file__).with_name("project_worker.py"), out / "worker.py")
-        llm = LLM(model="/opt/cloud-inference-framework/models/Qwen3-0.6B",
+        llm = LLM(model=str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "models/Qwen3-0.6B"),
                   dtype="float16", max_model_len=2048, max_num_seqs=8,
                   max_num_batched_tokens=2048, gpu_memory_utilization=0.65,
                   enable_prefix_caching=False, seed=0, disable_log_stats=False,
