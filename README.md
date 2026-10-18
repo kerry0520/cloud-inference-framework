@@ -6,7 +6,7 @@
 
 副目标交付：`patches/0001-mrv2-min-p-two-stage.patch`（147 行纯增量）把 Triton min-p 两阶段过滤打进 pinned 上游的 `vllm/v1/worker/gpu/sample/min_p.py`，派发窗口为 rows 1–8 且 vocab≥32000。补丁通过 96 组逐字节对照、边界探针、真实 MRV2 logits 4 次一致，真实路径 3,107 次调用全部走新内核（`_min_p_kernel` 0 次）；见[第四阶段记录](docs/第四阶段min-p框架补丁-20261017.md)。
 
-- 自有脚本和结果入口：本目录。
+- 自有脚本和结果入口：本目录；远端仓库（private）`https://github.com/kerry0520/cloud-inference-framework`，分支 `main`。
 - WSL 运行环境：`/opt/cloud-inference-framework`；上游源码独立位于其 `vllm-src/`，未修改。
 - 初选版本：vLLM `0.31.0`，源码提交 `db9527a46873454610df6dbedf79a36d6bf1a7f6`。
 - 模型：Qwen/Qwen3-0.6B，revision `c1899de289a04d12100db370d81485cdf75e47ca`。
