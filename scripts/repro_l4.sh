@@ -8,12 +8,11 @@
 # rerun the same stages somewhere else.  This script is that rerun, kept in the
 # repo so it costs one command instead of an afternoon.
 #
-# It does not install anything.  Prepare the host first (see
-# docs/环境与复现.md): Ubuntu 24.04, CUDA 13 toolchain, python 3.12, then
-#   python3.12 -m venv /opt/cloud-inference-framework/.venv
-#   /opt/cloud-inference-framework/.venv/bin/pip install vllm==0.31.0
-#   # Qwen3-0.6B into /opt/cloud-inference-framework/models/Qwen3-0.6B
-#   # this checkout's scripts/ and kernels/ into /opt/cloud-inference-framework/
+# It does not install anything: prepare the host first with
+#   bash scripts/remote_bootstrap.sh      # venv, vLLM, model, pinned vllm-src
+# which is what docs/远程GPU租用与迁移-20261018.md walks through.  The runtime
+# directory defaults to /opt/cloud-inference-framework and can be moved with
+# CI_RUNTIME_DIR (the bootstrap script points it at a rented host's data disk).
 #
 # Usage:
 #   bash scripts/repro_l4.sh              # every stage, newest results win
@@ -25,6 +24,8 @@
 set -uo pipefail
 
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+runtime_dir="${CI_RUNTIME_DIR:-/opt/cloud-inference-framework}"
+export CI_RUNTIME_DIR="$runtime_dir"
 run="$project_dir/scripts/run_stage.sh"
 dry_run=0
 [[ "${1:-}" == "--dry-run" ]] && dry_run=1
@@ -65,7 +66,7 @@ done
 
 printf 'stages: %s\n' "${selected[*]}"
 printf 'estimated wall clock: about %d min on the laptop\n' "$total"
-printf 'results land in /opt/cloud-inference-framework/results/<stage>-<utc>/\n'
+printf 'results land in %s/results/<stage>-<utc>/\n' "$runtime_dir"
 if (( dry_run )); then
     exit 0
 fi
@@ -94,7 +95,7 @@ done
 printf '\n--- summary ---\n'
 if (( ${#failed[@]} )); then
     printf 'failed: %s\n' "${failed[*]}"
-    printf 'kept directories: /opt/cloud-inference-framework/results/<stage>-<utc>/\n'
+    printf 'kept directories: %s/results/<stage>-<utc>/\n' "$runtime_dir"
     exit 1
 fi
 printf 'all %d stages passed\n' "${#selected[@]}"

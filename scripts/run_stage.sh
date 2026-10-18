@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-runtime_dir=/opt/cloud-inference-framework
+runtime_dir="${CI_RUNTIME_DIR:-/opt/cloud-inference-framework}"
 export CUDA_HOME="$runtime_dir/cuda-toolkit"
 export PATH="$runtime_dir/.venv/bin:$CUDA_HOME/bin:$PATH"
 export PYTHONPATH="$runtime_dir:$runtime_dir/scripts${PYTHONPATH:+:$PYTHONPATH}"
