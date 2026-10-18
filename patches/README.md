@@ -8,6 +8,10 @@
 | --- | --- |
 | `0001-mrv2-min-p-two-stage.patch` | 统一 diff，目标 `vllm/v1/worker/gpu/sample/min_p.py`（index `b71ae6f..d0cb01e`） |
 | `mrv2_min_p.py` | 打补丁后的完整文件，用于审阅和直接替换；与 apply 补丁的结果逐字节相同（sha256 `a4da6ec1…`） |
+| `0002-mrv2-min-p-launch-knobs.patch` | 两行版本：只把 `BLOCK_SIZE` 改成 16384、加 `num_warps=16`，无派发逻辑 |
+| `mrv2_min_p_knob.py` | 两行版本的完整文件（sha256 `a17b0b8f…`） |
+
+两行版本是给上游准备的形态：大词表 batch 1–8 为 3.5–4.2×、batch 32/64/256 不退化、小词表持平，引擎内 decode −0.77%~−0.80%（约为两阶段版本的 2/3–3/4）。取舍见 `docs/上游PR可行性-20261018.md`。
 
 ## 应用与回滚
 

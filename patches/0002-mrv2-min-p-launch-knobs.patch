@@ -1,0 +1,19 @@
+diff --git a/vllm/v1/worker/gpu/sample/min_p.py b/vllm/v1/worker/gpu/sample/min_p.py
+index b71ae6f..4053db2 100644
+--- a/vllm/v1/worker/gpu/sample/min_p.py
++++ b/vllm/v1/worker/gpu/sample/min_p.py
+@@ -49,7 +49,7 @@ def apply_min_p(
+     logits: torch.Tensor, expanded_idx_mapping: torch.Tensor, min_p: torch.Tensor
+ ) -> None:
+     num_tokens, vocab_size = logits.shape
+-    BLOCK_SIZE = 1024
++    BLOCK_SIZE = 16384
+     _min_p_kernel[(num_tokens,)](
+         logits,
+         logits.stride(0),
+@@ -57,4 +57,5 @@ def apply_min_p(
+         min_p,
+         vocab_size,
+         BLOCK_SIZE=BLOCK_SIZE,
++        num_warps=16,
+     )

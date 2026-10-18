@@ -6,13 +6,15 @@
 
 副目标交付：`patches/0001-mrv2-min-p-two-stage.patch`（147 行纯增量）把 Triton min-p 两阶段过滤打进 pinned 上游的 `vllm/v1/worker/gpu/sample/min_p.py`，派发窗口为 rows 1–8 且 vocab≥32000。补丁通过 96 组逐字节对照、边界探针、真实 MRV2 logits 4 次一致，真实路径 3,107 次调用全部走新内核（`_min_p_kernel` 0 次）；见[第四阶段记录](docs/第四阶段min-p框架补丁-20261017.md)。
 
-- 自有脚本和结果入口：本目录；远端仓库（private）`https://github.com/kerry0520/cloud-inference-framework`，分支 `main`。
+上游形态另有一个更小的版本：`patches/0002-mrv2-min-p-launch-knobs.patch` 只把上游内核的 `BLOCK_SIZE` 改成 16384、加 `num_warps=16`，本机大词表 batch 1–8 拿 3.5–4.2×、32/64/256 不退化，引擎内 decode −0.77%~−0.80%。如果只为上游准备补丁，这个两行版本比 147 行版本更可能被接受；评估见[上游 PR 可行性](docs/上游PR可行性-20261018.md)。
+
+- 自有脚本和结果入口：本目录；远端仓库 `https://github.com/kerry0520/cloud-inference-framework`（public），分支 `main`。
 - WSL 运行环境：`/opt/cloud-inference-framework`；上游源码独立位于其 `vllm-src/`，未修改。
 - 初选版本：vLLM `0.31.0`，源码提交 `db9527a46873454610df6dbedf79a36d6bf1a7f6`。
 - 模型：Qwen/Qwen3-0.6B，revision `c1899de289a04d12100db370d81485cdf75e47ca`。
 - 学习入口：[连续学习记录](docs/连续学习记录.md)。
 - Agent 接手入口：[当前交接](docs/当前交接.md)；每轮先读 AGENTS.md，结束前更新交接并保存本地 Git 检查点。
-- 当前结果与下一步：[第一阶段记录](docs/第一阶段结果与续做-20261017.md)；逐层归因见[第三阶段记录](docs/第三阶段逐层归因与带宽对照-20261017.md)；min-p 补丁见[第四阶段记录](docs/第四阶段min-p框架补丁-20261017.md)与 `patches/README.md`；端到端配对与带宽模型见[第五阶段记录](docs/第五阶段端到端配对与带宽模型-20261017.md)。
+- 当前结果与下一步：[第一阶段记录](docs/第一阶段结果与续做-20261017.md)；逐层归因见[第三阶段记录](docs/第三阶段逐层归因与带宽对照-20261017.md)；min-p 补丁见[第四阶段记录](docs/第四阶段min-p框架补丁-20261017.md)与 `patches/README.md`；端到端配对与带宽模型见[第五阶段记录](docs/第五阶段端到端配对与带宽模型-20261017.md)；上游 PR 可行性见[评估记录](docs/上游PR可行性-20261018.md)。
 - 运行方法：[环境与复现](docs/环境与复现.md)。
 
 准备环境与结果以阶段记录为准，不把安装成功写作推理通过，不把本机结果推广到服务器。基线脚本的 wall 时间包含 prefill 和引擎处理；带 profiler 的记录不用于速度承诺。

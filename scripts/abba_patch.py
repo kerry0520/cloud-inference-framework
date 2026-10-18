@@ -171,9 +171,16 @@ def main():
                     if arm == "patched":
                         kernels = stats[0].get("kernels", {})
                         assert stats[0]["calls"] > 0, stats
-                        assert kernels.get("_min_p_partial_max", 0) > 0, stats
-                        assert kernels.get("_min_p_apply_threshold", 0) > 0, stats
-                        assert kernels.get("_min_p_kernel", 0) == 0, stats
+                        if kernels.get("_min_p_partial_max", 0) or kernels.get(
+                            "_min_p_apply_threshold", 0
+                        ):
+                            assert kernels.get("_min_p_partial_max", 0) > 0, stats
+                            assert kernels.get("_min_p_apply_threshold", 0) > 0, stats
+                            assert kernels.get("_min_p_kernel", 0) == 0, stats
+                        else:
+                            # Knob-only variant: the upstream kernel still runs,
+                            # just with a wider block and more warps.
+                            assert kernels.get("_min_p_kernel", 0) > 0, stats
 
         summaries = []
         for batch in batches:

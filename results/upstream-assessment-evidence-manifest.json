@@ -1,0 +1,66 @@
+{
+    "generated_utc":  "2026-10-18T05:17:16Z",
+    "note":  "Eighth-stage evidence: two-row launch-knob variant for upstream (patches/0002 + mrv2_min_p_knob.py), the parameter sweep that selected it (minp-sweep-20261018T051134Z), and its in-engine paired ABBA run (abba-knob-20261018T051230Z, 24 rounds, batch 1/2/4/8). Superseded sweep protocol dirs were deleted; see docs/当前交接.md.",
+    "files":  [
+                  {
+                      "path":  "patches/0002-mrv2-min-p-launch-knobs.patch",
+                      "bytes":  630,
+                      "sha256":  "ba11304f241470112842ace51aafb1a5c5f3ba20c7007a3c1dc7680ada950f11"
+                  },
+                  {
+                      "path":  "patches/mrv2_min_p_knob.py",
+                      "bytes":  1797,
+                      "sha256":  "a17b0b8fdb025308b8dcbf2f01b8bcc9eb9c4c30b3a881a545bfba23745e75d0"
+                  },
+                  {
+                      "path":  "results/minp-sweep-20261018T051134Z/sweep.json",
+                      "bytes":  27048,
+                      "sha256":  "eec11c9826cb5dc942244556d9bf786979fc2c74b7cebee4748c15337bb833a2"
+                  },
+                  {
+                      "path":  "results/minp-sweep-20261018T051134Z.log",
+                      "bytes":  9290,
+                      "sha256":  "c63b825ff7194db68f5b63ee2b1cb0418c79936b44236a2505b7f705dc8e4dc8"
+                  },
+                  {
+                      "path":  "results/minp-sweep-20261018T051134Z.exitcode",
+                      "bytes":  2,
+                      "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z/config.json",
+                      "bytes":  457,
+                      "sha256":  "5738d9da24afdbdd6275f423a02c16d76fbcb842786e96b03156d229b3860764"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z/timing.jsonl",
+                      "bytes":  614451,
+                      "sha256":  "1d02b85985aa2e50039a23ee3883535148671dd5df7e6f78f95a2f319418f47a"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z/summary.json",
+                      "bytes":  37369,
+                      "sha256":  "c24b60e67a0609dec85cfdac28e11e353fa66a22d05c244efc1cfe2575a97795"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z/equivalence.json",
+                      "bytes":  72444,
+                      "sha256":  "800e0fe3730e460f2da195bdb18c8e60b81b12f73d2a63aba18eed3d7b55fcb5"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z/status.json",
+                      "bytes":  132,
+                      "sha256":  "f29ff22a8b0c5a74351aab47bba0e69705d753d7f89a805642da2f7e9ab469dc"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z.log",
+                      "bytes":  72808,
+                      "sha256":  "1755e2be9dbc6dd04ab4ad58e738d78802242f161966fcb09af5315dc1a4e978"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z.exitcode",
+                      "bytes":  2,
+                      "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  }
+              ]
+}
