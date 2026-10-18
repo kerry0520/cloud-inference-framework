@@ -1,0 +1,85 @@
+{
+  "state": "passed",
+  "captured": [
+    {
+      "arm": "fp16",
+      "quantization_applied": "None",
+      "output_token_ids": [
+        [
+          14582,
+          198,
+          14582,
+          25,
+          715,
+          14582,
+          25,
+          715,
+          14582,
+          25,
+          715,
+          14582
+        ],
+        [
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582
+        ]
+      ],
+      "traces": [
+        "/opt/cloud-inference-framework/results/quant-profile-20261018T090919Z/fp16/traces/fp16_rank0.1792314587420972908.pt.trace.json.gz"
+      ],
+      "trace_sha256": {
+        "fp16_rank0.1792314587420972908.pt.trace.json.gz": "53d40c5429e3455e33f1f49eb7c4d97c96faa20077ca277b202e9e4fd618cfcd"
+      }
+    },
+    {
+      "arm": "fp8",
+      "quantization_applied": "fp8",
+      "output_token_ids": [
+        [
+          38297,
+          198,
+          55291,
+          25,
+          715,
+          55291,
+          25,
+          5209,
+          4226,
+          279,
+          2701,
+          3405
+        ],
+        [
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582,
+          14582
+        ]
+      ],
+      "traces": [
+        "/opt/cloud-inference-framework/results/quant-profile-20261018T090919Z/fp8/traces/fp8_rank0.1792314611812972356.pt.trace.json.gz"
+      ],
+      "trace_sha256": {
+        "fp8_rank0.1792314611812972356.pt.trace.json.gz": "2af064fa2ff1da1cf656a3753107dd46e68cb3b885a9175ec764d19cfe272490"
+      }
+    }
+  ]
+}

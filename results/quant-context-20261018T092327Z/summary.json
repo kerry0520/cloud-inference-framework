@@ -1,0 +1,120 @@
+{
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "arms": [
+    "fp16"
+  ],
+  "rounds": 2,
+  "batches": [
+    1,
+    2
+  ],
+  "prompt_lens": [
+    128,
+    2048,
+    8192
+  ],
+  "max_tokens": 64,
+  "sampling": "greedy",
+  "gpu_fraction": 0.62,
+  "quantization_applied": {
+    "fp16": "None"
+  },
+  "boot_seconds": {
+    "fp16": [
+      18.141433069999948,
+      20.358682794999936
+    ]
+  },
+  "prediction": {
+    "fp16_step_ms": 3.99,
+    "gemm_share": 0.838,
+    "tail_ms": 0.81,
+    "fp8_expected_step_ms": 2.4,
+    "fp8_expected_pct": -40.0,
+    "note": "expectation from the stage-five roofline fit"
+  },
+  "summary": [
+    {
+      "prompt_len": 128,
+      "batch": 1,
+      "per_arm": {
+        "fp16": 4.125661309524095
+      },
+      "round_paired_pct": [
+        0.0,
+        0.0
+      ],
+      "paired_pct_median": 0.0,
+      "paired_pct_ci95": null
+    },
+    {
+      "prompt_len": 128,
+      "batch": 2,
+      "per_arm": {
+        "fp16": 4.329932333334115
+      },
+      "round_paired_pct": [
+        0.0,
+        0.0
+      ],
+      "paired_pct_median": 0.0,
+      "paired_pct_ci95": null
+    },
+    {
+      "prompt_len": 2048,
+      "batch": 1,
+      "per_arm": {
+        "fp16": 4.867141134920551
+      },
+      "round_paired_pct": [
+        0.0,
+        0.0
+      ],
+      "paired_pct_median": 0.0,
+      "paired_pct_ci95": null
+    },
+    {
+      "prompt_len": 2048,
+      "batch": 2,
+      "per_arm": {
+        "fp16": 5.665888936508934
+      },
+      "round_paired_pct": [
+        0.0,
+        0.0
+      ],
+      "paired_pct_median": 0.0,
+      "paired_pct_ci95": null
+    },
+    {
+      "prompt_len": 8192,
+      "batch": 1,
+      "per_arm": {
+        "fp16": 6.844533563492311
+      },
+      "round_paired_pct": [
+        0.0,
+        0.0
+      ],
+      "paired_pct_median": 0.0,
+      "paired_pct_ci95": null
+    },
+    {
+      "prompt_len": 8192,
+      "batch": 2,
+      "per_arm": {
+        "fp16": 9.28734362698454
+      },
+      "round_paired_pct": [
+        0.0,
+        0.0
+      ],
+      "paired_pct_median": 0.0,
+      "paired_pct_ci95": null
+    }
+  ],
+  "timing_sha256": "0de513a7b634757f9ccbf5ed5cde21dd83f0b79174f740ea768fe795ba84691c",
+  "timing_rows": 12
+}

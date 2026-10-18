@@ -90,12 +90,52 @@ def classify(name):
     return "other"
 
 
+def family(name):
+    """Coarse kernel family, safe when the sequence differs between variants.
+
+    The fp8 engine adds activation-quantisation kernels and uses a different GEMM
+    implementation, so the 13-kernel layer block no longer holds position by
+    position.  Grouping by family keeps the comparison honest: no role is assumed
+    from position, only from the launched kernel.
+
+    Order matters.  `reshape_and_cache_flash_kernel` mentions
+    `Fp8KVCacheDataType`, and the quantisation kernels mention `cutlass_scaled_mm`,
+    so both cache and quantisation are classified before the GEMM rules.
+    """
+    low = name.lower()
+    if "flash_fwd_splitkv_kernel" in name:
+        return "attention"
+    if "flash_fwd_splitkv_combine" in name:
+        return "attention_combine"
+    if "reshape_and_cache" in name:
+        return "kv_cache_write"
+    if "nvjet" in low or "e4m3" in low:
+        return "gemm_fp8"
+    if "cutlass" in low and "gemm" in low:
+        return "gemm_fp16"
+    if "triton_" in low and ("scaled_mm" in low or "_to_copy" in low):
+        return "quantize"
+    if "add_rms_norm" in name or "embedding_rms_norm" in name:
+        return "rms_norm"
+    if any(tag in low for tag in ("_bias_kernel", "_gumbel", "reduce_kernel",
+                                  "scatter_gather", "_post_update",
+                                  "_get_num_sampled")):
+        return "sampler"
+    if "silu" in low:
+        return "silu_mul"
+    if "red_fused_1" in name or "red_fused_3" in name:
+        return "rotary"
+    return "other"
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("root", type=Path)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--dump", action="store_true",
                         help="print every kernel of the modal step")
+    parser.add_argument("--by-family", action="store_true",
+                        help="aggregate by kernel family instead of role positions")
     args = parser.parse_args()
 
     events = load_events(args.root)
@@ -119,6 +159,67 @@ def main():
     modal = collections.Counter(len(w) for w in per_step).most_common(1)[0][0]
     kept = [w for w in per_step if len(w) == modal]
     dropped = [len(w) for w in per_step if len(w) != modal]
+
+    if args.by_family:
+        families = collections.defaultdict(lambda: {"kernels": 0, "total_us": 0.0,
+                                                    "max_us": 0.0, "max_name": ""})
+        name_counts = collections.Counter()
+        name_us = collections.Counter()
+        for window in kept:
+            for k in window:
+                fam = family(k["name"])
+                bucket = families[fam]
+                bucket["kernels"] += 1
+                bucket["total_us"] += k["dur"]
+                if k["dur"] > bucket["max_us"]:
+                    bucket["max_us"] = k["dur"]
+                    bucket["max_name"] = k["name"]
+                name_counts[k["name"]] += 1
+                name_us[k["name"]] += k["dur"]
+        per_family = {
+            fam: {"kernels_per_step": v["kernels"] / len(kept),
+                  "us_per_step": v["total_us"] / len(kept),
+                  "mean_us": v["total_us"] / v["kernels"],
+                  "max_us": v["max_us"],
+                  "max_kernel": v["max_name"][:120]}
+            for fam, v in families.items()
+        }
+        top = [{"name": n, "kernels_per_step": c / len(kept),
+                "us_per_step": name_us[n] / len(kept)}
+               for n, c in name_counts.most_common(12)]
+        result = {
+            "scope": ("Steady-state decodes of one instrumented trace; kernel "
+                      "families only, no role positions assumed"),
+            "trace_root": str(args.root),
+            "annotation_steps": len(steps),
+            "steady_windows": len(windows),
+            "modal_kernels_per_step": modal,
+            "kept_steps": len(kept),
+            "dropped_step_kernel_counts": dropped,
+            "per_family": per_family,
+            "top_kernels": top,
+        }
+        args.out.mkdir(parents=True, exist_ok=True)
+        (args.out / "families.json").write_text(
+            json.dumps(result, indent=2), encoding="utf-8")
+        print(json.dumps({k: result[k] for k in
+                          ("steady_windows", "modal_kernels_per_step", "kept_steps",
+                           "dropped_step_kernel_counts")}, indent=2))
+        print(f"{'family':18s} {'n/step':>7s} {'mean_us':>9s} {'max_us':>8s} {'us/step':>10s}")
+        for fam, v in sorted(per_family.items(), key=lambda kv: -kv[1]["us_per_step"]):
+            print(f"{fam:18s} {v['kernels_per_step']:7.1f} {v['mean_us']:9.2f} "
+                  f"{v['max_us']:8.2f} {v['us_per_step']:10.2f}")
+        print("top kernels by us/step:")
+        for entry in top:
+            print(f"  {entry['us_per_step']:9.1f}us {entry['kernels_per_step']:5.1f}/step "
+                  f"{entry['name'][:78]}")
+        if args.dump:
+            reference_names = [k["name"] for k in kept[0]]
+            for idx, name in enumerate(reference_names):
+                dur = statistics.mean(w[idx]["dur"] for w in kept)
+                print(f"{idx:4d} {family(name):18s} {dur:8.2f}us {name[:90]}")
+        return
+
     same_seq = all([classify(k["name"]) for k in w] ==
                    [classify(k["name"]) for k in kept[0]] for w in kept)
     assert same_seq, "kept steps do not share a kernel sequence"

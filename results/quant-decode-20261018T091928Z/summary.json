@@ -1,0 +1,103 @@
+{
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "arms": [
+    "fp16",
+    "fp8"
+  ],
+  "rounds": 3,
+  "batches": [
+    1,
+    2,
+    4
+  ],
+  "prompt_lens": [
+    128
+  ],
+  "max_tokens": 64,
+  "sampling": "greedy",
+  "gpu_fraction": 0.55,
+  "quantization_applied": {
+    "fp16": "None",
+    "fp8": "fp8"
+  },
+  "boot_seconds": {
+    "fp16": [
+      36.042832894000014,
+      21.942899189999935,
+      20.99708736699995
+    ],
+    "fp8": [
+      49.48036259700001,
+      21.87194475800004,
+      23.064655582
+    ]
+  },
+  "prediction": {
+    "fp16_step_ms": 3.99,
+    "gemm_share": 0.838,
+    "tail_ms": 0.81,
+    "fp8_expected_step_ms": 2.4,
+    "fp8_expected_pct": -40.0,
+    "note": "expectation from the stage-five roofline fit"
+  },
+  "summary": [
+    {
+      "prompt_len": 128,
+      "batch": 1,
+      "per_arm": {
+        "fp16": 4.088665523809935,
+        "fp8": 3.0402420634923075
+      },
+      "round_paired_pct": [
+        -25.515288593647224,
+        -25.70605176849952,
+        -25.796440271262522
+      ],
+      "paired_pct_median": -25.70605176849952,
+      "paired_pct_ci95": [
+        -25.796440271262522,
+        -25.515288593647224
+      ]
+    },
+    {
+      "prompt_len": 128,
+      "batch": 2,
+      "per_arm": {
+        "fp16": 4.445682349206609,
+        "fp8": 3.2650775238088108
+      },
+      "round_paired_pct": [
+        -26.235584665784398,
+        -26.556211907683707,
+        -27.416378505677702
+      ],
+      "paired_pct_median": -26.556211907683707,
+      "paired_pct_ci95": [
+        -27.416378505677702,
+        -26.235584665784398
+      ]
+    },
+    {
+      "prompt_len": 128,
+      "batch": 4,
+      "per_arm": {
+        "fp16": 4.374642198413204,
+        "fp8": 3.2705771111117037
+      },
+      "round_paired_pct": [
+        -24.985906530412134,
+        -24.851728418079237,
+        -26.662476426384284
+      ],
+      "paired_pct_median": -24.985906530412134,
+      "paired_pct_ci95": [
+        -26.662476426384284,
+        -24.851728418079237
+      ]
+    }
+  ],
+  "timing_sha256": "ec10b74bdada9a262ae11ceaafca090ce4f196cc7e73f3c3acba3353046011d5",
+  "timing_rows": 18
+}

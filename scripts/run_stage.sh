@@ -27,6 +27,11 @@ case "$stage" in
     figures) script=make_figures.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json" --results "$runtime_dir/results" --micro "$runtime_dir/results/minp-micro-20261017T070433Z/timing.jsonl");;
     minp-sweep) script=minp_param_sweep.py; extra+=(--patched "$project_dir/patches/mrv2_min_p.py");;
     minp-compare) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907.diff");;
+    quant-probe) script=quant_probe.py;;
+    quant-decode) script=quant_decode.py;;
+    quant-context) script=quant_decode.py; extra+=(--arms fp16 --prompt-lens 128,2048,8192 --batches 1,2 --rounds 2 --gpu-fraction 0.62);;
+    quant-profile) script=quant_profile.py;;
+    quant-family) script=attribute_decode.py; extra+=("${2:?trace root required}" --by-family);;
     minp-compare-f32) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907.diff" --dtype float32);;
     *) exit 2;;
 esac

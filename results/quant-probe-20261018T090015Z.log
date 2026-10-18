@@ -1,0 +1,18 @@
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-18 17:00:25 374:374 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-18 17:00:26 374:374 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-18 17:00:26 374:374 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-18 17:00:26 374:374 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-18 17:00:26 374:374 SyncActivityProfilerHandler.cpp:59] profiler_stop
+torch 2.13.0+cu130 cuda 13.0 NVIDIA GeForce RTX 5060 Laptop GPU sm_120
+scaled_mm=True fp8=True
+lm_head_m1         fp16   905.20 us  fp8   467.66 us  speedup 1.94x  rel_err 0.037  finite True
+lm_head_m2         fp16   853.04 us  fp8   441.49 us  speedup 1.93x  rel_err 0.038  finite True
+lm_head_m8         fp16   860.40 us  fp8   449.92 us  speedup 1.91x  rel_err 0.038  finite True
+wrote /opt/cloud-inference-framework/results/quant-probe-20261018T090015Z/quant-probe.json

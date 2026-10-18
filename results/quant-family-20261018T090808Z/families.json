@@ -1,0 +1,120 @@
+{
+  "scope": "Steady-state decodes of one instrumented trace; kernel families only, no role positions assumed",
+  "trace_root": "/opt/cloud-inference-framework/results/quant-profile-20261018T090651Z",
+  "annotation_steps": 11,
+  "steady_windows": 10,
+  "modal_kernels_per_step": 413,
+  "kept_steps": 9,
+  "dropped_step_kernel_counts": [
+    373
+  ],
+  "per_family": {
+    "other": {
+      "kernels_per_step": 96.0,
+      "us_per_step": 142.47366666666684,
+      "mean_us": 1.4841006944444461
+    },
+    "quantize": {
+      "kernels_per_step": 57.0,
+      "us_per_step": 106.04433333333333,
+      "mean_us": 1.8604269005847953
+    },
+    "fp16_gemm": {
+      "kernels_per_step": 113.0,
+      "us_per_step": 2975.4709999999995,
+      "mean_us": 26.331601769911497
+    },
+    "rotary": {
+      "kernels_per_step": 1.0,
+      "us_per_step": 2.2097777777777776,
+      "mean_us": 2.2097777777777776
+    },
+    "fp8_gemm": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 38.6418888888889,
+      "mean_us": 1.3800674603174607
+    },
+    "attention": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 324.0256666666668,
+      "mean_us": 11.572345238095243
+    },
+    "attention_combine": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 78.74855555555554,
+      "mean_us": 2.812448412698412
+    },
+    "rms_norm": {
+      "kernels_per_step": 56.0,
+      "us_per_step": 93.09244444444461,
+      "mean_us": 1.6623650793650824
+    },
+    "sampler": {
+      "kernels_per_step": 6.0,
+      "us_per_step": 15.619999999999997,
+      "mean_us": 2.603333333333333
+    }
+  },
+  "top_kernels": [
+    {
+      "name": "_ZN7cutlass13device_kernelI19enable_sm120_familyINS_4gemm6kernel13GemmUniversalIN4cute5tupleIJiiiiEEENS2_10collective13CollectiveMmaINS2_31MainloopSm120TmaWarpSpecializedILi9ELi2ENS6_IJNS5_1CILi1EEESC_SC_EEENS2_37KernelTmaWarpSpecializedPingpongSm120ILi2EEEEENS6_IJNSB_ILi16EEENSB_ILi64EEENSB_ILi128EEEEEENS_12float_e4m3_tENS6_IJlSC_lEEESL_SM_NS5_8TiledMMAINS5_8MMA_AtomIJNS5_16SM120_16x8x32_TNISL_SL_fEEEEENS5_6LayoutINS6_IJNSB_ILi2EEEST_SC_EEENS6_IJSC_ST_NSB_ILi0EEEEEEEENS6_IJSH_NSB_ILi32EEESY_EEEEENS5_13SM90_TMA_LOADENS5_14ComposedLayoutINS5_7SwizzleILi3ELi4ELi3EEENS5_18smem_ptr_flag_bitsILi8EEENSS_INS6_IJNSB_ILi8EEESJ_EEENS6_IJSJ_SC_EEEEEEENS5_9Copy_AtomIJNS5_17SM75_U32x4_LDSM_NEhEEENS5_8identityES11_S1B_S1E_S1F_EENS_8epilogue10collective18CollectiveEpilogueINS1H_22Sm90TmaWarpSpecializedILi2ELi2ELi4ELb0ELb1EEEJSK_NS6_IJSH_SY_EEEvSM_NS_6half_tESM_NS1H_6fusion15Sm90TreeVisitorINS1O_11Sm90ComputeINS_10multipliesES1N_fLNS_15FloatRoundStyleE2EvEEJNS1O_24Sm90ColOrScalarBroadcastILi0ESK_fNS6_IJSC_SV_SV_EEELi4EEENS1P_INS1Q_IS1R_ffLS1S_2EvEEJNS1O_24Sm90RowOrScalarBroadcastILi0ESK_fNS6_IJSV_SC_SV_EEELi4EEENS1O_12Sm90AccFetchEEEEEEES11_NS12_INS13_ILi2ELi4ELi3EEENS15_ILi16EEENSS_INS6_IJS17_SY_EEENS6_IJSY_SC_EEEEEEENS5_17SM75_U32x2_LDSM_NENS5_14SM90_TMA_STOREES29_NS5_17SM90_U32x2_STSM_NENS1C_IJS2C_S1N_EEEvEEEvvEEEEEvNT_6ParamsE",
+      "kernels_per_step": 112.0,
+      "us_per_step": 1875.7621111111084
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1})",
+      "kernels_per_step": 56.0,
+      "us_per_step": 91.40088888888909
+    },
+    {
+      "name": "void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vllm::Fp8KVCacheDataType)0>(unsigned short const*, unsigned short const*, unsigned short*, unsigned short*, long const*, long, long, long, long, long, int, int, int, float const*, float const*, int)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 38.6418888888889
+    },
+    {
+      "name": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, false, false, false, false, true, false, true, false>(flash::Flash_fwd_params)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 324.0256666666668
+    },
+    {
+      "name": "void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, 4, 2, true>(flash::Flash_fwd_params)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 78.74855555555554
+    },
+    {
+      "name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_unsqueeze_view_0",
+      "kernels_per_step": 28.0,
+      "us_per_step": 38.864222222222196
+    },
+    {
+      "name": "triton_per_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_max_mul_reciprocal_unsqueeze_1",
+      "kernels_per_step": 28.0,
+      "us_per_step": 43.44033333333331
+    },
+    {
+      "name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_silu_slice_unsqueeze_2",
+      "kernels_per_step": 28.0,
+      "us_per_step": 65.1941111111111
+    },
+    {
+      "name": "triton_per_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_max_mul_reciprocal_unsqueeze_3",
+      "kernels_per_step": 27.0,
+      "us_per_step": 48.60933333333324
+    },
+    {
+      "name": "triton_red_fused_4",
+      "kernels_per_step": 27.0,
+      "us_per_step": 29.52011111111111
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<int>, std::array<char*, 1ul> >(int, at::native::FillFunctor<int>, std::array<char*, 1ul>)",
+      "kernels_per_step": 2.0,
+      "us_per_step": 1.4653333333333332
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<bool>, std::array<char*, 1ul> >(int, at::native::FillFunctor<bool>, std::array<char*, 1ul>)",
+      "kernels_per_step": 1.0,
+      "us_per_step": 0.7378888888888889
+    }
+  ]
+}

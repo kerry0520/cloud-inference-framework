@@ -1,0 +1,145 @@
+{
+  "scope": "Steady-state decodes of one instrumented trace; kernel families only, no role positions assumed",
+  "trace_root": "/opt/cloud-inference-framework/results/quant-profile-20261018T090919Z/fp16",
+  "annotation_steps": 11,
+  "steady_windows": 10,
+  "modal_kernels_per_step": 385,
+  "kept_steps": 9,
+  "dropped_step_kernel_counts": [
+    345
+  ],
+  "per_family": {
+    "other": {
+      "kernels_per_step": 69.0,
+      "us_per_step": 109.14233333333331,
+      "mean_us": 1.581772946859903,
+      "max_us": 5.138,
+      "max_kernel": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:"
+    },
+    "quantize": {
+      "kernels_per_step": 1.0,
+      "us_per_step": 1.467888888888889,
+      "mean_us": 1.467888888888889,
+      "max_us": 1.755,
+      "max_kernel": "triton_per_fused__to_copy_embedding_rms_norm_0"
+    },
+    "gemm_fp16": {
+      "kernels_per_step": 113.0,
+      "us_per_step": 4105.599222222225,
+      "mean_us": 36.3327364798427,
+      "max_us": 1100.143,
+      "max_kernel": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s"
+    },
+    "rotary": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 31.932111111111062,
+      "mean_us": 1.1404325396825379,
+      "max_us": 2.298,
+      "max_kernel": "triton_red_fused_1"
+    },
+    "kv_cache_write": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 56.48588888888885,
+      "mean_us": 2.017353174603173,
+      "max_us": 144.798,
+      "max_kernel": "void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vllm::Fp8KVCacheDataType)0>(unsigned short co"
+    },
+    "attention": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 321.58655555555544,
+      "mean_us": 11.485234126984123,
+      "max_us": 12.479,
+      "max_kernel": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kerne"
+    },
+    "attention_combine": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 99.91855555555557,
+      "mean_us": 3.568519841269842,
+      "max_us": 203.554,
+      "max_kernel": "void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Fla"
+    },
+    "rms_norm": {
+      "kernels_per_step": 56.0,
+      "us_per_step": 60.17155555555549,
+      "mean_us": 1.0744920634920623,
+      "max_us": 1.66,
+      "max_kernel": "triton_per_fused_fused_add_rms_norm_2"
+    },
+    "silu_mul": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 22.389222222222216,
+      "mean_us": 0.7996150793650793,
+      "max_us": 1.277,
+      "max_kernel": "triton_poi_fused_mul_silu_slice_1"
+    },
+    "sampler": {
+      "kernels_per_step": 6.0,
+      "us_per_step": 15.322777777777778,
+      "mean_us": 2.553796296296296,
+      "max_us": 4.085,
+      "max_kernel": "_bias_kernel"
+    }
+  },
+  "top_kernels": [
+    {
+      "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)",
+      "kernels_per_step": 85.0,
+      "us_per_step": 3277.981000000003
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1})",
+      "kernels_per_step": 56.0,
+      "us_per_step": 88.12844444444441
+    },
+    {
+      "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 827.6182222222229
+    },
+    {
+      "name": "void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vllm::Fp8KVCacheDataType)0>(unsigned short const*, unsigned short const*, unsigned short*, unsigned short*, long const*, long, long, long, long, long, int, int, int, float const*, float const*, int)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 56.48588888888885
+    },
+    {
+      "name": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, false, false, false, false, true, false, true, false>(flash::Flash_fwd_params)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 321.58655555555544
+    },
+    {
+      "name": "void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, 4, 2, true>(flash::Flash_fwd_params)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 99.91855555555557
+    },
+    {
+      "name": "triton_per_fused_fused_add_rms_norm_0",
+      "kernels_per_step": 28.0,
+      "us_per_step": 28.571888888888864
+    },
+    {
+      "name": "triton_poi_fused_mul_silu_slice_1",
+      "kernels_per_step": 28.0,
+      "us_per_step": 22.389222222222216
+    },
+    {
+      "name": "triton_per_fused_fused_add_rms_norm_2",
+      "kernels_per_step": 28.0,
+      "us_per_step": 31.599666666666636
+    },
+    {
+      "name": "triton_red_fused_3",
+      "kernels_per_step": 27.0,
+      "us_per_step": 29.72299999999997
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<int>, std::array<char*, 1ul> >(int, at::native::FillFunctor<int>, std::array<char*, 1ul>)",
+      "kernels_per_step": 2.0,
+      "us_per_step": 1.468111111111111
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<bool>, std::array<char*, 1ul> >(int, at::native::FillFunctor<bool>, std::array<char*, 1ul>)",
+      "kernels_per_step": 1.0,
+      "us_per_step": 0.7412222222222222
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "arms": [
+    "fp16",
+    "fp8"
+  ],
+  "batch": 2,
+  "prompt_len": 128,
+  "max_tokens": 12,
+  "sampling": "greedy",
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "note": "both traces captured in one process, back to back; kernel families only, no role positions"
+}

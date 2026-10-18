@@ -1,0 +1,98 @@
+{
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "arms": [
+    "fp16",
+    "fp8"
+  ],
+  "rounds": 3,
+  "batches": [
+    1,
+    2,
+    4
+  ],
+  "prompt_len": 128,
+  "max_tokens": 64,
+  "sampling": "greedy",
+  "gpu_fraction": 0.55,
+  "quantization_applied": {
+    "fp16": "None",
+    "fp8": "fp8"
+  },
+  "boot_seconds": {
+    "fp16": [
+      45.39562506700001,
+      28.538548660999993,
+      22.491942146999975
+    ],
+    "fp8": [
+      58.53170941100001,
+      29.525507346000012,
+      25.97824123600003
+    ]
+  },
+  "prediction": {
+    "fp16_step_ms": 3.99,
+    "gemm_share": 0.838,
+    "tail_ms": 0.81,
+    "fp8_expected_step_ms": 2.4,
+    "fp8_expected_pct": -40.0,
+    "note": "expectation from the stage-five roofline fit"
+  },
+  "summary": [
+    {
+      "batch": 1,
+      "per_arm": {
+        "fp16": 4.234808587301677,
+        "fp8": 3.0586970476191606
+      },
+      "round_paired_pct": [
+        -25.941696875571274,
+        -27.860783243144244,
+        -25.557284938354496
+      ],
+      "paired_pct_median": -25.941696875571274,
+      "paired_pct_ci95": [
+        -27.860783243144244,
+        -25.557284938354496
+      ]
+    },
+    {
+      "batch": 2,
+      "per_arm": {
+        "fp16": 4.518704865079469,
+        "fp8": 3.363314809523636
+      },
+      "round_paired_pct": [
+        -24.62832370233985,
+        -29.275209884946683,
+        -26.751650890995556
+      ],
+      "paired_pct_median": -26.751650890995556,
+      "paired_pct_ci95": [
+        -29.275209884946683,
+        -24.62832370233985
+      ]
+    },
+    {
+      "batch": 4,
+      "per_arm": {
+        "fp16": 4.597123492063233,
+        "fp8": 3.539955142857238
+      },
+      "round_paired_pct": [
+        -22.700169105694744,
+        -24.239097107655784,
+        -25.344526846337047
+      ],
+      "paired_pct_median": -24.239097107655784,
+      "paired_pct_ci95": [
+        -25.344526846337047,
+        -22.700169105694744
+      ]
+    }
+  ],
+  "timing_sha256": "b8c87d92a5430960e2ad98fb47d863746fd713c38d04d033fb9d33a251ac35a8",
+  "timing_rows": 18
+}

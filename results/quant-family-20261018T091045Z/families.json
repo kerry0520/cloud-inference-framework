@@ -1,0 +1,145 @@
+{
+  "scope": "Steady-state decodes of one instrumented trace; kernel families only, no role positions assumed",
+  "trace_root": "/opt/cloud-inference-framework/results/quant-profile-20261018T090919Z/fp8",
+  "annotation_steps": 10,
+  "steady_windows": 9,
+  "modal_kernels_per_step": 413,
+  "kept_steps": 8,
+  "dropped_step_kernel_counts": [
+    401
+  ],
+  "per_family": {
+    "other": {
+      "kernels_per_step": 96.0,
+      "us_per_step": 134.8053750000002,
+      "mean_us": 1.404222656250002,
+      "max_us": 5.025,
+      "max_kernel": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:"
+    },
+    "quantize": {
+      "kernels_per_step": 112.0,
+      "us_per_step": 164.61750000000018,
+      "mean_us": 1.4697991071428587,
+      "max_us": 2.422,
+      "max_kernel": "triton_per_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_max_mul_reciprocal_unsqueeze_3"
+    },
+    "gemm_fp8": {
+      "kernels_per_step": 112.0,
+      "us_per_step": 1506.2456250000002,
+      "mean_us": 13.448621651785716,
+      "max_us": 22.732,
+      "max_kernel": "_ZN7cutlass13device_kernelI19enable_sm120_familyINS_4gemm6kernel13GemmUniversalIN4cute5tupleIJiiiiEEENS2_10collective13C"
+    },
+    "rotary": {
+      "kernels_per_step": 1.0,
+      "us_per_step": 2.08475,
+      "mean_us": 2.08475,
+      "max_us": 2.452,
+      "max_kernel": "triton_red_fused_1"
+    },
+    "kv_cache_write": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 37.02649999999991,
+      "mean_us": 1.322374999999997,
+      "max_us": 1.573,
+      "max_kernel": "void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vllm::Fp8KVCacheDataType)0>(unsigned short co"
+    },
+    "attention": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 299.65225,
+      "mean_us": 10.70186607142857,
+      "max_us": 11.26,
+      "max_kernel": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kerne"
+    },
+    "attention_combine": {
+      "kernels_per_step": 28.0,
+      "us_per_step": 73.02449999999996,
+      "mean_us": 2.6080178571428556,
+      "max_us": 2.815,
+      "max_kernel": "void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Fla"
+    },
+    "rms_norm": {
+      "kernels_per_step": 1.0,
+      "us_per_step": 0.995,
+      "mean_us": 0.995,
+      "max_us": 1.181,
+      "max_kernel": "triton_per_fused_fused_add_rms_norm_3"
+    },
+    "gemm_fp16": {
+      "kernels_per_step": 1.0,
+      "us_per_step": 884.7080000000001,
+      "mean_us": 884.7080000000001,
+      "max_us": 1109.91,
+      "max_kernel": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s"
+    },
+    "sampler": {
+      "kernels_per_step": 6.0,
+      "us_per_step": 15.077625000000001,
+      "mean_us": 2.5129375,
+      "max_us": 4.329,
+      "max_kernel": "_bias_kernel"
+    }
+  },
+  "top_kernels": [
+    {
+      "name": "_ZN7cutlass13device_kernelI19enable_sm120_familyINS_4gemm6kernel13GemmUniversalIN4cute5tupleIJiiiiEEENS2_10collective13CollectiveMmaINS2_31MainloopSm120TmaWarpSpecializedILi9ELi2ENS6_IJNS5_1CILi1EEESC_SC_EEENS2_37KernelTmaWarpSpecializedPingpongSm120ILi2EEEEENS6_IJNSB_ILi16EEENSB_ILi64EEENSB_ILi128EEEEEENS_12float_e4m3_tENS6_IJlSC_lEEESL_SM_NS5_8TiledMMAINS5_8MMA_AtomIJNS5_16SM120_16x8x32_TNISL_SL_fEEEEENS5_6LayoutINS6_IJNSB_ILi2EEEST_SC_EEENS6_IJSC_ST_NSB_ILi0EEEEEEEENS6_IJSH_NSB_ILi32EEESY_EEEEENS5_13SM90_TMA_LOADENS5_14ComposedLayoutINS5_7SwizzleILi3ELi4ELi3EEENS5_18smem_ptr_flag_bitsILi8EEENSS_INS6_IJNSB_ILi8EEESJ_EEENS6_IJSJ_SC_EEEEEEENS5_9Copy_AtomIJNS5_17SM75_U32x4_LDSM_NEhEEENS5_8identityES11_S1B_S1E_S1F_EENS_8epilogue10collective18CollectiveEpilogueINS1H_22Sm90TmaWarpSpecializedILi2ELi2ELi4ELb0ELb1EEEJSK_NS6_IJSH_SY_EEEvSM_NS_6half_tESM_NS1H_6fusion15Sm90TreeVisitorINS1O_11Sm90ComputeINS_10multipliesES1N_fLNS_15FloatRoundStyleE2EvEEJNS1O_24Sm90ColOrScalarBroadcastILi0ESK_fNS6_IJSC_SV_SV_EEELi4EEENS1P_INS1Q_IS1R_ffLS1S_2EvEEJNS1O_24Sm90RowOrScalarBroadcastILi0ESK_fNS6_IJSV_SC_SV_EEELi4EEENS1O_12Sm90AccFetchEEEEEEES11_NS12_INS13_ILi2ELi4ELi3EEENS15_ILi16EEENSS_INS6_IJS17_SY_EEENS6_IJSY_SC_EEEEEEENS5_17SM75_U32x2_LDSM_NENS5_14SM90_TMA_STOREES29_NS5_17SM90_U32x2_STSM_NENS1C_IJS2C_S1N_EEEvEEEvvEEEEEvNT_6ParamsE",
+      "kernels_per_step": 112.0,
+      "us_per_step": 1506.2456250000002
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1})",
+      "kernels_per_step": 56.0,
+      "us_per_step": 87.16762499999999
+    },
+    {
+      "name": "void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vllm::Fp8KVCacheDataType)0>(unsigned short const*, unsigned short const*, unsigned short*, unsigned short*, long const*, long, long, long, long, long, int, int, int, float const*, float const*, int)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 37.02649999999991
+    },
+    {
+      "name": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, false, false, false, false, true, false, true, false>(flash::Flash_fwd_params)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 299.65225
+    },
+    {
+      "name": "void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, 4, 2, true>(flash::Flash_fwd_params)",
+      "kernels_per_step": 28.0,
+      "us_per_step": 73.02449999999996
+    },
+    {
+      "name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_unsqueeze_view_0",
+      "kernels_per_step": 28.0,
+      "us_per_step": 35.63862499999994
+    },
+    {
+      "name": "triton_per_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_max_mul_reciprocal_unsqueeze_1",
+      "kernels_per_step": 28.0,
+      "us_per_step": 41.04124999999994
+    },
+    {
+      "name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_silu_slice_unsqueeze_2",
+      "kernels_per_step": 28.0,
+      "us_per_step": 39.471624999999996
+    },
+    {
+      "name": "triton_per_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_max_mul_reciprocal_unsqueeze_3",
+      "kernels_per_step": 27.0,
+      "us_per_step": 46.59687500000001
+    },
+    {
+      "name": "triton_red_fused_4",
+      "kernels_per_step": 27.0,
+      "us_per_step": 27.59912499999995
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<int>, std::array<char*, 1ul> >(int, at::native::FillFunctor<int>, std::array<char*, 1ul>)",
+      "kernels_per_step": 2.0,
+      "us_per_step": 1.4305
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<bool>, std::array<char*, 1ul> >(int, at::native::FillFunctor<bool>, std::array<char*, 1ul>)",
+      "kernels_per_step": 1.0,
+      "us_per_step": 0.734125
+    }
+  ]
+}

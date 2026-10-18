@@ -1,0 +1,383 @@
+{
+  "env": {
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "capability": [
+      12,
+      0
+    ],
+    "total_memory_MiB": 8123,
+    "has_scaled_mm": true,
+    "has_float8_e4m3fn": true,
+    "has_int_mm": true,
+    "triton": "3.7.1",
+    "vllm_quant_methods": [
+      "auto_awq",
+      "auto_gptq",
+      "awq",
+      "awq_marlin",
+      "compressed-tensors",
+      "deepseek_v4_fp8",
+      "experts_int8",
+      "fbgemm_fp8",
+      "fp8",
+      "fp8_per_block",
+      "fp8_per_channel",
+      "fp8_per_tensor",
+      "fp_quant",
+      "gpt_oss_mxfp4",
+      "gptq",
+      "gptq_marlin",
+      "humming",
+      "inc",
+      "int8_per_channel_weight_only",
+      "modelopt",
+      "modelopt_fp4",
+      "modelopt_mixed",
+      "modelopt_mxfp8",
+      "moe_wna16",
+      "mxfp4",
+      "mxfp8",
+      "nvfp4_per_token",
+      "online",
+      "quark",
+      "torchao"
+    ]
+  },
+  "shapes": {
+    "qkv_proj_m1": {
+      "n": 4096,
+      "k": 1024,
+      "m": 1,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03634784370660782,
+      "fp16_us_median": 42.03199967741966,
+      "fp16_us_min": 27.327999472618103,
+      "fp8_us_median": 29.32799980044365,
+      "fp8_us_min": 25.087999179959297,
+      "fp16_GB_s_median": 199.57670499570617,
+      "fp8_GB_s_median": 286.02727963306603,
+      "speedup_median": 1.4331696659648723
+    },
+    "qkv_proj_m2": {
+      "n": 4096,
+      "k": 1024,
+      "m": 2,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.0374983549118042,
+      "fp16_us_median": 28.84799987077713,
+      "fp16_us_min": 25.95200017094612,
+      "fp8_us_median": 34.78400036692619,
+      "fp8_us_min": 11.839999817311764,
+      "fp16_GB_s_median": 290.78646830200574,
+      "fp8_GB_s_median": 241.1628309427047,
+      "speedup_median": 0.8293468136634102
+    },
+    "qkv_proj_m8": {
+      "n": 4096,
+      "k": 1024,
+      "m": 8,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03735172748565674,
+      "fp16_us_median": 29.664000496268272,
+      "fp16_us_min": 11.264000087976456,
+      "fp8_us_median": 34.68799963593483,
+      "fp8_us_min": 29.920000582933426,
+      "fp16_GB_s_median": 282.78748178470687,
+      "fp8_GB_s_median": 241.83026084069346,
+      "speedup_median": 0.8551660749424717
+    },
+    "o_proj_m1": {
+      "n": 1024,
+      "k": 2048,
+      "m": 1,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03784997761249542,
+      "fp16_us_median": 28.912000358104706,
+      "fp16_us_min": 12.128000147640705,
+      "fp8_us_median": 34.09599885344505,
+      "fp8_us_min": 29.85600009560585,
+      "fp16_GB_s_median": 145.07138724575447,
+      "fp8_GB_s_median": 123.0145512975992,
+      "speedup_median": 0.8479587438507742
+    },
+    "o_proj_m2": {
+      "n": 1024,
+      "k": 2048,
+      "m": 2,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03786824643611908,
+      "fp16_us_median": 29.583999887108803,
+      "fp16_us_min": 13.60000018030405,
+      "fp8_us_median": 34.80000048875809,
+      "fp8_us_min": 13.504000380635262,
+      "fp16_GB_s_median": 141.77609572759846,
+      "fp8_GB_s_median": 120.52597531873433,
+      "speedup_median": 0.8501149273450649
+    },
+    "o_proj_m8": {
+      "n": 1024,
+      "k": 2048,
+      "m": 8,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03711917623877525,
+      "fp16_us_median": 29.743999242782593,
+      "fp16_us_min": 24.12799932062626,
+      "fp8_us_median": 34.352000802755356,
+      "fp8_us_min": 12.959999963641167,
+      "fp16_GB_s_median": 141.01345168026626,
+      "fp8_GB_s_median": 122.09780804568382,
+      "speedup_median": 0.8658592963352761
+    },
+    "gate_up_proj_m1": {
+      "n": 6144,
+      "k": 1024,
+      "m": 1,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03842737153172493,
+      "fp16_us_median": 53.79199981689453,
+      "fp16_us_min": 44.79999840259552,
+      "fp8_us_median": 43.535999953746796,
+      "fp8_us_min": 31.456001102924347,
+      "fp16_GB_s_median": 233.91790680457407,
+      "fp8_GB_s_median": 289.0231535595426,
+      "speedup_median": 1.2355751532994268
+    },
+    "gate_up_proj_m2": {
+      "n": 6144,
+      "k": 1024,
+      "m": 2,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03673405200242996,
+      "fp16_us_median": 29.920000582933426,
+      "fp16_us_min": 28.095999732613564,
+      "fp8_us_median": 34.2399999499321,
+      "fp8_us_min": 15.456000342965126,
+      "fp16_GB_s_median": 420.551863464113,
+      "fp8_GB_s_median": 367.4915893224163,
+      "speedup_median": 0.8738317940036318
+    },
+    "gate_up_proj_m8": {
+      "n": 6144,
+      "k": 1024,
+      "m": 8,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.036857496947050095,
+      "fp16_us_median": 31.279999762773514,
+      "fp16_us_min": 19.872000440955162,
+      "fp8_us_median": 34.223999828100204,
+      "fp8_us_min": 29.343999922275543,
+      "fp16_GB_s_median": 402.26701072341393,
+      "fp8_GB_s_median": 367.6633959560911,
+      "speedup_median": 0.9139784922827907
+    },
+    "down_proj_m1": {
+      "n": 1024,
+      "k": 3072,
+      "m": 1,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03808742016553879,
+      "fp16_us_median": 32.255999743938446,
+      "fp16_us_min": 20.38400061428547,
+      "fp8_us_median": 58.27200040221214,
+      "fp8_us_min": 29.85600009560585,
+      "fp16_GB_s_median": 195.04762059598823,
+      "fp8_GB_s_median": 107.96705032561678,
+      "speedup_median": 0.5535420016697064
+    },
+    "down_proj_m2": {
+      "n": 1024,
+      "k": 3072,
+      "m": 2,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03850124031305313,
+      "fp16_us_median": 62.97600269317627,
+      "fp16_us_min": 13.024000450968742,
+      "fp8_us_median": 32.944001257419586,
+      "fp8_us_min": 27.583999559283257,
+      "fp16_GB_s_median": 99.90243475205052,
+      "fp8_GB_s_median": 190.97425206001807,
+      "speedup_median": 1.9116075852805807
+    },
+    "down_proj_m8": {
+      "n": 1024,
+      "k": 3072,
+      "m": 8,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.037526797503232956,
+      "fp16_us_median": 36.480000242590904,
+      "fp16_us_min": 13.535999692976475,
+      "fp8_us_median": 34.44799967110157,
+      "fp8_us_min": 16.03199914097786,
+      "fp16_GB_s_median": 172.46315674786203,
+      "fp8_GB_s_median": 182.63632315573616,
+      "speedup_median": 1.0589874765121408
+    },
+    "lm_head_m1": {
+      "n": 151936,
+      "k": 1024,
+      "m": 1,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03713291883468628,
+      "fp16_us_median": 914.9280190467834,
+      "fp16_us_min": 902.176022529602,
+      "fp8_us_median": 461.5679979324341,
+      "fp8_us_min": 429.1520118713379,
+      "fp16_GB_s_median": 340.09771427066664,
+      "fp8_GB_s_median": 674.1475349110954,
+      "speedup_median": 1.982217188247773
+    },
+    "lm_head_m2": {
+      "n": 151936,
+      "k": 1024,
+      "m": 2,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03741999343037605,
+      "fp16_us_median": 877.375990152359,
+      "fp16_us_min": 846.7199802398682,
+      "fp8_us_median": 455.56800067424774,
+      "fp8_us_min": 431.3279986381531,
+      "fp16_GB_s_median": 354.65402688528695,
+      "fp8_GB_s_median": 683.0263046119812,
+      "speedup_median": 1.9258946827999965
+    },
+    "lm_head_m8": {
+      "n": 151936,
+      "k": 1024,
+      "m": 8,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.037810396403074265,
+      "fp16_us_median": 873.7760186195374,
+      "fp16_us_min": 856.5120100975037,
+      "fp8_us_median": 449.0239918231964,
+      "fp8_us_min": 436.15999817848206,
+      "fp16_GB_s_median": 356.1152072948898,
+      "fp8_GB_s_median": 692.9806283547572,
+      "speedup_median": 1.9459450597989147
+    }
+  },
+  "kernels": {
+    "qkv_proj_m1": {
+      "fp16": [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __half, __half, __half, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float>)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x32x64_16_32x16x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "qkv_proj_m2": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x32x64_16_32x16x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "qkv_proj_m8": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x32x64_16_32x16x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "o_proj_m1": {
+      "fp16": [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __half, __half, __half, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float>)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "o_proj_m2": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "o_proj_m8": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x32x64_16_32x16x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "gate_up_proj_m1": {
+      "fp16": [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __half, __half, __half, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float>)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "gate_up_proj_m2": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_128x64x64_8_64x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "gate_up_proj_m8": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_128x64x64_8_64x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "down_proj_m1": {
+      "fp16": [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __half, __half, __half, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float>)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x32x64_16_32x16x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "down_proj_m2": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x32x64_16_32x16x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "down_proj_m8": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x32x64_16_32x16x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "lm_head_m1": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_32x32_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_32x32_128x1_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "lm_head_m2": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "lm_head_m8": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    }
+  },
+  "errors": {}
+}

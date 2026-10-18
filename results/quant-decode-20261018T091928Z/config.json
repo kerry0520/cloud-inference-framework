@@ -1,0 +1,31 @@
+{
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "arms": [
+    "fp16",
+    "fp8"
+  ],
+  "rounds": 3,
+  "batches": [
+    1,
+    2,
+    4
+  ],
+  "prompt_lens": [
+    128
+  ],
+  "max_tokens": 64,
+  "sampling": "greedy",
+  "gpu_fraction": 0.55,
+  "quantization_applied": {},
+  "boot_seconds": {},
+  "prediction": {
+    "fp16_step_ms": 3.99,
+    "gemm_share": 0.838,
+    "tail_ms": 0.81,
+    "fp8_expected_step_ms": 2.4,
+    "fp8_expected_pct": -40.0,
+    "note": "expectation from the stage-five roofline fit"
+  }
+}

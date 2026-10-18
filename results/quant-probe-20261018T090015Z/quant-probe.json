@@ -1,0 +1,119 @@
+{
+  "env": {
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "capability": [
+      12,
+      0
+    ],
+    "total_memory_MiB": 8123,
+    "has_scaled_mm": true,
+    "has_float8_e4m3fn": true,
+    "has_int_mm": true,
+    "triton": "3.7.1",
+    "vllm_quant_methods": [
+      "auto_awq",
+      "auto_gptq",
+      "awq",
+      "awq_marlin",
+      "compressed-tensors",
+      "deepseek_v4_fp8",
+      "experts_int8",
+      "fbgemm_fp8",
+      "fp8",
+      "fp8_per_block",
+      "fp8_per_channel",
+      "fp8_per_tensor",
+      "fp_quant",
+      "gpt_oss_mxfp4",
+      "gptq",
+      "gptq_marlin",
+      "humming",
+      "inc",
+      "int8_per_channel_weight_only",
+      "modelopt",
+      "modelopt_fp4",
+      "modelopt_mixed",
+      "modelopt_mxfp8",
+      "moe_wna16",
+      "mxfp4",
+      "mxfp8",
+      "nvfp4_per_token",
+      "online",
+      "quark",
+      "torchao"
+    ]
+  },
+  "shapes": {
+    "lm_head_m1": {
+      "n": 151936,
+      "k": 1024,
+      "m": 1,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03719178959727287,
+      "fp16_us_median": 905.2000045776367,
+      "fp16_us_min": 900.7359743118286,
+      "fp8_us_median": 467.6640033721924,
+      "fp8_us_min": 455.4240107536316,
+      "fp16_GB_s_median": 343.7526805417865,
+      "fp8_GB_s_median": 665.3600143613322,
+      "speedup_median": 1.9355776755330674
+    },
+    "lm_head_m2": {
+      "n": 151936,
+      "k": 1024,
+      "m": 2,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03751985728740692,
+      "fp16_us_median": 853.0400097370148,
+      "fp16_us_min": 847.711980342865,
+      "fp8_us_median": 441.48799777030945,
+      "fp8_us_min": 429.24800515174866,
+      "fp16_GB_s_median": 364.7717861392335,
+      "fp8_GB_s_median": 704.8094842249552,
+      "speedup_median": 1.9321929793000199
+    },
+    "lm_head_m8": {
+      "n": 151936,
+      "k": 1024,
+      "m": 8,
+      "fp8_finite": true,
+      "fp8_mean_rel_error": 0.03763701021671295,
+      "fp16_us_median": 860.39999127388,
+      "fp16_us_min": 854.1439771652222,
+      "fp8_us_median": 449.91999864578247,
+      "fp8_us_min": 435.263991355896,
+      "fp16_GB_s_median": 361.65147740099275,
+      "fp8_GB_s_median": 691.6005710716963,
+      "speedup_median": 1.9123399579116382
+    }
+  },
+  "kernels": {
+    "lm_head_m1": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_32x32_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_32x32_128x1_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "lm_head_m2": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    },
+    "lm_head_m8": {
+      "fp16": [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1_tn_align8::Params)"
+      ],
+      "fp8": [
+        "nvjet_sm120_qqhsh_mma_64x64x64_12_32x32x64_tmaAB_bz_TNNN"
+      ]
+    }
+  },
+  "errors": {}
+}

@@ -1,0 +1,32 @@
+{
+  "steady_windows": 9,
+  "modal_kernels_per_step": 413,
+  "kept_steps": 8,
+  "dropped_step_kernel_counts": [
+    401
+  ]
+}
+family              n/step   mean_us    us/step
+gemm_fp8             112.0     13.45    1506.25
+gemm_fp16              1.0    884.71     884.71
+attention             28.0     10.70     299.65
+quantize             112.0      1.47     164.62
+other                 96.0      1.40     134.81
+attention_combine     28.0      2.61      73.02
+kv_cache_write        28.0      1.32      37.03
+sampler                6.0      2.51      15.08
+rotary                 1.0      2.08       2.08
+rms_norm               1.0      0.99       0.99
+top kernels by us/step:
+     1506.2us 112.0/step _ZN7cutlass13device_kernelI19enable_sm120_familyINS_4gemm6kernel13GemmUniversa
+       87.2us  56.0/step void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast
+       37.0us  28.0/step void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vll
+      299.7us  28.0/step void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, 
+       73.0us  28.0/step void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 
+       35.6us  28.0/step triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_u
+       41.0us  28.0/step triton_per_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_m
+       39.5us  28.0/step triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_s
+       46.6us  27.0/step triton_per_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_m
+       27.6us  27.0/step triton_red_fused_4
+        1.4us   2.0/step void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<int>
+        0.7us   1.0/step void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<bool

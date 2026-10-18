@@ -1,0 +1,32 @@
+{
+  "steady_windows": 10,
+  "modal_kernels_per_step": 385,
+  "kept_steps": 9,
+  "dropped_step_kernel_counts": [
+    345
+  ]
+}
+family              n/step   mean_us    us/step
+gemm_fp16            113.0     36.33    4105.60
+attention             28.0     11.49     321.59
+other                 69.0      1.58     109.14
+attention_combine     28.0      3.57      99.92
+rms_norm              56.0      1.07      60.17
+kv_cache_write        28.0      2.02      56.49
+rotary                28.0      1.14      31.93
+silu_mul              28.0      0.80      22.39
+sampler                6.0      2.55      15.32
+quantize               1.0      1.47       1.47
+top kernels by us/step:
+     3278.0us  85.0/step void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x2
+       88.1us  56.0/step void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast
+      827.6us  28.0/step void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_16x16_128x1
+       56.5us  28.0/step void vllm::reshape_and_cache_flash_kernel<unsigned short, unsigned short, (vll
+      321.6us  28.0/step void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, 
+       99.9us  28.0/step void flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 
+       28.6us  28.0/step triton_per_fused_fused_add_rms_norm_0
+       22.4us  28.0/step triton_poi_fused_mul_silu_slice_1
+       31.6us  28.0/step triton_per_fused_fused_add_rms_norm_2
+       29.7us  27.0/step triton_red_fused_3
+        1.5us   2.0/step void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<int>
+        0.7us   1.0/step void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<bool

@@ -1,0 +1,11 @@
+{
+  "quantization_requested": "fp8",
+  "quantization_applied": "fp8",
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "batch": 2,
+  "prompt_len": 128,
+  "max_tokens": 12,
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "reference_fp16_trace": "/opt/cloud-inference-framework/results/profile-pinned-20261017T020913Z"
+}
