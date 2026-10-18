@@ -1,0 +1,10 @@
+device: NVIDIA GeForce RTX 5060 Laptop GPU
+torch: 2.13.0+cu130 triton: 3.7.1 dtype: float32
+vocab=151936 batch=1 upstream 69.0/66.7 us knob 22.6/20.2 us pr58907 18.6/16.9 us (interleaved/cudagraph)
+vocab=151936 batch=2 upstream 69.5/67.0 us knob 28.8/26.2 us pr58907 24.9/23.3 us (interleaved/cudagraph)
+vocab=151936 batch=4 upstream 69.7/67.5 us knob 28.7/26.4 us pr58907 25.5/23.4 us (interleaved/cudagraph)
+vocab=151936 batch=8 upstream 71.5/68.7 us knob 29.2/27.4 us pr58907 25.9/23.5 us (interleaved/cudagraph)
+vocab=151936 batch=16 upstream 71.3/68.7 us knob 30.7/28.4 us pr58907 26.6/23.7 us (interleaved/cudagraph)
+vocab=151936 batch=32 upstream 78.1/75.9 us knob 51.9/49.2 us pr58907 47.8/46.2 us (interleaved/cudagraph)
+vocab=151936 batch=64 upstream 191.8/188.0 us knob 224.0/221.4 us pr58907 163.4/164.1 us (interleaved/cudagraph)
+wrote /opt/cloud-inference-framework/results/minp-compare-pr95-f32-20261018T161437Z-WgoHsG/compare.json

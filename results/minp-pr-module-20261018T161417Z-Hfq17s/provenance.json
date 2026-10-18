@@ -1,0 +1,12 @@
+{
+  "purpose": "engine-level cross-check of an upstream PR kernel",
+  "pr_commit": "95e9d21aaff3605e25a4797e54e975c0f93e83b7",
+  "diff": "/tmp/repo/results/upstream-pr-58907-95e9d21.diff",
+  "diff_sha256": "72e9b6a9f1bc2aa049b60f36e256a79291cb8025cf5d14fb7c0c5a2164b6a735",
+  "diff_bytes": 6695,
+  "upstream": "/opt/cloud-inference-framework/vllm-src/vllm/v1/worker/gpu/sample/min_p.py",
+  "upstream_sha256": "4cb5e2f45e1ced6f9685283a7a5c8cfd7204d9a249822e866cfff756c7f04f62",
+  "module": "/opt/cloud-inference-framework/results/pr58907-95e9d21/min_p.py",
+  "module_sha256": "1fd9c2ec7c520f2c12d671228dded21d1aa91218071c3e59b4f73d859ea78f7c",
+  "generated_at_utc": "2026-10-18T16:14:17+00:00"
+}

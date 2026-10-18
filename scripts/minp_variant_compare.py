@@ -3,8 +3,8 @@
 Variants
   upstream  pinned vLLM file (per-tile cross-lane reduction, BLOCK_SIZE 1024)
   knob      only launch parameters change (BLOCK_SIZE 16384, num_warps 16)
-  pr58907   upstream PR #58907: per-lane maxima reduced once, tile 8192 for
-            vocab > 16384 and batch <= 8
+  pr58907   upstream PR #58907 at commit 95e9d21: per-lane maxima reduced once,
+            tile 8192 / 16 warps for vocab > 16384 and batch <= 32, else 1024 / 4
 
 Everything is measured on identical tensors with two protocols:
 

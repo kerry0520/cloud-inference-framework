@@ -1,0 +1,19 @@
+{
+  "patch_module": "/opt/cloud-inference-framework/results/pr58907-95e9d21/min_p.py",
+  "patch_module_sha256": "1fd9c2ec7c520f2c12d671228dded21d1aa91218071c3e59b4f73d859ea78f7c",
+  "torch": "2.13.0+cu130",
+  "rounds": 16,
+  "batches": [
+    2,
+    8,
+    32
+  ],
+  "prompt_len": 128,
+  "max_tokens": 64,
+  "min_p": 0.1,
+  "sampling": {
+    "temperature": 0.8,
+    "seed": 123
+  },
+  "seeded_ids_asserted": false
+}

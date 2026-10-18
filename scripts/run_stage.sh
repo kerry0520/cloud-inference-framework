@@ -37,6 +37,10 @@ case "$stage" in
     quant-profile) script=quant_profile.py;;
     quant-family) script=attribute_decode.py; extra+=("${2:?trace root required}" --by-family);;
     minp-compare-f32) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907.diff" --dtype float32);;
+    minp-pr-module) script=prepare_pr_module.py; extra+=(--target "$runtime_dir/results/pr58907-95e9d21" --upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --diff "$project_dir/results/upstream-pr-58907-95e9d21.diff" --commit 95e9d21aaff3605e25a4797e54e975c0f93e83b7);;
+    minp-compare-pr95) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907-95e9d21.diff" --vocabs 151936 --batches 1,2,4,8,16,32,64);;
+    minp-compare-pr95-f32) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907-95e9d21.diff" --vocabs 151936 --batches 1,2,4,8,16,32,64 --dtype float32);;
+    abba-pr95) script=abba_patch.py; extra+=(--patch-module "$runtime_dir/results/pr58907-95e9d21/min_p.py" --batches 2,8,32 --rounds 16);;
     *) exit 2;;
 esac
 if [[ "$stage" == quant-family ]]; then

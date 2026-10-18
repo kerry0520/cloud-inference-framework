@@ -1,0 +1,1136 @@
+(MainProcess pid=436) INFO 10-19 00:22:12 [api_utils.py:286] non-default args: {'dtype': 'float16', 'max_model_len': 2048, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.65, 'max_num_batched_tokens': 2048, 'max_num_seqs': 8, 'worker_extension_cls': 'project_worker.ProjectWorkerExtension', 'model': '/opt/cloud-inference-framework/models/Qwen3-0.6B'}
+(MainProcess pid=436) INFO 10-19 00:22:12 [model.py:699] Resolved architecture: Qwen3ForCausalLM
+(MainProcess pid=436) WARNING 10-19 00:22:12 [model.py:2442] Casting torch.bfloat16 to torch.float16.
+(MainProcess pid=436) INFO 10-19 00:22:12 [model.py:2109] Using max model len 2048
+(MainProcess pid=436) INFO 10-19 00:22:12 [scheduler.py:308] Chunked prefill is enabled with max_num_batched_tokens=2048.
+(MainProcess pid=436) INFO 10-19 00:22:12 [kernel.py:408] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(MainProcess pid=436) WARNING 10-19 00:22:15 [system_utils.py:152] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: WSL is detected and NVML is not compatible with fork
+(EngineCore pid=498) INFO 10-19 00:22:20 [core.py:129] Initializing a V1 LLM engine (v0.31.0) with config: model='/opt/cloud-inference-framework/models/Qwen3-0.6B', speculative_config=None, tokenizer='/opt/cloud-inference-framework/models/Qwen3-0.6B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=2048, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/opt/cloud-inference-framework/models/Qwen3-0.6B, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [2048], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 16, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=498) INFO 10-19 00:22:21 [worker_base.py:310] Injected <class 'project_worker.ProjectWorkerExtension'> into <class 'vllm.v1.worker.gpu_worker.Worker'> for extended collective_rpc calls ['_install_minp', 'minp_install', 'minp_install_file', 'minp_select', 'minp_stats', 'probe_collect', 'probe_install']
+(EngineCore pid=498) INFO 10-19 00:22:21 [parallel_state.py:1825] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_67aeb99409c144c4a3212e47354c78d5 backend=nccl
+(EngineCore pid=498) INFO 10-19 00:22:22 [parallel_state.py:2269] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=498) INFO 10-19 00:22:22 [gpu_worker.py:479] Using V2 Model Runner
+(EngineCore pid=498) INFO 10-19 00:22:25 [model_runner.py:375] Loading model from scratch...
+(EngineCore pid=498) INFO 10-19 00:22:27 [cuda.py:526] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=498) INFO 10-19 00:22:27 [flash_attn.py:1167] Using FlashAttention version 2
+(EngineCore pid=498) INFO 10-19 00:22:27 [weight_utils.py:1063] Filesystem type for checkpoints: EXT4. Checkpoint size: 1.40 GiB. Available RAM: 4.38 GiB.
+(EngineCore pid=498) INFO 10-19 00:22:27 [weight_utils.py:1086] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.62s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.62s/it]
+
+(EngineCore pid=498) INFO 10-19 00:22:29 [default_loader.py:484] Loading weights took 1.64 seconds
+(EngineCore pid=498) INFO 10-19 00:22:30 [model_runner.py:407] Model loading took 1.12 GiB memory and 6.049407 seconds
+(EngineCore pid=498) INFO 10-19 00:22:30 [topk_topp_sampler.py:124] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=498) INFO 10-19 00:22:30 [torch_utils.py:286] Reducing Torch threads from 12 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=498) INFO 10-19 00:22:30 [utils.py:343] Using LBNHC KV cache layout.
+(EngineCore pid=498) INFO 10-19 00:22:32 [caching.py:342] reconstructed serializable fn from standalone compile artifacts. num_artifacts=3 num_submods=29
+(EngineCore pid=498) INFO 10-19 00:22:32 [decorators.py:312] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/c2a19f621bdfe6b0b8d4b65e9e4ef30062c6adc3f7bdf735cede2d4824913f5d/rank_0_0/model
+(EngineCore pid=498) INFO 10-19 00:22:32 [monitor.py:53] torch.compile took 0.31 s in total
+(EngineCore pid=498) INFO 10-19 00:22:35 [monitor.py:81] Initial profiling/warmup run took 2.71 s
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):  20%|██        | 1/5 [00:00<00:02,  1.83it/s]Capturing CUDA graphs (PIECEWISE):  40%|████      | 2/5 [00:00<00:01,  2.51it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 5/5 [00:02<00:00,  1.91it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 5/5 [00:02<00:00,  1.96it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00,  4.17it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00,  4.17it/s]
+(EngineCore pid=498) INFO 10-19 00:22:44 [model_runner.py:1087] Graph capturing finished in 3 secs, took 0.05 GiB
+(EngineCore pid=498) INFO 10-19 00:22:44 [gpu_worker.py:692] Available KV cache memory: 3.78 GiB
+(EngineCore pid=498) INFO 10-19 00:22:44 [gpu_worker.py:707] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.6500 is equivalent to --gpu-memory-utilization=0.6432 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.6568. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=498) INFO 10-19 00:22:44 [kv_cache_utils.py:2464] GPU KV cache size: 35,392 tokens, Maximum concurrency for 2,048 tokens per request: 17.28x
+(EngineCore pid=498) INFO 10-19 00:22:44 [kernel_warmup.py:172] JIT kernel warmup starting.
+(EngineCore pid=498) INFO 10-19 00:22:44 [kernel_warmup.py:185] JIT kernel warmup finished in 0.00s.
+(EngineCore pid=498) INFO 10-19 00:22:47 [kernel_warmup.py:437] Using FlashInfer autotune cache file: /root/.cache/vllm/flashinfer_autotune_cache/0.7.0.post1/120f/1bdb32c11599dccf4e3174a35ec065d8c3f2163043cefa9460d44c2b371d8f36/autotune_configs.json
+2026-10-19 00:22:47,723 - INFO - autotuner.py:3691 - flashinfer.jit: [Autotuner]: Loaded 0 configs from /root/.cache/vllm/flashinfer_autotune_cache/0.7.0.post1/120f/1bdb32c11599dccf4e3174a35ec065d8c3f2163043cefa9460d44c2b371d8f36/autotune_configs.json
+2026-10-19 00:22:47,725 - INFO - autotuner.py:1046 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=498) INFO 10-19 00:22:47 [kernel_warmup.py:359] Running FlashInfer autotune with 2048 tokens and token buckets (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 768, 1024, 1280, 1536, 1792, 2048).
+2026-10-19 00:22:48,093 - INFO - autotuner.py:1069 - flashinfer.jit: [Autotuner]: Autotuning process ends
+2026-10-19 00:22:48,093 - INFO - autotuner.py:3554 - flashinfer.jit: [Autotuner]: Saved 0 configs to /root/.cache/vllm/flashinfer_autotune_cache/0.7.0.post1/120f/1bdb32c11599dccf4e3174a35ec065d8c3f2163043cefa9460d44c2b371d8f36/autotune_configs.json (0 new, 0 from previous config)
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):  40%|████      | 2/5 [00:00<00:00, 17.65it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 21.59it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 21.01it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/4 [00:00<?, ?it/s]Capturing CUDA graphs (FULL): 100%|██████████| 4/4 [00:00<00:00, 46.89it/s]
+(EngineCore pid=498) INFO 10-19 00:22:54 [model_runner.py:1087] Graph capturing finished in 1 secs, took 0.00 GiB
+(EngineCore pid=498) INFO 10-19 00:22:54 [gpu_worker.py:892] CUDA graph pool memory: 0.0 GiB (actual), 0.05 GiB (estimated), difference: 0.05 GiB (5767168000.0%).
+(EngineCore pid=498) INFO 10-19 00:22:54 [gpu_worker.py:955] Free memory on device (6.87/7.93 GiB) on startup. Desired GPU memory utilization is (0.65, 5.16 GiB). Actual usage is 1.27 GiB for consumed memory (weights + non-torch), 0.1 GiB for peak activation, and 0.0 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=3901995008` (3.63 GiB) to fit into requested memory, or `--kv-cache-memory=5739902976` (5.35 GiB) to fully utilize gpu memory. Current kv cache memory in use is 3.78 GiB.
+(EngineCore pid=498) INFO 10-19 00:22:56 [jit_monitor.py:84] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=498) INFO 10-19 00:22:56 [core.py:373] init engine (profile, create kv cache, warmup model) took 25.67 s (compilation: 0.31 s)
+(EngineCore pid=498) INFO 10-19 00:22:57 [kernel.py:408] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(MainProcess pid=436) INFO 10-19 00:23:00 [hf.py:646] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(EngineCore pid=498) WARNING 10-19 00:23:00 [jit_monitor.py:140] Triton kernel JIT compilation during inference: _gumbel_sample_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=498) WARNING 10-19 00:23:05 [jit_monitor.py:140] Triton kernel JIT compilation during inference: _min_p_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(MainProcess pid=436) INFO 10-19 00:23:10 [loggers.py:320] Engine 000: Avg prompt throughput: 887.8 tokens/s, Avg generation throughput: 429.4 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.0%
+{"equivalence_batch": 2, "all_equal": true}
+(MainProcess pid=436) INFO 10-19 00:23:20 [loggers.py:320] Engine 000: Avg prompt throughput: 398.5 tokens/s, Avg generation throughput: 156.8 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 3.3%
+{"equivalence_batch": 8, "all_equal": true}
+(MainProcess pid=436) INFO 10-19 00:23:30 [loggers.py:320] Engine 000: Avg prompt throughput: 819.0 tokens/s, Avg generation throughput: 431.3 tokens/s, Running: 8 reqs, Waiting: 16 reqs, GPU KV cache usage: 3.6%
+(MainProcess pid=436) INFO 10-19 00:23:40 [loggers.py:320] Engine 000: Avg prompt throughput: 1020.9 tokens/s, Avg generation throughput: 515.0 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.0%
+{"equivalence_batch": 32, "all_equal": true}
+{"batch": 2, "round": 0, "arm": "base", "wall_ms": 472.21}
+{"batch": 2, "round": 0, "arm": "patched", "wall_ms": 600.0}
+{"batch": 2, "round": 0, "arm": "patched", "wall_ms": 661.9}
+{"batch": 2, "round": 0, "arm": "base", "wall_ms": 631.3}
+{"batch": 2, "round": 1, "arm": "patched", "wall_ms": 617.95}
+{"batch": 2, "round": 1, "arm": "base", "wall_ms": 644.51}
+{"batch": 2, "round": 1, "arm": "base", "wall_ms": 840.9}
+{"batch": 2, "round": 1, "arm": "patched", "wall_ms": 756.72}
+{"batch": 2, "round": 2, "arm": "base", "wall_ms": 661.99}
+{"batch": 2, "round": 2, "arm": "patched", "wall_ms": 660.47}
+{"batch": 2, "round": 2, "arm": "patched", "wall_ms": 661.89}
+(MainProcess pid=436) INFO 10-19 00:23:50 [loggers.py:320] Engine 000: Avg prompt throughput: 352.9 tokens/s, Avg generation throughput: 199.4 tokens/s, Running: 2 reqs, Waiting: 0 reqs, GPU KV cache usage: 1.0%
+{"batch": 2, "round": 2, "arm": "base", "wall_ms": 917.72}
+{"batch": 2, "round": 3, "arm": "patched", "wall_ms": 789.69}
+{"batch": 2, "round": 3, "arm": "base", "wall_ms": 794.58}
+{"batch": 2, "round": 3, "arm": "base", "wall_ms": 726.28}
+{"batch": 2, "round": 3, "arm": "patched", "wall_ms": 699.27}
+{"batch": 2, "round": 4, "arm": "base", "wall_ms": 679.03}
+{"batch": 2, "round": 4, "arm": "patched", "wall_ms": 702.09}
+{"batch": 2, "round": 4, "arm": "patched", "wall_ms": 738.02}
+{"batch": 2, "round": 4, "arm": "base", "wall_ms": 680.47}
+{"batch": 2, "round": 5, "arm": "patched", "wall_ms": 556.45}
+{"batch": 2, "round": 5, "arm": "base", "wall_ms": 589.26}
+{"batch": 2, "round": 5, "arm": "base", "wall_ms": 639.15}
+{"batch": 2, "round": 5, "arm": "patched", "wall_ms": 618.0}
+{"batch": 2, "round": 6, "arm": "base", "wall_ms": 623.39}
+{"batch": 2, "round": 6, "arm": "patched", "wall_ms": 697.26}
+(MainProcess pid=436) INFO 10-19 00:24:00 [loggers.py:320] Engine 000: Avg prompt throughput: 383.4 tokens/s, Avg generation throughput: 184.5 tokens/s, Running: 2 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.8%
+{"batch": 2, "round": 6, "arm": "patched", "wall_ms": 933.95}
+{"batch": 2, "round": 6, "arm": "base", "wall_ms": 635.68}
+{"batch": 2, "round": 7, "arm": "patched", "wall_ms": 624.19}
+{"batch": 2, "round": 7, "arm": "base", "wall_ms": 637.38}
+{"batch": 2, "round": 7, "arm": "base", "wall_ms": 1408.65}
+{"batch": 2, "round": 7, "arm": "patched", "wall_ms": 1273.54}
+{"batch": 2, "round": 8, "arm": "base", "wall_ms": 1839.52}
+{"batch": 2, "round": 8, "arm": "patched", "wall_ms": 1155.82}
+{"batch": 2, "round": 8, "arm": "patched", "wall_ms": 1524.06}
+(MainProcess pid=436) INFO 10-19 00:24:10 [loggers.py:320] Engine 000: Avg prompt throughput: 230.4 tokens/s, Avg generation throughput: 117.1 tokens/s, Running: 2 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.9%
+{"batch": 2, "round": 8, "arm": "base", "wall_ms": 436.22}
+{"batch": 2, "round": 9, "arm": "patched", "wall_ms": 448.69}
+{"batch": 2, "round": 9, "arm": "base", "wall_ms": 444.72}
+{"batch": 2, "round": 9, "arm": "base", "wall_ms": 394.76}
+{"batch": 2, "round": 9, "arm": "patched", "wall_ms": 398.09}
+{"batch": 2, "round": 10, "arm": "base", "wall_ms": 462.68}
+{"batch": 2, "round": 10, "arm": "patched", "wall_ms": 449.57}
+{"batch": 2, "round": 10, "arm": "patched", "wall_ms": 339.9}
+{"batch": 2, "round": 10, "arm": "base", "wall_ms": 290.52}
+{"batch": 2, "round": 11, "arm": "patched", "wall_ms": 285.87}
+{"batch": 2, "round": 11, "arm": "base", "wall_ms": 286.59}
+{"batch": 2, "round": 11, "arm": "base", "wall_ms": 289.77}
+{"batch": 2, "round": 11, "arm": "patched", "wall_ms": 291.48}
+{"batch": 2, "round": 12, "arm": "base", "wall_ms": 298.96}
+{"batch": 2, "round": 12, "arm": "patched", "wall_ms": 280.54}
+{"batch": 2, "round": 12, "arm": "patched", "wall_ms": 278.17}
+{"batch": 2, "round": 12, "arm": "base", "wall_ms": 291.37}
+{"batch": 2, "round": 13, "arm": "patched", "wall_ms": 299.4}
+{"batch": 2, "round": 13, "arm": "base", "wall_ms": 291.33}
+{"batch": 2, "round": 13, "arm": "base", "wall_ms": 291.51}
+{"batch": 2, "round": 13, "arm": "patched", "wall_ms": 277.34}
+{"batch": 2, "round": 14, "arm": "base", "wall_ms": 294.27}
+{"batch": 2, "round": 14, "arm": "patched", "wall_ms": 289.59}
+{"batch": 2, "round": 14, "arm": "patched", "wall_ms": 296.32}
+{"batch": 2, "round": 14, "arm": "base", "wall_ms": 295.91}
+{"batch": 2, "round": 15, "arm": "patched", "wall_ms": 311.78}
+{"batch": 2, "round": 15, "arm": "base", "wall_ms": 302.01}
+{"batch": 2, "round": 15, "arm": "base", "wall_ms": 301.34}
+{"batch": 2, "round": 15, "arm": "patched", "wall_ms": 308.42}
+{"batch": 2, "round": 16, "arm": "base", "wall_ms": 282.39}
+(MainProcess pid=436) INFO 10-19 00:24:20 [loggers.py:320] Engine 000: Avg prompt throughput: 767.9 tokens/s, Avg generation throughput: 392.7 tokens/s, Running: 2 reqs, Waiting: 0 reqs, GPU KV cache usage: 1.1%
+{"batch": 2, "round": 16, "arm": "patched", "wall_ms": 293.89}
+{"batch": 2, "round": 16, "arm": "patched", "wall_ms": 278.84}
+{"batch": 2, "round": 16, "arm": "base", "wall_ms": 292.9}
+{"batch": 2, "round": 17, "arm": "patched", "wall_ms": 291.7}
+{"batch": 2, "round": 17, "arm": "base", "wall_ms": 290.89}
+{"batch": 2, "round": 17, "arm": "base", "wall_ms": 300.22}
+{"batch": 2, "round": 17, "arm": "patched", "wall_ms": 303.42}
+{"batch": 2, "round": 18, "arm": "base", "wall_ms": 379.16}
+{"batch": 2, "round": 18, "arm": "patched", "wall_ms": 294.85}
+{"batch": 2, "round": 18, "arm": "patched", "wall_ms": 299.33}
+{"batch": 2, "round": 18, "arm": "base", "wall_ms": 286.35}
+{"batch": 2, "round": 19, "arm": "patched", "wall_ms": 296.07}
+{"batch": 2, "round": 19, "arm": "base", "wall_ms": 296.53}
+{"batch": 2, "round": 19, "arm": "base", "wall_ms": 302.08}
+{"batch": 2, "round": 19, "arm": "patched", "wall_ms": 307.34}
+{"batch": 2, "round": 20, "arm": "base", "wall_ms": 298.8}
+{"batch": 2, "round": 20, "arm": "patched", "wall_ms": 296.82}
+{"batch": 2, "round": 20, "arm": "patched", "wall_ms": 296.89}
+{"batch": 2, "round": 20, "arm": "base", "wall_ms": 297.31}
+{"batch": 2, "round": 21, "arm": "patched", "wall_ms": 294.6}
+{"batch": 2, "round": 21, "arm": "base", "wall_ms": 292.78}
+{"batch": 2, "round": 21, "arm": "base", "wall_ms": 295.54}
+{"batch": 2, "round": 21, "arm": "patched", "wall_ms": 284.0}
+{"batch": 2, "round": 22, "arm": "base", "wall_ms": 293.33}
+{"batch": 2, "round": 22, "arm": "patched", "wall_ms": 295.02}
+{"batch": 2, "round": 22, "arm": "patched", "wall_ms": 291.89}
+{"batch": 2, "round": 22, "arm": "base", "wall_ms": 310.04}
+{"batch": 2, "round": 23, "arm": "patched", "wall_ms": 310.98}
+{"batch": 2, "round": 23, "arm": "base", "wall_ms": 303.95}
+{"batch": 2, "round": 23, "arm": "base", "wall_ms": 291.74}
+{"batch": 2, "round": 23, "arm": "patched", "wall_ms": 291.36}
+{"batch": 8, "round": 0, "arm": "base", "wall_ms": 333.6}
+{"batch": 8, "round": 0, "arm": "patched", "wall_ms": 357.47}
+(MainProcess pid=436) INFO 10-19 00:24:30 [loggers.py:320] Engine 000: Avg prompt throughput: 1074.7 tokens/s, Avg generation throughput: 529.2 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.3%
+{"batch": 8, "round": 0, "arm": "patched", "wall_ms": 336.1}
+{"batch": 8, "round": 0, "arm": "base", "wall_ms": 336.38}
+{"batch": 8, "round": 1, "arm": "patched", "wall_ms": 325.64}
+{"batch": 8, "round": 1, "arm": "base", "wall_ms": 339.84}
+{"batch": 8, "round": 1, "arm": "base", "wall_ms": 339.02}
+{"batch": 8, "round": 1, "arm": "patched", "wall_ms": 338.09}
+{"batch": 8, "round": 2, "arm": "base", "wall_ms": 387.39}
+{"batch": 8, "round": 2, "arm": "patched", "wall_ms": 385.17}
+{"batch": 8, "round": 2, "arm": "patched", "wall_ms": 374.74}
+{"batch": 8, "round": 2, "arm": "base", "wall_ms": 393.89}
+{"batch": 8, "round": 3, "arm": "patched", "wall_ms": 385.66}
+{"batch": 8, "round": 3, "arm": "base", "wall_ms": 385.75}
+{"batch": 8, "round": 3, "arm": "base", "wall_ms": 394.68}
+{"batch": 8, "round": 3, "arm": "patched", "wall_ms": 383.34}
+{"batch": 8, "round": 4, "arm": "base", "wall_ms": 392.37}
+{"batch": 8, "round": 4, "arm": "patched", "wall_ms": 393.74}
+{"batch": 8, "round": 4, "arm": "patched", "wall_ms": 384.54}
+{"batch": 8, "round": 4, "arm": "base", "wall_ms": 394.95}
+{"batch": 8, "round": 5, "arm": "patched", "wall_ms": 386.82}
+{"batch": 8, "round": 5, "arm": "base", "wall_ms": 384.44}
+{"batch": 8, "round": 5, "arm": "base", "wall_ms": 394.83}
+{"batch": 8, "round": 5, "arm": "patched", "wall_ms": 385.07}
+(MainProcess pid=436) INFO 10-19 00:24:40 [loggers.py:320] Engine 000: Avg prompt throughput: 2767.8 tokens/s, Avg generation throughput: 1356.5 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 3.6%
+{"batch": 8, "round": 6, "arm": "base", "wall_ms": 359.65}
+{"batch": 8, "round": 6, "arm": "patched", "wall_ms": 357.66}
+{"batch": 8, "round": 6, "arm": "patched", "wall_ms": 356.06}
+{"batch": 8, "round": 6, "arm": "base", "wall_ms": 360.62}
+{"batch": 8, "round": 7, "arm": "patched", "wall_ms": 354.22}
+{"batch": 8, "round": 7, "arm": "base", "wall_ms": 343.6}
+{"batch": 8, "round": 7, "arm": "base", "wall_ms": 342.33}
+{"batch": 8, "round": 7, "arm": "patched", "wall_ms": 342.52}
+{"batch": 8, "round": 8, "arm": "base", "wall_ms": 344.83}
+{"batch": 8, "round": 8, "arm": "patched", "wall_ms": 338.76}
+{"batch": 8, "round": 8, "arm": "patched", "wall_ms": 343.11}
+{"batch": 8, "round": 8, "arm": "base", "wall_ms": 340.78}
+{"batch": 8, "round": 9, "arm": "patched", "wall_ms": 341.41}
+{"batch": 8, "round": 9, "arm": "base", "wall_ms": 344.39}
+{"batch": 8, "round": 9, "arm": "base", "wall_ms": 343.69}
+{"batch": 8, "round": 9, "arm": "patched", "wall_ms": 335.97}
+{"batch": 8, "round": 10, "arm": "base", "wall_ms": 342.35}
+{"batch": 8, "round": 10, "arm": "patched", "wall_ms": 341.48}
+{"batch": 8, "round": 10, "arm": "patched", "wall_ms": 342.9}
+{"batch": 8, "round": 10, "arm": "base", "wall_ms": 342.11}
+{"batch": 8, "round": 11, "arm": "patched", "wall_ms": 343.41}
+{"batch": 8, "round": 11, "arm": "base", "wall_ms": 340.83}
+{"batch": 8, "round": 11, "arm": "base", "wall_ms": 344.52}
+{"batch": 8, "round": 11, "arm": "patched", "wall_ms": 343.32}
+{"batch": 8, "round": 12, "arm": "base", "wall_ms": 346.26}
+{"batch": 8, "round": 12, "arm": "patched", "wall_ms": 339.63}
+{"batch": 8, "round": 12, "arm": "patched", "wall_ms": 341.42}
+{"batch": 8, "round": 12, "arm": "base", "wall_ms": 345.33}
+{"batch": 8, "round": 13, "arm": "patched", "wall_ms": 327.06}
+(MainProcess pid=436) INFO 10-19 00:24:50 [loggers.py:320] Engine 000: Avg prompt throughput: 2968.9 tokens/s, Avg generation throughput: 1482.0 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 3.6%
+{"batch": 8, "round": 13, "arm": "base", "wall_ms": 328.7}
+{"batch": 8, "round": 13, "arm": "base", "wall_ms": 331.76}
+{"batch": 8, "round": 13, "arm": "patched", "wall_ms": 330.09}
+{"batch": 8, "round": 14, "arm": "base", "wall_ms": 329.34}
+{"batch": 8, "round": 14, "arm": "patched", "wall_ms": 322.86}
+{"batch": 8, "round": 14, "arm": "patched", "wall_ms": 326.14}
+{"batch": 8, "round": 14, "arm": "base", "wall_ms": 328.56}
+{"batch": 8, "round": 15, "arm": "patched", "wall_ms": 327.9}
+{"batch": 8, "round": 15, "arm": "base", "wall_ms": 330.21}
+{"batch": 8, "round": 15, "arm": "base", "wall_ms": 328.3}
+{"batch": 8, "round": 15, "arm": "patched", "wall_ms": 328.09}
+{"batch": 8, "round": 16, "arm": "base", "wall_ms": 330.25}
+{"batch": 8, "round": 16, "arm": "patched", "wall_ms": 326.62}
+{"batch": 8, "round": 16, "arm": "patched", "wall_ms": 326.98}
+{"batch": 8, "round": 16, "arm": "base", "wall_ms": 330.11}
+{"batch": 8, "round": 17, "arm": "patched", "wall_ms": 328.19}
+{"batch": 8, "round": 17, "arm": "base", "wall_ms": 328.98}
+{"batch": 8, "round": 17, "arm": "base", "wall_ms": 328.96}
+{"batch": 8, "round": 17, "arm": "patched", "wall_ms": 327.96}
+{"batch": 8, "round": 18, "arm": "base", "wall_ms": 329.56}
+{"batch": 8, "round": 18, "arm": "patched", "wall_ms": 326.2}
+{"batch": 8, "round": 18, "arm": "patched", "wall_ms": 326.62}
+{"batch": 8, "round": 18, "arm": "base", "wall_ms": 328.45}
+{"batch": 8, "round": 19, "arm": "patched", "wall_ms": 322.39}
+{"batch": 8, "round": 19, "arm": "base", "wall_ms": 324.99}
+{"batch": 8, "round": 19, "arm": "base", "wall_ms": 344.21}
+{"batch": 8, "round": 19, "arm": "patched", "wall_ms": 323.28}
+{"batch": 8, "round": 20, "arm": "base", "wall_ms": 323.1}
+{"batch": 8, "round": 20, "arm": "patched", "wall_ms": 335.84}
+{"batch": 8, "round": 20, "arm": "patched", "wall_ms": 323.85}
+(MainProcess pid=436) INFO 10-19 00:25:00 [loggers.py:320] Engine 000: Avg prompt throughput: 3071.6 tokens/s, Avg generation throughput: 1531.0 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 3.3%
+{"batch": 8, "round": 20, "arm": "base", "wall_ms": 330.08}
+{"batch": 8, "round": 21, "arm": "patched", "wall_ms": 405.88}
+{"batch": 8, "round": 21, "arm": "base", "wall_ms": 321.04}
+{"batch": 8, "round": 21, "arm": "base", "wall_ms": 326.89}
+{"batch": 8, "round": 21, "arm": "patched", "wall_ms": 335.18}
+{"batch": 8, "round": 22, "arm": "base", "wall_ms": 327.75}
+{"batch": 8, "round": 22, "arm": "patched", "wall_ms": 324.33}
+{"batch": 8, "round": 22, "arm": "patched", "wall_ms": 335.44}
+{"batch": 8, "round": 22, "arm": "base", "wall_ms": 327.4}
+{"batch": 8, "round": 23, "arm": "patched", "wall_ms": 328.84}
+{"batch": 8, "round": 23, "arm": "base", "wall_ms": 330.01}
+{"batch": 8, "round": 23, "arm": "base", "wall_ms": 327.23}
+{"batch": 8, "round": 23, "arm": "patched", "wall_ms": 330.75}
+{"batch": 32, "round": 0, "arm": "base", "wall_ms": 1311.47}
+{"batch": 32, "round": 0, "arm": "patched", "wall_ms": 1366.79}
+{"batch": 32, "round": 0, "arm": "patched", "wall_ms": 1341.73}
+{"batch": 32, "round": 0, "arm": "base", "wall_ms": 1340.44}
+(MainProcess pid=436) INFO 10-19 00:25:10 [loggers.py:320] Engine 000: Avg prompt throughput: 2969.5 tokens/s, Avg generation throughput: 1519.2 tokens/s, Running: 8 reqs, Waiting: 24 reqs, GPU KV cache usage: 4.3%
+{"batch": 32, "round": 1, "arm": "patched", "wall_ms": 1360.11}
+{"batch": 32, "round": 1, "arm": "base", "wall_ms": 1389.96}
+{"batch": 32, "round": 1, "arm": "base", "wall_ms": 1372.76}
+{"batch": 32, "round": 1, "arm": "patched", "wall_ms": 1280.41}
+{"batch": 32, "round": 2, "arm": "base", "wall_ms": 1284.91}
+{"batch": 32, "round": 2, "arm": "patched", "wall_ms": 1267.43}
+(MainProcess pid=436) INFO 10-19 00:25:20 [loggers.py:320] Engine 000: Avg prompt throughput: 3114.3 tokens/s, Avg generation throughput: 1546.4 tokens/s, Running: 8 reqs, Waiting: 16 reqs, GPU KV cache usage: 4.0%
+{"batch": 32, "round": 2, "arm": "patched", "wall_ms": 1278.31}
+{"batch": 32, "round": 2, "arm": "base", "wall_ms": 1527.43}
+{"batch": 32, "round": 3, "arm": "patched", "wall_ms": 1241.52}
+{"batch": 32, "round": 3, "arm": "base", "wall_ms": 1293.23}
+{"batch": 32, "round": 3, "arm": "base", "wall_ms": 1320.03}
+{"batch": 32, "round": 3, "arm": "patched", "wall_ms": 1390.13}
+{"batch": 32, "round": 4, "arm": "base", "wall_ms": 1302.7}
+(MainProcess pid=436) INFO 10-19 00:25:30 [loggers.py:320] Engine 000: Avg prompt throughput: 3071.7 tokens/s, Avg generation throughput: 1531.1 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.0%
+{"batch": 32, "round": 4, "arm": "patched", "wall_ms": 1296.76}
+{"batch": 32, "round": 4, "arm": "patched", "wall_ms": 1295.64}
+{"batch": 32, "round": 4, "arm": "base", "wall_ms": 1345.74}
+{"batch": 32, "round": 5, "arm": "patched", "wall_ms": 1341.46}
+{"batch": 32, "round": 5, "arm": "base", "wall_ms": 1449.87}
+{"batch": 32, "round": 5, "arm": "base", "wall_ms": 1353.64}
+{"batch": 32, "round": 5, "arm": "patched", "wall_ms": 1358.86}
+{"batch": 32, "round": 6, "arm": "base", "wall_ms": 1394.31}
+(MainProcess pid=436) INFO 10-19 00:25:40 [loggers.py:320] Engine 000: Avg prompt throughput: 2969.5 tokens/s, Avg generation throughput: 1500.8 tokens/s, Running: 8 reqs, Waiting: 24 reqs, GPU KV cache usage: 4.3%
+{"batch": 32, "round": 6, "arm": "patched", "wall_ms": 1401.22}
+{"batch": 32, "round": 6, "arm": "patched", "wall_ms": 1398.33}
+{"batch": 32, "round": 6, "arm": "base", "wall_ms": 1403.01}
+{"batch": 32, "round": 7, "arm": "patched", "wall_ms": 1377.44}
+{"batch": 32, "round": 7, "arm": "base", "wall_ms": 1407.11}
+{"batch": 32, "round": 7, "arm": "base", "wall_ms": 1365.34}
+(MainProcess pid=436) INFO 10-19 00:25:50 [loggers.py:320] Engine 000: Avg prompt throughput: 3028.8 tokens/s, Avg generation throughput: 1463.1 tokens/s, Running: 8 reqs, Waiting: 24 reqs, GPU KV cache usage: 3.3%
+{"batch": 32, "round": 7, "arm": "patched", "wall_ms": 1328.51}
+{"batch": 32, "round": 8, "arm": "base", "wall_ms": 1330.94}
+{"batch": 32, "round": 8, "arm": "patched", "wall_ms": 1323.71}
+{"batch": 32, "round": 8, "arm": "patched", "wall_ms": 1314.33}
+{"batch": 32, "round": 8, "arm": "base", "wall_ms": 1330.53}
+{"batch": 32, "round": 9, "arm": "patched", "wall_ms": 1369.19}
+{"batch": 32, "round": 9, "arm": "base", "wall_ms": 1368.73}
+(MainProcess pid=436) INFO 10-19 00:26:00 [loggers.py:320] Engine 000: Avg prompt throughput: 2968.7 tokens/s, Avg generation throughput: 1488.4 tokens/s, Running: 8 reqs, Waiting: 16 reqs, GPU KV cache usage: 3.3%
+{"batch": 32, "round": 9, "arm": "base", "wall_ms": 1404.56}
+{"batch": 32, "round": 9, "arm": "patched", "wall_ms": 1358.16}
+{"batch": 32, "round": 10, "arm": "base", "wall_ms": 1371.59}
+{"batch": 32, "round": 10, "arm": "patched", "wall_ms": 1343.03}
+{"batch": 32, "round": 10, "arm": "patched", "wall_ms": 1323.17}
+{"batch": 32, "round": 10, "arm": "base", "wall_ms": 1388.46}
+{"batch": 32, "round": 11, "arm": "patched", "wall_ms": 1357.44}
+(MainProcess pid=436) INFO 10-19 00:26:10 [loggers.py:320] Engine 000: Avg prompt throughput: 2968.7 tokens/s, Avg generation throughput: 1502.6 tokens/s, Running: 8 reqs, Waiting: 8 reqs, GPU KV cache usage: 4.0%
+{"batch": 32, "round": 11, "arm": "base", "wall_ms": 1364.11}
+{"batch": 32, "round": 11, "arm": "base", "wall_ms": 1330.67}
+{"batch": 32, "round": 11, "arm": "patched", "wall_ms": 1320.59}
+{"batch": 32, "round": 12, "arm": "base", "wall_ms": 1328.36}
+{"batch": 32, "round": 12, "arm": "patched", "wall_ms": 1324.72}
+{"batch": 32, "round": 12, "arm": "patched", "wall_ms": 1324.28}
+{"batch": 32, "round": 12, "arm": "base", "wall_ms": 1337.37}
+(MainProcess pid=436) INFO 10-19 00:26:20 [loggers.py:320] Engine 000: Avg prompt throughput: 3092.4 tokens/s, Avg generation throughput: 1535.5 tokens/s, Running: 8 reqs, Waiting: 16 reqs, GPU KV cache usage: 3.6%
+{"batch": 32, "round": 13, "arm": "patched", "wall_ms": 1333.49}
+{"batch": 32, "round": 13, "arm": "base", "wall_ms": 1335.46}
+{"batch": 32, "round": 13, "arm": "base", "wall_ms": 1332.45}
+{"batch": 32, "round": 13, "arm": "patched", "wall_ms": 1312.37}
+{"batch": 32, "round": 14, "arm": "base", "wall_ms": 1322.88}
+{"batch": 32, "round": 14, "arm": "patched", "wall_ms": 1322.18}
+{"batch": 32, "round": 14, "arm": "patched", "wall_ms": 1322.6}
+(MainProcess pid=436) INFO 10-19 00:26:30 [loggers.py:320] Engine 000: Avg prompt throughput: 3071.8 tokens/s, Avg generation throughput: 1539.1 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 3.6%
+{"batch": 32, "round": 14, "arm": "base", "wall_ms": 1333.79}
+{"batch": 32, "round": 15, "arm": "patched", "wall_ms": 1302.46}
+{"batch": 32, "round": 15, "arm": "base", "wall_ms": 1294.94}
+{"batch": 32, "round": 15, "arm": "base", "wall_ms": 1282.31}
+{"batch": 32, "round": 15, "arm": "patched", "wall_ms": 1295.63}
+{"batch": 32, "round": 16, "arm": "base", "wall_ms": 1306.26}
+{"batch": 32, "round": 16, "arm": "patched", "wall_ms": 1304.68}
+{"batch": 32, "round": 16, "arm": "patched", "wall_ms": 1423.18}
+(MainProcess pid=436) INFO 10-19 00:26:40 [loggers.py:320] Engine 000: Avg prompt throughput: 3071.8 tokens/s, Avg generation throughput: 1551.1 tokens/s, Running: 8 reqs, Waiting: 16 reqs, GPU KV cache usage: 4.3%
+{"batch": 32, "round": 16, "arm": "base", "wall_ms": 1375.29}
+{"batch": 32, "round": 17, "arm": "patched", "wall_ms": 1357.88}
+{"batch": 32, "round": 17, "arm": "base", "wall_ms": 1359.58}
+{"batch": 32, "round": 17, "arm": "base", "wall_ms": 1367.75}
+{"batch": 32, "round": 17, "arm": "patched", "wall_ms": 1359.8}
+{"batch": 32, "round": 18, "arm": "base", "wall_ms": 1361.13}
+{"batch": 32, "round": 18, "arm": "patched", "wall_ms": 1346.89}
+(MainProcess pid=436) INFO 10-19 00:26:50 [loggers.py:320] Engine 000: Avg prompt throughput: 3071.6 tokens/s, Avg generation throughput: 1503.9 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 3.3%
+{"batch": 32, "round": 18, "arm": "patched", "wall_ms": 1334.3}
+{"batch": 32, "round": 18, "arm": "base", "wall_ms": 1331.25}
+{"batch": 32, "round": 19, "arm": "patched", "wall_ms": 1343.87}
+{"batch": 32, "round": 19, "arm": "base", "wall_ms": 1351.02}
+{"batch": 32, "round": 19, "arm": "base", "wall_ms": 1345.95}
+{"batch": 32, "round": 19, "arm": "patched", "wall_ms": 1352.36}
+{"batch": 32, "round": 20, "arm": "base", "wall_ms": 1347.99}
+(MainProcess pid=436) INFO 10-19 00:27:00 [loggers.py:320] Engine 000: Avg prompt throughput: 3047.3 tokens/s, Avg generation throughput: 1516.9 tokens/s, Running: 8 reqs, Waiting: 24 reqs, GPU KV cache usage: 3.3%
+{"batch": 32, "round": 20, "arm": "patched", "wall_ms": 1338.56}
+{"batch": 32, "round": 20, "arm": "patched", "wall_ms": 1328.78}
+{"batch": 32, "round": 20, "arm": "base", "wall_ms": 1334.02}
+{"batch": 32, "round": 21, "arm": "patched", "wall_ms": 1278.85}
+{"batch": 32, "round": 21, "arm": "base", "wall_ms": 1284.0}
+{"batch": 32, "round": 21, "arm": "base", "wall_ms": 1283.15}
+{"batch": 32, "round": 21, "arm": "patched", "wall_ms": 1274.14}
+(MainProcess pid=436) INFO 10-19 00:27:10 [loggers.py:320] Engine 000: Avg prompt throughput: 3071.2 tokens/s, Avg generation throughput: 1576.4 tokens/s, Running: 8 reqs, Waiting: 8 reqs, GPU KV cache usage: 4.3%
+{"batch": 32, "round": 22, "arm": "base", "wall_ms": 1286.53}
+{"batch": 32, "round": 22, "arm": "patched", "wall_ms": 1319.71}
+{"batch": 32, "round": 22, "arm": "patched", "wall_ms": 1358.37}
+{"batch": 32, "round": 22, "arm": "base", "wall_ms": 1352.84}
+{"batch": 32, "round": 23, "arm": "patched", "wall_ms": 1348.69}
+{"batch": 32, "round": 23, "arm": "base", "wall_ms": 1346.14}
+{"batch": 32, "round": 23, "arm": "base", "wall_ms": 1339.81}
+{"batch": 32, "round": 23, "arm": "patched", "wall_ms": 1333.79}
+[
+  {
+    "batch": 2,
+    "rounds": 24,
+    "base_median_wall_ms": 303.01662200002966,
+    "patched_median_wall_ms": 309.70218399994565,
+    "wall_pct_of_paired_rounds": {
+      "n": 24,
+      "median": -0.4227165383188255,
+      "ci95": [
+        -2.6170318353032553,
+        4.6789148646119
+      ]
+    },
+    "decode_pct_of_paired_rounds": {
+      "n": 24,
+      "median": -0.609434841299848,
+      "ci95": [
+        -3.3576872404622002,
+        3.967731283208369
+      ]
+    },
+    "id_agreement": {
+      "base": {
+        "calls": 48,
+        "identical_to_first_base": 48,
+        "first_divergence_token": []
+      },
+      "patched": {
+        "calls": 48,
+        "identical_to_first_base": 48,
+        "first_divergence_token": []
+      }
+    },
+    "rounds_detail": [
+      {
+        "round": 0,
+        "base_wall_ms": 551.7522819999954,
+        "patched_wall_ms": 630.9483504999776,
+        "wall_pct": 14.353555224622133,
+        "base_decode_ms": 8.27087558730135,
+        "patched_decode_ms": 9.402902992063456,
+        "decode_pct": 13.686911292682947
+      },
+      {
+        "round": 1,
+        "base_wall_ms": 742.7048440000021,
+        "patched_wall_ms": 687.3338254999908,
+        "wall_pct": -7.455319424308373,
+        "base_decode_ms": 11.293098404762315,
+        "patched_decode_ms": 10.154064912698113,
+        "decode_pct": -10.086102602133266
+      },
+      {
+        "round": 2,
+        "base_wall_ms": 789.8523934999844,
+        "patched_wall_ms": 661.1812379999833,
+        "wall_pct": -16.290531820741215,
+        "base_decode_ms": 11.937971424602651,
+        "patched_decode_ms": 9.960482837302138,
+        "decode_pct": -16.56469526493554
+      },
+      {
+        "round": 3,
+        "base_wall_ms": 760.42890049996,
+        "patched_wall_ms": 744.4801594999717,
+        "wall_pct": -2.097334936836632,
+        "base_decode_ms": 11.289301067460118,
+        "patched_decode_ms": 11.04908754365081,
+        "decode_pct": -2.1277980131267
+      },
+      {
+        "round": 4,
+        "base_wall_ms": 679.746919500019,
+        "patched_wall_ms": 720.0558115000035,
+        "wall_pct": 5.9299852406294615,
+        "base_decode_ms": 10.265142980158778,
+        "patched_decode_ms": 10.596302186508225,
+        "decode_pct": 3.226055467415662
+      },
+      {
+        "round": 5,
+        "base_wall_ms": 614.2066494999767,
+        "patched_wall_ms": 587.2216024999943,
+        "wall_pct": -4.393480113240521,
+        "base_decode_ms": 9.211908908730674,
+        "patched_decode_ms": 8.739367265873296,
+        "decode_pct": -5.129682105405122
+      },
+      {
+        "round": 6,
+        "base_wall_ms": 629.5342764999532,
+        "patched_wall_ms": 815.6066850000343,
+        "wall_pct": 29.55715287412074,
+        "base_decode_ms": 9.425024611111947,
+        "patched_decode_ms": 12.217316242063205,
+        "decode_pct": 29.62635904058216
+      },
+      {
+        "round": 7,
+        "base_wall_ms": 1023.0121270000154,
+        "patched_wall_ms": 948.86257349998,
+        "wall_pct": -7.248159776705585,
+        "base_decode_ms": 15.73905351984236,
+        "patched_decode_ms": 14.096889210317194,
+        "decode_pct": -10.433691628628589
+      },
+      {
+        "round": 8,
+        "base_wall_ms": 1137.8702325000063,
+        "patched_wall_ms": 1339.938608500006,
+        "wall_pct": 17.758472823042112,
+        "base_decode_ms": 17.409884682539513,
+        "patched_decode_ms": 19.701191785713945,
+        "decode_pct": 13.160955083593398
+      },
+      {
+        "round": 9,
+        "base_wall_ms": 419.7415285000261,
+        "patched_wall_ms": 423.3934234999879,
+        "wall_pct": 0.8700342358336701,
+        "base_decode_ms": 6.311845662699016,
+        "patched_decode_ms": 6.461825190476089,
+        "decode_pct": 2.3761596178342037
+      },
+      {
+        "round": 10,
+        "base_wall_ms": 376.60063949999767,
+        "patched_wall_ms": 394.73527400002695,
+        "wall_pct": 4.815348833211259,
+        "base_decode_ms": 5.484448785714286,
+        "patched_decode_ms": 5.7543827261907055,
+        "decode_pct": 4.921806201920138
+      },
+      {
+        "round": 11,
+        "base_wall_ms": 288.1779594999898,
+        "patched_wall_ms": 288.6750565000398,
+        "wall_pct": 0.17249653683177651,
+        "base_decode_ms": 4.212376337302467,
+        "patched_decode_ms": 4.178602670635197,
+        "decode_pct": -0.8017723005465832
+      },
+      {
+        "round": 12,
+        "base_wall_ms": 295.16527500004486,
+        "patched_wall_ms": 279.35356799997635,
+        "wall_pct": -5.356899452371593,
+        "base_decode_ms": 4.2112632103172,
+        "patched_decode_ms": 4.195723285715216,
+        "decode_pct": -0.36900862819290126
+      },
+      {
+        "round": 13,
+        "base_wall_ms": 291.4205674999266,
+        "patched_wall_ms": 288.36986700002853,
+        "wall_pct": -1.0468377458975515,
+        "base_decode_ms": 4.193481317459586,
+        "patched_decode_ms": 4.175990416667576,
+        "decode_pct": -0.4170973820531129
+      },
+      {
+        "round": 14,
+        "base_wall_ms": 295.09171050000305,
+        "patched_wall_ms": 292.95561000003545,
+        "wall_pct": -0.7238768233605041,
+        "base_decode_ms": 4.2122820396831875,
+        "patched_decode_ms": 4.176509595237933,
+        "decode_pct": -0.8492414351234899
+      },
+      {
+        "round": 15,
+        "base_wall_ms": 301.6724930000123,
+        "patched_wall_ms": 310.1005154999257,
+        "wall_pct": 2.7937656549657723,
+        "base_decode_ms": 4.212840186507748,
+        "patched_decode_ms": 4.287487833333592,
+        "decode_pct": 1.7719078702513902
+      },
+      {
+        "round": 16,
+        "base_wall_ms": 287.64490899999373,
+        "patched_wall_ms": 286.3656435000621,
+        "wall_pct": -0.44473775127083975,
+        "base_decode_ms": 4.197909384920819,
+        "patched_decode_ms": 4.181254273809435,
+        "decode_pct": -0.3967477518978969
+      },
+      {
+        "round": 17,
+        "base_wall_ms": 295.55589000005966,
+        "patched_wall_ms": 297.56106849998787,
+        "wall_pct": 0.6784430856471179,
+        "base_decode_ms": 4.232111956348995,
+        "patched_decode_ms": 4.179982424603615,
+        "decode_pct": -1.231761642486219
+      },
+      {
+        "round": 18,
+        "base_wall_ms": 332.754798499991,
+        "patched_wall_ms": 297.0901304999529,
+        "wall_pct": -10.718002613578856,
+        "base_decode_ms": 4.847262309524359,
+        "patched_decode_ms": 4.190585134921321,
+        "decode_pct": -13.547382680585219
+      },
+      {
+        "round": 19,
+        "base_wall_ms": 299.30593900007807,
+        "patched_wall_ms": 301.700364999931,
+        "wall_pct": 0.7999928126559265,
+        "base_decode_ms": 4.241521083333142,
+        "patched_decode_ms": 4.266722658729444,
+        "decode_pct": 0.5941636243500144
+      },
+      {
+        "round": 20,
+        "base_wall_ms": 298.05126850004626,
+        "patched_wall_ms": 296.8569909999701,
+        "wall_pct": -0.40069532536681124,
+        "base_decode_ms": 4.290406857142854,
+        "patched_decode_ms": 4.247166178571668,
+        "decode_pct": -1.0078456428717895
+      },
+      {
+        "round": 21,
+        "base_wall_ms": 294.15997749998724,
+        "patched_wall_ms": 289.2997674999833,
+        "wall_pct": -1.6522336047581891,
+        "base_decode_ms": 4.251291285714482,
+        "patched_decode_ms": 4.254709218253354,
+        "decode_pct": 0.08039751475881626
+      },
+      {
+        "round": 22,
+        "base_wall_ms": 301.68305349997127,
+        "patched_wall_ms": 293.45358599999827,
+        "wall_pct": -2.7278520965957345,
+        "base_decode_ms": 4.353539253968627,
+        "patched_decode_ms": 4.2244329841273895,
+        "decode_pct": -2.965547392814846
+      },
+      {
+        "round": 23,
+        "base_wall_ms": 297.8447909999886,
+        "patched_wall_ms": 301.1736689999793,
+        "wall_pct": 1.1176552689789483,
+        "base_decode_ms": 4.325809789682872,
+        "patched_decode_ms": 4.25338102777712,
+        "decode_pct": -1.6743399600809077
+      }
+    ]
+  },
+  {
+    "batch": 8,
+    "rounds": 24,
+    "base_median_wall_ms": 339.429040500022,
+    "patched_median_wall_ms": 337.0934800000214,
+    "wall_pct_of_paired_rounds": {
+      "n": 24,
+      "median": -0.6683741930799111,
+      "ci95": [
+        -1.0204266306875396,
+        1.5219571699972012
+      ]
+    },
+    "decode_pct_of_paired_rounds": {
+      "n": 24,
+      "median": -0.852320366436434,
+      "ci95": [
+        -1.4014343913637282,
+        -0.1557013721127936
+      ]
+    },
+    "id_agreement": {
+      "base": {
+        "calls": 48,
+        "identical_to_first_base": 48,
+        "first_divergence_token": []
+      },
+      "patched": {
+        "calls": 48,
+        "identical_to_first_base": 48,
+        "first_divergence_token": []
+      }
+    },
+    "rounds_detail": [
+      {
+        "round": 0,
+        "base_wall_ms": 334.9903925000035,
+        "patched_wall_ms": 346.782949000044,
+        "wall_pct": 3.5202670775223486,
+        "base_decode_ms": 4.628006571429019,
+        "patched_decode_ms": 4.755579376984249,
+        "decode_pct": 2.7565389890066396
+      },
+      {
+        "round": 1,
+        "base_wall_ms": 339.429040500022,
+        "patched_wall_ms": 331.8651559999921,
+        "wall_pct": -2.2284140711376113,
+        "base_decode_ms": 4.654959489086884,
+        "patched_decode_ms": 4.652417192460121,
+        "decode_pct": -0.05461479595520615
+      },
+      {
+        "round": 2,
+        "base_wall_ms": 390.6403645000296,
+        "patched_wall_ms": 379.9580665000235,
+        "wall_pct": -2.734560729196042,
+        "base_decode_ms": 5.420049456348683,
+        "patched_decode_ms": 5.203715137896994,
+        "decode_pct": -3.991371669095921
+      },
+      {
+        "round": 3,
+        "base_wall_ms": 390.215211500049,
+        "patched_wall_ms": 384.5014640000386,
+        "wall_pct": -1.4642554497160334,
+        "base_decode_ms": 5.455474708332715,
+        "patched_decode_ms": 5.296624791667238,
+        "decode_pct": -2.9117524167575892
+      },
+      {
+        "round": 4,
+        "base_wall_ms": 393.66182800000615,
+        "patched_wall_ms": 389.1414590000295,
+        "wall_pct": -1.1482873569282372,
+        "base_decode_ms": 5.4215246527774985,
+        "patched_decode_ms": 5.336762380951523,
+        "decode_pct": -1.563439756426285
+      },
+      {
+        "round": 5,
+        "base_wall_ms": 389.63608650004744,
+        "patched_wall_ms": 385.9439025000029,
+        "wall_pct": -0.9475980608495598,
+        "base_decode_ms": 5.421767273809617,
+        "patched_decode_ms": 5.330021420634907,
+        "decode_pct": -1.6921761584621564
+      },
+      {
+        "round": 6,
+        "base_wall_ms": 360.1362205000669,
+        "patched_wall_ms": 356.85911000001624,
+        "wall_pct": -0.909964150648388,
+        "base_decode_ms": 5.00929094246106,
+        "patched_decode_ms": 4.935647522817671,
+        "decode_pct": -1.470136601952054
+      },
+      {
+        "round": 7,
+        "base_wall_ms": 342.968170000006,
+        "patched_wall_ms": 348.36951000005456,
+        "wall_pct": 1.5748808409971264,
+        "base_decode_ms": 4.808153764881263,
+        "patched_decode_ms": 4.816362019841309,
+        "decode_pct": 0.17071531738437315
+      },
+      {
+        "round": 8,
+        "base_wall_ms": 342.80838250003853,
+        "patched_wall_ms": 340.9337745000016,
+        "wall_pct": -0.5468384367866804,
+        "base_decode_ms": 4.783945413689838,
+        "patched_decode_ms": 4.747744425595594,
+        "decode_pct": -0.7567182516474846
+      },
+      {
+        "round": 9,
+        "base_wall_ms": 344.03912950000404,
+        "patched_wall_ms": 338.69353899996213,
+        "wall_pct": -1.553773987223696,
+        "base_decode_ms": 4.734837452380544,
+        "patched_decode_ms": 4.722823551587238,
+        "decode_pct": -0.2537341759697783
+      },
+      {
+        "round": 10,
+        "base_wall_ms": 342.2314405000293,
+        "patched_wall_ms": 342.1941290000632,
+        "wall_pct": -0.010902417355808427,
+        "base_decode_ms": 4.77828672222159,
+        "patched_decode_ms": 4.7352920535707606,
+        "decode_pct": -0.8997925647885656
+      },
+      {
+        "round": 11,
+        "base_wall_ms": 342.67595150004126,
+        "patched_wall_ms": 343.3644140000638,
+        "wall_pct": 0.20090773718109636,
+        "base_decode_ms": 4.790015287698548,
+        "patched_decode_ms": 4.729458416667582,
+        "decode_pct": -1.2642312684572101
+      },
+      {
+        "round": 12,
+        "base_wall_ms": 345.79391849996455,
+        "patched_wall_ms": 340.5256070000746,
+        "wall_pct": -1.5235408195562217,
+        "base_decode_ms": 4.771602175594693,
+        "patched_decode_ms": 4.770777331349525,
+        "decode_pct": -0.01728652588404248
+      },
+      {
+        "round": 13,
+        "base_wall_ms": 330.230408000034,
+        "patched_wall_ms": 328.57273099995155,
+        "wall_pct": -0.5019758810588658,
+        "base_decode_ms": 4.563438491071033,
+        "patched_decode_ms": 4.523300420635968,
+        "decode_pct": -0.8795576080098586
+      },
+      {
+        "round": 14,
+        "base_wall_ms": 328.95250200004966,
+        "patched_wall_ms": 324.50147499997684,
+        "wall_pct": -1.3530910915741128,
+        "base_decode_ms": 4.565199928570624,
+        "patched_decode_ms": 4.536216033730715,
+        "decode_pct": -0.6348877440945719
+      },
+      {
+        "round": 15,
+        "base_wall_ms": 329.2550189999588,
+        "patched_wall_ms": 327.999246499985,
+        "wall_pct": -0.38139813442720216,
+        "base_decode_ms": 4.565193631944475,
+        "patched_decode_ms": 4.525190240079675,
+        "decode_pct": -0.8762693346648207
+      },
+      {
+        "round": 16,
+        "base_wall_ms": 330.1778915,
+        "patched_wall_ms": 326.79867350003633,
+        "wall_pct": -1.0234537462856315,
+        "base_decode_ms": 4.5662299751986515,
+        "patched_decode_ms": 4.527649986111477,
+        "decode_pct": -0.8448980733935965
+      },
+      {
+        "round": 17,
+        "base_wall_ms": 328.96936700001334,
+        "patched_wall_ms": 328.0723069999567,
+        "wall_pct": -0.27268800382152,
+        "base_decode_ms": 4.563751307539211,
+        "patched_decode_ms": 4.524514790675753,
+        "decode_pct": -0.8597426594792715
+      },
+      {
+        "round": 18,
+        "base_wall_ms": 329.005603999974,
+        "patched_wall_ms": 326.40675599998303,
+        "wall_pct": -0.7899099493731417,
+        "base_decode_ms": 4.566482282737661,
+        "patched_decode_ms": 4.521256506944071,
+        "decode_pct": -0.9903854431791893
+      },
+      {
+        "round": 19,
+        "base_wall_ms": 334.59762300003604,
+        "patched_wall_ms": 322.8305705000025,
+        "wall_pct": -3.516777075261006,
+        "base_decode_ms": 4.6614219940474575,
+        "patched_decode_ms": 4.454099058531509,
+        "decode_pct": -4.447632842096166
+      },
+      {
+        "round": 20,
+        "base_wall_ms": 326.58814600000596,
+        "patched_wall_ms": 329.84116000000085,
+        "wall_pct": 0.9960600345839963,
+        "base_decode_ms": 4.566299623016154,
+        "patched_decode_ms": 4.554762296627535,
+        "decode_pct": -0.252662491319355
+      },
+      {
+        "round": 21,
+        "base_wall_ms": 323.9676249999661,
+        "patched_wall_ms": 370.5289975000028,
+        "wall_pct": 14.372230095535484,
+        "base_decode_ms": 4.536834537698756,
+        "patched_decode_ms": 4.600710418650631,
+        "decode_pct": 1.4079393996210092
+      },
+      {
+        "round": 22,
+        "base_wall_ms": 327.576368500047,
+        "patched_wall_ms": 329.8856045000207,
+        "wall_pct": 0.7049458453146472,
+        "base_decode_ms": 4.507863870040229,
+        "patched_decode_ms": 4.580514306547506,
+        "decode_pct": 1.6116377646210627
+      },
+      {
+        "round": 23,
+        "base_wall_ms": 328.6200840000788,
+        "patched_wall_ms": 329.79649949999157,
+        "wall_pct": 0.3579864887115305,
+        "base_decode_ms": 4.55411997122998,
+        "patched_decode_ms": 4.563706303572182,
+        "decode_pct": 0.21049801943652385
+      }
+    ]
+  },
+  {
+    "batch": 32,
+    "rounds": 24,
+    "base_median_wall_ms": 1343.09156300003,
+    "patched_median_wall_ms": 1333.6414649999142,
+    "wall_pct_of_paired_rounds": {
+      "n": 24,
+      "median": -0.5494687531806095,
+      "ci95": [
+        -2.0677686902857624,
+        -0.22760797629644977
+      ]
+    },
+    "decode_pct_of_paired_rounds": {
+      "n": 24,
+      "median": -0.809693549854845,
+      "ci95": [
+        -1.6053833112641671,
+        -0.257417798131193
+      ]
+    },
+    "id_agreement": {
+      "base": {
+        "calls": 48,
+        "identical_to_first_base": 48,
+        "first_divergence_token": []
+      },
+      "patched": {
+        "calls": 48,
+        "identical_to_first_base": 47,
+        "first_divergence_token": [
+          26
+        ]
+      }
+    },
+    "rounds_detail": [
+      {
+        "round": 0,
+        "base_wall_ms": 1325.956526500022,
+        "patched_wall_ms": 1354.2597114999921,
+        "wall_pct": 2.1345484889070176,
+        "base_decode_ms": 4.707529964285584,
+        "patched_decode_ms": 4.778095747271845,
+        "decode_pct": 1.4989980631375548
+      },
+      {
+        "round": 1,
+        "base_wall_ms": 1381.3614590000611,
+        "patched_wall_ms": 1320.260236499962,
+        "wall_pct": -4.423260986615986,
+        "base_decode_ms": 4.923790981647038,
+        "patched_decode_ms": 4.65557777901794,
+        "decode_pct": -5.447290586234001
+      },
+      {
+        "round": 2,
+        "base_wall_ms": 1406.1702120000632,
+        "patched_wall_ms": 1272.8691699999786,
+        "wall_pct": -9.47972307068603,
+        "base_decode_ms": 4.552981873759718,
+        "patched_decode_ms": 4.531844678075667,
+        "decode_pct": -0.4642495021970345
+      },
+      {
+        "round": 3,
+        "base_wall_ms": 1306.6283439999893,
+        "patched_wall_ms": 1315.8210440000175,
+        "wall_pct": 0.7035435931143652,
+        "base_decode_ms": 4.61155672321474,
+        "patched_decode_ms": 4.68834340947367,
+        "decode_pct": 1.6650925244480466
+      },
+      {
+        "round": 4,
+        "base_wall_ms": 1324.2221355000083,
+        "patched_wall_ms": 1296.2007649999805,
+        "wall_pct": -2.116062686827641,
+        "base_decode_ms": 4.691633831101281,
+        "patched_decode_ms": 4.582796545139253,
+        "decode_pct": -2.319816291726245
+      },
+      {
+        "round": 5,
+        "base_wall_ms": 1401.7573824999658,
+        "patched_wall_ms": 1350.1597785000286,
+        "wall_pct": -3.680922579335055,
+        "base_decode_ms": 5.016739824404745,
+        "patched_decode_ms": 4.7744539243551865,
+        "decode_pct": -4.829548841080401
+      },
+      {
+        "round": 6,
+        "base_wall_ms": 1398.661233500036,
+        "patched_wall_ms": 1399.7758495000312,
+        "wall_pct": 0.07969163463593386,
+        "base_decode_ms": 4.985632012400647,
+        "patched_decode_ms": 4.951040208333039,
+        "decode_pct": -0.6938298691433399
+      },
+      {
+        "round": 7,
+        "base_wall_ms": 1386.2228845000004,
+        "patched_wall_ms": 1352.976427499982,
+        "wall_pct": -2.3983485896649377,
+        "base_decode_ms": 4.900228297123287,
+        "patched_decode_ms": 4.804560168898584,
+        "decode_pct": -1.952319819075886
+      },
+      {
+        "round": 8,
+        "base_wall_ms": 1330.7329065000317,
+        "patched_wall_ms": 1319.0226790000565,
+        "wall_pct": -0.8799833116605139,
+        "base_decode_ms": 4.707389677331355,
+        "patched_decode_ms": 4.6689752462797225,
+        "decode_pct": -0.8160452752959569
+      },
+      {
+        "round": 9,
+        "base_wall_ms": 1386.6427604999672,
+        "patched_wall_ms": 1363.6776305000353,
+        "wall_pct": -1.6561677350589952,
+        "base_decode_ms": 4.9246804992560405,
+        "patched_decode_ms": 4.816828458829117,
+        "decode_pct": -2.1900312201617216
+      },
+      {
+        "round": 10,
+        "base_wall_ms": 1380.0241800000208,
+        "patched_wall_ms": 1333.1011199999807,
+        "wall_pct": -3.4001621623788787,
+        "base_decode_ms": 4.865445902777953,
+        "patched_decode_ms": 4.789286091269877,
+        "decode_pct": -1.5653202816332314
+      },
+      {
+        "round": 11,
+        "base_wall_ms": 1347.3899669999696,
+        "patched_wall_ms": 1339.016873999924,
+        "wall_pct": -0.6214305587185522,
+        "base_decode_ms": 4.800804408482096,
+        "patched_decode_ms": 4.76760195312481,
+        "decode_pct": -0.691601917766613
+      },
+      {
+        "round": 12,
+        "base_wall_ms": 1332.863489499971,
+        "patched_wall_ms": 1324.4968880000556,
+        "wall_pct": -0.6277163089713013,
+        "base_decode_ms": 4.739456764880828,
+        "patched_decode_ms": 4.701382726438534,
+        "decode_pct": -0.8033418244137331
+      },
+      {
+        "round": 13,
+        "base_wall_ms": 1333.9556774999437,
+        "patched_wall_ms": 1322.9275724999638,
+        "wall_pct": -0.8267219957898733,
+        "base_decode_ms": 4.767956554315352,
+        "patched_decode_ms": 4.725150834573613,
+        "decode_pct": -0.8977791482390146
+      },
+      {
+        "round": 14,
+        "base_wall_ms": 1328.3347420000382,
+        "patched_wall_ms": 1322.3903505000294,
+        "wall_pct": -0.44750704111363476,
+        "base_decode_ms": 4.752296801338929,
+        "patched_decode_ms": 4.700478012648568,
+        "decode_pct": -1.0903946208865012
+      },
+      {
+        "round": 15,
+        "base_wall_ms": 1288.6285285000554,
+        "patched_wall_ms": 1299.0453500000285,
+        "wall_pct": 0.8083649608547908,
+        "base_decode_ms": 4.604260266865431,
+        "patched_decode_ms": 4.592566163690212,
+        "decode_pct": -0.2539844078619001
+      },
+      {
+        "round": 16,
+        "base_wall_ms": 1340.7781314999738,
+        "patched_wall_ms": 1363.9280360000043,
+        "wall_pct": 1.7266021839222523,
+        "base_decode_ms": 4.746921180059317,
+        "patched_decode_ms": 4.850143305307715,
+        "decode_pct": 2.1745068294373526
+      },
+      {
+        "round": 17,
+        "base_wall_ms": 1363.6675179999997,
+        "patched_wall_ms": 1358.8372460000073,
+        "wall_pct": -0.35421185415317785,
+        "base_decode_ms": 4.816981736359271,
+        "patched_decode_ms": 4.7902450257939595,
+        "decode_pct": -0.5550511093595932
+      },
+      {
+        "round": 18,
+        "base_wall_ms": 1346.1898529999985,
+        "patched_wall_ms": 1340.5943184999956,
+        "wall_pct": -0.4156571591691345,
+        "base_decode_ms": 4.794240382440401,
+        "patched_decode_ms": 4.753314736607337,
+        "decode_pct": -0.8536419238167554
+      },
+      {
+        "round": 19,
+        "base_wall_ms": 1348.4829844999808,
+        "patched_wall_ms": 1348.116098499986,
+        "wall_pct": -0.027207314012259076,
+        "base_decode_ms": 4.802889102430484,
+        "patched_decode_ms": 4.753164528025736,
+        "decode_pct": -1.0353054868492624
+      },
+      {
+        "round": 20,
+        "base_wall_ms": 1341.008009999996,
+        "patched_wall_ms": 1333.6705274999758,
+        "wall_pct": -0.5471617205343993,
+        "base_decode_ms": 4.78444535813499,
+        "patched_decode_ms": 4.7549556135909175,
+        "decode_pct": -0.6163670464734454
+      },
+      {
+        "round": 21,
+        "base_wall_ms": 1283.5771669999758,
+        "patched_wall_ms": 1276.494699000068,
+        "wall_pct": -0.5517757858268199,
+        "base_decode_ms": 4.552573203124805,
+        "patched_decode_ms": 4.512188835565471,
+        "decode_pct": -0.8870668467585432
+      },
+      {
+        "round": 22,
+        "base_wall_ms": 1319.6819495000227,
+        "patched_wall_ms": 1339.0416744999811,
+        "wall_pct": 1.4669993029224262,
+        "base_decode_ms": 4.6760962003964615,
+        "patched_decode_ms": 4.738556310019875,
+        "decode_pct": 1.3357319213859957
+      },
+      {
+        "round": 23,
+        "base_wall_ms": 1342.978116500035,
+        "patched_wall_ms": 1341.240708999976,
+        "wall_pct": -0.12936975507738008,
+        "base_decode_ms": 4.790416176587363,
+        "patched_decode_ms": 4.770119965277685,
+        "decode_pct": -0.42368367510267296
+      }
+    ]
+  }
+]
+(MainProcess pid=436) INFO 10-19 00:27:22 [utils.py:638] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=498) INFO 10-19 00:27:22 [core.py:1409] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=498) INFO 10-19 00:27:22 [core.py:1558] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=498) INFO 10-19 00:27:22 [core.py:1589] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=498) INFO 10-19 00:27:22 [core.py:1422] [shutdown] EngineCore: exiting busy loop
