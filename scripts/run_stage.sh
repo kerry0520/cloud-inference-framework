@@ -26,6 +26,8 @@ case "$stage" in
     roofline) script=roofline_model.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json");;
     figures) script=make_figures.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json" --results "$runtime_dir/results" --micro "$runtime_dir/results/minp-micro-20261017T070433Z/timing.jsonl");;
     minp-sweep) script=minp_param_sweep.py; extra+=(--patched "$project_dir/patches/mrv2_min_p.py");;
+    minp-compare) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907.diff");;
+    minp-compare-f32) script=minp_variant_compare.py; extra+=(--upstream "$runtime_dir/vllm-src/vllm/v1/worker/gpu/sample/min_p.py" --knob "$project_dir/patches/mrv2_min_p_knob.py" --pr-diff "$project_dir/results/upstream-pr-58907.diff" --dtype float32);;
     *) exit 2;;
 esac
 name="$stage-$(date -u +%Y%m%dT%H%M%SZ)"

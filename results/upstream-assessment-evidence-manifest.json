@@ -1,16 +1,21 @@
 {
-    "generated_utc":  "2026-10-18T05:17:16Z",
-    "note":  "Eighth-stage evidence: two-row launch-knob variant for upstream (patches/0002 + mrv2_min_p_knob.py), the parameter sweep that selected it (minp-sweep-20261018T051134Z), and its in-engine paired ABBA run (abba-knob-20261018T051230Z, 24 rounds, batch 1/2/4/8). Superseded sweep protocol dirs were deleted; see docs/当前交接.md.",
+    "generated_utc":  "2026-10-18T05:25:27Z",
+    "note":  "Evidence for the min-p launch-knob measurements, the three-way kernel comparison against vllm-project/vllm#58907, and the two upstream comments posted on 2026-10-18.",
     "files":  [
+                  {
+                      "path":  "patches/mrv2_min_p_knob.py",
+                      "bytes":  1797,
+                      "sha256":  "a17b0b8fdb025308b8dcbf2f01b8bcc9eb9c4c30b3a881a545bfba23745e75d0"
+                  },
                   {
                       "path":  "patches/0002-mrv2-min-p-launch-knobs.patch",
                       "bytes":  630,
                       "sha256":  "ba11304f241470112842ace51aafb1a5c5f3ba20c7007a3c1dc7680ada950f11"
                   },
                   {
-                      "path":  "patches/mrv2_min_p_knob.py",
-                      "bytes":  1797,
-                      "sha256":  "a17b0b8fdb025308b8dcbf2f01b8bcc9eb9c4c30b3a881a545bfba23745e75d0"
+                      "path":  "results/upstream-pr-58907.diff",
+                      "bytes":  6344,
+                      "sha256":  "ce9e122bab3cb0bd65ec4fb66255ce1dcaf59d93f4876af59db907dd5f6c470c"
                   },
                   {
                       "path":  "results/minp-sweep-20261018T051134Z/sweep.json",
@@ -33,14 +38,14 @@
                       "sha256":  "5738d9da24afdbdd6275f423a02c16d76fbcb842786e96b03156d229b3860764"
                   },
                   {
-                      "path":  "results/abba-knob-20261018T051230Z/timing.jsonl",
-                      "bytes":  614451,
-                      "sha256":  "1d02b85985aa2e50039a23ee3883535148671dd5df7e6f78f95a2f319418f47a"
-                  },
-                  {
                       "path":  "results/abba-knob-20261018T051230Z/summary.json",
                       "bytes":  37369,
                       "sha256":  "c24b60e67a0609dec85cfdac28e11e353fa66a22d05c244efc1cfe2575a97795"
+                  },
+                  {
+                      "path":  "results/abba-knob-20261018T051230Z/timing.jsonl",
+                      "bytes":  614451,
+                      "sha256":  "1d02b85985aa2e50039a23ee3883535148671dd5df7e6f78f95a2f319418f47a"
                   },
                   {
                       "path":  "results/abba-knob-20261018T051230Z/equivalence.json",
@@ -59,6 +64,36 @@
                   },
                   {
                       "path":  "results/abba-knob-20261018T051230Z.exitcode",
+                      "bytes":  2,
+                      "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  },
+                  {
+                      "path":  "results/minp-compare-20261018T052250Z/compare.json",
+                      "bytes":  7327,
+                      "sha256":  "968a4146e44f7591c426162015e5612e4cee0cdf62f285c14f6fd7c0ae640a4a"
+                  },
+                  {
+                      "path":  "results/minp-compare-20261018T052250Z.log",
+                      "bytes":  1227,
+                      "sha256":  "5f0ec9472b2f20d587b8ab0f666ad3a663a2bde69a48623bed6d4405250cb8ef"
+                  },
+                  {
+                      "path":  "results/minp-compare-20261018T052250Z.exitcode",
+                      "bytes":  2,
+                      "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  },
+                  {
+                      "path":  "results/minp-compare-f32-20261018T052310Z/compare.json",
+                      "bytes":  7320,
+                      "sha256":  "dc092808f0f79d2744255c98e9a6deb54c6ce4d5121c2a437990ce206036311d"
+                  },
+                  {
+                      "path":  "results/minp-compare-f32-20261018T052310Z.log",
+                      "bytes":  1233,
+                      "sha256":  "397156d4ad468cc0a64bc7074cd386158c548ac365ee60e87c7981dbc2852922"
+                  },
+                  {
+                      "path":  "results/minp-compare-f32-20261018T052310Z.exitcode",
                       "bytes":  2,
                       "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
                   }

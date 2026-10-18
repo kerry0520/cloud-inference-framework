@@ -8,6 +8,8 @@
 
 上游形态另有一个更小的版本：`patches/0002-mrv2-min-p-launch-knobs.patch` 只把上游内核的 `BLOCK_SIZE` 改成 16384、加 `num_warps=16`，本机大词表 batch 1–8 拿 3.5–4.2×、32/64/256 不退化，引擎内 decode −0.77%~−0.80%。如果只为上游准备补丁，这个两行版本比 147 行版本更可能被接受；评估见[上游 PR 可行性](docs/上游PR可行性-20261018.md)。
 
+上游同方向工作已经存在：PR [#58907](https://github.com/vllm-project/vllm/pull/58907)（减少逐 tile 的跨 lane 归约）开着三周且无人类 review。我没有另开重复 issue，而是在该 PR 下贴了独立复现与同机三方对比（评论 `6246048928`、`6246069554`）；同机同协议下两行旋钮版比该 PR 更快（fp32 V151936 batch 1：20.3 vs 25.4 µs；batch 32：49.4 vs 54.9），单独加宽 `BLOCK_SIZE` 就解释了几乎全部收益（1024→16384：66.5→15.9 µs）。
+
 - 自有脚本和结果入口：本目录；远端仓库 `https://github.com/kerry0520/cloud-inference-framework`（public），分支 `main`。
 - WSL 运行环境：`/opt/cloud-inference-framework`；上游源码独立位于其 `vllm-src/`，未修改。
 - 初选版本：vLLM `0.31.0`，源码提交 `db9527a46873454610df6dbedf79a36d6bf1a7f6`。
