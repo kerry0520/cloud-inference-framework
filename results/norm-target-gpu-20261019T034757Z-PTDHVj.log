@@ -1,0 +1,17 @@
+{
+  "reproduced": true,
+  "cases": [
+    {
+      "case": "native",
+      "exitcode": 0
+    },
+    {
+      "case": "mismatch",
+      "exitcode": 1
+    },
+    {
+      "case": "mismatch-cuda",
+      "exitcode": 0
+    }
+  ]
+}

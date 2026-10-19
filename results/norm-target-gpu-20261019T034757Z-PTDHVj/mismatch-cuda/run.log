@@ -1,0 +1,20 @@
+2026-10-19 11:48:15,524 - INFO - core.py:564 - flashinfer.jit: Building JIT module norm; this can take several minutes on first use.
+{
+  "target_env": "sm_90a",
+  "force_cuda_env": "1",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "flashinfer": "0.7.0.post1",
+  "import_path": "/opt/cloud-inference-framework/.venv/lib/python3.12/site-packages/flashinfer/__init__.py",
+  "cutlass_dsl": "4.7.1",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "capability": [
+    12,
+    0
+  ],
+  "captured": "sm_90a",
+  "cuda_fallback": true,
+  "dispatch_sha256": "c01f584d2babc66c1f1d6df29846bdfce06f1e6e1fb6dde628f4fe9823eee6a3",
+  "state": "passed",
+  "max_abs_error": 0.0
+}

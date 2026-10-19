@@ -1,0 +1,110 @@
+{
+  "scope": "Wheel GPU reproduction and one authorized ownership inquiry; no current-main GPU validation",
+  "files": [
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/summary.json",
+      "bytes": 3977,
+      "sha256": "6b9f6c5ca31ec962149acd037146d62656d300e467260d66ad0c9eddad00c666"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch/dispatch.py",
+      "bytes": 687,
+      "sha256": "c01f584d2babc66c1f1d6df29846bdfce06f1e6e1fb6dde628f4fe9823eee6a3"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch/exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch/result.json",
+      "bytes": 2211,
+      "sha256": "c773af25e86374bf2afc2d57dfd2400125f53e1c81cbf8cc0f8cd7fe12cc0810"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch/run.log",
+      "bytes": 2212,
+      "sha256": "481b61757425e3601e3fac77543672473d0968e2654accd01d55d54c57b92db7"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch-cuda/dispatch.py",
+      "bytes": 687,
+      "sha256": "c01f584d2babc66c1f1d6df29846bdfce06f1e6e1fb6dde628f4fe9823eee6a3"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch-cuda/exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch-cuda/result.json",
+      "bytes": 531,
+      "sha256": "a4e06dccaca5b63c6c86027bc9e3b4499e43435733e14e4e49b3070c2b9ea01f"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/mismatch-cuda/run.log",
+      "bytes": 665,
+      "sha256": "6334252709e8ddd2da9665e584966318ac62ba3e9be25037db54cc5c49f7c0d5"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/native/dispatch.py",
+      "bytes": 687,
+      "sha256": "c01f584d2babc66c1f1d6df29846bdfce06f1e6e1fb6dde628f4fe9823eee6a3"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/native/exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/native/result.json",
+      "bytes": 534,
+      "sha256": "efbdc3e5c4233c0a10282b88f40374ebfa280b33851171b4418b4f7d912bdbb0"
+    },
+    {
+      "path": "results/norm-target-gpu-20261019T034757Z-PTDHVj/native/run.log",
+      "bytes": 535,
+      "sha256": "1a63c296ae8bbaae9a6e4b6ffb9eea237a6fd92d0b1178fb4d419b5b1929fcdc"
+    },
+    {
+      "path": "results/norm-contact-read-20261019/comments.json",
+      "bytes": 26197,
+      "sha256": "ae87779b5bc760fbf2dd52cf8a1fb9f37a05698f6f9c3433d8a9614d96b53ff8"
+    },
+    {
+      "path": "results/norm-contact-read-20261019/issue.json",
+      "bytes": 12325,
+      "sha256": "4eff9ec8bec8e2c9b93207e58003b35e5fb3697e5624c97490fb514d7382b2a9"
+    },
+    {
+      "path": "results/norm-contact-prepost-20261019/comments.json",
+      "bytes": 26197,
+      "sha256": "ae87779b5bc760fbf2dd52cf8a1fb9f37a05698f6f9c3433d8a9614d96b53ff8"
+    },
+    {
+      "path": "results/norm-contact-prepost-20261019/issue.json",
+      "bytes": 12325,
+      "sha256": "4eff9ec8bec8e2c9b93207e58003b35e5fb3697e5624c97490fb514d7382b2a9"
+    },
+    {
+      "path": "results/norm-contact-prepost-20261019/related-prs.json",
+      "bytes": 110021,
+      "sha256": "2a7f6f8288d61a556e0df9f79b48327763bb876455a14a9af998c27cf8b1930e"
+    },
+    {
+      "path": "results/norm-contact-post-20261019/comments.json",
+      "bytes": 26197,
+      "sha256": "ae87779b5bc760fbf2dd52cf8a1fb9f37a05698f6f9c3433d8a9614d96b53ff8"
+    },
+    {
+      "path": "results/norm-contact-post-20261019/issue.json",
+      "bytes": 12325,
+      "sha256": "4eff9ec8bec8e2c9b93207e58003b35e5fb3697e5624c97490fb514d7382b2a9"
+    },
+    {
+      "path": "results/norm-contact-post-20261019/posted.json",
+      "bytes": 3552,
+      "sha256": "341753835870254bc2981952f85596147878362c22f3c85a566411708a8a63fc"
+    }
+  ]
+}
