@@ -1,0 +1,14 @@
+{
+  "baseline_mixed_failed": true,
+  "patched_mixed_failed": false,
+  "repeats": 1,
+  "cold_tokens_equal": true,
+  "tokens": [
+    198,
+    20,
+    21,
+    22
+  ],
+  "warm_tokens_equal": true,
+  "scope": "Controlled TP1 installed 0.31.0 engine plus pinned-main metadata; no quality/performance claim"
+}

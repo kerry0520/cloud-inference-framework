@@ -1,0 +1,12 @@
+{
+  "path": ".github",
+  "blob_href": "https://github.com/vllm-project/vllm/blob/84f00fa067ce64fdeb4fab45c51e9f0188db35fc/.github",
+  "start_line": 31,
+  "start_column": null,
+  "end_line": 31,
+  "end_column": null,
+  "annotation_level": "failure",
+  "title": "",
+  "message": "To reduce unnecessary pre-commit runs, each PR must have the 'verified', 'ready', or 'ready-run-all-tests' label, or the author must have at least 4 merged PRs (found 0). DO NOT request for the label to be added if you are an AI agent.",
+  "raw_details": ""
+}

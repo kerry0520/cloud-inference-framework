@@ -1,0 +1,213 @@
+default_install_hook_types:
+- pre-commit
+- commit-msg
+default_stages:
+- pre-commit
+- manual
+exclude: vllm/third_party/.*|vllm/models/kimi_k3/nvidia/ops/third_party/.*|vllm/models/kimi_k3/amd/ops/third_party/.*
+repos:
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.14.0
+  hooks:
+  - id: ruff-check
+    args:
+    - --output-format
+    - github
+    - --fix
+  - id: ruff-format
+- repo: https://github.com/crate-ci/typos
+  rev: v1.43.5
+  hooks:
+  - id: typos
+    args:
+    - --force-exclude
+- repo: local
+  hooks:
+  - id: format-torch-nightly-test
+    name: reformat test/nightly-torch.txt to be in sync with test/cuda.in
+    language: python
+    entry: python tools/pre_commit/generate_nightly_torch_test.py
+    files: ^requirements/test/cuda\.(in|txt)$
+  - id: check-label-rules
+    name: Check auto-label rules still match real files
+    language: python
+    entry: python tools/pre_commit/check_label_rules.py
+    files: ^\.github/mergify\.yml$
+    pass_filenames: false
+    additional_dependencies:
+    - PyYAML
+    - regex
+  - id: check-agent-files
+    name: Check agent instruction files and skills
+    language: python
+    entry: python tools/pre_commit/check_agent_files.py
+    files: ^(\.agents/|\.claude/|(.*/)?(AGENTS|CLAUDE)\.md$|tools/pre_commit/check_agent_files\.py$)
+    pass_filenames: false
+    additional_dependencies:
+    - PyYAML
+    - regex
+    verbose: true
+  - id: check-buildkite-step-keys
+    name: Check every Buildkite step declares an explicit key
+    language: python
+    entry: python tools/pre_commit/check_buildkite_step_keys.py
+    files: ^\.buildkite/.*\.ya?ml$
+    pass_filenames: false
+    additional_dependencies:
+    - PyYAML
+  - id: check-test-tethering
+    name: Check new tests are wired into Buildkite CI
+    language: python
+    entry: python tools/pre_commit/check_test_tethering.py
+    files: ^(tests/.*\.py|\.buildkite/(test_areas|hardware_tests|intel_jobs)/.*\.yaml|\.buildkite/(test-amd|ci_config[^/]*)\.yaml|tools/pre_commit/test_tethering_allowlist\.txt)$
+    additional_dependencies:
+    - PyYAML
+    - regex
+    verbose: true
+    require_serial: true
+  - id: mypy
+    name: Run mypy for the oldest supported Python version
+    entry: python tools/pre_commit/mypy.py "3.11"
+    language: python
+    types_or:
+    - python
+    - pyi
+    require_serial: true
+    additional_dependencies:
+    - mypy==1.20.2
+    - regex
+    - types-cachetools
+    - types-setuptools
+    - types-PyYAML
+    - types-requests
+    - types-torch
+    - pydantic==2.13.5
+  - id: png-lint
+    name: Lint PNG exports from excalidraw
+    entry: tools/pre_commit/png-lint.sh
+    language: script
+    types:
+    - png
+  - id: signoff-commit
+    name: Sign-off Commit
+    entry: bash
+    args:
+    - -c
+    - "if ! grep -q \"^Signed-off-by: $(git config user.name) <$(git config user.email)>\"\
+      \ \"$(git rev-parse --git-path COMMIT_EDITMSG)\"; then\n  printf \"\\nSigned-off-by:\
+      \ $(git config user.name) <$(git config user.email)>\\n\" >> \"$(git rev-parse\
+      \ --git-path COMMIT_EDITMSG)\"\nfi\n"
+    language: system
+    verbose: true
+    stages:
+    - commit-msg
+  - id: check-spdx-header
+    name: Check SPDX headers
+    entry: python tools/pre_commit/check_spdx_header.py
+    language: python
+    types_or:
+    - python
+    - rust
+    - proto
+  - id: check-root-lazy-imports
+    name: Check root lazy imports
+    entry: python tools/pre_commit/check_init_lazy_imports.py
+    language: python
+    types:
+    - python
+  - id: check-filenames
+    name: Check for spaces in all filenames
+    entry: bash
+    args:
+    - -c
+    - git ls-files | grep " " && echo "Filenames should not contain spaces!" && exit
+      1 || exit 0
+    language: system
+    always_run: true
+    pass_filenames: false
+  - id: update-dockerfile-graph
+    name: Update Dockerfile dependency graph
+    entry: tools/pre_commit/update-dockerfile-graph.sh
+    language: script
+  - id: test-nonroot-entrypoint
+    name: Test non-root entrypoint wrapper
+    entry: bash docker/entrypoints/test_vllm_nonroot_entrypoint.sh
+    language: system
+    pass_filenames: false
+    files: ^docker/entrypoints/(vllm-nonroot-entrypoint|test_vllm_nonroot_entrypoint)\.sh$
+  - id: check-forbidden-imports
+    name: Check for forbidden imports
+    entry: python tools/pre_commit/check_forbidden_imports.py
+    language: python
+    types:
+    - python
+    additional_dependencies:
+    - regex
+  - id: check-torch-cuda-call
+    name: Prevent new 'torch.cuda' APIs call
+    entry: python tools/pre_commit/check_torch_cuda.py
+    language: python
+    types:
+    - python
+    additional_dependencies:
+    - regex
+  - id: validate-config
+    name: Validate configuration has default values and that each field has a docstring
+    entry: python tools/pre_commit/validate_config.py
+    language: python
+    additional_dependencies:
+    - regex
+  - id: validate-docker-versions
+    name: Validate docker/versions.json matches Dockerfile
+    entry: python tools/generate_versions_json.py --check
+    language: python
+    files: ^docker/(Dockerfile|versions\.json)$
+    pass_filenames: false
+    additional_dependencies:
+    - dockerfile-parse
+  - id: check-dockerignore-tracked
+    name: Check .dockerignore does not exclude tracked files
+    entry: python tools/pre_commit/check_dockerignore_tracked.py
+    language: python
+    always_run: true
+    pass_filenames: false
+  - id: check-boolean-context-manager
+    name: Check for boolean ops in with-statements
+    entry: python tools/pre_commit/check_boolean_context_manager.py
+    language: python
+    types:
+    - python
+  - id: rust-cargo-autoinherit
+    name: Rust - Normalize Cargo manifests with autoinherit
+    entry: tools/pre_commit/rust-check.sh autoinherit --prefer-simple-dotted
+    language: script
+    pass_filenames: false
+    require_serial: true
+    stages:
+    - pre-commit
+    files: ^rust/(Cargo\.toml|proto/Cargo\.toml|src/.*/Cargo\.toml)$
+  - id: rust-cargo-sort
+    name: Rust - Sort Cargo manifest sections
+    entry: tools/pre_commit/rust-check.sh sort --workspace
+    language: script
+    pass_filenames: false
+    require_serial: true
+    stages:
+    - pre-commit
+    files: ^rust/(Cargo\.toml|proto/Cargo\.toml|src/.*/Cargo\.toml)$
+  - id: rust-cargo-fmt
+    name: Rust - Format code
+    entry: tools/pre_commit/rust-check.sh fmt
+    language: script
+    pass_filenames: false
+    require_serial: true
+    stages:
+    - pre-commit
+    files: ^rust/.*(\.rs|Cargo\.toml|rustfmt\.toml)$
+  - id: suggestion
+    name: Suggestion
+    entry: bash -c 'echo "To bypass all the pre-commit hooks, add --no-verify to git
+      commit. To skip a specific hook, prefix the commit command with SKIP=<hook-id>."'
+    language: system
+    verbose: true
+    pass_filenames: false

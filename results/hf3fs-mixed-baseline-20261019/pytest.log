@@ -1,0 +1,76 @@
+.............FF.F.                                                       [100%]
+=================================== FAILURES ===================================
+_ TestGlobalMetadataStateAllocation.test_mixed_batch_uses_capacity_only_for_misses[True] _
+
+self = <test_metadata.TestGlobalMetadataStateAllocation object at 0x7950117f22d0>
+cached_first = True
+
+    @pytest.mark.parametrize("cached_first", [True, False])
+    def test_mixed_batch_uses_capacity_only_for_misses(self, cached_first):
+        """A cache hit must not prevent an otherwise fitting new allocation."""
+        state = GlobalMetadataState()
+        state.initialize_rank(0, 2)
+        cached_page = state.allocate_pages_for_keys(0, [("cached", "")])["cached"]
+        state.confirm_write_for_keys(0, [("cached", cached_page)])
+    
+        keys = [("cached", ""), ("new", "")]
+        if not cached_first:
+            keys.reverse()
+        results = state.allocate_pages_for_keys(0, keys)
+    
+        assert results["cached"] == cached_page
+>       assert results["new"] >= 0
+E       assert -1 >= 0
+
+../../../ci-fw/results/hf3fs-mixed-baseline-20261019/test_metadata.py:194: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  hf3fs_metadata_server:hf3fs_metadata_server.py:131 Rank 0 only allocated 0 pages for 2 keys
+_ TestGlobalMetadataStateAllocation.test_mixed_batch_uses_capacity_only_for_misses[False] _
+
+self = <test_metadata.TestGlobalMetadataStateAllocation object at 0x7950117f2420>
+cached_first = False
+
+    @pytest.mark.parametrize("cached_first", [True, False])
+    def test_mixed_batch_uses_capacity_only_for_misses(self, cached_first):
+        """A cache hit must not prevent an otherwise fitting new allocation."""
+        state = GlobalMetadataState()
+        state.initialize_rank(0, 2)
+        cached_page = state.allocate_pages_for_keys(0, [("cached", "")])["cached"]
+        state.confirm_write_for_keys(0, [("cached", cached_page)])
+    
+        keys = [("cached", ""), ("new", "")]
+        if not cached_first:
+            keys.reverse()
+        results = state.allocate_pages_for_keys(0, keys)
+    
+        assert results["cached"] == cached_page
+>       assert results["new"] >= 0
+E       assert -1 >= 0
+
+../../../ci-fw/results/hf3fs-mixed-baseline-20261019/test_metadata.py:194: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  hf3fs_metadata_server:hf3fs_metadata_server.py:131 Rank 0 only allocated 0 pages for 2 keys
+__ TestGlobalMetadataStateAllocation.test_duplicate_new_key_consumes_one_page __
+
+self = <test_metadata.TestGlobalMetadataStateAllocation object at 0x7950117c2d50>
+
+    def test_duplicate_new_key_consumes_one_page(self):
+        """The key-based allocation response must not orphan a duplicate's page."""
+        state = GlobalMetadataState()
+        state.initialize_rank(0, 2)
+    
+        results = state.allocate_pages_for_keys(0, [("new", ""), ("new", "")])
+    
+>       assert results == {"new": 0}
+E       AssertionError: assert {'new': 1} == {'new': 0}
+E         
+E         Differing items:
+E         {'new': 1} != {'new': 0}
+E         Use -v to get more diff
+
+../../../ci-fw/results/hf3fs-mixed-baseline-20261019/test_metadata.py:220: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../ci-fw/results/hf3fs-mixed-baseline-20261019/test_metadata.py::TestGlobalMetadataStateAllocation::test_mixed_batch_uses_capacity_only_for_misses[True]
+FAILED ../../../ci-fw/results/hf3fs-mixed-baseline-20261019/test_metadata.py::TestGlobalMetadataStateAllocation::test_mixed_batch_uses_capacity_only_for_misses[False]
+FAILED ../../../ci-fw/results/hf3fs-mixed-baseline-20261019/test_metadata.py::TestGlobalMetadataStateAllocation::test_duplicate_new_key_consumes_one_page
+3 failed, 15 passed in 2.41s

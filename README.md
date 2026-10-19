@@ -17,6 +17,7 @@
 - 面试材料：[项目叙事](docs/项目叙事-面试版.md)；学习说明：[连续学习记录](docs/连续学习记录.md)。
 - 结果：[第一阶段](docs/第一阶段结果与续做-20261017.md)、[第二阶段](docs/第二阶段形状归因与min-p候选-20261017.md)、[第三阶段](docs/第三阶段逐层归因与带宽对照-20261017.md)、[第四阶段](docs/第四阶段min-p框架补丁-20261017.md)、[第五阶段](docs/第五阶段端到端配对与带宽模型-20261017.md)、[第六阶段](docs/第六阶段量化干预与上下文影响-20261018.md)。
 - 补丁：[patches/README.md](patches/README.md)、[上游可行性记录](docs/上游PR可行性-20261018.md)、[PR #58907 交叉验证](docs/PR58907交叉验证-20261019.md)。
+- HF3FS 独立修复：[vLLM PR #62393](https://github.com/vllm-project/vllm/pull/62393)、[分配修复与发布检查](docs/HF3FS分配修复与发布检查-20261019.md)。混合 hit/miss 的错误分配已复现并修复；18 个元数据测试、真实 HTTP 和受控 GPU 保存／加载验证通过。用户确认本人审阅与测试后已发布 PR；完整淘汰未实现，尚未合并。
 - 环境：[本机复现](docs/环境与复现.md)、[远程迁移](docs/远程GPU租用与迁移-20261018.md)。远端安装尚无真实租用机全流程验收；不再提供未闭合的torch-only路径。
 - 本次复核：[修复记录](docs/复核修复与验收-20261018.md)。
 
@@ -24,6 +25,6 @@
 
 主项目位于Windows本目录；WSL runtime默认 `/opt/cloud-inference-framework`，支持 `CI_RUNTIME_DIR`。上游源码 `vllm-src/` 固定 `db9527a46873454610df6dbedf79a36d6bf1a7f6`，未修改；模型revision `c1899de289a04d12100db370d81485cdf75e47ca`。
 
-项目远端为 <https://github.com/kerry0520/cloud-inference-framework>。保存记录显示已向上游PR #58907发过三条数据评论（最近一条是应作者邀请对 commit `95e9d21` 的本机交叉验证，见[交叉验证记录](docs/PR58907交叉验证-20261019.md)），未提自己的PR／未合并。代码变更先保存本地Git，不自动发布。
+项目远端为 <https://github.com/kerry0520/cloud-inference-framework>。已向上游 PR #58907 发过三条数据评论（最近一条是应作者邀请对 commit `95e9d21` 的本机交叉验证，见[交叉验证记录](docs/PR58907交叉验证-20261019.md)）。另已在用户明确授权并确认本人审阅／测试后发布 [HF3FS 分配修复 PR #62393](https://github.com/vllm-project/vllm/pull/62393)，尚未合并。一般变更先保存本地 Git，对外发布按用户授权执行。
 
 原始结果及manifest在results/；Git忽略的trace／张量需另行复制和核对哈希。部分早期失败原件缺失，记录明确说明，不声称全部齐全。每轮结束更新交接与Git；工程已完成不代表用户已理解。

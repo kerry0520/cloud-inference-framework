@@ -1,0 +1,308 @@
+[
+  {
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3,
+    "path": "results\\hf3fs-docker-hook-recheck-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "56409b60903074349691aa6c0fc8cc97562447327a297b13c22a434b4e17ae14",
+    "bytes": 80,
+    "path": "results\\hf3fs-docker-hook-recheck-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3,
+    "path": "results\\hf3fs-engine-baseline-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "26edcb5eceb6b274e1a076563075f5f4cd2ab4ab2e6c3f3644af80e471da87b0",
+    "bytes": 17712,
+    "path": "results\\hf3fs-engine-baseline-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3,
+    "path": "results\\hf3fs-engine-baseline2-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "e19979ae390a1142a81fbd8878e18c552115480f45adbdaae16a7f9b0704d1ee",
+    "bytes": 17550,
+    "path": "results\\hf3fs-engine-baseline2-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3,
+    "path": "results\\hf3fs-engine-baseline3-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "5f892ef333918ec554f7e60b84aec3d844de11ce87a987854599c5dc4e3e0807",
+    "bytes": 13924,
+    "path": "results\\hf3fs-engine-baseline3-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "38aa3c22769352933948911f44b313c08e96c45de9d3807ecce327fafc98947d",
+    "bytes": 315,
+    "path": "results\\hf3fs-engine-comparison-20261019.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3,
+    "path": "results\\hf3fs-engine-patched-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "d4db0cf788a596a261c7cf468d2d36caec6a85f864278c6a81194cb18f24e0a5",
+    "bytes": 15276,
+    "path": "results\\hf3fs-engine-patched-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "5950d451b105459d323bcbfa4a8e9c66e22173e79369cf007b118d5fed6e3e80",
+    "bytes": 5387,
+    "path": "results\\hf3fs-miss-page-budget-20261019.patch",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3,
+    "path": "results\\hf3fs-precommit-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "6ddd5c1b87712b718563c8a9e7823d0c95e9565002881fcd1e46aaefd03c6c35",
+    "bytes": 2145,
+    "path": "results\\hf3fs-precommit-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3,
+    "path": "results\\hf3fs-python-hooks-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "275ac6d0b39d2b51746601f17debbe2b74b49f738ccfe21ad0bf49e2b2c6a626",
+    "bytes": 4095,
+    "path": "results\\hf3fs-python-hooks-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "5f781cf154202139f8dd5840cdab2d9cdeded374fc58e8c315e979e06dddcca9",
+    "bytes": 6735,
+    "path": "results\\hf3fs-python-hooks-20261019.yaml",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3,
+    "path": "results\\hf3fs-python-hooks-final-20261019.exitcode",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "6672f77cdc2567d36f00c21921cca737aab7694f1fc11995a9895be6597b4e6f",
+    "bytes": 2932,
+    "path": "results\\hf3fs-python-hooks-final-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "6f199a43328c9ba3bd61a64f714068bada2106ae45d7772c5de47eec303eddfe",
+    "bytes": 633,
+    "path": "results\\hf3fs-review-environment-20261019.txt",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "bytes": 19,
+    "path": "results\\hf3fs-ruff-20261019.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "df5b053a8b22449f0a231594c47517c58e99019772fad1c2ccac5b8244217aea",
+    "bytes": 655,
+    "path": "results\\hf3fs-capacity-probe-20261019\\result.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "9abd0a71294c88f37c24a44296a64698e04d804e0933ccbe690bd7eb0919b01b",
+    "bytes": 548,
+    "path": "results\\hf3fs-ci-status-20261019\\annotations-117892288541.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "9abd0a71294c88f37c24a44296a64698e04d804e0933ccbe690bd7eb0919b01b",
+    "bytes": 548,
+    "path": "results\\hf3fs-ci-status-20261019\\annotations-117892432275.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "00156370c2fd11b7984494fc0c73fe686b967fc4cd1c4549b6579596bd278f07",
+    "bytes": 87211,
+    "path": "results\\hf3fs-ci-status-20261019\\checks.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "b84b9e267abb4e83ec1be6a24de2d1088b21a2db50e312a863d9e51df9033f5d",
+    "bytes": 31439,
+    "path": "results\\hf3fs-ci-status-20261019\\pr.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "0efba51b8e519a98a298cb9e6133960ef6721200348d83cd6eb5e69ac9805ff0",
+    "bytes": 1278,
+    "path": "results\\hf3fs-engine-baseline3-20261019\\result.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "c4c2f6506b79a321bdca22decd0a682f4ce5c56bed1a4fa298051de4b8d2c8d2",
+    "bytes": 67108864,
+    "path": "results\\hf3fs-engine-baseline3-20261019\\storage\\hf3fs_vllm_data_file_0",
+    "local_only_storage": true
+  },
+  {
+    "sha256": "c60bf0f795bd249e17aeb07c20a232eff8b8fe09ac591cb9e57d39d249f4f7d5",
+    "bytes": 1312,
+    "path": "results\\hf3fs-engine-patched-20261019\\result.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "53d078488bae9dad831a54b12f3ddf3dce351e6d348c520ea9678ae319dbfaed",
+    "bytes": 67108864,
+    "path": "results\\hf3fs-engine-patched-20261019\\storage\\hf3fs_vllm_data_file_0",
+    "local_only_storage": true
+  },
+  {
+    "sha256": "60494e12cc91807fef0cc85a1007332ddfff933b3d472c3972d9c4391c41eab5",
+    "bytes": 18356,
+    "path": "results\\hf3fs-fork-20261019\\fork.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "8f6d5a4fb4c4eed8a7ac519d3527f8f4927b3520b0dd1de81834bcfe7590d336",
+    "bytes": 19130,
+    "path": "results\\hf3fs-free-candidate-20261019\\hf3fs.snapshot",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "a0a8c18b473601ae30cf8d3fa37671341f96a471389f14a01b1e633f2008a945",
+    "bytes": 484,
+    "path": "results\\hf3fs-free-candidate-20261019\\manifest.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "c68a4888723a0860d8e8835d7d9e7920071e707f47880bfc459212d850ac93e0",
+    "bytes": 56,
+    "path": "results\\hf3fs-free-candidate-20261019\\summary.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "8f6d5a4fb4c4eed8a7ac519d3527f8f4927b3520b0dd1de81834bcfe7590d336",
+    "bytes": 19130,
+    "path": "results\\hf3fs-mixed-baseline-20261019\\hf3fs_metadata_server.py",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "e3543089249034098592aa502d1409a0e6f66037b11742ba227a8c346aa83925",
+    "bytes": 3883,
+    "path": "results\\hf3fs-mixed-baseline-20261019\\pytest.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "23b5d0c054d370ec8c1a323713623439351732dd87cbf92dea39cdc60eefc8b4",
+    "bytes": 424,
+    "path": "results\\hf3fs-mixed-baseline-20261019\\result.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "0d05bc2e6a57930b694c9795cd0b4a5a902da37044dd7c4b5e482ac82f1e744f",
+    "bytes": 10000,
+    "path": "results\\hf3fs-mixed-baseline-20261019\\test_metadata.py",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "3165e78a98b689200dfa9ae6aa7fc0382a09d766f99892b4fde1876c2df13b0c",
+    "bytes": 19299,
+    "path": "results\\hf3fs-mixed-patched-20261019\\hf3fs_metadata_server.py",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "28e4cce712f97d08f01c0dc9c8b1530f1a8f903ee13a38a920d7d7a232fa41d8",
+    "bytes": 99,
+    "path": "results\\hf3fs-mixed-patched-20261019\\pytest.log",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "44ab5e225c3b6a23ab44804e16f1deae945d1cb5def12be40a4cdbef2f3b5c5b",
+    "bytes": 446,
+    "path": "results\\hf3fs-mixed-patched-20261019\\result.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "0d05bc2e6a57930b694c9795cd0b4a5a902da37044dd7c4b5e482ac82f1e744f",
+    "bytes": 10000,
+    "path": "results\\hf3fs-mixed-patched-20261019\\test_metadata.py",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "path": "results\\hf3fs-prepublish-audit-20261019\\comments.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "b7d1fd14ceeb81ec6749dc2e31d6fd928c71679006f38b18994b48b4b36e4982",
+    "bytes": 3970,
+    "path": "results\\hf3fs-prepublish-audit-20261019\\issue.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "4d2fc37b2439df0868d4c02a9ef5969aa56dcdac789b766586cfe84173ba2c6c",
+    "bytes": 212826,
+    "path": "results\\hf3fs-prepublish-audit-20261019\\related-area.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "52503fd7570f7ad396656f9ec21ff689961da1fb626049d491f5914ad3166890",
+    "bytes": 101,
+    "path": "results\\hf3fs-prepublish-audit-20261019\\related-number.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "path": "results\\hf3fs-public-audit-20261019\\comments.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "b7d1fd14ceeb81ec6749dc2e31d6fd928c71679006f38b18994b48b4b36e4982",
+    "bytes": 3970,
+    "path": "results\\hf3fs-public-audit-20261019\\issue.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "4d2fc37b2439df0868d4c02a9ef5969aa56dcdac789b766586cfe84173ba2c6c",
+    "bytes": 212826,
+    "path": "results\\hf3fs-public-audit-20261019\\related-area.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "52503fd7570f7ad396656f9ec21ff689961da1fb626049d491f5914ad3166890",
+    "bytes": 101,
+    "path": "results\\hf3fs-public-audit-20261019\\related-number.json",
+    "local_only_storage": false
+  },
+  {
+    "sha256": "4b54643b3957dbf0a6fc5cf47c9ca5ae6cc839194e878f0d59d9f9740a87aa18",
+    "bytes": 24034,
+    "path": "results\\hf3fs-publish-20261019\\published-pr.json",
+    "local_only_storage": false
+  }
+]

@@ -5,3 +5,4 @@ models/
 results/**/*.pt.trace.json*
 results/vocab-download-fallback.json
 results/**/*.pt
+results/hf3fs-engine-*/storage/

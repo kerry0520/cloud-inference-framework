@@ -1,0 +1,123 @@
+(MainProcess pid=2109) INFO 10-19 12:30:10 [api_utils.py:286] non-default args: {'dtype': 'bfloat16', 'max_model_len': 128, 'block_size': 16, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.45, 'max_num_batched_tokens': 128, 'max_num_seqs': 1, 'disable_log_stats': True, 'enforce_eager': True, 'kv_transfer_config': KVTransferConfig(kv_connector='HF3FSKVConnector', engine_id='098e1b46-74f1-4407-bbd6-4234a9bfa949', kv_buffer_device='cuda', kv_buffer_size=1000000000.0, kv_role='kv_both', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=14579, kv_connector_extra_config={'hf3fs_storage_path': '/mnt/c/Users/32065/ci-fw/results/hf3fs-engine-patched-20261019/storage', 'hf3fs_file_size': 67108864, 'hf3fs_client_numjobs': 1}, kv_connector_module_path=None, enable_permute_local_kv=False, kv_load_failure_policy='fail'), 'async_scheduling': False, 'model': '/opt/cloud-inference-framework/models/Qwen3-0.6B'}
+(MainProcess pid=2109) WARNING 10-19 12:30:10 [arg_utils.py:1910] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+(MainProcess pid=2109) INFO 10-19 12:30:10 [model.py:699] Resolved architecture: Qwen3ForCausalLM
+(MainProcess pid=2109) INFO 10-19 12:30:10 [model.py:2109] Using max model len 128
+(MainProcess pid=2109) INFO 10-19 12:30:10 [scheduler.py:308] Chunked prefill is enabled with max_num_batched_tokens=128.
+(MainProcess pid=2109) WARNING 10-19 12:30:10 [vllm.py:1706] Enforce eager set, disabling torch.compile, CUDAGraphs, and JIT kernel warmup. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none and --kernel_config.enable_jit_warmup=False
+(MainProcess pid=2109) WARNING 10-19 12:30:10 [vllm.py:1750] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(MainProcess pid=2109) INFO 10-19 12:30:10 [kernel.py:408] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(MainProcess pid=2109) INFO 10-19 12:30:10 [vllm.py:1968] Cudagraph is disabled under eager mode
+(MainProcess pid=2109) WARNING 10-19 12:30:10 [vllm.py:2260] Turning off hybrid kv cache manager because `--kv-transfer-config` selects a KV connector that does not support it. Impact: hybrid SSM models (e.g. Jamba, Bamba) require HMA and will fail at startup without it; models with sliding window attention will run with reduced performance. To add HMA support to a KV connector, subclass `SupportsHMA` defined in kv_connector/v1/base.py (for MultiConnector, all child connectors must support HMA).
+(MainProcess pid=2109) INFO 10-19 12:30:10 [compilation.py:331] Enabled custom fusions: norm_quant, act_quant
+(MainProcess pid=2109) INFO 10-19 12:30:12 [core.py:129] Initializing a V1 LLM engine (v0.31.0) with config: model='/opt/cloud-inference-framework/models/Qwen3-0.6B', speculative_config=None, tokenizer='/opt/cloud-inference-framework/models/Qwen3-0.6B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=128, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=True, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/opt/cloud-inference-framework/models/Qwen3-0.6B, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [128], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(MainProcess pid=2109) INFO 10-19 12:30:13 [parallel_state.py:1825] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_dd052ef506aa4017bd8ee3ab4d4c6836 backend=nccl
+(MainProcess pid=2109) INFO 10-19 12:30:13 [parallel_state.py:2269] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(MainProcess pid=2109) INFO 10-19 12:30:14 [topk_topp_sampler.py:124] Using FlashInfer for top-p & top-k sampling.
+(MainProcess pid=2109) INFO 10-19 12:30:14 [gpu_model_runner.py:5255] Starting to load model /opt/cloud-inference-framework/models/Qwen3-0.6B...
+(MainProcess pid=2109) INFO 10-19 12:30:14 [cuda.py:526] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(MainProcess pid=2109) INFO 10-19 12:30:14 [flash_attn.py:1167] Using FlashAttention version 2
+(MainProcess pid=2109) INFO 10-19 12:30:15 [weight_utils.py:1063] Filesystem type for checkpoints: EXT4. Checkpoint size: 1.40 GiB. Available RAM: 4.91 GiB.
+(MainProcess pid=2109) INFO 10-19 12:30:15 [weight_utils.py:1086] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.34it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.34it/s]
+
+(MainProcess pid=2109) INFO 10-19 12:30:15 [default_loader.py:484] Loading weights took 0.75 seconds
+(MainProcess pid=2109) INFO 10-19 12:30:16 [gpu_model_runner.py:5354] Model loading took 1.12 GiB memory and 1.582387 seconds
+(MainProcess pid=2109) INFO 10-19 12:30:16 [torch_utils.py:286] Reducing Torch threads from 12 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(MainProcess pid=2109) INFO 10-19 12:30:16 [utils.py:343] Using LBNHC KV cache layout.
+(MainProcess pid=2109) INFO 10-19 12:30:18 [gpu_worker.py:692] Available KV cache memory: 2.32 GiB
+(MainProcess pid=2109) INFO 10-19 12:30:18 [kv_cache_utils.py:2464] GPU KV cache size: 21,728 tokens, Maximum concurrency for 128 tokens per request: 169.75x
+(MainProcess pid=2109) INFO 10-19 12:30:18 [factory.py:62] Creating v1 connector with name: HF3FSKVConnector and engine_id: 098e1b46-74f1-4407-bbd6-4234a9bfa949
+(MainProcess pid=2109) WARNING 10-19 12:30:18 [base.py:209] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+(MainProcess pid=2109) INFO 10-19 12:30:18 [hf3fs_connector.py:486] Using MLA: False
+(MainProcess pid=2109) INFO 10-19 12:30:18 [hf3fs_connector.py:519] HF3FSKVConnector initialized: path=/mnt/c/Users/32065/ci-fw/results/hf3fs-engine-patched-20261019/storage, role=WORKER
+2026-10-19 12:30:18,277 - INFO - Initialized rank 0 with 2 pages
+(MainProcess pid=2109) INFO 10-19 12:30:18 [hf3fs_connector.py:126] AsyncOperationManager initialized for rank 0
+(MainProcess pid=2109) INFO 10-19 12:30:18 [kernel_warmup.py:437] Using FlashInfer autotune cache file: /root/.cache/vllm/flashinfer_autotune_cache/0.7.0.post1/120f/f009201fa44dcd4cf7ad7ad37ada41dd1fa5b3dbb97c5b5bb8e5690b5a345963/autotune_configs.json
+2026-10-19 12:30:19,177 - INFO - autotuner.py:3691 - flashinfer.jit: [Autotuner]: Loaded 0 configs from /root/.cache/vllm/flashinfer_autotune_cache/0.7.0.post1/120f/f009201fa44dcd4cf7ad7ad37ada41dd1fa5b3dbb97c5b5bb8e5690b5a345963/autotune_configs.json
+2026-10-19 12:30:19,178 - INFO - autotuner.py:1046 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(MainProcess pid=2109) INFO 10-19 12:30:19 [kernel_warmup.py:359] Running FlashInfer autotune with 128 tokens and token buckets (1, 2, 4, 8, 16, 32, 64, 128).
+2026-10-19 12:30:19,221 - INFO - autotuner.py:1069 - flashinfer.jit: [Autotuner]: Autotuning process ends
+2026-10-19 12:30:19,223 - INFO - autotuner.py:3554 - flashinfer.jit: [Autotuner]: Saved 0 configs to /root/.cache/vllm/flashinfer_autotune_cache/0.7.0.post1/120f/f009201fa44dcd4cf7ad7ad37ada41dd1fa5b3dbb97c5b5bb8e5690b5a345963/autotune_configs.json (0 new, 0 from previous config)
+(MainProcess pid=2109) INFO 10-19 12:30:19 [gpu_worker.py:955] Free memory on device (6.87/7.93 GiB) on startup. Desired GPU memory utilization is (0.45, 3.57 GiB). Actual usage is 1.25 GiB for consumed memory (weights + non-torch), 0.0 GiB for peak activation, and 0.0 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=2335450112` (2.18 GiB) to fit into requested memory, or `--kv-cache-memory=5876966400` (5.47 GiB) to fully utilize gpu memory. Current kv cache memory in use is 2.32 GiB.
+(MainProcess pid=2109) INFO 10-19 12:30:19 [core.py:380] init engine (profile, create kv cache, warmup model) took 3.13 s
+(MainProcess pid=2109) INFO 10-19 12:30:19 [factory.py:62] Creating v1 connector with name: HF3FSKVConnector and engine_id: 098e1b46-74f1-4407-bbd6-4234a9bfa949
+(MainProcess pid=2109) WARNING 10-19 12:30:19 [base.py:209] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+(MainProcess pid=2109) INFO 10-19 12:30:19 [hf3fs_connector.py:486] Using MLA: False
+(MainProcess pid=2109) INFO 10-19 12:30:19 [hf3fs_connector.py:519] HF3FSKVConnector initialized: path=/mnt/c/Users/32065/ci-fw/results/hf3fs-engine-patched-20261019/storage, role=SCHEDULER
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf.py:646] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf3fs_connector.py:729] Token matching for 0-aa00c1a6: 0 matched (0 blocks), 0 new hits, prompt len 17
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf3fs_connector.py:442] Saved 0-aa00c1a6: 1 blocks in 0.02s
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf3fs_connector.py:729] Token matching for 1-8e290adf: 0 matched (0 blocks), 0 new hits, prompt len 33
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf3fs_connector.py:196] HF3FS Connector Completed: 1 saves, 0 loads operations
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf3fs_connector.py:442] Saved 1-8e290adf: 2 blocks in 0.03s
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf3fs_connector.py:729] Token matching for 2-92b60d3b: 32 matched (2 blocks), 32 new hits, prompt len 33
+(MainProcess pid=2109) INFO 10-19 12:30:20 [hf3fs_connector.py:196] HF3FS Connector Completed: 1 saves, 0 loads operations
+/opt/cloud-inference-framework/.venv/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/utils/hf3fs_mock_client.py:72: UserWarning: The given buffer is not writable, and PyTorch does not support non-writable tensors. This means you can write to the underlying (supposedly non-writable) buffer using the tensor. You may want to copy the buffer to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_new.cpp:1556.)
+  tensor_data = torch.frombuffer(buffer_data, dtype=torch.uint16)
+(MainProcess pid=2109) INFO 10-19 12:30:21 [hf3fs_connector.py:442] Loaded 2-92b60d3b: 2 blocks in 0.86s
+(MainProcess pid=2109) INFO 10-19 12:30:21 [hf3fs_connector.py:196] HF3FS Connector Completed: 0 saves, 1 loads operations
+{
+  "baseline": false,
+  "vllm": "0.31.0",
+  "backend": "existing HF3FS file fallback",
+  "runner": "MRV1 eager, TP1, async scheduling disabled, local APC disabled",
+  "intervention": "metadata advertises two pages; second lookup forced to miss to simulate earlier scheduler snapshot",
+  "mixed_save_failed": false,
+  "allocations": [
+    {
+      "keys": [
+        [
+          "719cc7720473b376072c322c18758364",
+          ""
+        ]
+      ],
+      "complete_hits": [],
+      "result": {
+        "719cc7720473b376072c322c18758364": 0
+      }
+    },
+    {
+      "keys": [
+        [
+          "719cc7720473b376072c322c18758364",
+          ""
+        ],
+        [
+          "c742ac809f9d1fa5cb5a34d6e20c03cc",
+          ""
+        ]
+      ],
+      "complete_hits": [
+        "719cc7720473b376072c322c18758364"
+      ],
+      "result": {
+        "719cc7720473b376072c322c18758364": 0,
+        "c742ac809f9d1fa5cb5a34d6e20c03cc": 1
+      }
+    }
+  ],
+  "first_tokens": [
+    198,
+    785,
+    3405,
+    374
+  ],
+  "cold_second_tokens": [
+    198,
+    20,
+    21,
+    22
+  ],
+  "warm_tokens": [
+    198,
+    20,
+    21,
+    22
+  ],
+  "limitations": "One controlled run, installed vLLM engine with pinned main metadata module; no real 3FS, TP, concurrency stress, performance or quality evaluation",
+  "exitcode": 0
+}
+(MainProcess pid=2109) INFO 10-19 12:30:22 [hf3fs_connector.py:458] AsyncOperationManager shutdown completed
+(MainProcess pid=2109) INFO 10-19 12:30:22 [hf3fs_connector.py:914] HF3FS clients closed

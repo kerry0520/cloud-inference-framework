@@ -1,0 +1,31 @@
+[INFO] Initializing environment for https://github.com/astral-sh/ruff-pre-commit.
+[INFO] Initializing environment for https://github.com/crate-ci/typos.
+[INFO] Initializing environment for https://github.com/pre-commit/mirrors-clang-format.
+[INFO] Initializing environment for https://github.com/DavidAnson/markdownlint-cli2.
+[INFO] Initializing environment for https://github.com/rhysd/actionlint.
+[INFO] Initializing environment for https://github.com/shellcheck-py/shellcheck-py.
+[INFO] Initializing environment for https://github.com/astral-sh/uv-pre-commit.
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Initializing environment for local.
+[INFO] Initializing environment for local:PyYAML,regex.
+[INFO] Initializing environment for local:PyYAML.
+[INFO] Initializing environment for local:mypy==1.20.2,regex,types-cachetools,types-setuptools,types-PyYAML,types-requests,types-torch,pydantic==2.13.5.
+[INFO] Initializing environment for local:regex.
+[INFO] Initializing environment for local:dockerfile-parse.
+[INFO] Installing environment for https://github.com/astral-sh/ruff-pre-commit.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/crate-ci/typos.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/pre-commit/mirrors-clang-format.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/DavidAnson/markdownlint-cli2.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+An unexpected error has occurred: CalledProcessError: command: ('/root/.cache/pre-commit/repo7zta9sus/node_env-lts/bin/node', '/root/.cache/pre-commit/repo7zta9sus/node_env-lts/bin/npm', 'install', '--allow-git=root', '--install-links', '-g', 'git+file:///root/.cache/pre-commit/repo7zta9sus')
+return code: -15
+stdout: (none)
+stderr: (none)
+Check the log at /root/.cache/pre-commit/pre-commit.log
