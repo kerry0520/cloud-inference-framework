@@ -1,0 +1,31 @@
+{
+  "source": "results\\hf3fs-free-candidate-20261019\\hf3fs.snapshot",
+  "sha256": "8f6d5a4fb4c4eed8a7ac519d3527f8f4927b3520b0dd1de81834bcfe7590d336",
+  "extraction": "Unmodified AST of three original classes; stdlib dependencies only",
+  "allocations": [
+    [
+      "a",
+      0
+    ],
+    [
+      "b",
+      1
+    ],
+    [
+      "c",
+      -1
+    ]
+  ],
+  "reuse_when_full": {
+    "a": 0
+  },
+  "failed_write_release": {
+    "new": 0
+  },
+  "oversized_batch": {
+    "a": -1,
+    "b": -1
+  },
+  "exitcode": 0,
+  "limitations": "Single-rank CPU metadata only; no HTTP, GPU, HF3FS IO, concurrent readers or fix validation"
+}

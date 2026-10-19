@@ -1,0 +1,11 @@
+[
+  {
+    "name": "hf3fs",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/ed871c91c749d23d1d9a0110ea7655f3b7d4e048/vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_metadata_server.py",
+    "fetched_utc": "2026-10-19T04:01:13.449262+00:00",
+    "status": 200,
+    "sha256": "8f6d5a4fb4c4eed8a7ac519d3527f8f4927b3520b0dd1de81834bcfe7590d336",
+    "bytes": 19130,
+    "etag": "\"029d7c275818f269b4ae4fea452eafba60685c9e6fe43125ddd81aa4257a84d0\""
+  }
+]

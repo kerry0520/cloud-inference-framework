@@ -1,0 +1,7 @@
+{
+  "repo": "ModelTC/lightllm",
+  "failed_utc": "2026-10-19T04:00:09.6594505Z",
+  "url": "https://api.github.com/search/issues?q=repo%3AModelTC%2Flightllm%20is%3Aissue%20is%3Aopen%20no%3Aassignee%20comments%3A0&sort=created&order=desc&per_page=20",
+  "response_body": "\r\n{\r\n  \"documentation_url\": \"https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits\",\r\n  \"message\": \"You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID FBCE:3306F4:1E2593:2BA1AD:6AD595C9.\"\r\n}",
+  "error": "Response status code does not indicate success: 403 (Forbidden)."
+}

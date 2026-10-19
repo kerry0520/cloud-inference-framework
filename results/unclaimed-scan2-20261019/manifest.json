@@ -1,0 +1,18 @@
+[
+  {
+    "fetched_utc": "2026-10-19T04:00:01.1870349Z",
+    "file": "flashinfer-ai-flashinfer.json",
+    "repo": "flashinfer-ai/flashinfer",
+    "query": "repo:flashinfer-ai/flashinfer is:issue is:open no:assignee comments:0",
+    "url": "https://api.github.com/search/issues?q=repo%3Aflashinfer-ai%2Fflashinfer%20is%3Aissue%20is%3Aopen%20no%3Aassignee%20comments%3A0&sort=created&order=desc&per_page=20",
+    "total": 163
+  },
+  {
+    "fetched_utc": "2026-10-19T04:00:05.8887755Z",
+    "file": "InternLM-lmdeploy.json",
+    "repo": "InternLM/lmdeploy",
+    "query": "repo:InternLM/lmdeploy is:issue is:open no:assignee comments:0",
+    "url": "https://api.github.com/search/issues?q=repo%3AInternLM%2Flmdeploy%20is%3Aissue%20is%3Aopen%20no%3Aassignee%20comments%3A0&sort=created&order=desc&per_page=20",
+    "total": 68
+  }
+]
