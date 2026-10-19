@@ -1,0 +1,56 @@
+[
+  {
+    "name": "vllm-sampling",
+    "url": "https://api.github.com/search/issues?q=repo%3Avllm-project%2Fvllm+is%3Aissue+is%3Aopen+sampling&sort=updated&order=desc&per_page=25",
+    "fetched_utc": "2026-10-19T03:33:47.853026+00:00",
+    "status": 200,
+    "sha256": "0dc50cda36abe9c44b6e2ac59aca0cfe6dd5d1de0fc62f378e745833b3862153",
+    "bytes": 429553,
+    "etag": null
+  },
+  {
+    "name": "sglang-sampling",
+    "url": "https://api.github.com/search/issues?q=repo%3Asgl-project%2Fsglang+is%3Aissue+is%3Aopen+sampling&sort=updated&order=desc&per_page=25",
+    "fetched_utc": "2026-10-19T03:33:47.853540+00:00",
+    "status": 200,
+    "sha256": "564e63aa1cb2fd254963076b42ffe215ef83edb773a20c7cb37b3881729bf6a9",
+    "bytes": 536183,
+    "etag": null
+  },
+  {
+    "name": "flashinfer-sampling",
+    "url": "https://api.github.com/search/issues?q=repo%3Aflashinfer-ai%2Fflashinfer+is%3Aissue+is%3Aopen+sampling&sort=updated&order=desc&per_page=25",
+    "fetched_utc": "2026-10-19T03:33:47.853959+00:00",
+    "status": 200,
+    "sha256": "78c1e3adcbdf58eb7b7ece05b0e8ec60e5ce18221b8ea4148a48147103d8f860",
+    "bytes": 345374,
+    "etag": null
+  },
+  {
+    "name": "lmdeploy-bugs",
+    "url": "https://api.github.com/search/issues?q=repo%3AInternLM%2Flmdeploy+is%3Aissue+is%3Aopen+label%3Abug&sort=updated&order=desc&per_page=25",
+    "fetched_utc": "2026-10-19T03:33:49.283467+00:00",
+    "status": 200,
+    "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+    "bytes": 79,
+    "etag": null
+  },
+  {
+    "name": "vllm-first",
+    "url": "https://api.github.com/search/issues?q=repo%3Avllm-project%2Fvllm+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&sort=updated&order=desc&per_page=25",
+    "fetched_utc": "2026-10-19T03:33:49.329659+00:00",
+    "status": 200,
+    "sha256": "4baa43a33c3c442299c21d1fac3908af825e0ae3009f73d85e17cf2f1362a95d",
+    "bytes": 144772,
+    "etag": null
+  },
+  {
+    "name": "sglang-first",
+    "url": "https://api.github.com/search/issues?q=repo%3Asgl-project%2Fsglang+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&sort=updated&order=desc&per_page=25",
+    "fetched_utc": "2026-10-19T03:33:49.529361+00:00",
+    "status": 200,
+    "sha256": "209df12e3ea9d43dd8d55387d5ec539fd91adbfcb0c4e092130ba5ed084b8d68",
+    "bytes": 146048,
+    "etag": null
+  }
+]

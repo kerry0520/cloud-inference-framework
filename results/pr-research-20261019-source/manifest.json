@@ -1,0 +1,61 @@
+[
+  {
+    "name": "flashinfer-jit-core",
+    "url": "https://raw.githubusercontent.com/flashinfer-ai/flashinfer/1279c565fdbb3f3eda61c00ca32e538f996b3c7f/flashinfer/jit/core.py",
+    "fetched_utc": "2026-10-19T03:35:32.596497+00:00",
+    "status": 200,
+    "sha256": "f56ff6bf9561834362303d4c5b7a80018466babbfdf2f8f73775b1af0746b687",
+    "bytes": 30961,
+    "etag": "\"42d5ca4eda7950604a1387a12b095e76e9cbaa079851ec4e66eface245f6ada4\""
+  },
+  {
+    "name": "flashinfer-jit-topk",
+    "url": "https://raw.githubusercontent.com/flashinfer-ai/flashinfer/1279c565fdbb3f3eda61c00ca32e538f996b3c7f/flashinfer/jit/topk.py",
+    "fetched_utc": "2026-10-19T03:35:32.597058+00:00",
+    "status": 200,
+    "sha256": "83245683cbff673e05cbcf0db761436da02bc7d2e3d71f4c3c41e67cce86dbb9",
+    "bytes": 1053,
+    "etag": "\"0d5bb87a782b990a19539e62659bd3184e04a4c1c8c33bdc8b2771a241680fbc\""
+  },
+  {
+    "name": "flashinfer-contributing",
+    "url": "https://raw.githubusercontent.com/flashinfer-ai/flashinfer/1279c565fdbb3f3eda61c00ca32e538f996b3c7f/CONTRIBUTING.md",
+    "fetched_utc": "2026-10-19T03:35:32.597617+00:00",
+    "status": 200,
+    "sha256": "1d54c3ea0e35e7a19e97d6c24efdb1cb492d5e4b3c3b646311cc8a88166c27bc",
+    "bytes": 12723,
+    "etag": "\"6f7b07e3d586bdb21d66be1dbeb433874797a0fb7ef2cf9bca41516ebaff508d\""
+  },
+  {
+    "name": "sglang-sampling",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/834bfe4ef0ec11ac5625fac3f94f60c041a36cb8/python/sglang/srt/sampling/sampling_params.py",
+    "fetched_utc": "2026-10-19T03:35:33.459581+00:00",
+    "status": 200,
+    "sha256": "0929211a3fb57315e38a98489185f95e6926c7a23f7d6b946ec103f1a956ffdb",
+    "bytes": 17531,
+    "etag": "\"6757e2da273422e4de9d9dddc1f98c7cb17bd7b82e31fea1778adc614a36bef6\""
+  },
+  {
+    "name": "sglang-speculative",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/834bfe4ef0ec11ac5625fac3f94f60c041a36cb8/sgl-kernel/csrc/speculative/speculative_sampling.cu",
+    "fetched_utc": "2026-10-19T03:35:33.481085+00:00",
+    "error": "HTTP Error 404: Not Found",
+    "http_status": 404
+  },
+  {
+    "name": "sglang-agents",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/834bfe4ef0ec11ac5625fac3f94f60c041a36cb8/AGENTS.md",
+    "fetched_utc": "2026-10-19T03:35:33.518068+00:00",
+    "error": "HTTP Error 404: Not Found",
+    "http_status": 404
+  },
+  {
+    "name": "vllm-contributing",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/4e35590dff6d6adfd318486c83efc4a84e749e40/docs/contributing/README.md",
+    "fetched_utc": "2026-10-19T03:35:34.157804+00:00",
+    "status": 200,
+    "sha256": "5e034b74f459b633bc4ee4d8a8acd50c5a4e957261adcfdb6f1a19dc0bb9c2c9",
+    "bytes": 18840,
+    "etag": "\"590ed22ce8e490ad8f5a7f375f850dc3d559ce2422acd9907c0c69ef648c1a97\""
+  }
+]

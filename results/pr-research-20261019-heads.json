@@ -1,0 +1,7 @@
+{
+  "observed_date": "2026-10-19",
+  "method": "git ls-remote <public repo> refs/heads/main",
+  "vllm-project/vllm": "4e35590dff6d6adfd318486c83efc4a84e749e40",
+  "sgl-project/sglang": "834bfe4ef0ec11ac5625fac3f94f60c041a36cb8",
+  "flashinfer-ai/flashinfer": "1279c565fdbb3f3eda61c00ca32e538f996b3c7f"
+}

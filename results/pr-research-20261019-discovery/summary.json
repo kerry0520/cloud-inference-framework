@@ -1,0 +1,1201 @@
+[
+  {
+    "name": "vllm-sampling",
+    "total": 683,
+    "items": [
+      {
+        "number": 57103,
+        "title": "[RFC]: Programmable KV Cache: Composable Policies for Agentic Serving",
+        "state": "open",
+        "updated": "2026-10-19T03:12:34Z",
+        "comments": 9,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/57103"
+      },
+      {
+        "number": 49004,
+        "title": "[Bug]: DBRX MoE weight loading crashes with KeyError after FusedMoE/MoERunner inversion refactor (#41184) \u2014 dbrx.py missed by follow-up fix #45054",
+        "state": "open",
+        "updated": "2026-10-19T01:47:36Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/49004"
+      },
+      {
+        "number": 49101,
+        "title": "[Bug]: Failed: Cuda error /workspace/csrc/custom_all_reduce.cuh:455 'invalid argument'",
+        "state": "open",
+        "updated": "2026-10-19T01:47:21Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/49101"
+      },
+      {
+        "number": 61406,
+        "title": "[RFC]: vLLM Simulator: CPU-Based CI and Hardware-Aware Performance Simulation",
+        "state": "open",
+        "updated": "2026-10-19T00:47:23Z",
+        "comments": 8,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/61406"
+      },
+      {
+        "number": 61319,
+        "title": "[Bug]:  Greedy (temperature=0) decoding is not reproducible across repeated calls on the same engine for LiquidAI/LFM2-8B-A1B (hybrid mamba)",
+        "state": "open",
+        "updated": "2026-10-19T00:43:59Z",
+        "comments": 1,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/61319"
+      },
+      {
+        "number": 61337,
+        "title": "[Bug]: DFlash drafter CUDA graph capture fails with FLEX_ATTENTION backend (seq_lens_cpu_upper_bound is None)",
+        "state": "open",
+        "updated": "2026-10-18T23:40:52Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/61337"
+      },
+      {
+        "number": 60722,
+        "title": "[RFC]: Strcutured Outputs Not Respected When Reasoning Implicitly Ends",
+        "state": "open",
+        "updated": "2026-10-18T23:35:04Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/60722"
+      },
+      {
+        "number": 61330,
+        "title": "[Bug]: DFlash speculative decoding with gpt-oss target crashes with FA3 illegal memory access",
+        "state": "open",
+        "updated": "2026-10-18T23:34:07Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/61330"
+      },
+      {
+        "number": 62355,
+        "title": "[Performance]: Whisper log-mel runs on the renderer thread instead of the GPU worker",
+        "state": "open",
+        "updated": "2026-10-18T23:31:34Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/62355"
+      },
+      {
+        "number": 62347,
+        "title": "[Bug]: Qwen3-ASR realtime flush emits the tail as a fresh ChatML prompt with no left audio",
+        "state": "open",
+        "updated": "2026-10-18T23:31:27Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/62347"
+      },
+      {
+        "number": 61024,
+        "title": "[Roadmap] vLLM Roadmap Q4 2026",
+        "state": "open",
+        "updated": "2026-10-18T20:39:46Z",
+        "comments": 5,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/61024"
+      },
+      {
+        "number": 62130,
+        "title": "[Spec Decode] Compose grammar-constrained sampling with EAGLE speculative decoding",
+        "state": "open",
+        "updated": "2026-10-18T17:21:12Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/62130"
+      },
+      {
+        "number": 51986,
+        "title": "[Bug]: mnnvl allreduce workspace init hangs 30s and leaks GPU memory on IB-only multi-node",
+        "state": "open",
+        "updated": "2026-10-18T16:49:05Z",
+        "comments": 7,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/51986"
+      },
+      {
+        "number": 61851,
+        "title": "[Bug]: dtype=\"float32\" + enable_lora crashes LFM2 startup \u2014 lora_expand Triton op asserts `weight.dtype in [torch.float16, torch.bfloat16]`",
+        "state": "open",
+        "updated": "2026-10-18T15:21:33Z",
+        "comments": 4,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/61851"
+      },
+      {
+        "number": 62308,
+        "title": "[Bug]: Qwen3.8-Flash-Next checkpoints with quantized q/k/v and an unquantized QSA indexer fail to load since #59533 (v0.32.0)",
+        "state": "open",
+        "updated": "2026-10-18T13:42:17Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/62308"
+      },
+      {
+        "number": 62277,
+        "title": "[Bug]: Cold-cache KV cache OOM with `--kv-cache-memory-bytes` and `--enable-sleep-mode`",
+        "state": "open",
+        "updated": "2026-10-18T10:06:50Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/62277"
+      },
+      {
+        "number": 60581,
+        "title": "[Usage]: ROCm gfx950: MXFP4 activation quant not fused into GEMM; Quark INT4 W4A16 uses a very slow Triton kernel",
+        "state": "open",
+        "updated": "2026-10-18T08:39:23Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/60581"
+      },
+      {
+        "number": 62264,
+        "title": "[Bug]: --attention-backend b12x fails at startup without --block-size (impl checks block size before the platform applies the preferred one)",
+        "state": "open",
+        "updated": "2026-10-18T07:40:21Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/62264"
+      },
+      {
+        "number": 61423,
+        "title": "[RFC]: Re-evaluate per-iteration metrics as a foundation for orchestrator observability",
+        "state": "open",
+        "updated": "2026-10-18T06:55:30Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/61423"
+      },
+      {
+        "number": 59897,
+        "title": "[Usage]: How to serve qwen3.8-flash-next-fp8 on 2 A100",
+        "state": "open",
+        "updated": "2026-10-18T06:52:01Z",
+        "comments": 1,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/59897"
+      },
+      {
+        "number": 62252,
+        "title": "[Bug]: Tool-call argument coercion turns string values such as \"0017\" into integers for [\"string\", \"integer\"] parameters",
+        "state": "open",
+        "updated": "2026-10-18T06:33:28Z",
+        "comments": 1,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/62252"
+      },
+      {
+        "number": 43357,
+        "title": "[Bug]: TurboQuant workspace locked at 3.06 MB \u2014 continuation_prefill requires 12 MB on any prompt >4096 tokens (Qwen3.6-27B NVFP4 hybrid, Blackwell SM120)",
+        "state": "open",
+        "updated": "2026-10-18T01:47:09Z",
+        "comments": 15,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/43357"
+      },
+      {
+        "number": 48680,
+        "title": "[Bug]: `--enable-sleep-mode` OOMs loading an NVFP4 (modelopt) 30B on 16GB SM120 cards where the identical model loads fine without it \u2014 cumem MemPool overhead, not resolved by raising max_split_size_mb",
+        "state": "open",
+        "updated": "2026-10-18T01:44:00Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/48680"
+      },
+      {
+        "number": 48898,
+        "title": "[Bug]: NVFP4 garbage output under torch.compile when per-rank K is not 32-aligned (TP8 on SM120): padded block-scale column reads stale memory; eager/Marlin/aligned-TP correct",
+        "state": "open",
+        "updated": "2026-10-18T01:43:49Z",
+        "comments": 4,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/48898"
+      },
+      {
+        "number": 49079,
+        "title": "[Bug]: --moe-backend flashinfer_b12x roughly doubles peak activation memory vs default, cutting available KV cache ~55%",
+        "state": "open",
+        "updated": "2026-10-18T01:43:39Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/49079"
+      }
+    ]
+  },
+  {
+    "name": "sglang-sampling",
+    "total": 126,
+    "items": [
+      {
+        "number": 37451,
+        "title": "[Failure Tracker] PR Test (AMD)",
+        "state": "open",
+        "updated": "2026-10-19T02:21:44Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/37451"
+      },
+      {
+        "number": 44835,
+        "title": "[Bug] With `pause_generation(in_place)` then `pause_generation(abort)`, the server hangs until killed by watchdog",
+        "state": "open",
+        "updated": "2026-10-18T21:21:50Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44835"
+      },
+      {
+        "number": 42170,
+        "title": "[Roadmap] DeepSeek V4.1 Optimization",
+        "state": "open",
+        "updated": "2026-10-18T17:55:43Z",
+        "comments": 8,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/42170"
+      },
+      {
+        "number": 45002,
+        "title": "[Bug] Client-controlled RID prefix allows cross-request abort through disconnect cleanup",
+        "state": "open",
+        "updated": "2026-10-18T13:20:55Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/45002"
+      },
+      {
+        "number": 44931,
+        "title": "[Bug] gpt-oss on /v1/chat/completions drops replayed reasoning: the template reads `thinking`, SGLang only forwards `reasoning_content`",
+        "state": "open",
+        "updated": "2026-10-18T10:12:33Z",
+        "comments": 1,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44931"
+      },
+      {
+        "number": 44840,
+        "title": "[Bug] `pause_generation(abort)` + `release_memory_occupation` right after a client disconnect crashes scheduler",
+        "state": "open",
+        "updated": "2026-10-18T02:46:05Z",
+        "comments": 1,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44840"
+      },
+      {
+        "number": 43085,
+        "title": "[Bug]",
+        "state": "open",
+        "updated": "2026-10-18T02:15:45Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/43085"
+      },
+      {
+        "number": 39597,
+        "title": "Greedy decoding is not reproducible across server restarts when FlashInfer autotune is enabled (DFLASH speculative decoding)",
+        "state": "open",
+        "updated": "2026-10-17T19:41:12Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/39597"
+      },
+      {
+        "number": 44895,
+        "title": "[Bug] Gemma4 input_embeds request crashes target prefill with input_ids/inputs_embeds exclusivity error",
+        "state": "open",
+        "updated": "2026-10-17T16:38:44Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44895"
+      },
+      {
+        "number": 40877,
+        "title": "[SM120] Field report: DeepSeek-V4.1-Flash in production on 8x RTX PRO 6000 (PCIe, no NVLink) - working config, measured throughput, rejected topologies",
+        "state": "open",
+        "updated": "2026-10-17T14:50:25Z",
+        "comments": 19,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/40877"
+      },
+      {
+        "number": 36941,
+        "title": "[GB10] Long prefill (>40k tokens) exhausts unified memory and silently kills the worker rank \u2014 no traceback, no OOM record; cross-stack control passes at 54k",
+        "state": "open",
+        "updated": "2026-10-17T13:07:19Z",
+        "comments": 5,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/36941"
+      },
+      {
+        "number": 44834,
+        "title": "[Bug] `update_weights_from_disk` after `release_memory_occupation` is accepted and crashes the scheduler (segfault in `weight_loader`)",
+        "state": "open",
+        "updated": "2026-10-17T02:42:00Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44834"
+      },
+      {
+        "number": 43412,
+        "title": "Speculative decoding crashes server on first non-greedy request: flashinfer verify-sampling op JIT fails (bundled cccl vs pip cu13 toolkit) and kills the process tree",
+        "state": "open",
+        "updated": "2026-10-16T20:35:32Z",
+        "comments": 5,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/43412"
+      },
+      {
+        "number": 44745,
+        "title": "[Bug] When client disconnect with `pause_generation(mode=\"abort\")` and `release_memory_occupation` kills the scheduler",
+        "state": "open",
+        "updated": "2026-10-16T13:29:08Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44745"
+      },
+      {
+        "number": 44744,
+        "title": "[Bug] `pause_generation(mode=\"retract\")` while a request's grammar is compiling, then `release_memory_occupation` with an AssertionError kills the scheduler",
+        "state": "open",
+        "updated": "2026-10-16T13:22:02Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44744"
+      },
+      {
+        "number": 44697,
+        "title": "[RFC] MoE routing simulator for prefill imbalance profiling: balanced reference and GPU-faithful replay",
+        "state": "open",
+        "updated": "2026-10-16T07:56:41Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44697"
+      },
+      {
+        "number": 44641,
+        "title": "[Bug] Client-declared mm_hashes controls multimodal prefix-cache identity: wrong-image KV reuse and cross-tenant image disclosure",
+        "state": "open",
+        "updated": "2026-10-16T03:42:13Z",
+        "comments": 2,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44641"
+      },
+      {
+        "number": 44070,
+        "title": "[Bug] PD prefill: early cached-prefix send can transfer KV before the HiCache load-back finishes (stale KV on decode)",
+        "state": "open",
+        "updated": "2026-10-15T22:00:44Z",
+        "comments": 4,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44070"
+      },
+      {
+        "number": 44188,
+        "title": "[Bug] Dumper filter eval() enables scheduler-process RCE",
+        "state": "open",
+        "updated": "2026-10-15T19:34:59Z",
+        "comments": 1,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44188"
+      },
+      {
+        "number": 44535,
+        "title": "[Bug] Out-of-vocab `stop_token_ids` crash the server in the min_new_tokens penalizer",
+        "state": "open",
+        "updated": "2026-10-15T17:53:34Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/44535"
+      },
+      {
+        "number": 23206,
+        "title": "[RFC] Sglang non-GPU process rust migration",
+        "state": "open",
+        "updated": "2026-10-15T17:35:28Z",
+        "comments": 15,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/23206"
+      },
+      {
+        "number": 42752,
+        "title": "[CI] Flaky tests and CI infrastructure failures seen while babysitting PRs",
+        "state": "open",
+        "updated": "2026-10-15T14:16:51Z",
+        "comments": 83,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/42752"
+      },
+      {
+        "number": 40843,
+        "title": "[Bug] Severe repetition and degenerate loops in reasoning/output when serving GLM-5.3 with DFLASH speculative decoding",
+        "state": "open",
+        "updated": "2026-10-15T08:58:16Z",
+        "comments": 15,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/40843"
+      },
+      {
+        "number": 39499,
+        "title": "[Roadmap] SGLang dLLM Serving",
+        "state": "open",
+        "updated": "2026-10-15T03:13:20Z",
+        "comments": 20,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/39499"
+      },
+      {
+        "number": 43874,
+        "title": "[Bug] [diffusion] ComfyUI plugin: integrated-mode bugs in GGUF detection, import guard and VRAM accounting",
+        "state": "open",
+        "updated": "2026-10-14T10:01:38Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/43874"
+      }
+    ]
+  },
+  {
+    "name": "flashinfer-sampling",
+    "total": 26,
+    "items": [
+      {
+        "number": 3605,
+        "title": "[RFC] FlashInfer Release-Quality Action Plan",
+        "state": "open",
+        "updated": "2026-10-18T11:03:04Z",
+        "comments": 14,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/3605"
+      },
+      {
+        "number": 5878,
+        "title": "bug(sampling): top_k_arr/min_p_arr are validated against input rows but indexed by output row, reading out of bounds when indices is longer than probs",
+        "state": "open",
+        "updated": "2026-10-18T09:32:09Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/5878"
+      },
+      {
+        "number": 4254,
+        "title": "[CAKE] Long-term CAKE-generated Kernel Progress Tracker",
+        "state": "open",
+        "updated": "2026-10-17T22:51:51Z",
+        "comments": 9,
+        "assignees": [
+          "yzh119",
+          "hzfan",
+          "xslingcn",
+          "yyihuang"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/4254"
+      },
+      {
+        "number": 5768,
+        "title": "[Tracking] Deslop Cake-generated kernels (smaller, reviewable generated code)",
+        "state": "open",
+        "updated": "2026-10-17T13:05:25Z",
+        "comments": 1,
+        "assignees": [
+          "yyihuang"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/5768"
+      },
+      {
+        "number": 6682,
+        "title": "[cake deslop] Round 2 tracking: 49 family audits of Cake-generated code on main (2026-10-17)",
+        "state": "open",
+        "updated": "2026-10-17T13:01:40Z",
+        "comments": 0,
+        "assignees": [
+          "yyihuang"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6682"
+      },
+      {
+        "number": 6680,
+        "title": "[cake deslop] cake_blackwell_softmax + cake_rmsnorm_train: delete 3 unreachable softmax kernels, fold clones, slim registries (-6.8K lines)",
+        "state": "open",
+        "updated": "2026-10-17T13:00:16Z",
+        "comments": 0,
+        "assignees": [
+          "yyihuang"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6680"
+      },
+      {
+        "number": 6660,
+        "title": "[cake deslop] grouped FP8 GEMM families: drop 12 exact-point programs, table-drive the 5.4K-line route chain, share helpers, fold clones",
+        "state": "open",
+        "updated": "2026-10-17T12:50:20Z",
+        "comments": 0,
+        "assignees": [
+          "yyihuang"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6660"
+      },
+      {
+        "number": 6654,
+        "title": "[cake deslop] blackwell_msa/msa_nvfp4_decode (2): fold uniform-FP8 arch pair, drop xform2 exact-shape routes, template clones (~88K lines)",
+        "state": "open",
+        "updated": "2026-10-17T12:48:58Z",
+        "comments": 0,
+        "assignees": [
+          "yyihuang"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6654"
+      },
+      {
+        "number": 6600,
+        "title": "[CAKE] Sampling Kernel Progress Tracker",
+        "state": "open",
+        "updated": "2026-10-16T20:46:34Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6600"
+      },
+      {
+        "number": 6165,
+        "title": "[Feature][Rubin] MegaMoE: MXFP8, recomputation, and clamped SwiGLU",
+        "state": "open",
+        "updated": "2026-10-15T19:12:14Z",
+        "comments": 2,
+        "assignees": [
+          "hzfan"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6165"
+      },
+      {
+        "number": 6409,
+        "title": "docs: track API, prose, HTML rendering, and broken-link findings",
+        "state": "open",
+        "updated": "2026-10-13T06:44:02Z",
+        "comments": 0,
+        "assignees": [
+          "kangbintNV"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6409"
+      },
+      {
+        "number": 6235,
+        "title": "[Bug][v0.7.2rc1] tests/utils/test_cake_sampling.py AssertionError: [] assert ([])",
+        "state": "open",
+        "updated": "2026-10-08T09:46:21Z",
+        "comments": 2,
+        "assignees": [
+          "yyihuang"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6235"
+      },
+      {
+        "number": 6112,
+        "title": "[Perf][GB300] mm_fp4 CuTe-DSL autotuning selects inconsistent tactics across fresh processes",
+        "state": "open",
+        "updated": "2026-10-06T08:23:53Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/6112"
+      },
+      {
+        "number": 5355,
+        "title": "JIT `topk` module ignores `FLASHINFER_CUDA_ARCH_LIST`: hardcoded `sm89_nvcc_flags` produce an sm_89-only binary",
+        "state": "open",
+        "updated": "2026-10-06T01:08:00Z",
+        "comments": 7,
+        "assignees": [
+          "XFDG"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/5355"
+      },
+      {
+        "number": 2896,
+        "title": "[Bug] Tensor-core decode path produces degenerate output for GQA group_size=7 in bf16 due to precision loss",
+        "state": "open",
+        "updated": "2026-09-28T15:36:06Z",
+        "comments": 6,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/2896"
+      },
+      {
+        "number": 5637,
+        "title": "[Bug] chain_speculative_sampling reuses a Philox draw across consecutive B=1, N=3 calls",
+        "state": "open",
+        "updated": "2026-09-28T08:59:57Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/5637"
+      },
+      {
+        "number": 4731,
+        "title": "[sm120] NVFP4 KV: masked multi-token XQA verify (q_len_per_req>1) is intermittently ~3x slower, cancelling the MTP speedup; q_len=1 is fine",
+        "state": "open",
+        "updated": "2026-09-26T08:10:55Z",
+        "comments": 4,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/4731"
+      },
+      {
+        "number": 5479,
+        "title": "[Bug ]err in compilation code about \"Unknown option --compress-mode=size \" when using FlashInfer version 0.6.18, which is automatically downloaded by vLLM 0.29.0.",
+        "state": "open",
+        "updated": "2026-09-23T15:02:53Z",
+        "comments": 2,
+        "assignees": [
+          "apex-mochen"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/5479"
+      },
+      {
+        "number": 5445,
+        "title": "sm_120 -tvm.error.InternalError: Error in function 'TllmGenFmhaRunner' at .sglang/lib/python3.12/site-packages/flashinfer/data/include/flashinfer/trtllm/fmha/fmhaRunner.cuh:37: Unsupported architecture",
+        "state": "open",
+        "updated": "2026-09-22T13:06:26Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/5445"
+      },
+      {
+        "number": 3170,
+        "title": "DGX Spark (SM121) Current Support Audit",
+        "state": "open",
+        "updated": "2026-09-21T15:20:53Z",
+        "comments": 25,
+        "assignees": [
+          "bkryu",
+          "kahyunnam"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/3170"
+      },
+      {
+        "number": 5145,
+        "title": "[Bug] JIT sampler built with CUDA 13 is reused by CUDA 12.9 Ray workers and fails at runtime",
+        "state": "open",
+        "updated": "2026-09-17T16:58:27Z",
+        "comments": 2,
+        "assignees": [
+          "ZFXzzz"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/5145"
+      },
+      {
+        "number": 2733,
+        "title": "[Bug] flashinfer JIT ops are incompatible with torch.compile fullgraph mode",
+        "state": "open",
+        "updated": "2026-09-02T18:35:40Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/2733"
+      },
+      {
+        "number": 4126,
+        "title": "Kimi-K2.6-NVFP4:CUDA coredump in `RadixTopKRenormProbKernel_MultiCTA` on Blackwell   (sm_103) \u2014 constant-memory descriptor load fault",
+        "state": "open",
+        "updated": "2026-07-28T03:36:42Z",
+        "comments": 5,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/4126"
+      },
+      {
+        "number": 3802,
+        "title": "[Bug] tests/utils full-directory run: sys.modules deletion in test_logging poisons enum identities - 630 cross-test failures that vanish in isolation",
+        "state": "open",
+        "updated": "2026-07-02T09:53:55Z",
+        "comments": 0,
+        "assignees": [],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/3802"
+      },
+      {
+        "number": 3122,
+        "title": "[Feature Request] Fused top-k/top-p sampling with filtered probability output",
+        "state": "open",
+        "updated": "2026-04-24T16:52:29Z",
+        "comments": 0,
+        "assignees": [
+          "haozhihuiYmh150"
+        ],
+        "url": "https://github.com/flashinfer-ai/flashinfer/issues/3122"
+      }
+    ]
+  },
+  {
+    "name": "lmdeploy-bugs",
+    "total": 0,
+    "items": []
+  },
+  {
+    "name": "vllm-first",
+    "total": 18,
+    "items": [
+      {
+        "number": 31624,
+        "title": "[Bug]: ModelOpt Llama-4 Checkpoints Take 5+ minutes to load",
+        "state": "open",
+        "updated": "2026-10-15T13:50:47Z",
+        "comments": 25,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/31624"
+      },
+      {
+        "number": 23957,
+        "title": "[Feature]: Support `Phi4Flash` model in V1",
+        "state": "open",
+        "updated": "2026-10-15T10:02:08Z",
+        "comments": 10,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/23957"
+      },
+      {
+        "number": 27433,
+        "title": "[Feature]: Batch Invariant Feature and Performance Optimization",
+        "state": "open",
+        "updated": "2026-10-14T07:00:21Z",
+        "comments": 102,
+        "assignees": [
+          "bwasti",
+          "PaulZhang12",
+          "yewentao256",
+          "sfeng33"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/27433"
+      },
+      {
+        "number": 41230,
+        "title": "[Docs] Document NIXL KV connector metrics aggregation semantics",
+        "state": "open",
+        "updated": "2026-10-14T03:44:06Z",
+        "comments": 20,
+        "assignees": [
+          "zeel2104"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/41230"
+      },
+      {
+        "number": 32588,
+        "title": "[Bug]: Wrong timestamps if audio > 30s",
+        "state": "open",
+        "updated": "2026-10-13T20:31:24Z",
+        "comments": 17,
+        "assignees": [
+          "dr75",
+          "aadeshupadhyay"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/32588"
+      },
+      {
+        "number": 32335,
+        "title": "[Feature]: Extract KV-Cache update from all attention backends",
+        "state": "open",
+        "updated": "2026-10-12T15:44:33Z",
+        "comments": 56,
+        "assignees": [
+          "VedantMadane",
+          "pragun-ananda",
+          "Mohit-Gaur",
+          "Prathmesh234",
+          "adityakamat24",
+          "Etelis",
+          "dorhuri123",
+          "dw2761",
+          "Kare0638"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/32335"
+      },
+      {
+        "number": 39479,
+        "title": "[torch.compile] config hashing refactor follow-ups",
+        "state": "open",
+        "updated": "2026-10-10T09:10:00Z",
+        "comments": 30,
+        "assignees": [
+          "WorldExplored",
+          "Alexey-Savelyev-0",
+          "monkeypunkey21"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/39479"
+      },
+      {
+        "number": 25700,
+        "title": "[RFC]: Limit the use of envvars in vLLM",
+        "state": "open",
+        "updated": "2026-10-06T08:59:10Z",
+        "comments": 20,
+        "assignees": [
+          "elizabetht",
+          "ardecode"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/25700"
+      },
+      {
+        "number": 28498,
+        "title": "[Bug][RL]: Port Conflict",
+        "state": "open",
+        "updated": "2026-10-05T01:58:56Z",
+        "comments": 21,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/28498"
+      },
+      {
+        "number": 37753,
+        "title": "[Feature]: Unify MoE \"Oracles\" with Class Structure",
+        "state": "open",
+        "updated": "2026-10-03T10:13:07Z",
+        "comments": 11,
+        "assignees": [
+          "Zijun9"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/37753"
+      },
+      {
+        "number": 25750,
+        "title": "[Feature]: Tracking Whisper feature requests",
+        "state": "open",
+        "updated": "2026-09-29T06:11:24Z",
+        "comments": 27,
+        "assignees": [],
+        "url": "https://github.com/vllm-project/vllm/issues/25750"
+      },
+      {
+        "number": 21948,
+        "title": "[Bug]: Add tests for all parallel sampling parameter combinations",
+        "state": "open",
+        "updated": "2026-09-22T20:30:20Z",
+        "comments": 8,
+        "assignees": [
+          "gigit0000"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/21948"
+      },
+      {
+        "number": 29139,
+        "title": "[Feature]: Optimize collectives in TP MoE case using torch.compile pass",
+        "state": "open",
+        "updated": "2026-09-15T01:45:54Z",
+        "comments": 35,
+        "assignees": [
+          "SouthWest7",
+          "anant37289"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/29139"
+      },
+      {
+        "number": 19817,
+        "title": "[Feature]: `CustomOp` cleanup",
+        "state": "open",
+        "updated": "2026-09-11T15:29:36Z",
+        "comments": 11,
+        "assignees": [
+          "GOavi101"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/19817"
+      },
+      {
+        "number": 38425,
+        "title": "[Transformers v5] InternVL2",
+        "state": "open",
+        "updated": "2026-09-08T09:13:10Z",
+        "comments": 15,
+        "assignees": [
+          "malakazlan"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/38425"
+      },
+      {
+        "number": 31249,
+        "title": "[RFC]: Improve environment variable declaration and handling",
+        "state": "open",
+        "updated": "2026-08-31T08:39:36Z",
+        "comments": 12,
+        "assignees": [
+          "rafvasq"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/31249"
+      },
+      {
+        "number": 32268,
+        "title": "[Feature]: Refactor Int8ScaledMMLinearLayerConfig to use QuantKey",
+        "state": "open",
+        "updated": "2026-08-24T02:38:56Z",
+        "comments": 12,
+        "assignees": [
+          "andikarachman"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/32268"
+      },
+      {
+        "number": 33267,
+        "title": "[Feature]: Remove attention layer name from `unified_kv_cache_update`",
+        "state": "open",
+        "updated": "2026-08-16T23:49:35Z",
+        "comments": 10,
+        "assignees": [
+          "algebra-MCX",
+          "SongyouZhong"
+        ],
+        "url": "https://github.com/vllm-project/vllm/issues/33267"
+      }
+    ]
+  },
+  {
+    "name": "sglang-first",
+    "total": 46,
+    "items": [
+      {
+        "number": 28808,
+        "title": "Refactor: TRTLLMHAAttnBackend should not inherit from FlashInferAttnBackend when reuse is small",
+        "state": "open",
+        "updated": "2026-10-14T03:04:19Z",
+        "comments": 4,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/28808"
+      },
+      {
+        "number": 6622,
+        "title": "[Feature] Increase server payload size limit",
+        "state": "open",
+        "updated": "2026-10-14T02:06:05Z",
+        "comments": 10,
+        "assignees": [
+          "khan-yin",
+          "Wen-xuan-Xu",
+          "aaaandychen"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/6622"
+      },
+      {
+        "number": 21085,
+        "title": "[Bug] flashinfer gdn kernel not working",
+        "state": "open",
+        "updated": "2026-10-13T21:43:15Z",
+        "comments": 3,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/21085"
+      },
+      {
+        "number": 18427,
+        "title": "[Feature] Carefully remove duplicated cotents in SGLang Docs and SGLang Cooklook",
+        "state": "open",
+        "updated": "2026-10-13T21:43:14Z",
+        "comments": 8,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/18427"
+      },
+      {
+        "number": 10585,
+        "title": "[Feature] Integrate KVPress in order to try more KV cache optimization heuristics easily",
+        "state": "open",
+        "updated": "2026-10-13T21:21:24Z",
+        "comments": 10,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/10585"
+      },
+      {
+        "number": 19092,
+        "title": "[Feature] Parallelize module loading to speed up server launch and refit for Diffusion models",
+        "state": "open",
+        "updated": "2026-10-13T21:07:35Z",
+        "comments": 2,
+        "assignees": [
+          "zhaochenyang20"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/19092"
+      },
+      {
+        "number": 11186,
+        "title": "[Feature] Support piggyback server load report.",
+        "state": "open",
+        "updated": "2026-10-13T21:07:33Z",
+        "comments": 5,
+        "assignees": [
+          "hnyls2002"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/11186"
+      },
+      {
+        "number": 12562,
+        "title": "[Feature] Simplify `tree_speculative_sampling_target_only`",
+        "state": "open",
+        "updated": "2026-10-13T21:07:22Z",
+        "comments": 4,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/12562"
+      },
+      {
+        "number": 19612,
+        "title": "[Feature] Unified JIT / Precompilation Cache Directory",
+        "state": "open",
+        "updated": "2026-10-13T13:42:33Z",
+        "comments": 5,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/19612"
+      },
+      {
+        "number": 9889,
+        "title": "[Performance] Remove instances of `torch.nonzero()` where appropriate",
+        "state": "open",
+        "updated": "2026-10-10T04:18:06Z",
+        "comments": 9,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/9889"
+      },
+      {
+        "number": 13363,
+        "title": "[Roadmap] sglang auto tuner",
+        "state": "open",
+        "updated": "2026-10-07T04:35:37Z",
+        "comments": 16,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/13363"
+      },
+      {
+        "number": 3365,
+        "title": "[Feature] support `gather` instead of `all_gather` when gathering the logits",
+        "state": "open",
+        "updated": "2026-10-04T14:45:29Z",
+        "comments": 10,
+        "assignees": [
+          "zhaochenyang20"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/3365"
+      },
+      {
+        "number": 8072,
+        "title": "[Feature] Benchmark with audio input",
+        "state": "open",
+        "updated": "2026-09-26T06:50:55Z",
+        "comments": 5,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/8072"
+      },
+      {
+        "number": 13214,
+        "title": "KeyError: 'model.layers.14.mlp.shared_expert.gate_gate_up_proj.weight'",
+        "state": "open",
+        "updated": "2026-09-23T23:43:09Z",
+        "comments": 15,
+        "assignees": [
+          "Toseic"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/13214"
+      },
+      {
+        "number": 8540,
+        "title": "[Feature] Implement Image Number Limitation for Image Processors",
+        "state": "open",
+        "updated": "2026-09-23T23:42:53Z",
+        "comments": 4,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/8540"
+      },
+      {
+        "number": 9674,
+        "title": "[Feature] Create benchmark and dataset usage scripts for embedding models",
+        "state": "open",
+        "updated": "2026-09-23T18:56:55Z",
+        "comments": 9,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/9674"
+      },
+      {
+        "number": 2271,
+        "title": "[Kernel] Optimize triton decoding kernels for long context",
+        "state": "open",
+        "updated": "2026-09-21T22:43:29Z",
+        "comments": 7,
+        "assignees": [
+          "HaiShaw"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/2271"
+      },
+      {
+        "number": 2272,
+        "title": "[Kernel] cuDNN attention backend",
+        "state": "open",
+        "updated": "2026-09-21T22:43:28Z",
+        "comments": 5,
+        "assignees": [
+          "ispobock",
+          "zhyncs"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/2272"
+      },
+      {
+        "number": 6357,
+        "title": "[Bug] The Prometheus metric `avg_request_queue_latency` is not being collected",
+        "state": "open",
+        "updated": "2026-09-13T07:27:02Z",
+        "comments": 6,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/6357"
+      },
+      {
+        "number": 13809,
+        "title": "[Feature] Reduce constrained-decoding overhead in TP",
+        "state": "open",
+        "updated": "2026-09-11T08:00:11Z",
+        "comments": 4,
+        "assignees": [
+          "raayandhar"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/13809"
+      },
+      {
+        "number": 27214,
+        "title": "model: support new diffusion models",
+        "state": "open",
+        "updated": "2026-09-09T09:49:24Z",
+        "comments": 9,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/27214"
+      },
+      {
+        "number": 6483,
+        "title": "[Feature] Support varied input formats for remaining VLM",
+        "state": "open",
+        "updated": "2026-09-04T02:15:03Z",
+        "comments": 7,
+        "assignees": [
+          "lifuhuang",
+          "1fanwang",
+          "JustinTong0323"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/6483"
+      },
+      {
+        "number": 3050,
+        "title": "[Bug] Decode Throughput Inconsistency Between bench_serving and Engine Logs",
+        "state": "open",
+        "updated": "2026-09-03T11:15:16Z",
+        "comments": 17,
+        "assignees": [
+          "zhaochenyang20"
+        ],
+        "url": "https://github.com/sgl-project/sglang/issues/3050"
+      },
+      {
+        "number": 1763,
+        "title": "[Feature] Request to 8-bit Quantization of Attention with SageAttention",
+        "state": "open",
+        "updated": "2026-08-18T18:43:25Z",
+        "comments": 9,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/1763"
+      },
+      {
+        "number": 5979,
+        "title": "[Feature] Add KV cache usage prometheus metrics",
+        "state": "open",
+        "updated": "2026-08-13T08:37:37Z",
+        "comments": 11,
+        "assignees": [],
+        "url": "https://github.com/sgl-project/sglang/issues/5979"
+      }
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "scope": "CPU source wiring only; mocks do not establish a live CUDA crash or watchdog timeout",
+  "native_arch_probe": [
+    {
+      "device": "sm_120",
+      "captured": "sm_120a",
+      "reported_supported": true,
+      "cross_major_mismatch": false
+    },
+    {
+      "device": "sm_120",
+      "captured": "sm_90a",
+      "reported_supported": true,
+      "cross_major_mismatch": true
+    }
+  ],
+  "norm_cuda_fallback_with_mismatch": false,
+  "scheduler_watchdog": [
+    {
+      "paused": false,
+      "busy": false,
+      "active": false
+    },
+    {
+      "paused": false,
+      "busy": true,
+      "active": true
+    },
+    {
+      "paused": true,
+      "busy": true,
+      "active": true
+    }
+  ]
+}
