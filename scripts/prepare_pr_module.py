@@ -91,7 +91,8 @@ def main():
         + "\n",
         encoding="utf-8",
     )
-    shutil.copyfile(target / "provenance.json", out / "provenance.json")
+    if out.resolve() != target.resolve():
+        shutil.copyfile(target / "provenance.json", out / "provenance.json")
     print(f"module  {module_path}")
     print(f"sha256  {sha256(module_path)}")
     print(f"commit  {args.commit}")
