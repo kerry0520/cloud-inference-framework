@@ -42,9 +42,19 @@ def http_probe():
         client.confirm_write_for_keys(0, [('new', mixed['new'])])
         assert client.batch_key_exists(['cached', 'new']) == [True, True]
         assert client.get_key_locations(0, ['cached', 'new']) == [mixed['cached'], mixed['new']]
-        # This patch deliberately does not evict: a genuinely full pool still fails.
+        # Leasing every complete key pins the pool: allocation must fail rather
+        # than hand out a page a reader may still be loading from.
+        held = client.acquire_keys(0, ['cached', 'new'])
+        assert held == {'cached': mixed['cached'], 'new': mixed['new']}, held
+        assert client.acquire_keys(0, ['missing']) == {'missing': None}
         assert dict(client.allocate_pages_for_keys(0, [('third', '')])) == {'third': -1}
-        print(json.dumps({'mixed': mixed, 'third': -1, 'transport': 'real localhost HTTP', 'model_eval': False}))
+        # Dropping one lease makes that key the LRU victim; the other survives.
+        client.release_keys(0, ['cached'])
+        third = dict(client.allocate_pages_for_keys(0, [('third', '')]))
+        assert third['third'] == mixed['cached'], third
+        assert client.batch_key_exists(['cached', 'new']) == [False, True]
+        print(json.dumps({'mixed': mixed, 'third': third, 'evicted': 'cached',
+                          'transport': 'real localhost HTTP', 'model_eval': False}))
     finally:
         client._session.close()
         server.should_exit = True

@@ -1,0 +1,92 @@
+{
+    "artifact":  "hf3fs page eviction: isolated metadata tests + real localhost HTTP probe",
+    "created":  "2026-10-20",
+    "note":  "hf3fs-evict-dev-20261020T194051 is the failed probe iteration (see failure.md); 194125/194247 are superseded reruns; 194325 is the final pass",
+    "entries":  [
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194051/failure.md",
+                        "bytes":  1109,
+                        "sha256":  "72d76ab93531c38f1b3b0ddbd7f4e5402db4c77578ef4da242944dc18def68c3"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194051/hf3fs_metadata_server.py",
+                        "bytes":  27220,
+                        "sha256":  "0de2cec0974e1fe46adf0e38deb9113b96d3f84e8cdcfaf840838086d2d48ca9"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194051/pytest.log",
+                        "bytes":  99,
+                        "sha256":  "af104a1ad1d503d5810222efbb765d7d5b0136be0e807c904c0fbdf1ed29ef9b"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194051/test_metadata.py",
+                        "bytes":  14694,
+                        "sha256":  "b739805d5fee85dd233bc084aaa65f6b52122b7660dcbfbde56d8db49568a035"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194125/hf3fs_metadata_server.py",
+                        "bytes":  27220,
+                        "sha256":  "0de2cec0974e1fe46adf0e38deb9113b96d3f84e8cdcfaf840838086d2d48ca9"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194125/pytest.log",
+                        "bytes":  99,
+                        "sha256":  "3dedc67675b6f620d808980d2bcbd545666ee73b8ad28a7155677a86d000173f"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194125/result.json",
+                        "bytes":  449,
+                        "sha256":  "7ca60b0ba5821dad2218a924350d1d23d87f342425e7267cfa42edc404ea17e2"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194125/test_metadata.py",
+                        "bytes":  14694,
+                        "sha256":  "b739805d5fee85dd233bc084aaa65f6b52122b7660dcbfbde56d8db49568a035"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194247/hf3fs_metadata_server.py",
+                        "bytes":  27685,
+                        "sha256":  "b2a80af4e5adc012399226104de393f234586877da0009d7769e541da0d48b3e"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194247/pytest.log",
+                        "bytes":  99,
+                        "sha256":  "9ca5770927a120507ca5649401998aa1371d40e26019f5717d0db85b023d6494"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194247/result.json",
+                        "bytes":  449,
+                        "sha256":  "6bbcc78e37e58b39606b780d3f415d3a82fb5cbcd9a63e297ea0634aeaf68157"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194247/test_metadata.py",
+                        "bytes":  14694,
+                        "sha256":  "b739805d5fee85dd233bc084aaa65f6b52122b7660dcbfbde56d8db49568a035"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194325/hf3fs_metadata_server.py",
+                        "bytes":  28321,
+                        "sha256":  "c9246c86ffef16b3619c7ad2164479245f6db6aee22b8c179a6e15deb58b3d1c"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194325/patch.diff",
+                        "bytes":  44622,
+                        "sha256":  "b5e6a2edcae2852c7d89fb4d9a12f36334cec027a744c683dd5d31eb661983af"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194325/pytest.log",
+                        "bytes":  99,
+                        "sha256":  "929751afdf2abc5bd66a1c5354d937bf694d91e1f1df2bd88e14a17cc583187f"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194325/result.json",
+                        "bytes":  449,
+                        "sha256":  "0e0bb34faeb619f3d0b0b3fa3da96cba5ae4964ceab22635e075df8c95850a71"
+                    },
+                    {
+                        "path":  "results/hf3fs-evict-dev-20261020T194325/test_metadata.py",
+                        "bytes":  14694,
+                        "sha256":  "b739805d5fee85dd233bc084aaa65f6b52122b7660dcbfbde56d8db49568a035"
+                    }
+                ]
+}
