@@ -1,0 +1,200 @@
+[
+  {
+    "vocab": 151936,
+    "batch": 1,
+    "dtype": "float16",
+    "variant": "upstream",
+    "interleaved_us": 66.719,
+    "cudagraph_us": 66.538,
+    "speedup_interleaved": 1.0,
+    "speedup_cudagraph": 1.0,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 1,
+    "dtype": "float16",
+    "variant": "knob",
+    "interleaved_us": 18.565,
+    "cudagraph_us": 12.867,
+    "speedup_interleaved": 3.594,
+    "speedup_cudagraph": 5.171,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 1,
+    "dtype": "float16",
+    "variant": "pr58907",
+    "interleaved_us": 18.538,
+    "cudagraph_us": 10.706,
+    "speedup_interleaved": 3.599,
+    "speedup_cudagraph": 6.215,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 2,
+    "dtype": "float16",
+    "variant": "upstream",
+    "interleaved_us": 67.18,
+    "cudagraph_us": 66.907,
+    "speedup_interleaved": 1.0,
+    "speedup_cudagraph": 1.0,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 2,
+    "dtype": "float16",
+    "variant": "knob",
+    "interleaved_us": 17.487,
+    "cudagraph_us": 15.537,
+    "speedup_interleaved": 3.842,
+    "speedup_cudagraph": 4.306,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 2,
+    "dtype": "float16",
+    "variant": "pr58907",
+    "interleaved_us": 17.796,
+    "cudagraph_us": 12.951,
+    "speedup_interleaved": 3.775,
+    "speedup_cudagraph": 5.166,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 4,
+    "dtype": "float16",
+    "variant": "upstream",
+    "interleaved_us": 68.527,
+    "cudagraph_us": 68.251,
+    "speedup_interleaved": 1.0,
+    "speedup_cudagraph": 1.0,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 4,
+    "dtype": "float16",
+    "variant": "knob",
+    "interleaved_us": 17.573,
+    "cudagraph_us": 15.563,
+    "speedup_interleaved": 3.9,
+    "speedup_cudagraph": 4.386,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 4,
+    "dtype": "float16",
+    "variant": "pr58907",
+    "interleaved_us": 17.817,
+    "cudagraph_us": 13.061,
+    "speedup_interleaved": 3.846,
+    "speedup_cudagraph": 5.226,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "float16",
+    "variant": "upstream",
+    "interleaved_us": 70.194,
+    "cudagraph_us": 69.925,
+    "speedup_interleaved": 1.0,
+    "speedup_cudagraph": 1.0,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "float16",
+    "variant": "knob",
+    "interleaved_us": 17.612,
+    "cudagraph_us": 15.646,
+    "speedup_interleaved": 3.986,
+    "speedup_cudagraph": 4.469,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "float16",
+    "variant": "pr58907",
+    "interleaved_us": 17.772,
+    "cudagraph_us": 13.321,
+    "speedup_interleaved": 3.95,
+    "speedup_cudagraph": 5.249,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 16,
+    "dtype": "float16",
+    "variant": "upstream",
+    "interleaved_us": 70.262,
+    "cudagraph_us": 69.998,
+    "speedup_interleaved": 1.0,
+    "speedup_cudagraph": 1.0,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 16,
+    "dtype": "float16",
+    "variant": "knob",
+    "interleaved_us": 17.554,
+    "cudagraph_us": 15.74,
+    "speedup_interleaved": 4.003,
+    "speedup_cudagraph": 4.447,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 16,
+    "dtype": "float16",
+    "variant": "pr58907",
+    "interleaved_us": 17.723,
+    "cudagraph_us": 13.238,
+    "speedup_interleaved": 3.964,
+    "speedup_cudagraph": 5.288,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 32,
+    "dtype": "float16",
+    "variant": "upstream",
+    "interleaved_us": 70.253,
+    "cudagraph_us": 69.99,
+    "speedup_interleaved": 1.0,
+    "speedup_cudagraph": 1.0,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 32,
+    "dtype": "float16",
+    "variant": "knob",
+    "interleaved_us": 17.616,
+    "cudagraph_us": 15.949,
+    "speedup_interleaved": 3.988,
+    "speedup_cudagraph": 4.388,
+    "byte_identical": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 32,
+    "dtype": "float16",
+    "variant": "pr58907",
+    "interleaved_us": 17.633,
+    "cudagraph_us": 13.365,
+    "speedup_interleaved": 3.984,
+    "speedup_cudagraph": 5.237,
+    "byte_identical": true
+  }
+]

@@ -95,6 +95,24 @@ if [[ "$ACTUAL" != "$PINNED_SHA256" ]]; then
 fi
 echo "sha256 ok: $ACTUAL"
 
+# The upstream kernel imports only `vllm.triton_utils` (tl, triton).  A host
+# without vLLM can still measure the kernels through a two-line shim; record it
+# so the evidence says the kernels were not run under the full package.
+if ! python3 -c 'import vllm.triton_utils' 2>/dev/null; then
+  mkdir -p "$OUT/shim/vllm"
+  : > "$OUT/shim/vllm/__init__.py"
+  cat > "$OUT/shim/vllm/triton_utils.py" <<'PY'
+# Minimal stand-in for vllm.triton_utils on hosts without vLLM.
+import triton
+from triton import language as tl
+
+__all__ = ["tl", "triton"]
+PY
+  export PYTHONPATH="$OUT/shim${PYTHONPATH:+:$PYTHONPATH}"
+  echo "vllm absent: using $OUT/shim (kernels only need tl/triton)"
+fi
+
+
 echo "== reconstruct the PR kernel from its diff"
 python3 "$ROOT/scripts/prepare_pr_module.py" \
   --out "$OUT/pr-module" \
