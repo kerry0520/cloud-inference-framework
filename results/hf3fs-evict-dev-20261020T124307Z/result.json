@@ -1,0 +1,15 @@
+{
+  "baseline": false,
+  "pytest_exitcode": 0,
+  "pytest_command": [
+    "/opt/cloud-inference-framework/hf3fs-review-venv/bin/python",
+    "-m",
+    "pytest",
+    "--noconftest",
+    "-q",
+    "/mnt/c/Users/32065/ci-fw/results/hf3fs-evict-dev-20261020T124307Z/test_metadata.py"
+  ],
+  "isolation": "Full source module and upstream tests; only import path rewritten; conftest disabled",
+  "serving_model_evaluation": "not run",
+  "http_exitcode": 0
+}
