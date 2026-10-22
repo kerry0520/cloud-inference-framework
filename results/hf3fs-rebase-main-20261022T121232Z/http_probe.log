@@ -1,0 +1,107 @@
+2026-10-22 20:15:14,768 - INFO - Initialized rank 0 with 2 pages
+/opt/cloud-inference-framework/hf3fs-review-venv/lib/python3.12/site-packages/fastapi/routing.py:372: FastAPIDeprecationWarning: ORJSONResponse is deprecated, FastAPI now serializes data directly to JSON bytes via Pydantic when a return type or response model is set, which is faster and doesn't need a custom response class. Read more in the FastAPI docs: https://fastapi.tiangolo.com/advanced/custom-response/#orjson-or-response-model and https://fastapi.tiangolo.com/tutorial/response-model/
+  return await dependant.call(**values)
+2026-10-22 20:15:14,780 - WARNING - Rank 0 only allocated 0 pages for 1 new keys
+2026-10-22 20:15:14,784 - INFO - Evicted key a, returned 1 pages
+{
+  "steps": [
+    {
+      "path": "/rank/0/initialize",
+      "status": 200,
+      "body": {
+        "message": "Rank 0 initialized with 2 pages"
+      }
+    },
+    {
+      "path": "/keys/batch_allocate",
+      "status": 200,
+      "body": {
+        "rank": 0,
+        "results": [
+          [
+            "a",
+            0
+          ],
+          [
+            "b",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "path": "/keys/confirm_write",
+      "status": 204,
+      "body": null
+    },
+    {
+      "path": "/keys/acquire",
+      "status": 200,
+      "body": {
+        "locations": {
+          "a": 0,
+          "b": 1
+        }
+      }
+    },
+    {
+      "path": "/keys/batch_allocate",
+      "status": 200,
+      "body": {
+        "rank": 0,
+        "results": [
+          [
+            "c",
+            -1
+          ]
+        ]
+      }
+    },
+    {
+      "path": "/keys/release",
+      "status": 204,
+      "body": null
+    },
+    {
+      "path": "/keys/batch_allocate",
+      "status": 200,
+      "body": {
+        "rank": 0,
+        "results": [
+          [
+            "c",
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "path": "/keys/confirm_write",
+      "status": 204,
+      "body": null
+    },
+    {
+      "path": "/keys/acquire",
+      "status": 200,
+      "body": {
+        "locations": {
+          "a": null,
+          "b": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "path": "/keys/batch_exists",
+      "status": 200,
+      "body": {
+        "exists": [
+          false,
+          true,
+          true
+        ]
+      }
+    }
+  ],
+  "pass": true
+}

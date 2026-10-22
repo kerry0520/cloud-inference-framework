@@ -1,0 +1,13 @@
+{
+    "worktree":  "C:\\Users\\32065\\Documents\\ChatGPT\\vllm-hf3fs-rebase",
+    "branch":  "rebase/main-20261022",
+    "head":  "3ce1978e51557d4be75693116fd7c868e034f214",
+    "upstream_main":  "87b804f09d698bdcc5dc53062d2058d7faad08ca",
+    "commits":  [
+                    "3ce1978 hf3fs: pin the lease-deadline semantics with a test",
+                    "2a86c94 hf3fs: evict least-recently-used pages under reader leases  A full page pool makes every save fail (issue #62389). #62393 stops cache hits and duplicate keys from consuming new pages, but nothing returns pages to the free list once the pool is exhausted.  Evicting a key a batch already decided to hit would turn a hit into a load failure or stale data, so the load path now takes a lease: acquire before reading, release once the blocks are in host buffers. The server only reclaims complete, unleased, non-hit keys, oldest first, and expired leases reclaim themselves so a crashed reader cannot pin pages forever.  Older metadata servers without the new routes fall back to a plain lookup (they never evict, so the lookup is still safe).  Assisted-by: DeepSeek Harness (AI coding agent) \u003cnoreply@deepseek.com\u003e",
+                    "354254e [Bugfix][KV Connector] Allocate HF3FS pages only for distinct misses"
+                ],
+    "isolation":  "Full source module and rebased upstream tests; only import path rewritten; conftest disabled",
+    "note":  "Prepared locally after mergify reported conflicts; not pushed."
+}

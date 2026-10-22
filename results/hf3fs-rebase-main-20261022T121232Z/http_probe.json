@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "path": "/rank/0/initialize",
+      "status": 200,
+      "body": {
+        "message": "Rank 0 initialized with 2 pages"
+      }
+    },
+    {
+      "path": "/keys/batch_allocate",
+      "status": 200,
+      "body": {
+        "rank": 0,
+        "results": [
+          [
+            "a",
+            0
+          ],
+          [
+            "b",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "path": "/keys/confirm_write",
+      "status": 204,
+      "body": null
+    },
+    {
+      "path": "/keys/acquire",
+      "status": 200,
+      "body": {
+        "locations": {
+          "a": 0,
+          "b": 1
+        }
+      }
+    },
+    {
+      "path": "/keys/batch_allocate",
+      "status": 200,
+      "body": {
+        "rank": 0,
+        "results": [
+          [
+            "c",
+            -1
+          ]
+        ]
+      }
+    },
+    {
+      "path": "/keys/release",
+      "status": 204,
+      "body": null
+    },
+    {
+      "path": "/keys/batch_allocate",
+      "status": 200,
+      "body": {
+        "rank": 0,
+        "results": [
+          [
+            "c",
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "path": "/keys/confirm_write",
+      "status": 204,
+      "body": null
+    },
+    {
+      "path": "/keys/acquire",
+      "status": 200,
+      "body": {
+        "locations": {
+          "a": null,
+          "b": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "path": "/keys/batch_exists",
+      "status": 200,
+      "body": {
+        "exists": [
+          false,
+          true,
+          true
+        ]
+      }
+    }
+  ],
+  "pass": true
+}

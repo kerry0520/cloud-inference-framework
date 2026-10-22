@@ -1,0 +1,71 @@
+{
+    "dir":  "results\\hf3fs-rebase-main-20261022T121232Z",
+    "created_utc":  "2026-10-22T12:15:49Z",
+    "files":  [
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/hf3fs_metadata_server.py",
+                      "bytes":  27829,
+                      "sha256":  "e5d2362e8fbace672a80b09e025f802660c5b942a8f00d7e63791824339e208f"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/http_lease_probe.py",
+                      "bytes":  4320,
+                      "sha256":  "d87abfad6002e0b5f137f45af93e0cb628ae382136ef555714b1888d747a948c"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/http_probe.exitcode",
+                      "bytes":  2,
+                      "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/http_probe.json",
+                      "bytes":  1613,
+                      "sha256":  "7672531741111f38c57e7ed2fe2717d777f4b4854c2e7392f4617e55d5e23490"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/http_probe.log",
+                      "bytes":  2360,
+                      "sha256":  "eef2620eb10e0c7e0e82021f1cb8aae133083c3ebf605c7235de31d343ab0441"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/meta.json",
+                      "bytes":  1517,
+                      "sha256":  "4676aafb1793de20b4fe28ef2ba04da58afb212ac89ec043fd97ea8cf8a49852"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/orjson.log",
+                      "bytes":  14,
+                      "sha256":  "14366f31765715c5c54f2d567081f2ebb3e74fd5c5c8749126ff48cfcb3aab04"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/pr-rebased-vs-main.diff",
+                      "bytes":  55318,
+                      "sha256":  "dedd9bf1880e3caf3f47013421ccfe2a9de9ade4cba7d4c87f8085345f1da6e0"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/pytest.exitcode",
+                      "bytes":  2,
+                      "sha256":  "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/pytest.log",
+                      "bytes":  99,
+                      "sha256":  "b5da95a84ed86a4edf249fda68d972399fd799ce1a66a7ee49e3e1f25ed733d3"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/result.json",
+                      "bytes":  3193,
+                      "sha256":  "bd8aa63fa6bb161633741a95d80c615822dfcf37f1ef1faef460c0b081a249fb"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/server-adaptation.diff",
+                      "bytes":  10522,
+                      "sha256":  "3104aca249f1762f221b5a4bf225562c76d62264f6bcd69a655f5a381fe321ca"
+                  },
+                  {
+                      "path":  "results/hf3fs-rebase-main-20261022T121232Z/test_metadata.py",
+                      "bytes":  15697,
+                      "sha256":  "cf18a9cb4833cb8ec7bd78f857e61d22c64be1f7f1e5440549550f91170d33c7"
+                  }
+              ]
+}
