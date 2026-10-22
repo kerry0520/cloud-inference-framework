@@ -1,0 +1,175 @@
+{
+  "results": "/mnt/c/Users/32065/ci-fw/results/abba-scale-20261022T122837Z-HKWPoj",
+  "rounds": 24,
+  "max_tokens": 64,
+  "prompt_len": 128,
+  "max_num_seqs": 32,
+  "rows": [
+    {
+      "batch": 1,
+      "base_decode_ms": 4.092846650793705,
+      "patched_decode_ms": 4.0424771626983365,
+      "saving_us_per_step": 52.97841269838166,
+      "decode_pct": {
+        "n": 24,
+        "median": -1.2682156087059393,
+        "ci95": [
+          -2.092424201022877,
+          -1.1500482350821064
+        ]
+      },
+      "wall_pct": {
+        "n": 24,
+        "median": -1.308548636487278,
+        "ci95": [
+          -2.045788042989279,
+          -0.9921691753434217
+        ]
+      },
+      "minp_calls_per_step": 1.0158730158730158,
+      "parallel_launches": 6144,
+      "upstream_launches": 0,
+      "used_parallel_path": true
+    },
+    {
+      "batch": 2,
+      "base_decode_ms": 4.262600886904741,
+      "patched_decode_ms": 4.2902597123014985,
+      "saving_us_per_step": 39.49796230145574,
+      "decode_pct": {
+        "n": 24,
+        "median": -0.9053091632616579,
+        "ci95": [
+          -1.227265370870531,
+          -0.28742248475181553
+        ]
+      },
+      "wall_pct": {
+        "n": 24,
+        "median": -0.7550225705526727,
+        "ci95": [
+          -1.5176860934704155,
+          -0.004749767672993917
+        ]
+      },
+      "minp_calls_per_step": 1.0269510582010581,
+      "parallel_launches": 6210,
+      "upstream_launches": 0,
+      "used_parallel_path": true
+    },
+    {
+      "batch": 4,
+      "base_decode_ms": 4.63126535615071,
+      "patched_decode_ms": 4.569890364087294,
+      "saving_us_per_step": 48.175789682575854,
+      "decode_pct": {
+        "n": 24,
+        "median": -1.066441721607419,
+        "ci95": [
+          -2.0307038893798395,
+          -0.7008904242169411
+        ]
+      },
+      "wall_pct": {
+        "n": 24,
+        "median": -1.0286234989971597,
+        "ci95": [
+          -1.9120166987830738,
+          -0.49453897030717014
+        ]
+      },
+      "minp_calls_per_step": 1.031415343915344,
+      "parallel_launches": 6238,
+      "upstream_launches": 0,
+      "used_parallel_path": true
+    },
+    {
+      "batch": 8,
+      "base_decode_ms": 4.717986823412792,
+      "patched_decode_ms": 4.707160129464291,
+      "saving_us_per_step": 35.84954910729587,
+      "decode_pct": {
+        "n": 24,
+        "median": -0.7720276803945652,
+        "ci95": [
+          -0.9501463839913047,
+          0.40228829779178465
+        ]
+      },
+      "wall_pct": {
+        "n": 24,
+        "median": -0.564874239485077,
+        "ci95": [
+          -0.9348502935565741,
+          0.4303233503958615
+        ]
+      },
+      "minp_calls_per_step": 1.0317460317460319,
+      "parallel_launches": 6240,
+      "upstream_launches": 0,
+      "used_parallel_path": true
+    },
+    {
+      "batch": 16,
+      "base_decode_ms": 5.5516333187004445,
+      "patched_decode_ms": 5.537664156250033,
+      "saving_us_per_step": -16.414165426478444,
+      "decode_pct": {
+        "n": 24,
+        "median": 0.30051124731489015,
+        "ci95": [
+          -2.658422180815646,
+          0.845282412698768
+        ]
+      },
+      "wall_pct": {
+        "n": 24,
+        "median": -0.0016801353833611771,
+        "ci95": [
+          -3.384553889214404,
+          0.8697313261054861
+        ]
+      },
+      "minp_calls_per_step": 1.0317460317460319,
+      "parallel_launches": 96,
+      "upstream_launches": 3072,
+      "used_parallel_path": false
+    },
+    {
+      "batch": 32,
+      "base_decode_ms": 7.05122917150322,
+      "patched_decode_ms": 7.014759123263948,
+      "saving_us_per_step": 17.6532633929396,
+      "decode_pct": {
+        "n": 24,
+        "median": -0.2439379647095784,
+        "ci95": [
+          -0.6694989140235995,
+          0.04642772171917641
+        ]
+      },
+      "wall_pct": {
+        "n": 24,
+        "median": -0.017828606482205897,
+        "ci95": [
+          -1.0148646905435823,
+          0.06353546003138125
+        ]
+      },
+      "minp_calls_per_step": 1.0476190476190477,
+      "parallel_launches": 96,
+      "upstream_launches": 3120,
+      "used_parallel_path": false
+    }
+  ],
+  "table": [
+    "| batch | decode ms/step | \u6bcf\u6b65\u7701 \u00b5s | decode \u0394% (median, 95% CI) | wall \u0394% | min-p \u8c03\u7528/\u6b65 | \u5b9e\u9645\u5185\u6838 |",
+    "|---|---|---|---|---|---|---|",
+    "| 1 | 4.09 \u2192 4.04 | +53 | -1.27 (-2.09\u2026-1.15) | -1.31 | 1.02 | parallel |",
+    "| 2 | 4.26 \u2192 4.29 | +39 | -0.91 (-1.23\u2026-0.29) | -0.76 | 1.03 | parallel |",
+    "| 4 | 4.63 \u2192 4.57 | +48 | -1.07 (-2.03\u2026-0.70) | -1.03 | 1.03 | parallel |",
+    "| 8 | 4.72 \u2192 4.71 | +36 | -0.77 (-0.95\u2026+0.40) | -0.56 | 1.03 | parallel |",
+    "| 16 | 5.55 \u2192 5.54 | -16 | +0.30 (-2.66\u2026+0.85) | -0.00 | 1.03 | upstream fallback |",
+    "| 32 | 7.05 \u2192 7.01 | +18 | -0.24 (-0.67\u2026+0.05) | -0.02 | 1.05 | upstream fallback |"
+  ]
+}

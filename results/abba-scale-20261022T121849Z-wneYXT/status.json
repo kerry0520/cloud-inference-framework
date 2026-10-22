@@ -1,0 +1,4 @@
+{
+  "state": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/opt/cloud-inference-framework/scripts/abba_patch.py\", line 189, in main\n    assert kernels.get(\"_min_p_kernel\", 0) == 0, stats\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [{'mode': 'candidate', 'calls': 6240, 'checked': 0, 'mismatches': 0, 'shapes': {'(1, 151936)': 73, '(16, 151936)': 6048, '(15, 151936)': 73, '(2, 151936)': 23, '(14, 151936)': 23}, 'kernels': {'_min_p_kernel': 3072, '_min_p_partial_max': 48, '_min_p_apply_threshold': 48}}]\n"
+}

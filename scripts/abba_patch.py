@@ -23,6 +23,11 @@ import statistics
 import time
 import traceback
 
+# Mirrors the routing boundary in patches/mrv2_min_p.py (PARALLEL_MAX_ROWS).
+# The checks below verify which kernel ran, not the numerics; above this row
+# count the candidate falls back to the upstream kernel by design.
+PARALLEL_MAX_ROWS = 8
+
 
 def bootstrap_ci(values, iterations=10000, seed=0):
     rng = random.Random(seed)
@@ -57,17 +62,25 @@ def main():
     parser.add_argument("--prompt-len", type=int, default=128)
     parser.add_argument("--max-tokens", type=int, default=64)
     parser.add_argument("--min-p", type=float, default=0.1)
+    parser.add_argument("--max-num-seqs", type=int, default=8,
+                        help="Concurrency cap; must be >= the largest batch or "
+                             "the extra requests queue instead of decoding together.")
     args = parser.parse_args()
     out = Path(args.out).resolve()
     out.mkdir(parents=True, exist_ok=False)
     batches = [int(x) for x in args.batches.split(",")]
+    assert max(batches) <= args.max_num_seqs, (
+        f"batch {max(batches)} exceeds max_num_seqs {args.max_num_seqs}; "
+        "the extra requests would queue and the decode interval would not "
+        "describe one step of that batch size")
     module_path = Path(args.patch_module).resolve()
     try:
         import torch
         from vllm import LLM, SamplingParams
 
         llm = LLM(model=str(Path(os.environ.get("CI_RUNTIME_DIR", "/opt/cloud-inference-framework")) / "models/Qwen3-0.6B"),
-                  dtype="float16", max_model_len=2048, max_num_seqs=8,
+                  dtype="float16", max_model_len=2048,
+                  max_num_seqs=args.max_num_seqs,
                   max_num_batched_tokens=2048, gpu_memory_utilization=0.65,
                   enable_prefix_caching=False, seed=0, disable_log_stats=False,
                   worker_extension_cls="project_worker.ProjectWorkerExtension")
@@ -76,6 +89,8 @@ def main():
                     "torch": torch.__version__, "rounds": args.rounds,
                     "batches": batches, "prompt_len": args.prompt_len,
                     "max_tokens": args.max_tokens, "min_p": args.min_p,
+                    "max_num_seqs": args.max_num_seqs,
+                    "parallel_max_rows": PARALLEL_MAX_ROWS,
                     "sampling": {"temperature": 0.8, "seed": 123},
                     "seeded_ids_asserted": False}
         (out / "config.json").write_text(json.dumps(evidence, indent=2))
@@ -172,16 +187,31 @@ def main():
                     if arm == "patched":
                         kernels = stats[0].get("kernels", {})
                         assert stats[0]["calls"] > 0, stats
-                        if kernels.get("_min_p_partial_max", 0) or kernels.get(
-                            "_min_p_apply_threshold", 0
-                        ):
+                        has_parallel = "_min_p_partial_max" in kernels
+                        parallel_calls = kernels.get(
+                            "_min_p_partial_max", 0
+                        ) + kernels.get("_min_p_apply_threshold", 0)
+                        if not has_parallel:
+                            # Knob-only variant: the upstream kernel still runs,
+                            # just with a wider block and more warps.
+                            assert kernels.get("_min_p_kernel", 0) > 0, stats
+                        elif batch <= PARALLEL_MAX_ROWS:
+                            # Every row set fits the parallel window.
                             assert kernels.get("_min_p_partial_max", 0) > 0, stats
                             assert kernels.get("_min_p_apply_threshold", 0) > 0, stats
                             assert kernels.get("_min_p_kernel", 0) == 0, stats
                         else:
-                            # Knob-only variant: the upstream kernel still runs,
-                            # just with a wider block and more warps.
+                            # Rows above the parallel window fall back to the
+                            # upstream kernel by design, so both kernels may run:
+                            # the fallback for full batches, the parallel pair
+                            # only for ragged tail steps.
                             assert kernels.get("_min_p_kernel", 0) > 0, stats
+                        evidence[f"parallel_path_batch{batch}"] = {
+                            "has_parallel_kernels": has_parallel,
+                            "parallel_launches": parallel_calls,
+                            "upstream_launches": kernels.get("_min_p_kernel", 0),
+                            "rows_above_window": batch > PARALLEL_MAX_ROWS,
+                        }
 
         summaries = []
         for batch in batches:

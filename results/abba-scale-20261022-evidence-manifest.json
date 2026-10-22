@@ -1,0 +1,56 @@
+{
+    "created_utc":  "2026-10-22T12:35:29Z",
+    "stage":  "abba-scale32 (batch 1,2,4,8,16,32; 24 rounds)",
+    "files":  [
+                  {
+                      "path":  "results/abba-scale-20261022T121849Z-wneYXT/config.json",
+                      "bytes":  490,
+                      "sha256":  "59135f3ff4e766a5ff056eec00448c3c85b8e942d97e261b5d3abe68db9fcd04"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T121849Z-wneYXT/equivalence.json",
+                      "bytes":  290014,
+                      "sha256":  "f98ba6ed6802163a28dde09637ed76ee689142ecdbf54d95f05e25f159048719"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T121849Z-wneYXT/status.json",
+                      "bytes":  560,
+                      "sha256":  "bbc8c85f590a630fc5103d24757f4b00c24c34940894ae5af19cc70763f2032e"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T121849Z-wneYXT/timing.jsonl",
+                      "bytes":  1178315,
+                      "sha256":  "c23c37c15523d94c4acaa17560a11f6e866fed32c32cb44493a8c0dc34ef4d4f"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T122837Z-HKWPoj/config.json",
+                      "bytes":  516,
+                      "sha256":  "4ae993c57991bdeb8049ab94fc59fed6088bfd3c341228645eebcde7efb53ff0"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T122837Z-HKWPoj/equivalence.json",
+                      "bytes":  290173,
+                      "sha256":  "8c8b8def935730a6e9f558c6324a7c97da04e16b0a75f77107e4981f69155656"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T122837Z-HKWPoj/scaling.json",
+                      "bytes":  4945,
+                      "sha256":  "07e571caa1767227f59bfdc35824fdb7c712ef71aa8f155206fda1f07d9a6b88"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T122837Z-HKWPoj/status.json",
+                      "bytes":  132,
+                      "sha256":  "2c45be9585c0c53a8dc6b40667722e59af1e3f9cd53748e7c6b9498eddace7aa"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T122837Z-HKWPoj/summary.json",
+                      "bytes":  58767,
+                      "sha256":  "b845e3c83bd7b53421642a82cdedc43c4a824466b0a305d2eb515ee768a899b3"
+                  },
+                  {
+                      "path":  "results/abba-scale-20261022T122837Z-HKWPoj/timing.jsonl",
+                      "bytes":  2281483,
+                      "sha256":  "86699580c9f2ac02f803f2ef4676200b1dd7917e4166091f7bfbfc3af24e4348"
+                  }
+              ]
+}

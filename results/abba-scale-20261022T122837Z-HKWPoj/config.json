@@ -1,0 +1,24 @@
+{
+  "patch_module": "/mnt/c/Users/32065/Documents/ChatGPT/\u4e91\u7aef\u63a8\u7406\u6846\u67b6/patches/mrv2_min_p.py",
+  "patch_module_sha256": "a4da6ec136ba3c90a9984a295bef38d753c1abdf68887cb4c7900b0e2c6de6bb",
+  "torch": "2.13.0+cu130",
+  "rounds": 24,
+  "batches": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "prompt_len": 128,
+  "max_tokens": 64,
+  "min_p": 0.1,
+  "max_num_seqs": 32,
+  "parallel_max_rows": 8,
+  "sampling": {
+    "temperature": 0.8,
+    "seed": 123
+  },
+  "seeded_ids_asserted": false
+}
