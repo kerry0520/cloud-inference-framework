@@ -1,0 +1,27 @@
+[serve] start b0-base-00
+[serve] b0-base-00 gpu_free_mib=7809
+[serve] b0-base-00 healthy in 61.1s
+[serve] done b0-base-00 ok=True startup=61.06714106300001 phases=['minp', 'nop']
+[serve] start b0-patched-01
+[serve] b0-patched-01 gpu_free_mib=7809
+[serve] b0-patched-01 healthy in 61.8s
+[serve] done b0-patched-01 ok=True startup=61.759244662999976 phases=['minp', 'nop']
+[serve] start b0-patched-02
+[serve] b0-patched-02 gpu_free_mib=7816
+[serve] b0-patched-02 healthy in 68.0s
+[serve] done b0-patched-02 ok=True startup=68.00393029899996 phases=['minp', 'nop']
+[serve] start b0-base-03
+[serve] b0-base-03 gpu_free_mib=7816
+[serve] b0-base-03 healthy in 66.4s
+[serve] done b0-base-03 ok=True startup=66.40969758399996 phases=['minp', 'nop']
+Traceback (most recent call last):
+  File "/opt/cloud-inference-framework/scripts/serve_stage.py", line 499, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/opt/cloud-inference-framework/scripts/serve_stage.py", line 488, in main
+    passed, summary = summarize(sessions, load_requests(out_dir), cfg)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/cloud-inference-framework/scripts/serve_stage.py", line 393, in summarize
+    base_values = [s["phases"][phase][key]["median"] for s in sessions
+                   ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: 'float' object is not subscriptable

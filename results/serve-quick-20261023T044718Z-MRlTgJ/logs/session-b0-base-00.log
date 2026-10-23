@@ -1,0 +1,4 @@
+usage: main.py [-h] [-v]
+               {chat,complete,serve,launch,bench,collect-env,preload,run-batch,snapshot}
+               ...
+main.py: error: unrecognized arguments: --disable-log-requests

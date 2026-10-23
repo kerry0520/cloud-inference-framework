@@ -1,0 +1,22 @@
+{
+  "blocks": 2,
+  "requests": 64,
+  "concurrency": 8,
+  "warmup": 16,
+  "warmup_rounds": 2,
+  "prompt_len": 128,
+  "max_tokens": 64,
+  "min_p": 0.1,
+  "pause": 0.0,
+  "seed_base": 0,
+  "port": 8123,
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "served_model_name": "qwen3",
+  "patch_module": "/mnt/c/Users/32065/Documents/ChatGPT/\u4e91\u7aef\u63a8\u7406\u6846\u67b6/patches/mrv2_min_p.py",
+  "max_model_len": 2048,
+  "max_num_seqs": 8,
+  "gpu_memory_utilization": 0.6,
+  "stats_every": 256,
+  "verify_first": 48,
+  "created_at": "2026-10-23T04:55:25Z"
+}

@@ -1,0 +1,144 @@
+[serve] start b0-base-00
+[serve] b0-base-00 gpu_free_mib=7816
+[serve] b0-base-00 healthy in 70.5s
+[serve] b0-base-00 warmup done
+[serve] done b0-base-00 ok=True startup=70.48275621100004 phases=['minp', 'nop']
+[serve] start b0-patched-01
+[serve] b0-patched-01 gpu_free_mib=7816
+[serve] b0-patched-01 healthy in 63.8s
+[serve] b0-patched-01 warmup done
+[serve] done b0-patched-01 ok=True startup=63.79881216699994 phases=['minp', 'nop']
+[serve] start b0-patched-02
+[serve] b0-patched-02 gpu_free_mib=7816
+[serve] b0-patched-02 healthy in 59.3s
+[serve] b0-patched-02 warmup done
+[serve] done b0-patched-02 ok=True startup=59.29772009499993 phases=['minp', 'nop']
+[serve] start b0-base-03
+[serve] b0-base-03 gpu_free_mib=7816
+[serve] b0-base-03 healthy in 62.3s
+[serve] b0-base-03 warmup done
+[serve] done b0-base-03 ok=True startup=62.27067382500002 phases=['minp', 'nop']
+[serve] start b1-base-00
+[serve] b1-base-00 gpu_free_mib=7816
+[serve] b1-base-00 healthy in 53.6s
+[serve] b1-base-00 warmup done
+[serve] done b1-base-00 ok=True startup=53.58853037799997 phases=['minp', 'nop']
+[serve] start b1-patched-01
+[serve] b1-patched-01 gpu_free_mib=7816
+[serve] b1-patched-01 healthy in 55.3s
+[serve] b1-patched-01 warmup done
+[serve] done b1-patched-01 ok=True startup=55.27944358200011 phases=['minp', 'nop']
+[serve] start b1-patched-02
+[serve] b1-patched-02 gpu_free_mib=7816
+[serve] b1-patched-02 healthy in 54.8s
+[serve] b1-patched-02 warmup done
+[serve] done b1-patched-02 ok=True startup=54.7675089899999 phases=['minp', 'nop']
+[serve] start b1-base-03
+[serve] b1-base-03 gpu_free_mib=7816
+[serve] b1-base-03 healthy in 56.8s
+[serve] b1-base-03 warmup done
+[serve] done b1-base-03 ok=True startup=56.80122603799987 phases=['minp', 'nop']
+{
+  "sessions_total": 8,
+  "sessions_ok": 8,
+  "patched_installs": 4,
+  "base_installs": 0,
+  "verify_mismatches": 0,
+  "paired_blocks": 2
+}
+[
+  {
+    "block": 0,
+    "nop": {
+      "ttft_ms": {
+        "base": 74.50269599999615,
+        "patched": 72.79979525000613,
+        "delta_pct": -2.285690104409255
+      },
+      "tpot_ms": {
+        "base": 5.692804507936169,
+        "patched": 5.59416478571465,
+        "delta_pct": -1.7327087568879045
+      },
+      "total_ms": {
+        "base": 434.4349677499224,
+        "patched": 423.97752499996955,
+        "delta_pct": -2.4071365166840275
+      },
+      "tokens_per_second": {
+        "base": 1156.2410142639314,
+        "patched": 1192.5044570798477,
+        "delta_pct": 3.136322130814721
+      }
+    },
+    "minp": {
+      "ttft_ms": {
+        "base": 70.19143024999153,
+        "patched": 70.18991899997218,
+        "delta_pct": -0.002153040640382643
+      },
+      "tpot_ms": {
+        "base": 6.931234746031032,
+        "patched": 7.030119380951802,
+        "delta_pct": 1.4266525163845105
+      },
+      "total_ms": {
+        "base": 498.96546549999243,
+        "patched": 510.17250350000154,
+        "delta_pct": 2.246054842448666
+      },
+      "tokens_per_second": {
+        "base": 1015.8332230605744,
+        "patched": 994.7948965270394,
+        "delta_pct": -2.0710413930102782
+      }
+    }
+  },
+  {
+    "block": 1,
+    "nop": {
+      "ttft_ms": {
+        "base": 72.9579602499939,
+        "patched": 75.34402675000251,
+        "delta_pct": 3.2704676663555836
+      },
+      "tpot_ms": {
+        "base": 5.663106146825056,
+        "patched": 5.721934722222458,
+        "delta_pct": 1.038804039199994
+      },
+      "total_ms": {
+        "base": 430.56930975006935,
+        "patched": 434.44615775001694,
+        "delta_pct": 0.9004004493952351
+      },
+      "tokens_per_second": {
+        "base": 1161.1590962497307,
+        "patched": 1161.0893886349777,
+        "delta_pct": -0.00600327853247514
+      }
+    },
+    "minp": {
+      "ttft_ms": {
+        "base": 68.54478100004258,
+        "patched": 72.21657975003382,
+        "delta_pct": 5.356788214100442
+      },
+      "tpot_ms": {
+        "base": 7.146060249999844,
+        "patched": 7.026815202380924,
+        "delta_pct": -1.6686823710858474
+      },
+      "total_ms": {
+        "base": 517.7608662500006,
+        "patched": 509.15451424998537,
+        "delta_pct": -1.6622252783121072
+      },
+      "tokens_per_second": {
+        "base": 966.4220117190047,
+        "patched": 999.2738316903874,
+        "delta_pct": 3.399324474506554
+      }
+    }
+  }
+]

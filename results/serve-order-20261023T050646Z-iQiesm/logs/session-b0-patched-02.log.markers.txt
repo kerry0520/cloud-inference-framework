@@ -1,0 +1,3 @@
+CI_MINP_INSTALLED module=/mnt/c/Users/32065/Documents/ChatGPT/云端推理框架/patches/mrv2_min_p.py pid=1056
+CI_MINP_STATS calls=256 kernels={'_min_p_kernel': 0, '_min_p_partial_max': 256, '_min_p_apply_threshold': 256} pid=1056
+CI_MINP_STATS calls=512 kernels={'_min_p_kernel': 0, '_min_p_partial_max': 512, '_min_p_apply_threshold': 512} pid=1056

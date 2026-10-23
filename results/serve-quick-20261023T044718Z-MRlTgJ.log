@@ -1,0 +1,11 @@
+[serve] start b0-base-00
+[serve] b0-base-00 gpu_free_mib=7818
+Traceback (most recent call last):
+  File "/opt/cloud-inference-framework/scripts/serve_stage.py", line 291, in run_session
+    await wait_health(cfg, proc)
+  File "/opt/cloud-inference-framework/scripts/serve_stage.py", line 143, in wait_health
+    raise RuntimeError("server exited with code %s" % proc.returncode)
+RuntimeError: server exited with code 2
+[serve] b0-base-00 FAILED: RuntimeError: server exited with code 2
+[serve] done b0-base-00 ok=False startup=None phases=[]
+[serve] aborting after failure
