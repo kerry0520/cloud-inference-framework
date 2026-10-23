@@ -1,0 +1,89 @@
+{
+  "state": "failed",
+  "stage": "minp-cuda",
+  "build": {
+    "extension": "min_p_cuda_ext",
+    "source": "/opt/cloud-inference-framework/kernels/min_p_cuda.cu",
+    "build_dir": "/opt/cloud-inference-framework/cache/minp_cuda",
+    "torch": "2.13.0+cu130",
+    "cuda_runtime": "13.0",
+    "nvcc": "Cuda compilation tools, release 13.0, V13.0.88",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "arch": "sm_120",
+    "python": "3.12.3"
+  },
+  "correctness_cases": 96,
+  "correctness_failures": [
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "special",
+      "nan_mode0_equal_upstream": true,
+      "byte_equal_upstream": false,
+      "padding_untouched": true,
+      "byte_equal_triton": true
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.float16",
+      "kind": "special",
+      "nan_mode0_equal_upstream": true,
+      "byte_equal_upstream": false,
+      "padding_untouched": true,
+      "byte_equal_triton": true
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "special",
+      "nan_mode0_equal_upstream": true,
+      "byte_equal_upstream": false,
+      "padding_untouched": true,
+      "byte_equal_triton": true
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.float32",
+      "kind": "special",
+      "nan_mode0_equal_upstream": true,
+      "byte_equal_upstream": false,
+      "padding_untouched": true,
+      "byte_equal_triton": true
+    },
+    {
+      "vocab": 4097,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "special",
+      "nan_mode0_equal_upstream": true,
+      "byte_equal_upstream": false,
+      "padding_untouched": true,
+      "byte_equal_triton": true
+    },
+    {
+      "vocab": 151936,
+      "batch": 8,
+      "dtype": "torch.bfloat16",
+      "kind": "special",
+      "nan_mode0_equal_upstream": true,
+      "byte_equal_upstream": false,
+      "padding_untouched": true,
+      "byte_equal_triton": true
+    }
+  ],
+  "nan_probe": [
+    {
+      "nan_mode": 0,
+      "equal_upstream": true
+    },
+    {
+      "nan_mode": 1,
+      "equal_upstream": false
+    }
+  ],
+  "traceback": "Traceback (most recent call last):\n  File \"/opt/cloud-inference-framework/scripts/minp_cuda.py\", line 146, in main\n    raise AssertionError(f\"{len(failures)} correctness cases failed: {failures[:3]}\")\nAssertionError: 6 correctness cases failed: [{'vocab': 4097, 'batch': 8, 'dtype': 'torch.float16', 'kind': 'special', 'nan_mode0_equal_upstream': True, 'byte_equal_upstream': False, 'padding_untouched': True, 'byte_equal_triton': True}, {'vocab': 151936, 'batch': 8, 'dtype': 'torch.float16', 'kind': 'special', 'nan_mode0_equal_upstream': True, 'byte_equal_upstream': False, 'padding_untouched': True, 'byte_equal_triton': True}, {'vocab': 4097, 'batch': 8, 'dtype': 'torch.float32', 'kind': 'special', 'nan_mode0_equal_upstream': True, 'byte_equal_upstream': False, 'padding_untouched': True, 'byte_equal_triton': True}]\n"
+}

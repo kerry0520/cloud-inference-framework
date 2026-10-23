@@ -1,0 +1,10 @@
+[
+  {
+    "nan_mode": 0,
+    "equal_upstream": true
+  },
+  {
+    "nan_mode": 1,
+    "equal_upstream": false
+  }
+]

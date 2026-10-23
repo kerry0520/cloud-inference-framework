@@ -1,0 +1,962 @@
+[
+  {
+    "vocab": 1,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 1,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 2,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "special",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": false,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "torch.float16",
+    "kind": "special",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": false,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 1,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 2,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "special",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": false,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "torch.float32",
+    "kind": "special",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": false,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 31,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1023,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1024,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 1025,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4095,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4096,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 32000,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 1,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 2,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "random",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": true,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 4097,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "special",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": false,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  },
+  {
+    "vocab": 151936,
+    "batch": 8,
+    "dtype": "torch.bfloat16",
+    "kind": "special",
+    "nan_mode0_equal_upstream": true,
+    "byte_equal_upstream": false,
+    "padding_untouched": true,
+    "byte_equal_triton": true
+  }
+]

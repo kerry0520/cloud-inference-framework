@@ -31,6 +31,10 @@ case "$stage" in
     serve) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p.py");;
     serve-quick) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p.py" --blocks 1 --requests 8 --concurrency 4 --warmup 1 --max-tokens 16 --verify-first 8 --stats-every 64);;
     serve-order) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p.py" --first-phase minp --blocks 1 --verify-first 0);;
+    minp-cuda-build) script=minp_cuda.py; extra+=(--build-only);;
+    minp-cuda) script=minp_cuda.py;;
+    serve-cuda) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p_cuda.py");;
+    serve-cuda-quick) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p_cuda.py" --blocks 1 --requests 8 --concurrency 4 --warmup 1 --max-tokens 16 --verify-first 8 --stats-every 64);;
     roofline) script=roofline_model.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json");;
     figures) script=make_figures.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json" --results "$runtime_dir/results" --micro "$runtime_dir/results/minp-micro-20261017T070433Z/timing.jsonl");;
     minp-sweep) script=minp_param_sweep.py; extra+=(--patched "$project_dir/patches/mrv2_min_p.py");;
@@ -63,6 +67,9 @@ fi
 mkdir -p "$runtime_dir/kernels"
 if [[ "$(realpath "$project_dir/kernels")" != "$(realpath "$runtime_dir/kernels")" ]]; then
     cp "$project_dir/kernels/"*.py "$runtime_dir/kernels/"
+    if compgen -G "$project_dir/kernels/*.cu" > /dev/null; then
+        cp "$project_dir/kernels/"*.cu "$runtime_dir/kernels/"
+    fi
 fi
 set +e
 "$runtime_dir/.venv/bin/python" "$runtime_dir/scripts/$script" --out "$out" "${extra[@]}" \

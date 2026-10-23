@@ -1,0 +1,286 @@
+{
+    "created_utc":  "2026-10-23T05:47:09Z",
+    "stage":  "minp-cuda (build, correctness+sweep+timing) + serve-cuda-quick + serve-cuda (ABBA, 8 sessions, two phases)",
+    "files":  [
+                  {
+                      "path":  "results/minp-cuda-20261023T051838Z-lqsUqP/correctness.json",
+                      "bytes":  21922,
+                      "sha256":  "662f2d09258e732d1f0a03a1eb38fe3694723dc30497f01230642c7ebd228b30"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T051838Z-lqsUqP/min_p_cuda.cu",
+                      "bytes":  8815,
+                      "sha256":  "6558c01f85fafc5d074b9618737188eccdbc820a215acbf5b0d2f40ac0e991ee"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T051838Z-lqsUqP/min_p_triton.py",
+                      "bytes":  2689,
+                      "sha256":  "904dfd5be2eb431ecff1df6925ae3c98a2b56e301c8d76466447d92b55561b9d"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T051838Z-lqsUqP/nan_probe.json",
+                      "bytes":  113,
+                      "sha256":  "c6e300f89be0578d11b56018215eb9e5d7116eebb4826fa9cc5e3fd7041a8b5e"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T051838Z-lqsUqP/status.json",
+                      "bytes":  3017,
+                      "sha256":  "413acd3ab674ace365b1c8c20ff5e4198ea084a8e695574cdcc772dc1158bd4a"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052528Z-BIKG5E/correctness.json",
+                      "bytes":  21922,
+                      "sha256":  "db4c7efa46ade71c1b7d032550c1edc3c32e641eb24c8704705388ac38960143"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052528Z-BIKG5E/min_p_cuda.cu",
+                      "bytes":  12025,
+                      "sha256":  "d646a06a60b7ecd651599189d44018c076f7773e922cc2e8eea730b1fbe56fde"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052528Z-BIKG5E/min_p_triton.py",
+                      "bytes":  2689,
+                      "sha256":  "904dfd5be2eb431ecff1df6925ae3c98a2b56e301c8d76466447d92b55561b9d"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052528Z-BIKG5E/nan_probe.json",
+                      "bytes":  113,
+                      "sha256":  "c6e300f89be0578d11b56018215eb9e5d7116eebb4826fa9cc5e3fd7041a8b5e"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052528Z-BIKG5E/status.json",
+                      "bytes":  919,
+                      "sha256":  "d960e0b6ca5cac02cf61428f584d92dbcdf961c266bcffb29b1db9cf1a5c0742"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052528Z-BIKG5E/sweep.jsonl",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052650Z-Bgsz72/correctness.json",
+                      "bytes":  21922,
+                      "sha256":  "db4c7efa46ade71c1b7d032550c1edc3c32e641eb24c8704705388ac38960143"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052650Z-Bgsz72/min_p_cuda.cu",
+                      "bytes":  12025,
+                      "sha256":  "d646a06a60b7ecd651599189d44018c076f7773e922cc2e8eea730b1fbe56fde"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052650Z-Bgsz72/min_p_triton.py",
+                      "bytes":  2689,
+                      "sha256":  "904dfd5be2eb431ecff1df6925ae3c98a2b56e301c8d76466447d92b55561b9d"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052650Z-Bgsz72/nan_probe.json",
+                      "bytes":  113,
+                      "sha256":  "c6e300f89be0578d11b56018215eb9e5d7116eebb4826fa9cc5e3fd7041a8b5e"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052650Z-Bgsz72/status.json",
+                      "bytes":  722,
+                      "sha256":  "33f42109444e9d4f95171f666190d11b1b7b13a8ab23be268945c767b8c2b6f0"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052650Z-Bgsz72/sweep.jsonl",
+                      "bytes":  3430,
+                      "sha256":  "fefbd3154d43f15bb5b38c730807cb21db2f92b7f1b655483c4fda73a9d1e2de"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052650Z-Bgsz72/timing.jsonl",
+                      "bytes":  19465,
+                      "sha256":  "27b6171dc9dd4da2f6cdfb4bf23f813f8a045f3b317a659efe8a8cde7e27cb5f"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052849Z-Q1wjoX/correctness.json",
+                      "bytes":  21922,
+                      "sha256":  "db4c7efa46ade71c1b7d032550c1edc3c32e641eb24c8704705388ac38960143"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052849Z-Q1wjoX/min_p_cuda.cu",
+                      "bytes":  12492,
+                      "sha256":  "71632618f3e96dd2b8f1aeee69891cd030ffbbf490794e02490fe3ac675a3dcc"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052849Z-Q1wjoX/min_p_triton.py",
+                      "bytes":  2689,
+                      "sha256":  "904dfd5be2eb431ecff1df6925ae3c98a2b56e301c8d76466447d92b55561b9d"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052849Z-Q1wjoX/nan_probe.json",
+                      "bytes":  113,
+                      "sha256":  "c6e300f89be0578d11b56018215eb9e5d7116eebb4826fa9cc5e3fd7041a8b5e"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052849Z-Q1wjoX/status.json",
+                      "bytes":  722,
+                      "sha256":  "33f42109444e9d4f95171f666190d11b1b7b13a8ab23be268945c767b8c2b6f0"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052849Z-Q1wjoX/sweep.jsonl",
+                      "bytes":  3437,
+                      "sha256":  "3af2633ae1262594bf9ed60ed423ab38eb80e500b2ff2fa0b6d7fa8cfafbccda"
+                  },
+                  {
+                      "path":  "results/minp-cuda-20261023T052849Z-Q1wjoX/timing.jsonl",
+                      "bytes":  19467,
+                      "sha256":  "8830f510ae12f6d9c28ebb33d3d9b9b85626606a238add4f10a8f8c93fc61b48"
+                  },
+                  {
+                      "path":  "results/minp-cuda-build-20261023T051721Z-xNvt0K/min_p_cuda.cu",
+                      "bytes":  8815,
+                      "sha256":  "6558c01f85fafc5d074b9618737188eccdbc820a215acbf5b0d2f40ac0e991ee"
+                  },
+                  {
+                      "path":  "results/minp-cuda-build-20261023T051721Z-xNvt0K/min_p_triton.py",
+                      "bytes":  2689,
+                      "sha256":  "904dfd5be2eb431ecff1df6925ae3c98a2b56e301c8d76466447d92b55561b9d"
+                  },
+                  {
+                      "path":  "results/minp-cuda-build-20261023T051721Z-xNvt0K/status.json",
+                      "bytes":  451,
+                      "sha256":  "a0c9bf17c010937ac49f8a4ff358c6bb504b03d7b0260a263a9bda2d96985a10"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/config.json",
+                      "bytes":  604,
+                      "sha256":  "cc1a6177d2b6870b0cf49773868219ebecd7fd20f6369c672a5c8157c0344eba"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b0-base-00.log",
+                      "bytes":  30620,
+                      "sha256":  "bf0be8d26defcf7d3234d74d147c412d5bf470491a19b0a11a26054a64bdb773"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b0-base-03.log",
+                      "bytes":  31725,
+                      "sha256":  "d50ce372ff43ebbf4f14f9ae6ba6f0ea595b519a4a50c969cc5b59b441a37bc3"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b0-patched-01.log",
+                      "bytes":  34508,
+                      "sha256":  "549268bafcea8f0ade878cea3da4668e0f86aabbcb7bd06bbe481bea04694eb3"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b0-patched-01.log.markers.txt",
+                      "bytes":  3787,
+                      "sha256":  "d3c1eb6f4bc3088d4c26da5ad498cd1a67b1d03454d53d9b14926b9e6c1ad4cb"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b0-patched-02.log",
+                      "bytes":  34266,
+                      "sha256":  "c8a88f34919276feab18843f7bbeb8dac78f25db48d19948fe4c4f4bd424631b"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b0-patched-02.log.markers.txt",
+                      "bytes":  3787,
+                      "sha256":  "9f84d0e6be7e736e3c514ec377d407220bd0c0fbb9d7bc006ff31372763fd408"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b1-base-00.log",
+                      "bytes":  30909,
+                      "sha256":  "c36ed429f69fbeb5bb7d7c5d93affdc4213b55483e6577bb2af072d57bcca544"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b1-base-03.log",
+                      "bytes":  30621,
+                      "sha256":  "99a8530b9afafbc5b799469af9440cc91bbe2df01fa793bad979c668e624bfa7"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b1-patched-01.log",
+                      "bytes":  35608,
+                      "sha256":  "83ace60d3b70e08906f1c2a11d7fa70639e0bf705aa46f17bb68dea84bda296f"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b1-patched-01.log.markers.txt",
+                      "bytes":  3787,
+                      "sha256":  "1114ee9524430ce6bbdb38f9fc9f8e90ad0d3a9813fbaab369af11a3b410b2d1"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b1-patched-02.log",
+                      "bytes":  34601,
+                      "sha256":  "4d7a1c35dae7cf528b54de0df88416123955d838ad1aa249505827194822f87b"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/logs/session-b1-patched-02.log.markers.txt",
+                      "bytes":  3787,
+                      "sha256":  "6cc0c511f50227c86e6a64983d2d200de0e96f21cc360b3e6d1a8d4dc574bb6e"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/requests.jsonl",
+                      "bytes":  444341,
+                      "sha256":  "ea87b575ab0dc72a90ec9b72d7a53bc302a5f1525eeaaab5e5f2822c66a00603"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/sessions.jsonl",
+                      "bytes":  17841,
+                      "sha256":  "89a99828909702294313d221fcac2291c549aa1ec0055f93f12a11ccae5645b1"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/status.json",
+                      "bytes":  188,
+                      "sha256":  "a7d0a71faccb004017578461cf46db120f42ea7dc2f5b486a6a28356ad87d6f0"
+                  },
+                  {
+                      "path":  "results/serve-cuda-20261023T053649Z-WcHPCA/summary.json",
+                      "bytes":  13379,
+                      "sha256":  "48674ad7e2eb199c6cc7eba215b75b81ec06a276815d6e9ad8b7e1fd4599001a"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/config.json",
+                      "bytes":  600,
+                      "sha256":  "1d420c48defabfc38702ad3767ba460c795db3762df97318201e023e7569f87b"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/logs/session-b0-base-00.log",
+                      "bytes":  21998,
+                      "sha256":  "10fc4df1d09eae6f342a210ad9e672e3197be4b78c1daddab47f0d4a4d6ef3b4"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/logs/session-b0-base-03.log",
+                      "bytes":  21803,
+                      "sha256":  "1b2bc177694f7a478dcfd3f111eb01be2b9e697e933a77e723d54ab166552740"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/logs/session-b0-patched-01.log",
+                      "bytes":  22632,
+                      "sha256":  "d48c303544499b22e42558e9ecdfbf8900f53402ceb758a93414d96c0ce825e2"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/logs/session-b0-patched-01.log.markers.txt",
+                      "bytes":  734,
+                      "sha256":  "baf4473509510e681f9b587e411bf7003ceffdb8dbd5344a43acf3613c9f07e3"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/logs/session-b0-patched-02.log",
+                      "bytes":  22840,
+                      "sha256":  "547377f53ed8931ca1681f804c1d2c77e5ea46e97029b02bb86eb506d8c50607"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/logs/session-b0-patched-02.log.markers.txt",
+                      "bytes":  744,
+                      "sha256":  "8998bf7559d307da4a2d6868809f05568b1bb8c0ab27ef6e6e6431287fd08e83"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/requests.jsonl",
+                      "bytes":  27650,
+                      "sha256":  "c6cb2fcc07e44598b695eab87f633bdfb2b2c6ea46aa71f6893b4d9d57a94e72"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/sessions.jsonl",
+                      "bytes":  8864,
+                      "sha256":  "f79bd9a1df1f3bbd3e14a1ce7cec2f891d6840dc92f8cc34668cb09f72d9bf14"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/status.json",
+                      "bytes":  188,
+                      "sha256":  "edc0ea3c6d8032042a44c5986c8e9fe5587a3c54ac49755bee1648354f0d07e7"
+                  },
+                  {
+                      "path":  "results/serve-cuda-quick-20261023T053029Z-azCcf4/summary.json",
+                      "bytes":  10743,
+                      "sha256":  "c4510de812b3ed379fded10f577871fd17e3a7585f44cafc113af47c045314f8"
+                  }
+              ]
+}

@@ -1,0 +1,28 @@
+{
+  "state": "passed",
+  "stage": "minp-cuda",
+  "build": {
+    "extension": "min_p_cuda_ext",
+    "source": "/opt/cloud-inference-framework/kernels/min_p_cuda.cu",
+    "build_dir": "/opt/cloud-inference-framework/cache/minp_cuda",
+    "torch": "2.13.0+cu130",
+    "cuda_runtime": "13.0",
+    "nvcc": "Cuda compilation tools, release 13.0, V13.0.88",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "arch": "sm_120",
+    "python": "3.12.3"
+  },
+  "correctness_cases": 96,
+  "correctness_failures": [],
+  "nan_probe": [
+    {
+      "nan_mode": 0,
+      "equal_upstream": true
+    },
+    {
+      "nan_mode": 1,
+      "equal_upstream": false
+    }
+  ],
+  "timing_rows": 120
+}

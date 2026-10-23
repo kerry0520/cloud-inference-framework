@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/opt/cloud-inference-framework/scripts/minp_cuda.py", line 187, in <module>
+    main()
+  File "/opt/cloud-inference-framework/scripts/minp_cuda.py", line 146, in main
+    raise AssertionError(f"{len(failures)} correctness cases failed: {failures[:3]}")
+AssertionError: 6 correctness cases failed: [{'vocab': 4097, 'batch': 8, 'dtype': 'torch.float16', 'kind': 'special', 'nan_mode0_equal_upstream': True, 'byte_equal_upstream': False, 'padding_untouched': True, 'byte_equal_triton': True}, {'vocab': 151936, 'batch': 8, 'dtype': 'torch.float16', 'kind': 'special', 'nan_mode0_equal_upstream': True, 'byte_equal_upstream': False, 'padding_untouched': True, 'byte_equal_triton': True}, {'vocab': 4097, 'batch': 8, 'dtype': 'torch.float32', 'kind': 'special', 'nan_mode0_equal_upstream': True, 'byte_equal_upstream': False, 'padding_untouched': True, 'byte_equal_triton': True}]

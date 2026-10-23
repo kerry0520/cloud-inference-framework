@@ -1,0 +1,338 @@
+// SPDX-License-Identifier: Apache-2.0
+// CUDA implementation of vLLM 0.31.0 min-p filtering for small decode batches.
+//
+// Contract (same as vllm/v1/worker/gpu/sample/min_p.py):
+//   * logits is 2-D [num_rows, vocab], columns contiguous, row stride arbitrary;
+//   * expanded_idx_mapping[row] selects the request, min_p[req] is a float32
+//     probability in [0, 1]; rows with min_p == 0.0 are left untouched;
+//   * threshold = max(row) + log(min_p), elements < threshold become -inf;
+//   * bytes outside [0, vocab) (row padding) must not be touched.
+//
+// Structure: upstream gives every row one CTA that walks the vocabulary twice
+// with 1024-wide blocks.  At batch <= 8 that is 8 CTAs on a 26-SM GPU, so the
+// kernel is latency-bound (measured ~116 us per call for fp16 V151936).  Here
+// each row is cut into 4096-element chunks: pass 1 (one CTA per chunk) writes a
+// partial max, pass 2 (one CTA per chunk) reduces the row's partials, forms the
+// threshold and filters its own chunk.  That is 8 * 38 = 304 CTAs at
+// V151936/batch 8.  Both passes use 16-byte vector loads; the arithmetic is
+// deliberately identical to upstream (fp32 threshold, libdevice logf, dtype
+// compare) so logits stay byte-identical.
+//
+// NAN_MODE: mode 0 reduces with fmaxf (NaN ignored); mode 1 makes a NaN
+// anywhere in the row produce a NaN threshold (NaN-propagating).  The pinned
+// upstream was measured to behave like mode 0 (see the nan_probe output of
+// scripts/minp_cuda.py), so mode 0 is the default and the in-path arm.
+
+#include <torch/extension.h>
+
+#include <ATen/cuda/CUDAContext.h>
+#include <cuda_bf16.h>
+#include <cuda_fp16.h>
+#include <cuda_runtime.h>
+
+#include <cstdint>
+
+namespace {
+
+constexpr int kDefaultThreads = 256;
+constexpr int kDefaultChunk = 4096;
+
+__device__ __forceinline__ float to_float(const __half v) { return __half2float(v); }
+__device__ __forceinline__ float to_float(const float v) { return v; }
+__device__ __forceinline__ float to_float(const __nv_bfloat16 v) {
+  return __bfloat162float(v);
+}
+
+template <typename T>
+__device__ __forceinline__ T neg_inf();
+template <>
+__device__ __forceinline__ __half neg_inf<__half>() {
+  return __ushort_as_half(static_cast<unsigned short>(0xFC00u));
+}
+template <>
+__device__ __forceinline__ float neg_inf<float>() {
+  return __int_as_float(0xff800000);
+}
+template <>
+__device__ __forceinline__ __nv_bfloat16 neg_inf<__nv_bfloat16>() {
+  return __ushort_as_bfloat16(static_cast<unsigned short>(0xFF80u));
+}
+
+__device__ __forceinline__ float nan_value() {
+  return __int_as_float(0x7fc00000);
+}
+
+struct RowMax {
+  float value;
+  int nan_seen;
+};
+
+__device__ __forceinline__ void account(RowMax& acc, float v) {
+  if (isnan(v)) {
+    acc.nan_seen = 1;
+  } else if (v > acc.value) {
+    acc.value = v;
+  }
+}
+
+// Block-wide max plus a NaN-seen flag, shared by both kernels.
+__device__ __forceinline__ RowMax block_reduce(RowMax acc) {
+  const unsigned mask = 0xffffffffu;
+#pragma unroll
+  for (int off = 16; off > 0; off >>= 1) {
+    acc.value = fmaxf(acc.value, __shfl_xor_sync(mask, acc.value, off));
+    acc.nan_seen |= __shfl_xor_sync(mask, acc.nan_seen, off);
+  }
+  __shared__ float s_value[32];
+  __shared__ int s_nan[32];
+  const int lane = threadIdx.x & 31;
+  const int warp = threadIdx.x >> 5;
+  const int warps = blockDim.x >> 5;
+  if (lane == 0) {
+    s_value[warp] = acc.value;
+    s_nan[warp] = acc.nan_seen;
+  }
+  __syncthreads();
+  __shared__ float s_result_value;
+  __shared__ int s_result_nan;
+  if (warp == 0) {
+    RowMax block;
+    block.value = (lane < warps) ? s_value[lane] : neg_inf<float>();
+    block.nan_seen = (lane < warps) ? s_nan[lane] : 0;
+#pragma unroll
+    for (int off = 16; off > 0; off >>= 1) {
+      block.value = fmaxf(block.value, __shfl_xor_sync(mask, block.value, off));
+      block.nan_seen |= __shfl_xor_sync(mask, block.nan_seen, off);
+    }
+    if (lane == 0) {
+      s_result_value = block.value;
+      s_result_nan = block.nan_seen;
+    }
+  }
+  __syncthreads();
+  RowMax out;
+  out.value = s_result_value;
+  out.nan_seen = s_result_nan;
+  return out;
+}
+
+// Chunked max pass: grid = (parts, rows); writes partial[row * parts + part].
+template <typename T, int NAN_MODE>
+__global__ void min_p_partial_max_kernel(const T* __restrict__ logits,
+                                         int64_t stride,
+                                         const int32_t* __restrict__ mapping,
+                                         const float* __restrict__ min_p,
+                                         float* __restrict__ partial, int vocab,
+                                         int parts, int chunk) {
+  const int row = blockIdx.y;
+  const int part = blockIdx.x;
+  const float p = min_p[mapping[row]];
+  if (p == 0.0f) {
+    return;
+  }
+  const int begin = part * chunk;
+  const int end = min(begin + chunk, vocab);
+  const T* base = logits + static_cast<int64_t>(row) * stride + begin;
+  constexpr int kVec = 16 / sizeof(T);
+  const int tid = threadIdx.x;
+  const int span = end - begin;
+  RowMax acc;
+  acc.value = neg_inf<float>();
+  acc.nan_seen = 0;
+  if ((reinterpret_cast<uintptr_t>(base) & static_cast<uintptr_t>(15)) == 0) {
+    const int step = blockDim.x * kVec;
+    for (int i = tid * kVec; i < span; i += step) {
+      if (i + kVec <= span) {
+        uint4 raw = *reinterpret_cast<const uint4*>(base + i);
+        const T* vals = reinterpret_cast<const T*>(&raw);
+#pragma unroll
+        for (int k = 0; k < kVec; ++k) {
+          account(acc, to_float(vals[k]));
+        }
+      } else {
+        for (int j = i; j < span; ++j) {
+          account(acc, to_float(base[j]));
+        }
+      }
+    }
+  } else {
+    for (int i = tid; i < span; i += blockDim.x) {
+      account(acc, to_float(base[i]));
+    }
+  }
+  const RowMax reduced = block_reduce(acc);
+  float local_max = reduced.value;
+  if (NAN_MODE != 0 && reduced.nan_seen) {
+    local_max = nan_value();
+  }
+  if (tid == 0) {
+    partial[row * parts + part] = local_max;
+  }
+}
+
+// Chunked filter pass: reduces partials, forms the threshold, filters a chunk.
+template <typename T, int NAN_MODE>
+__global__ void min_p_apply_kernel(T* __restrict__ logits, int64_t stride,
+                                   const int32_t* __restrict__ mapping,
+                                   const float* __restrict__ min_p,
+                                   const float* __restrict__ partial, int vocab,
+                                   int parts, int chunk) {
+  const int row = blockIdx.y;
+  const int part = blockIdx.x;
+  const float p = min_p[mapping[row]];
+  if (p == 0.0f) {
+    return;
+  }
+  __shared__ float s_row_max;
+  __shared__ int s_row_nan;
+  if (threadIdx.x < 32) {
+    // The partials of one row are at most 38 floats (V151936 / 4096), so a
+    // single warp loads and reduces them lane-parallel instead of letting
+    // thread 0 walk them serially (which cost a few microseconds per call).
+    float m = neg_inf<float>();
+    int nan_seen = 0;
+    for (int k = threadIdx.x; k < parts; k += 32) {
+      const float v = partial[row * parts + k];
+      if (isnan(v)) {
+        nan_seen = 1;
+      } else {
+        m = fmaxf(m, v);
+      }
+    }
+#pragma unroll
+    for (int off = 16; off > 0; off >>= 1) {
+      m = fmaxf(m, __shfl_xor_sync(0xffffffffu, m, off));
+      nan_seen |= __shfl_xor_sync(0xffffffffu, nan_seen, off);
+    }
+    if (threadIdx.x == 0) {
+      s_row_max = m;
+      s_row_nan = nan_seen;
+    }
+  }
+  __syncthreads();
+  float row_max = s_row_max;
+  if (NAN_MODE != 0 && s_row_nan) {
+    row_max = nan_value();
+  }
+  const float threshold = row_max + logf(p);
+
+  const int begin = part * chunk;
+  const int end = min(begin + chunk, vocab);
+  T* base = logits + static_cast<int64_t>(row) * stride + begin;
+  constexpr int kVec = 16 / sizeof(T);
+  const int tid = threadIdx.x;
+  const int span = end - begin;
+  if ((reinterpret_cast<uintptr_t>(base) & static_cast<uintptr_t>(15)) == 0) {
+    const int step = blockDim.x * kVec;
+    for (int i = tid * kVec; i < span; i += step) {
+      if (i + kVec <= span) {
+        uint4 raw = *reinterpret_cast<const uint4*>(base + i);
+        T* vals = reinterpret_cast<T*>(&raw);
+        bool changed = false;
+#pragma unroll
+        for (int k = 0; k < kVec; ++k) {
+          if (to_float(vals[k]) < threshold) {
+            vals[k] = neg_inf<T>();
+            changed = true;
+          }
+        }
+        if (changed) {
+          *reinterpret_cast<uint4*>(base + i) = raw;
+        }
+      } else {
+        for (int j = i; j < span; ++j) {
+          if (to_float(base[j]) < threshold) {
+            base[j] = neg_inf<T>();
+          }
+        }
+      }
+    }
+  } else {
+    for (int i = tid; i < span; i += blockDim.x) {
+      if (to_float(base[i]) < threshold) {
+        base[i] = neg_inf<T>();
+      }
+    }
+  }
+}
+
+template <typename T>
+void launch(torch::Tensor& logits, const torch::Tensor& mapping,
+            const torch::Tensor& min_p, int nan_mode, int chunk, int threads) {
+  const int rows = static_cast<int>(logits.size(0));
+  const int vocab = static_cast<int>(logits.size(1));
+  const int64_t stride = logits.stride(0);
+  const int parts = (vocab + chunk - 1) / chunk;
+  auto partial = at::empty({rows, parts}, logits.options().dtype(torch::kFloat32));
+  auto stream = at::cuda::getCurrentCUDAStream();
+  T* data = reinterpret_cast<T*>(logits.data_ptr());
+  const int32_t* map = mapping.data_ptr<int32_t>();
+  const float* p = min_p.data_ptr<float>();
+  float* partial_ptr = partial.data_ptr<float>();
+  const dim3 grid(parts, rows);
+  if (nan_mode == 0) {
+    min_p_partial_max_kernel<T, 0><<<grid, threads, 0, stream>>>(
+        data, stride, map, p, partial_ptr, vocab, parts, chunk);
+    min_p_apply_kernel<T, 0><<<grid, threads, 0, stream>>>(
+        data, stride, map, p, partial_ptr, vocab, parts, chunk);
+  } else {
+    min_p_partial_max_kernel<T, 1><<<grid, threads, 0, stream>>>(
+        data, stride, map, p, partial_ptr, vocab, parts, chunk);
+    min_p_apply_kernel<T, 1><<<grid, threads, 0, stream>>>(
+        data, stride, map, p, partial_ptr, vocab, parts, chunk);
+  }
+}
+
+// Applies min-p in place.  nan_mode selects the NaN semantics (see header);
+// chunk/threads are launch knobs, defaulted to the values measured on sm_120.
+void min_p_apply(torch::Tensor logits, torch::Tensor expanded_idx_mapping,
+                 torch::Tensor min_p, int64_t nan_mode, int64_t chunk,
+                 int64_t threads) {
+  TORCH_CHECK(logits.dim() == 2, "logits must be 2-D");
+  TORCH_CHECK(logits.is_cuda(), "logits must be on CUDA");
+  TORCH_CHECK(logits.is_contiguous() || logits.stride(1) == 1,
+              "min-p ABI requires contiguous columns");
+  TORCH_CHECK(expanded_idx_mapping.scalar_type() == torch::kInt32,
+              "expanded_idx_mapping must be int32");
+  TORCH_CHECK(min_p.scalar_type() == torch::kFloat32, "min_p must be float32");
+  TORCH_CHECK(expanded_idx_mapping.is_contiguous() && min_p.is_contiguous(),
+              "mapping and min_p must be contiguous");
+  TORCH_CHECK(chunk > 0 && threads > 0 && threads <= 1024 && threads % 32 == 0,
+              "invalid launch configuration");
+  const int rows = static_cast<int>(logits.size(0));
+  if (rows == 0 || logits.size(1) == 0) {
+    return;
+  }
+  TORCH_CHECK(expanded_idx_mapping.size(0) >= rows,
+              "mapping shorter than the number of rows");
+  switch (logits.scalar_type()) {
+    case torch::kFloat16:
+      launch<__half>(logits, expanded_idx_mapping, min_p,
+                     static_cast<int>(nan_mode), static_cast<int>(chunk),
+                     static_cast<int>(threads));
+      break;
+    case torch::kBFloat16:
+      launch<__nv_bfloat16>(logits, expanded_idx_mapping, min_p,
+                            static_cast<int>(nan_mode),
+                            static_cast<int>(chunk), static_cast<int>(threads));
+      break;
+    case torch::kFloat32:
+      launch<float>(logits, expanded_idx_mapping, min_p,
+                    static_cast<int>(nan_mode), static_cast<int>(chunk),
+                    static_cast<int>(threads));
+      break;
+    default:
+      TORCH_CHECK(false, "unsupported dtype for the CUDA min-p kernel");
+  }
+  C10_CUDA_KERNEL_LAUNCH_CHECK();
+}
+
+}  // namespace
+
+PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
+  m.def("min_p_apply", &min_p_apply, "in-place min-p filtering",
+        pybind11::arg("logits"), pybind11::arg("expanded_idx_mapping"),
+        pybind11::arg("min_p"), pybind11::arg("nan_mode") = 0,
+        pybind11::arg("chunk") = kDefaultChunk,
+        pybind11::arg("threads") = kDefaultThreads);
+}

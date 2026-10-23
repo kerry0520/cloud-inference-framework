@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/opt/cloud-inference-framework/scripts/minp_cuda.py", line 233, in <module>
+    main()
+  File "/opt/cloud-inference-framework/scripts/minp_cuda.py", line 181, in main
+    row["median_us"] = values[0] * 1000
+                       ~~~~~~^^^
+TypeError: 'float' object is not subscriptable

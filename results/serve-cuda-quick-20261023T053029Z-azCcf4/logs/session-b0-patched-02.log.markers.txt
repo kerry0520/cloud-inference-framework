@@ -1,0 +1,10 @@
+CI_MINP_INSTALLED module=/mnt/c/Users/32065/Documents/ChatGPT/云端推理框架/patches/mrv2_min_p_cuda.py pid=1106
+CI_MINP_VERIFY calls=1 checked=1 mismatches=0 shape=(8, 151936) pid=1106
+CI_MINP_VERIFY calls=2 checked=2 mismatches=0 shape=(8, 151936) pid=1106
+CI_MINP_VERIFY calls=3 checked=3 mismatches=0 shape=(2, 151936) pid=1106
+CI_MINP_VERIFY calls=4 checked=4 mismatches=0 shape=(1, 151936) pid=1106
+CI_MINP_VERIFY calls=5 checked=5 mismatches=0 shape=(1, 151936) pid=1106
+CI_MINP_VERIFY calls=6 checked=6 mismatches=0 shape=(4, 151936) pid=1106
+CI_MINP_VERIFY calls=7 checked=7 mismatches=0 shape=(4, 151936) pid=1106
+CI_MINP_VERIFY calls=8 checked=8 mismatches=0 shape=(4, 151936) pid=1106
+CI_MINP_STATS calls=64 kernels={} pid=1106
