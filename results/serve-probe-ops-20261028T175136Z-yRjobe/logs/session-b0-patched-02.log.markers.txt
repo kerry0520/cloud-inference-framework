@@ -1,0 +1,7 @@
+CI_MINP_INSTALLED module=/mnt/c/Users/32065/Documents/ChatGPT/云端推理框架/patches/mrv3_minp_ops.py pid=1106
+CI_MINP_STATS calls=64 kernels={} pid=1106
+CI_MINP_STATS calls=128 kernels={} pid=1106
+CI_MINP_STATS calls=192 kernels={} pid=1106
+CI_MINP_STATS calls=256 kernels={} pid=1106
+CI_MINP_STATS calls=320 kernels={} pid=1106
+CI_MINP_STATS calls=384 kernels={} pid=1106

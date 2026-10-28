@@ -219,27 +219,64 @@ async def run_all(cfg, cells, out_dir):
                     for i in range(max_concurrency)))
         print("[scan] warmup done at concurrency %d" % max_concurrency, flush=True)
 
-        for index, cell in enumerate(cells):
-            count = max(cfg["requests_min"], 4 * cell["concurrency"])
-            prompts = prompts_for(cfg, 1000 * (index + 1), count)
-            cell_started = utc_now()
-            row = await run_cell(cfg, cell, prompts, out_dir)
-            row["started_at"] = cell_started
-            row["ok"] = row["token_mismatch"] == 0 and row["requests"] > 0
-            results.append(row)
-            with (out_dir / "cells.jsonl").open("a", encoding="utf-8") as handle:
-                handle.write(json.dumps(row, sort_keys=True) + "\n")
-            print(json.dumps({k: row[k] for k in
-                              ("name", "concurrency", "max_tokens", "requests",
-                               "ttft_ms", "tpot_ms", "tokens_per_second")},
-                             sort_keys=True), flush=True)
+        for repeat in range(cfg["repeats"]):
+            for index, cell in enumerate(cells):
+                count = max(cfg["requests_min"], 4 * cell["concurrency"])
+                # Fresh prompts per repeat: a repeated cell must not be served
+                # from the prefix cache of its previous repetition.
+                prompts = prompts_for(cfg, 1000 * (index + 1) + 100000 * repeat, count)
+                cell_started = utc_now()
+                repeated = dict(cell, name="%s-r%d" % (cell["name"], repeat),
+                                base=cell["name"], repeat=repeat)
+                row = await run_cell(cfg, repeated, prompts, out_dir)
+                row["started_at"] = cell_started
+                row["ok"] = row["token_mismatch"] == 0 and row["requests"] > 0
+                results.append(row)
+                with (out_dir / "cells.jsonl").open("a", encoding="utf-8") as handle:
+                    handle.write(json.dumps(row, sort_keys=True) + "\n")
+                print(json.dumps({k: row[k] for k in
+                                  ("name", "concurrency", "max_tokens", "requests",
+                                   "ttft_ms", "tpot_ms", "tokens_per_second")},
+                                 sort_keys=True), flush=True)
     finally:
         stop_server(proc, log)
         wait_port_free(cfg["port"], timeout=90)
     return results
 
 
-def table(results):
+def aggregate(results):
+    """Per base cell: median across repeats plus the min/max of per-repeat p99."""
+    groups: dict[str, list[dict]] = {}
+    for row in results:
+        groups.setdefault(row["name"].rsplit("-r", 1)[0], []).append(row)
+    out = []
+    for name, rows in groups.items():
+        def med(key, sub="median"):
+            values = [r[key][sub] for r in rows if r[key] and r[key].get(sub) is not None]
+            return statistics.median(values) if values else None
+
+        def spread(key, sub="p99"):
+            values = [r[key][sub] for r in rows if r[key] and r[key].get(sub) is not None]
+            return (min(values), max(values)) if values else (None, None)
+
+        tps = [r["tokens_per_second"] for r in rows if r["tokens_per_second"]]
+        rps = [r["requests_per_second"] for r in rows if r["requests_per_second"]]
+        out.append({
+            "name": name,
+            "concurrency": rows[0]["concurrency"],
+            "max_tokens": rows[0]["max_tokens"],
+            "repeats": len(rows),
+            "ttft_p50_ms": med("ttft_ms"),
+            "ttft_p99_ms": spread("ttft_ms"),
+            "tpot_p50_ms": med("tpot_ms"),
+            "tpot_p99_ms": spread("tpot_ms"),
+            "tokens_per_second": statistics.median(tps) if tps else None,
+            "requests_per_second": statistics.median(rps) if rps else None,
+        })
+    return sorted(out, key=lambda item: (item["max_tokens"], item["concurrency"]))
+
+
+def table(results, aggregated):
     def num(value, digits=1):
         return "-" if value is None else ("%.*f" % (digits, value))
 
@@ -258,6 +295,20 @@ def table(results):
             num(row["tokens_per_second"], 0), num(engine["ttft_ms"]),
             num(engine["queue_ms"]), num(engine["prefill_ms"]),
             num(row["counters"].get("preemptions"), 0)))
+    if aggregated and aggregated[0]["repeats"] > 1:
+        lines += ["",
+                  "| cell | conc | out tok | reps | TTFT p50 (med of reps) "
+                  "| TTFT p99 (min..max) | TPOT p50 (med) | TPOT p99 (min..max) "
+                  "| req/s (med) | tok/s (med) |",
+                  "|---|---|---|---|---|---|---|---|---|---|"]
+        for item in aggregated:
+            lo, hi = item["ttft_p99_ms"]
+            tlo, thi = item["tpot_p99_ms"]
+            lines.append("| %s | %d | %d | %d | %s | %s..%s | %s | %s..%s | %s | %s |" % (
+                item["name"], item["concurrency"], item["max_tokens"], item["repeats"],
+                num(item["ttft_p50_ms"]), num(lo), num(hi), num(item["tpot_p50_ms"]),
+                num(tlo), num(thi), num(item["requests_per_second"], 2),
+                num(item["tokens_per_second"], 0)))
     return "\n".join(lines)
 
 
@@ -278,6 +329,7 @@ def main():
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--served-model-name", default="qwen3")
     parser.add_argument("--max-model-len", type=int, default=2048)
+    parser.add_argument("--repeats", type=int, default=1)
     parser.add_argument("--max-num-seqs", type=int, default=32)
     parser.add_argument("--gpu-memory-utilization", type=float, default=0.6)
     args = parser.parse_args()
@@ -296,14 +348,16 @@ def main():
               for n in (int(v) for v in args.length_list.split(",") if v.strip())]
 
     results = asyncio.run(run_all(cfg, cells, out_dir))
-    ok = all(row["ok"] for row in results) and len(results) == len(cells)
+    aggregated = aggregate(results)
+    ok = all(row["ok"] for row in results) and len(results) == len(cells) * args.repeats
     summary = {"created_at": utc_now(), "config": cfg, "cells": results,
+               "aggregated": aggregated,
                "verdict": "passed" if ok else "failed"}
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     (out_dir / "status.json").write_text(json.dumps(
         {"passed": ok, "cells": len(results), "failed_cells":
          [row["name"] for row in results if not row["ok"]]}, indent=2), encoding="utf-8")
-    print("\n" + table(results), flush=True)
+    print("\n" + table(results, aggregated), flush=True)
     return 0 if ok else 1
 
 

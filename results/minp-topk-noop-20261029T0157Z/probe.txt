@@ -1,0 +1,20 @@
+﻿cmd: wsl.exe -d Ubuntu-24.04 -- /bin/bash -c "cd /tmp/repo && .venv/bin/python scripts/_probe_topk.py"
+env: vLLM 0.31.0 @ db9527a, torch 2.13.0+cu130, RTX 5060 Laptop (sm_120)
+note: run at 2026-10-29 01:57 local, no other GPU job running.
+
+case                         gpu_us
+random  k=None p=None             3.7   returned_same_tensor=True
+-inf    k=None p=None             0.3   returned_same_tensor=True
+random  k=vocab p=1             189.4   returned_same_tensor=True
+-inf    k=vocab p=1             198.6   returned_same_tensor=True
+random  k=20                    611.7   returned_same_tensor=True
+-inf    k=20                    612.9   returned_same_tensor=True
+
+reading:
+- apply_top_k_top_p(logits, None, None) is a pure pass-through (returns the same tensor,
+  no kernel): 0.3-3.7 us.
+- When top_k = vocab_size and top_p = 1.0 are passed as tensors the Qrita kernel still
+  runs: ~190-199 us, and the value of the logits (-inf or not) does not change the cost.
+- A real top_k=20 costs ~612 us.
+- Our requests set neither top_k nor top_p, and SamplingStates initialises the tables to
+  top_k = vocab_size / top_p = 1.0, so get_top_k_top_p returns (None, None).

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": {
+    "sessions_total": 4,
+    "sessions_ok": 4,
+    "patched_installs": 2,
+    "base_installs": 0,
+    "verify_mismatches": 0,
+    "paired_blocks": 1
+  }
+}

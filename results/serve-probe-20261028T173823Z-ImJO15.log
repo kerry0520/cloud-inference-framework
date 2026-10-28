@@ -1,0 +1,77 @@
+[serve] start b0-base-00
+[serve] b0-base-00 gpu_free_mib=7737
+[serve] b0-base-00 healthy in 40.8s
+[serve] b0-base-00 warmup done
+[serve] done b0-base-00 ok=True startup=40.764453414 phases=['minp', 'nop']
+[serve] start b0-patched-01
+[serve] b0-patched-01 gpu_free_mib=7842
+[serve] b0-patched-01 healthy in 31.7s
+[serve] b0-patched-01 warmup done
+[serve] done b0-patched-01 ok=True startup=31.74759156600001 phases=['minp', 'nop']
+[serve] start b0-patched-02
+[serve] b0-patched-02 gpu_free_mib=7842
+[serve] b0-patched-02 healthy in 32.2s
+[serve] b0-patched-02 warmup done
+[serve] done b0-patched-02 ok=True startup=32.17409005100001 phases=['minp', 'nop']
+[serve] start b0-base-03
+[serve] b0-base-03 gpu_free_mib=7842
+[serve] b0-base-03 healthy in 27.6s
+[serve] b0-base-03 warmup done
+[serve] done b0-base-03 ok=True startup=27.628976323000018 phases=['minp', 'nop']
+{
+  "sessions_total": 4,
+  "sessions_ok": 4,
+  "patched_installs": 2,
+  "base_installs": 0,
+  "verify_mismatches": 0,
+  "paired_blocks": 1
+}
+[
+  {
+    "block": 0,
+    "nop": {
+      "ttft_ms": {
+        "base": 53.126852500000155,
+        "patched": 53.45721700000183,
+        "delta_pct": 0.621840904280331
+      },
+      "tpot_ms": {
+        "base": 4.880761158730255,
+        "patched": 4.866280539682445,
+        "delta_pct": -0.29668772096968066
+      },
+      "total_ms": {
+        "base": 361.61800325000826,
+        "patched": 360.2543797500104,
+        "delta_pct": -0.3770894943676524
+      },
+      "tokens_per_second": {
+        "base": 1390.5299806336839,
+        "patched": 1404.3138053207258,
+        "delta_pct": 0.9912641136123121
+      }
+    },
+    "minp": {
+      "ttft_ms": {
+        "base": 56.64600424999833,
+        "patched": 53.57017125000141,
+        "delta_pct": -5.429920504934838
+      },
+      "tpot_ms": {
+        "base": 6.058995146825208,
+        "patched": 5.918399154761831,
+        "delta_pct": -2.32045064662326
+      },
+      "total_ms": {
+        "base": 439.43983075000403,
+        "patched": 423.3264499999976,
+        "delta_pct": -3.6668002357695495
+      },
+      "tokens_per_second": {
+        "base": 1124.9642713315648,
+        "patched": 1194.5042144664003,
+        "delta_pct": 6.181524596556701
+      }
+    }
+  }
+]

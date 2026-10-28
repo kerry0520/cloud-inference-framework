@@ -37,6 +37,11 @@ case "$stage" in
     serve-cuda-quick) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv2_min_p_cuda.py" --blocks 1 --requests 8 --concurrency 4 --warmup 1 --max-tokens 16 --verify-first 8 --stats-every 64);;
     serve-scan) script=serve_scan.py; extra+=(--concurrency-list 1,2,4,8,16,32 --length-list 64,256 --length-concurrency 8 --min-p 0.1 --max-tokens 64 --max-num-seqs 32);;
     serve-scan-quick) script=serve_scan.py; extra+=(--concurrency-list 1,4 --length-list 16 --length-concurrency 2 --requests-min 4 --warmup-rounds 1 --max-tokens 16 --max-num-seqs 8);;
+    serve-scan-large) script=serve_scan.py; extra+=(--concurrency-list 1,8,32,64,128 --length-list "" --min-p 0.1 --max-tokens 64 --max-num-seqs 128 --repeats 3 --requests-min 32);;
+    serve-probe) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv3_minp_probe.py" --blocks 1 --requests 32 --verify-first 0 --stats-every 64);;
+    serve-probe-quick) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv3_minp_probe.py" --blocks 1 --requests 8 --concurrency 4 --warmup 1 --max-tokens 16 --verify-first 0 --stats-every 64);;
+    serve-probe-step) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv3_minp_step.py" --first-phase minp --blocks 1 --requests 32 --verify-first 0 --stats-every 64);;
+    serve-probe-ops) script=serve_stage.py; extra+=(--patch-module "$project_dir/patches/mrv3_minp_ops.py" --first-phase minp --blocks 1 --requests 32 --verify-first 0 --stats-every 64);;
     roofline) script=roofline_model.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json");;
     figures) script=make_figures.py; extra+=(--attribution "$runtime_dir/results/attribute-20261017T093052Z/attribution.json" --results "$runtime_dir/results" --micro "$runtime_dir/results/minp-micro-20261017T070433Z/timing.jsonl");;
     minp-sweep) script=minp_param_sweep.py; extra+=(--patched "$project_dir/patches/mrv2_min_p.py");;
