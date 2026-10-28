@@ -1,0 +1,19 @@
+{
+  "concurrency_list": "1,2,4,8,16,32",
+  "length_list": "64,256",
+  "length_concurrency": 8,
+  "requests_min": 24,
+  "min_p": 0.1,
+  "prompt_len": 128,
+  "max_tokens": 64,
+  "warmup_tokens": 8,
+  "warmup_rounds": 1,
+  "seed_base": 0,
+  "port": 8123,
+  "model": "/opt/cloud-inference-framework/models/Qwen3-0.6B",
+  "served_model_name": "qwen3",
+  "max_model_len": 2048,
+  "max_num_seqs": 32,
+  "gpu_memory_utilization": 0.6,
+  "created_at": "2026-10-28T17:20:25Z"
+}

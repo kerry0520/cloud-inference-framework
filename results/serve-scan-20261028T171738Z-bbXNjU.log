@@ -1,0 +1,28 @@
+[scan] gpu_free_mib=7755
+[scan] healthy in 55.9s
+[scan] warmup done at concurrency 32
+Traceback (most recent call last):
+  File "/opt/cloud-inference-framework/scripts/serve_scan.py", line 310, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/opt/cloud-inference-framework/scripts/serve_scan.py", line 297, in main
+    results = asyncio.run(run_all(cfg, cells, out_dir))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/cloud-inference-framework/scripts/serve_scan.py", line 225, in run_all
+    row = await run_cell(cfg, cell, prompts, out_dir)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/cloud-inference-framework/scripts/serve_scan.py", line 145, in run_cell
+    await asyncio.gather(*(one(i) for i in seeds))
+  File "/opt/cloud-inference-framework/scripts/serve_scan.py", line 133, in one
+    row = await one_request(client, local, prompts[index],
+                                           ~~~~~~~^^^^^^^
+IndexError: list index out of range

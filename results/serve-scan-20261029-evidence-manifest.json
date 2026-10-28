@@ -1,0 +1,221 @@
+{
+  "created_utc": "2026-10-28T17:25:15Z",
+  "stage": "serve-scan (concurrency 1-32 and output lengths 64/256, stock kernels, min_p=0.1) + serve-scan-quick smoke + one failed run (prompt pool IndexError)",
+  "files": [
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/cells.jsonl",
+      "bytes": 13733,
+      "sha256": "460698caf4c56771c183d7fb93b34d14991c1a080f5a1e07b03687c3c068683a"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/config.json",
+      "bytes": 467,
+      "sha256": "7527ae83e735e329928488c42a796838c78a78b849dde7812468f3bb7299d926"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/logs/server.log",
+      "bytes": 47984,
+      "sha256": "27a290fc2dc5dde6d9feb031e019fa3d979fd6eab528762fcca4e7230535a104"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c1-after.txt",
+      "bytes": 48731,
+      "sha256": "ad5182f179d73fa6be0d2147499f48d00b3cc042732e68c5998b17410a9b35a8"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c1-before.txt",
+      "bytes": 48661,
+      "sha256": "592e7e9b2b4e95704bdc60e99c237e79cea3818be16dac9b5d18573655e6b0cb"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c16-after.txt",
+      "bytes": 48983,
+      "sha256": "f307ab4ea7c3bf6cd384344255640a17aefb668972c5a857a89794926f827fa9"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c16-before.txt",
+      "bytes": 48959,
+      "sha256": "2285d0965d4d5c706a7e5a9cf94c0aae24880f85439390f137a5a5f19c8ef3e5"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c2-after.txt",
+      "bytes": 48736,
+      "sha256": "c5b836841bc50d359e07016016e1c471de8666a35630e5fcf67237c275fa3c6c"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c2-before.txt",
+      "bytes": 48731,
+      "sha256": "0c03b94e131714a924148fb7965a06a96c4a18e424693d597e4e882626a9a15d"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c32-after.txt",
+      "bytes": 48990,
+      "sha256": "0e364053359c4ee40070c5dd065e94312c89920aaa331058fa59521ee05c2a2c"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c32-before.txt",
+      "bytes": 48983,
+      "sha256": "5ed8a3fcc3eacde445bf2a74a69956cfbfdbaf30c20f4f02c52410e51889a8bd"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c4-after.txt",
+      "bytes": 48959,
+      "sha256": "283ee96270f966497bd1dd2174658f57b55307dcf23cdf6797a669929ae1c224"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c4-before.txt",
+      "bytes": 48736,
+      "sha256": "c5b836841bc50d359e07016016e1c471de8666a35630e5fcf67237c275fa3c6c"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c8-after.txt",
+      "bytes": 48959,
+      "sha256": "2285d0965d4d5c706a7e5a9cf94c0aae24880f85439390f137a5a5f19c8ef3e5"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/c8-before.txt",
+      "bytes": 48972,
+      "sha256": "54e51923a9c5008dc1e3a09944f9db016e1a6e8b02b28466bd67f7da55935ae0"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/len256-after.txt",
+      "bytes": 48989,
+      "sha256": "df5ee77b5e788ecee7a814d24b60221929ec02e6650517e9165741d1d06920d0"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/len256-before.txt",
+      "bytes": 48989,
+      "sha256": "c0d58b22c1646d3771e8f3279636977d05a5a3c73dd030279c1163761dfd756b"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/len64-after.txt",
+      "bytes": 48989,
+      "sha256": "3144c547dc1adbdf28c2c3baf4993a415842619e1d5279f038036c52591c1fae"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/metrics/len64-before.txt",
+      "bytes": 48990,
+      "sha256": "deeed493d4fd5afe0048b5d7f7e0c80ee75569bad0c4b61a532f8b18b1a2dd51"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/requests.jsonl",
+      "bytes": 128188,
+      "sha256": "aa6a490b62969765ccdcc5e1af991e07f801f78f7110b78832f1e7af0895bbd9"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/status.json",
+      "bytes": 56,
+      "sha256": "65d88b7adb2f944fc3be4c43184a229c2a609597ae6e568c49140f2d5aa7532f"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI/summary.json",
+      "bytes": 18564,
+      "sha256": "3dfdb50c15f6220efc69b14bfd7e5b6e90eefa22f010cb816529513d8a0e282f"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI.log",
+      "bytes": 4858,
+      "sha256": "fbc6f019bf35e46141ca391e155fcc559a584302b675bcf2d770c070feee82ad"
+    },
+    {
+      "path": "results/serve-scan-20261028T172024Z-1yH5LI.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/cells.jsonl",
+      "bytes": 5182,
+      "sha256": "517c1f4119786d2bf611e1ceab03c3db65914115d3fb40d616ad63aacf37bc79"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/config.json",
+      "bytes": 451,
+      "sha256": "32acb1e7d4ec641d5ce9e4db74d6517ef03c16aa5196bb4533a82a8e93b1c714"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/logs/server.log",
+      "bytes": 22065,
+      "sha256": "6e9bf08f0b9198cb4c3c39bc41a730483e7504019dbc31e4abe8a2f6962eb05a"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/metrics/c1-after.txt",
+      "bytes": 48416,
+      "sha256": "e4ff1beeb535b7d11d785a39a33361edac2865f01d6c63cf35d4f5b96380f394"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/metrics/c1-before.txt",
+      "bytes": 48397,
+      "sha256": "09029516c1589bafd5669437706e93da4470381f38585642b10fbb12aac649b8"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/metrics/c4-after.txt",
+      "bytes": 48709,
+      "sha256": "f3935337283978b62d8e02e13c2a99dee476e7ad8cc0d060655804e56b136bd5"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/metrics/c4-before.txt",
+      "bytes": 48416,
+      "sha256": "492359f1f8c347733eeb225523dbce32ce00ebccf03ee596cd031e700bf428ca"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/metrics/len16-after.txt",
+      "bytes": 48695,
+      "sha256": "6c358dc89df236aac041320353532410c43d53d8b694563003c51af1cc624d77"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/metrics/len16-before.txt",
+      "bytes": 48709,
+      "sha256": "f3935337283978b62d8e02e13c2a99dee476e7ad8cc0d060655804e56b136bd5"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/requests.jsonl",
+      "bytes": 9899,
+      "sha256": "9ad481ee2bb90cd990e1b62a77bab0c1b4f3d10ec84822ecd7598435345d4ca7"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/status.json",
+      "bytes": 56,
+      "sha256": "16419ed02d9ab5fe3fce5dca576c67d0d27eb9f1c8074363e109c3fc797cac8f"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H/summary.json",
+      "bytes": 7352,
+      "sha256": "2156f11e530da4635a12857d71189c3e91b44c4264d26e7e648de9fbaacb24c7"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H.log",
+      "bytes": 1994,
+      "sha256": "c9313861319e4d4cba627862504ede34677a4492c352d0ded66db6b442f1e6a4"
+    },
+    {
+      "path": "results/serve-scan-quick-20261028T171332Z-KUnY5H.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/serve-scan-20261028T171738Z-bbXNjU/config.json",
+      "bytes": 467,
+      "sha256": "e5500e2039e9d30e6a47551bac667d3062183118218c6415a406ddfd37fd04f7"
+    },
+    {
+      "path": "results/serve-scan-20261028T171738Z-bbXNjU/logs/server.log",
+      "bytes": 22888,
+      "sha256": "68ebdf94e8f8aec932f7f8765dcbcc39e7507a40a84c565e2dd89ed134cc5903"
+    },
+    {
+      "path": "results/serve-scan-20261028T171738Z-bbXNjU/metrics/c1-before.txt",
+      "bytes": 48626,
+      "sha256": "1199d649e3d12fdd885fdfcd7c913ccd7de6e499568d152b5ed5b4e4d6beb07f"
+    },
+    {
+      "path": "results/serve-scan-20261028T171738Z-bbXNjU.log",
+      "bytes": 1422,
+      "sha256": "9a8cd37ab6023f491c1acf3eb5a1e4259a49ea8e734eca47595f6899f2f4afda"
+    },
+    {
+      "path": "results/serve-scan-20261028T171738Z-bbXNjU.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    }
+  ]
+}
